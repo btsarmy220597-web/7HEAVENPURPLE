@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7HEAVEN PURPLE ♡</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #faf6ff;
+      color: #573b75;
+    }
+    header {
+      padding: 24px 18px;
+      background: #eadcff;
+      text-align: center;
+      border-radius: 0 0 28px 28px;
+    }
+    header h1 { margin: 0 0 8px; }
+    header p { margin: 0; }
+    main {
+      max-width: 700px;
+      margin: auto;
+      padding: 20px;
+    }
+    .welcome {
+      text-align: center;
+      padding: 20px 0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .card {
+      background: white;
+      border: 1px solid #eee2ff;
+      border-radius: 20px;
+      padding: 18px 12px;
+      text-align: center;
+      box-shadow: 0 4px 14px #7750a510;
+    }
+    .emoji { font-size: 30px; }
+    .card h3 { font-size: 16px; }
+    button {
+      background: #9b76ca;
+      color: white;
+      border: 0;
+      border-radius: 20px;
+      padding: 11px 16px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    #message {
+      text-align: center;
+      margin: 20px 0;
+      background: white;
+      padding: 16px;
+      border-radius: 16px;
+    }
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: #9b86b3;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>୨୧ 7HEAVEN PURPLE ୨୧</h1>
+    <p>♡ ARMY PLAYGROUND ♡</p>
+  </header>
+
+  <main>
+    <section class="welcome">
+      <h2>Hello, ARMY! 💜</h2>
+      <p>Every vote counts, every ARMY matters.</p>
+      <p>Let's vote, stream, and support BTS together!</p>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <div class="emoji">🎯</div>
+        <h3>Daily Mission</h3>
+        <p>Siap menjalankan misi?</p>
+        <button onclick="showMessage('mission')">Let's Go!</button>
+      </div>
+
+      <div class="card">
+        <div class="emoji">🏆</div>
+        <h3>My Badges</h3>
+        <p>Kumpulkan pencapaianmu.</p>
+        <button onclick="showMessage('badges')">My Badges</button>
+      </div>
+
+      <div class="card">
+        <div class="emoji">🎨</div>
+        <h3>Certificate Maker</h3>
+        <p>Buat sertifikatmu sendiri.</p>
+        <button onclick="showMessage('certificate')">Create!</button>
+      </div>
+
+      <div class="card">
+        <div class="emoji">📔</div>
+        <h3>Voting Diary</h3>
+        <p>Simpan kenangan dukunganmu.</p>
+        <button onclick="showMessage('diary')">Open Diary</button>
+      </div>
+    </section>
+
+    <div id="message">
+      ✨ Your little ARMY adventure starts here! 💜
+    </div>
+  </main>
+
+  <footer>
+    Made with ♡ by 7HEAVEN PURPLE<br>
+    Let's Stream & Support Together
+  </footer>
+
+  <script>
+    function showMessage(feature) {
+      const messages = {
+        mission: "🎯 Daily Mission akan segera hadir! 💜",
+        badges: "🏆 Koleksi badge ARMY akan segera hadir! 💜",
+        certificate: "🎨 Certificate Maker akan segera hadir! 💜",
+        diary: "📔 Voting Diary akan segera hadir! 💜"
+      };
+      document.getElementById("message").textContent =
+        messages[feature] || "Hello, ARMY! 💜";
+    }
+  </script>
+</body>
+</html>
