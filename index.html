@@ -47,7 +47,7 @@
     .cert-frame-softpink { background: #FFF0F5; border: 4px solid #FFB6C1; }
     .cert-frame-white { background: #FFFFFF; border: 4px solid #E2E8F0; }
 
-    /* AUTO-CROP 9:16 PRECISE BOX */
+    /* AUTO CROP 9:16 CONTAINER */
     .crop-9-16-container {
       width: 100%;
       max-width: 250px;
@@ -65,6 +65,7 @@
       object-position: center !important;
     }
 
+    /* STICKER CONTAINER BISA DI TARIK BEBAS DI LUAR FOTO */
     .sticker-item {
       touch-action: none;
       user-select: none;
@@ -72,6 +73,7 @@
       position: absolute;
       transform-origin: center center;
       display: inline-block;
+      z-index: 50;
     }
     .sticker-item.selected {
       outline: 2px dashed #7D52C1;
@@ -89,7 +91,7 @@
       padding: 2px 6px;
       font-size: 10px;
       gap: 4px;
-      z-index: 50;
+      z-index: 60;
       white-space: nowrap;
     }
     .sticker-item.selected .sticker-controls {
@@ -107,8 +109,9 @@
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-purple-100 shadow-sm">
     <div class="max-w-md mx-auto px-4 py-2.5 flex items-center justify-between">
       <div class="flex items-center gap-2">
-        <div class="w-9 h-9 rounded-2xl bg-gradient-to-tr from-btspurple to-btslight text-white flex items-center justify-center font-bold text-lg shadow-md cute-font">
-          7
+        <div id="headerAvatarContainer" class="w-9 h-9 rounded-2xl bg-gradient-to-tr from-btspurple to-btslight text-white flex items-center justify-center font-bold text-lg shadow-md cute-font overflow-hidden border border-purple-200">
+          <span id="headerAvatarText">7</span>
+          <img id="headerAvatarImg" src="" class="hidden w-full h-full object-cover">
         </div>
         <div>
           <h1 class="text-sm font-extrabold text-btspurple leading-tight cute-font tracking-wide">
@@ -163,7 +166,7 @@
       <!-- FORM LOGIN & REGISTER -->
       <div id="authFormArea" class="space-y-2 text-xs">
         <div class="grid grid-cols-2 gap-2">
-          <input type="text" id="authUsername" placeholder="Username / Nama Member" class="w-full px-3 py-1.5 rounded-xl border border-purple-200 bg-white font-semibold">
+          <input type="text" id="authUsername" placeholder="Username Member" class="w-full px-3 py-1.5 rounded-xl border border-purple-200 bg-white font-semibold">
           <input type="password" id="authPassword" placeholder="Kata Sandi" class="w-full px-3 py-1.5 rounded-xl border border-purple-200 bg-white font-semibold">
         </div>
         <div class="flex gap-2">
@@ -175,9 +178,12 @@
       <!-- INFORMASI PROFIL & EDIT PROFIL -->
       <div id="loggedInArea" class="hidden space-y-2 text-xs pt-1">
         <div class="flex items-center justify-between">
-          <div>
-            <p class="font-bold text-slate-800">Login: <strong id="loggedInUsername" class="text-btspurple">Alysha</strong></p>
-            <p id="loggedInBio" class="text-[10px] text-slate-500 italic">"Borahae BTS & ARMY 💜"</p>
+          <div class="flex items-center gap-2">
+            <img id="profileAvatarPrev" src="" class="w-8 h-8 rounded-full object-cover border border-purple-300 hidden">
+            <div>
+              <p class="font-bold text-slate-800">Login: <strong id="loggedInUsername" class="text-btspurple">Alysha</strong></p>
+              <p id="loggedInBio" class="text-[10px] text-slate-500 italic">"Borahae BTS & ARMY 💜"</p>
+            </div>
           </div>
           <div class="flex gap-1.5">
             <button onclick="toggleEditProfileModal()" class="px-2.5 py-1 bg-purple-100 text-btspurple font-bold rounded-lg text-[10px]">✏️ Edit Profil</button>
@@ -186,7 +192,7 @@
         </div>
 
         <div id="editProfileSection" class="hidden p-3 bg-purple-50/80 rounded-2xl border border-purple-200 space-y-2 mt-2">
-          <h4 class="font-bold text-btspurple text-xs">✏️ Edit Informasi Profil Kamu</h4>
+          <h4 class="font-bold text-btspurple text-xs">✏️ Edit Informasi Profil & Foto PP</h4>
           <div>
             <label class="block text-[10px] font-bold text-slate-600 mb-0.5">Nama Tampilan Member:</label>
             <input type="text" id="editDisplayName" placeholder="Nama Baru" class="w-full px-2.5 py-1 rounded-xl border border-purple-200 text-xs bg-white">
@@ -194,6 +200,10 @@
           <div>
             <label class="block text-[10px] font-bold text-slate-600 mb-0.5">Bio Status Quote:</label>
             <input type="text" id="editBioText" placeholder="misal: Borahae BTS 💜" class="w-full px-2.5 py-1 rounded-xl border border-purple-200 text-xs bg-white">
+          </div>
+          <div>
+            <label class="block text-[10px] font-bold text-slate-600 mb-0.5">Upload Foto Profil Avatar (PP):</label>
+            <input type="file" accept="image/*" onchange="handleAvatarUpload(event)" class="w-full text-xs text-slate-500 file:mr-2 file:py-1 file:px-2 file:rounded-lg file:border-0 file:text-[10px] file:font-bold file:bg-purple-100 file:text-btspurple">
           </div>
           <button onclick="saveProfileChanges()" class="w-full py-1.5 bg-btspurple text-white font-bold rounded-xl text-xs shadow-md">Simpan Perubahan Profil</button>
         </div>
@@ -269,11 +279,11 @@
       </div>
     </section>
 
-    <!-- TAB 2: SERTIFIKAT MAKER -->
+    <!-- TAB 2: SERTIFIKAT MAKER (FORMULIR EDIT SERTIFIKAT DIATAS) -->
     <section id="sec-sertifikat" class="tab-content hidden space-y-4">
       <div class="glass-card rounded-3xl p-4 space-y-3">
         <h3 class="text-xs font-extrabold text-slate-800 cute-font border-b border-purple-100 pb-1.5">
-          ✏️ Isi Detail Sertifikat
+          ✏️ Edit Detail Teks & Foto Sertifikat
         </h3>
 
         <div class="grid grid-cols-2 gap-2 text-xs">
@@ -294,6 +304,10 @@
             <input type="text" id="inputKategori" value="Fans Choice" oninput="updatePreview()" class="w-full px-3 py-2 rounded-xl border border-purple-200 bg-white font-semibold">
           </div>
           <div class="col-span-2">
+            <label class="font-bold text-slate-700 block mb-0.5">Tanggal Vote</label>
+            <input type="date" id="inputTanggal" onchange="updatePreview()" class="w-full px-3 py-2 rounded-xl border border-purple-200 bg-white font-semibold">
+          </div>
+          <div class="col-span-2">
             <label class="font-bold text-slate-700 block mb-0.5">Upload Bukti Screenshot (Auto-Crop 9:16)</label>
             <input type="file" accept="image/*" onchange="handleBuktiUpload(event)" class="w-full text-xs text-slate-500 file:mr-3 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-purple-100 file:text-btspurple">
           </div>
@@ -309,9 +323,9 @@
           </div>
         </div>
 
-        <!-- STIKER KATALOG BTS & ARMY -->
+        <!-- KATALOG STIKER -->
         <div class="pt-2 border-t border-purple-100">
-          <label class="font-bold text-slate-700 text-xs block mb-1.5">Stiker BTS & ARMY (Geser, Cubit Zoom & Rotasi)</label>
+          <label class="font-bold text-slate-700 text-xs block mb-1.5">Stiker BTS & ARMY (Bisa Ditarik Bebas Keluar Foto ke Bingkai!)</label>
           <div class="flex flex-wrap gap-1.5">
             <button onclick="addStickerEmoji('💜')" class="w-8 h-8 rounded-xl bg-purple-100 text-sm">💜</button>
             <button onclick="addStickerEmoji('🩵')" class="w-8 h-8 rounded-xl bg-purple-100 text-sm">🩵</button>
@@ -332,28 +346,28 @@
 
       <!-- HASIL SERTIFIKAT CANVAS -->
       <div class="flex justify-center">
-        <div id="certificateCanvas" class="cert-frame-btspurple relative w-full max-w-[340px] rounded-3xl p-4 shadow-2xl transition-all">
-          <div class="text-center pb-2">
+        <div id="certificateCanvas" class="cert-frame-btspurple relative w-full max-w-[340px] rounded-3xl p-4 shadow-2xl transition-all overflow-hidden">
+          
+          <!-- LAYER STIKER UTAMA MENUTUPI SELURUH SERTIFIKAT -->
+          <div id="stickerLayer" class="absolute inset-0 pointer-events-none z-30">
+          </div>
+
+          <div class="text-center pb-2 relative z-10">
             <p class="text-[10px] font-black text-btspurple uppercase tracking-wider cute-font">7HEAVEN PURPLE PRESENTS</p>
             <h3 class="text-base font-black text-btspurple uppercase tracking-wide cute-font">VOTING PROOF</h3>
           </div>
 
           <!-- KOTAK AUTO CROP 9:16 -->
-          <div id="buktiContainer" class="crop-9-16-container my-2 border border-purple-200 shadow-inner">
+          <div id="buktiContainer" class="crop-9-16-container my-2 border border-purple-200 shadow-inner relative z-10">
             <img id="prevBukti" src="" class="crop-9-16-img hidden">
             <div id="placeholderBukti" class="absolute inset-0 flex flex-col items-center justify-center p-4 text-center text-purple-400">
               <i class="fa-solid fa-image text-3xl mb-1 text-btspurple"></i>
               <p class="text-xs font-bold text-slate-600">Bukti Vote Auto 9:16</p>
               <p class="text-[10px] text-slate-400">Foto otomatis terpotong rapi 9:16</p>
             </div>
-
-            <!-- LAYER STIKER -->
-            <div id="stickerLayer" class="absolute inset-0 pointer-events-none z-20">
-              <!-- Tanpa stiker watermark bawaan -->
-            </div>
           </div>
 
-          <div class="pt-2 text-center">
+          <div class="pt-2 text-center relative z-10">
             <h4 id="prevNama" class="text-sm font-black text-slate-800 cute-font">Alysha</h4>
             <div class="text-[10px] font-semibold text-slate-600 space-y-0.5">
               <p>Event: <strong id="prevEvent" class="text-btspurple">MAMA 2026</strong></p>
@@ -361,6 +375,7 @@
               <p>Tanggal: <span id="prevTanggal" class="text-slate-500">2026-10-21</span></p>
             </div>
           </div>
+
         </div>
       </div>
 
@@ -473,8 +488,9 @@
 
   <script>
     let activeUser = localStorage.getItem('7h_active_user') || null;
-    let userDatabase = JSON.parse(localStorage.getItem('7h_users_db') || '{"Alysha":{"password":"123","points":50,"bio":"Borahae BTS & ARMY 💜","diary":[]}}');
+    let userDatabase = JSON.parse(localStorage.getItem('7h_users_db') || '{"Alysha":{"password":"123","points":0,"bio":"Borahae BTS & ARMY 💜","avatar":"","diary":[]}}');
     let adminPinSecret = localStorage.getItem('7h_admin_pin') || '130613';
+    let tempAvatarBase64 = "";
 
     const arirangSongs = [
       "1. Body to Body", "2. Hooligan", "3. Aliens", "4. FYA", "5. 2.0",
@@ -485,7 +501,9 @@
 
     document.addEventListener("DOMContentLoaded", () => {
       checkAuthStatus();
-      document.getElementById('prevTanggal').innerText = new Date().toISOString().split('T')[0];
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('prevTanggal').innerText = today;
+      document.getElementById('inputTanggal').value = today;
       renderMissions();
     });
 
@@ -505,21 +523,57 @@
         document.getElementById('inputNama').value = activeUser;
         document.getElementById('prevNama').innerText = activeUser;
 
+        // Avatar Header
+        if (uData.avatar) {
+          document.getElementById('headerAvatarText').classList.add('hidden');
+          document.getElementById('headerAvatarImg').src = uData.avatar;
+          document.getElementById('headerAvatarImg').classList.remove('hidden');
+
+          document.getElementById('profileAvatarPrev').src = uData.avatar;
+          document.getElementById('profileAvatarPrev').classList.remove('hidden');
+        } else {
+          document.getElementById('headerAvatarText').classList.remove('hidden');
+          document.getElementById('headerAvatarImg').classList.add('hidden');
+          document.getElementById('profileAvatarPrev').classList.add('hidden');
+        }
+
         document.getElementById('authFormArea').classList.add('hidden');
         document.getElementById('loggedInArea').classList.remove('hidden');
         document.getElementById('loggedInUsername').innerText = activeUser;
         document.getElementById('loggedInBio').innerText = `"${uData.bio || 'Borahae BTS 💜'}"`;
         document.getElementById('authStatusText').innerText = 'Terhubung';
         document.getElementById('authStatusText').className = 'text-[10px] bg-green-100 text-green-800 font-bold px-2 py-0.5 rounded-full';
+
+        const today = new Date().toDateString();
+        const lastCheck = localStorage.getItem(`7h_checkin_${activeUser}`);
+        if (lastCheck === today) {
+          document.getElementById('checkinStatus').innerText = "Sudah Check-in ✅";
+        } else {
+          document.getElementById('checkinStatus').innerText = "Belum Check-in";
+        }
+
         renderDiary();
       } else {
         document.getElementById('profileNameDisplay').innerText = `Profil: Guest (Belum Login)`;
         document.getElementById('userPoints').innerText = `0 PTS`;
         document.getElementById('userBadge').innerText = `🐣 Baby ARMY`;
+        document.getElementById('headerAvatarText').classList.remove('hidden');
+        document.getElementById('headerAvatarImg').classList.add('hidden');
         document.getElementById('authFormArea').classList.remove('hidden');
         document.getElementById('loggedInArea').classList.add('hidden');
         document.getElementById('authStatusText').innerText = 'Belum Masuk';
         document.getElementById('authStatusText').className = 'text-[10px] bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-full';
+      }
+    }
+
+    function handleAvatarUpload(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          tempAvatarBase64 = evt.target.result;
+        }
+        reader.readAsDataURL(file);
       }
     }
 
@@ -547,6 +601,9 @@
 
       activeUser = newName;
       currentData.bio = newBio;
+      if (tempAvatarBase64) {
+        currentData.avatar = tempAvatarBase64;
+      }
       userDatabase[newName] = currentData;
 
       localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
@@ -578,9 +635,9 @@
       if (!u || !p) return alert("Isi Username dan Kata Sandi!");
 
       if (userDatabase[u]) {
-        alert("Username sudah terdaftar!");
+        alert("Username sudah terdaftar! Silakan Login.");
       } else {
-        userDatabase[u] = { password: p, points: 0, bio: "Borahae BTS 💜", diary: [] };
+        userDatabase[u] = { password: p, points: 0, bio: "Borahae BTS 💜", avatar: "", diary: [] };
         localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
         activeUser = u;
         localStorage.setItem('7h_active_user', u);
@@ -609,7 +666,7 @@
     }
 
     function doDailyCheckin() {
-      if (!activeUser) return alert("Silakan Login akun dulu!");
+      if (!activeUser) return alert("Silakan Login/Daftar akun dulu!");
       const today = new Date().toDateString();
       const lastCheck = localStorage.getItem(`7h_checkin_${activeUser}`);
       if (lastCheck === today) return alert("Kamu sudah Check-in hari ini!");
@@ -618,7 +675,6 @@
       localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
       localStorage.setItem(`7h_checkin_${activeUser}`, today);
       checkAuthStatus();
-      document.getElementById('checkinStatus').innerText = "Sudah Check-in ✅";
       alert("Check-in berhasil! (+10 PTS) 🎉");
     }
 
@@ -627,10 +683,11 @@
       document.getElementById('prevNama').innerText = nama;
       document.getElementById('prevEvent').innerText = document.getElementById('inputEvent').value;
       document.getElementById('prevKategori').innerText = document.getElementById('inputKategori').value;
+      document.getElementById('prevTanggal').innerText = document.getElementById('inputTanggal').value;
     }
 
     function changeFrameColor(colorClass) {
-      document.getElementById('certificateCanvas').className = `cert-frame-${colorClass} relative w-full max-w-[340px] rounded-3xl p-4 shadow-2xl transition-all`;
+      document.getElementById('certificateCanvas').className = `cert-frame-${colorClass} relative w-full max-w-[340px] rounded-3xl p-4 shadow-2xl transition-all overflow-hidden`;
     }
 
     function handleBuktiUpload(e) {
@@ -666,8 +723,8 @@
       const layer = document.getElementById('stickerLayer');
       const container = document.createElement('div');
       container.className = 'sticker-item pointer-events-auto';
-      container.style.left = '90px';
-      container.style.top = '120px';
+      container.style.left = '120px';
+      container.style.top = '150px';
 
       let scale = 1.0;
       let rotation = 0;
