@@ -33,7 +33,6 @@
       background: linear-gradient(180deg, #F5F0FF 0%, #EAE0FA 100%);
       font-family: 'Plus Jakarta Sans', sans-serif;
       -webkit-tap-highlight-color: transparent;
-      overflow-x: hidden;
     }
     .cute-font { font-family: 'Fredoka', cursive; }
     .glass-card {
@@ -48,7 +47,13 @@
     .cert-frame-softpink { background: #FFF0F5; border: 4px solid #FFB6C1; }
     .cert-frame-white { background: #FFFFFF; border: 4px solid #E2E8F0; }
 
-    /* CROP 9:16 UNTUK FOTO */
+    /* WADAH UTAMA SERTIFIKAT DIPAKSA TIDAK MEMOTONG STIKER */
+    #certificateCanvas {
+      overflow: visible !important;
+      position: relative !important;
+    }
+
+    /* KOTAK FOTO CROP 9:16 HASIL UPLOAD */
     .crop-9-16-container {
       width: 100%;
       max-width: 250px;
@@ -58,6 +63,7 @@
       border-radius: 1.25rem;
       background: rgba(241, 236, 253, 0.6);
       margin: 0 auto;
+      z-index: 1;
     }
     .crop-9-16-img {
       width: 100%;
@@ -66,15 +72,16 @@
       object-position: center !important;
     }
 
-    /* LAYER STIKER BEBAS TERBUAT DI SELURUH LAYAR WEB */
+    /* LAYER STIKER MELAYANG BEBAS DI ATAS SERTIFIKAT */
     #stickerLayer {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
       pointer-events: none;
       z-index: 9999 !important;
+      overflow: visible !important;
     }
 
     .sticker-item {
@@ -114,10 +121,7 @@
     ::-webkit-scrollbar-thumb { background: #9D72E1; border-radius: 10px; }
   </style>
 </head>
-<body class="text-slate-800 min-h-screen pb-24 relative">
-
-  <!-- LAYER STIKER MELAYANG DI ATAS SELURUH WEB (TIDAK AKAN TERCROP) -->
-  <div id="stickerLayer"></div>
+<body class="text-slate-800 min-h-screen pb-24">
 
   <!-- HEADER SECTION -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-purple-100 shadow-sm">
@@ -339,7 +343,7 @@
 
         <!-- KATALOG STIKER -->
         <div class="pt-2 border-t border-purple-100">
-          <label class="font-bold text-slate-700 text-xs block mb-1.5">Stiker BTS & ARMY (Bisa Ditarik BEBAS Di Mana Saja!)</label>
+          <label class="font-bold text-slate-700 text-xs block mb-1.5">Stiker BTS & ARMY (Bisa Ditarik BEBAS Ke Mana Saja!)</label>
           <div class="flex flex-wrap gap-1.5">
             <button onclick="addStickerEmoji('💜')" class="w-8 h-8 rounded-xl bg-purple-100 text-sm">💜</button>
             <button onclick="addStickerEmoji('🩵')" class="w-8 h-8 rounded-xl bg-purple-100 text-sm">🩵</button>
@@ -362,13 +366,16 @@
       <div class="flex justify-center p-2">
         <div id="certificateCanvas" class="cert-frame-btspurple relative w-full max-w-[340px] rounded-3xl p-4 shadow-2xl transition-all">
 
+          <!-- LAYER STIKER DIPISAH TOTAL DARI KOTAK FOTO -->
+          <div id="stickerLayer"></div>
+
           <div class="text-center pb-2 relative z-10">
             <p class="text-[10px] font-black text-btspurple uppercase tracking-wider cute-font">7HEAVEN PURPLE PRESENTS</p>
             <h3 class="text-base font-black text-btspurple uppercase tracking-wide cute-font">VOTING PROOF</h3>
           </div>
 
           <!-- KOTAK AUTO CROP 9:16 -->
-          <div id="buktiContainer" class="crop-9-16-container my-2 border border-purple-200 shadow-inner relative z-10">
+          <div id="buktiContainer" class="crop-9-16-container my-2 border border-purple-200 shadow-inner relative">
             <img id="prevBukti" src="" class="crop-9-16-img hidden">
             <div id="placeholderBukti" class="absolute inset-0 flex flex-col items-center justify-center p-4 text-center text-purple-400">
               <i class="fa-solid fa-image text-3xl mb-1 text-btspurple"></i>
@@ -729,16 +736,11 @@
     }
 
     function createInteractiveSticker(content, type) {
-      const cert = document.getElementById('certificateCanvas');
-      const rect = cert.getBoundingClientRect();
-
       const layer = document.getElementById('stickerLayer');
       const container = document.createElement('div');
       container.className = 'sticker-item pointer-events-auto';
-
-      // Posisikan stiker tepat di tengah Sertifikat secara Absolut
-      container.style.left = `${rect.left + window.scrollX + (rect.width / 2) - 20}px`;
-      container.style.top = `${rect.top + window.scrollY + 120}px`;
+      container.style.left = '120px';
+      container.style.top = '100px';
 
       let scale = 1.0;
       let rotation = 0;
@@ -843,27 +845,7 @@
 
       document.querySelectorAll('.sticker-item').forEach(s => s.classList.remove('selected'));
 
-      const certNode = document.getElementById('certificateCanvas');
-      const certRect = certNode.getBoundingClientRect();
-      const stickerLayer = document.getElementById('stickerLayer');
-
-      // Temp pindahkan stiker ke dalam certNode agar html2canvas menangkap stiker secara presisi
-      const stickers = Array.from(document.querySelectorAll('.sticker-item'));
-      stickers.forEach(s => {
-        const sRect = s.getBoundingClientRect();
-        s.style.left = `${sRect.left - certRect.left}px`;
-        s.style.top = `${sRect.top - certRect.top}px`;
-        certNode.appendChild(s);
-      });
-
-      html2canvas(certNode, { scale: 3 }).then(canvas => {
-        // Kembalikan stiker ke body layer
-        stickers.forEach(s => {
-          s.style.left = `${certRect.left + window.scrollX + parseFloat(s.style.left)}px`;
-          s.style.top = `${certRect.top + window.scrollY + parseFloat(s.style.top)}px`;
-          stickerLayer.appendChild(s);
-        });
-
+      html2canvas(document.getElementById('certificateCanvas'), { scale: 3 }).then(canvas => {
         const link = document.createElement('a');
         link.download = `7HEAVEN_Proof_${Date.now()}.png`;
         link.href = canvas.toDataURL('image/png');
