@@ -50,19 +50,19 @@
     /* AUTO-CROP 9:16 PRECISE BOX */
     .crop-9-16-container {
       width: 100%;
-      max-width: 260px;
+      max-width: 250px;
       aspect-ratio: 9 / 16;
       position: relative;
       overflow: hidden;
-      border-radius: 1rem;
+      border-radius: 1.25rem;
       background: rgba(241, 236, 253, 0.6);
       margin: 0 auto;
     }
     .crop-9-16-img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      object-position: center;
+      object-fit: cover !important;
+      object-position: center !important;
     }
 
     .sticker-item {
@@ -172,7 +172,7 @@
         </div>
       </div>
 
-      <!-- INFORMASI PROFIL & MODAL EDIT PROFIL -->
+      <!-- INFORMASI PROFIL & EDIT PROFIL -->
       <div id="loggedInArea" class="hidden space-y-2 text-xs pt-1">
         <div class="flex items-center justify-between">
           <div>
@@ -185,7 +185,6 @@
           </div>
         </div>
 
-        <!-- AREA EDIT PROFIL -->
         <div id="editProfileSection" class="hidden p-3 bg-purple-50/80 rounded-2xl border border-purple-200 space-y-2 mt-2">
           <h4 class="font-bold text-btspurple text-xs">✏️ Edit Informasi Profil Kamu</h4>
           <div>
@@ -193,7 +192,7 @@
             <input type="text" id="editDisplayName" placeholder="Nama Baru" class="w-full px-2.5 py-1 rounded-xl border border-purple-200 text-xs bg-white">
           </div>
           <div>
-            <label class="block text-[10px] font-bold text-slate-600 mb-0.5">Bio / Bias Status Quote:</label>
+            <label class="block text-[10px] font-bold text-slate-600 mb-0.5">Bio Status Quote:</label>
             <input type="text" id="editBioText" placeholder="misal: Borahae BTS 💜" class="w-full px-2.5 py-1 rounded-xl border border-purple-200 text-xs bg-white">
           </div>
           <button onclick="saveProfileChanges()" class="w-full py-1.5 bg-btspurple text-white font-bold rounded-xl text-xs shadow-md">Simpan Perubahan Profil</button>
@@ -270,7 +269,7 @@
       </div>
     </section>
 
-    <!-- TAB 2: SERTIFIKAT MAKER (PERBAIKAN CROP 9:16 & STIKER FULL GESTURE) -->
+    <!-- TAB 2: SERTIFIKAT MAKER -->
     <section id="sec-sertifikat" class="tab-content hidden space-y-4">
       <div class="glass-card rounded-3xl p-4 space-y-3">
         <h3 class="text-xs font-extrabold text-slate-800 cute-font border-b border-purple-100 pb-1.5">
@@ -310,9 +309,9 @@
           </div>
         </div>
 
-        <!-- KATALOG STIKER BTS & ARMY -->
+        <!-- STIKER KATALOG BTS & ARMY -->
         <div class="pt-2 border-t border-purple-100">
-          <label class="font-bold text-slate-700 text-xs block mb-1.5">Katalog Stiker BTS & ARMY (Bisa Geser, Cubit Zoom & Rotasi)</label>
+          <label class="font-bold text-slate-700 text-xs block mb-1.5">Stiker BTS & ARMY (Geser, Cubit Zoom & Rotasi)</label>
           <div class="flex flex-wrap gap-1.5">
             <button onclick="addStickerEmoji('💜')" class="w-8 h-8 rounded-xl bg-purple-100 text-sm">💜</button>
             <button onclick="addStickerEmoji('🩵')" class="w-8 h-8 rounded-xl bg-purple-100 text-sm">🩵</button>
@@ -339,18 +338,18 @@
             <h3 class="text-base font-black text-btspurple uppercase tracking-wide cute-font">VOTING PROOF</h3>
           </div>
 
-          <!-- KOTAK AUTO CROP 9:16 PERBAIKAN -->
+          <!-- KOTAK AUTO CROP 9:16 -->
           <div id="buktiContainer" class="crop-9-16-container my-2 border border-purple-200 shadow-inner">
             <img id="prevBukti" src="" class="crop-9-16-img hidden">
             <div id="placeholderBukti" class="absolute inset-0 flex flex-col items-center justify-center p-4 text-center text-purple-400">
               <i class="fa-solid fa-image text-3xl mb-1 text-btspurple"></i>
               <p class="text-xs font-bold text-slate-600">Bukti Vote Auto 9:16</p>
-              <p class="text-[10px] text-slate-400">Foto akan otomatis terpotong rapi 9:16</p>
+              <p class="text-[10px] text-slate-400">Foto otomatis terpotong rapi 9:16</p>
             </div>
 
-            <!-- LAYER STIKER DENGAN FULL INTERAKSI -->
+            <!-- LAYER STIKER -->
             <div id="stickerLayer" class="absolute inset-0 pointer-events-none z-20">
-              <!-- No default watermark -->
+              <!-- Tanpa stiker watermark bawaan -->
             </div>
           </div>
 
@@ -427,7 +426,7 @@
       </div>
     </section>
 
-    <!-- TAB 5: ADMIN PANEL (RAHASIA & PIN BISA DIGANTI) -->
+    <!-- TAB 5: ADMIN PANEL -->
     <section id="sec-admin" class="tab-content hidden space-y-4">
       <div id="adminLoginCard" class="glass-card rounded-3xl p-5 text-center space-y-3">
         <h2 class="text-sm font-bold text-slate-800 cute-font">🔒 Panel Khusus Admin</h2>
@@ -718,7 +717,7 @@
       let isDragging = false, startX, startY, initialLeft, initialTop;
       let initialDist = 0, initialAngle = 0;
 
-      const selectSticker = (e) => {
+      const selectSticker = () => {
         document.querySelectorAll('.sticker-item').forEach(s => s.classList.remove('selected'));
         el.classList.add('selected');
       };
@@ -727,7 +726,7 @@
       const getTouchAngle = (t) => Math.atan2(t[1].clientY - t[0].clientY, t[1].clientX - t[0].clientX) * 180 / Math.PI;
 
       const onStart = (e) => {
-        selectSticker(e);
+        selectSticker();
         if (e.touches && e.touches.length === 2) {
           isDragging = false;
           initialDist = getTouchDist(e.touches);
