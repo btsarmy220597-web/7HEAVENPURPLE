@@ -47,13 +47,11 @@
     .cert-frame-softpink { background: #FFF0F5; border: 4px solid #FFB6C1; }
     .cert-frame-white { background: #FFFFFF; border: 4px solid #E2E8F0; }
 
-    /* WADAH UTAMA SERTIFIKAT DIPAKSA TIDAK MEMOTONG STIKER */
     #certificateCanvas {
       overflow: visible !important;
       position: relative !important;
     }
 
-    /* KOTAK FOTO CROP 9:16 HASIL UPLOAD */
     .crop-9-16-container {
       width: 100%;
       max-width: 250px;
@@ -72,7 +70,6 @@
       object-position: center !important;
     }
 
-    /* LAYER STIKER MELAYANG BEBAS DI ATAS SERTIFIKAT */
     #stickerLayer {
       position: absolute !important;
       top: 0 !important;
@@ -366,7 +363,6 @@
       <div class="flex justify-center p-2">
         <div id="certificateCanvas" class="cert-frame-btspurple relative w-full max-w-[340px] rounded-3xl p-4 shadow-2xl transition-all">
 
-          <!-- LAYER STIKER DIPISAH TOTAL DARI KOTAK FOTO -->
           <div id="stickerLayer"></div>
 
           <div class="text-center pb-2 relative z-10">
@@ -505,7 +501,7 @@
 
   <script>
     let activeUser = localStorage.getItem('7h_active_user') || null;
-    let userDatabase = JSON.parse(localStorage.getItem('7h_users_db') || '{"Alysha":{"password":"123","points":0,"bio":"Borahae BTS & ARMY 💜","avatar":"","diary":[]}}');
+    let userDatabase = JSON.parse(localStorage.getItem('7h_users_db') || '{"Alysha":{"password":"123","points":0,"bio":"Borahae BTS & ARMY 💜","avatar":"","lastCheckin":"","diary":[]}}');
     let adminPinSecret = localStorage.getItem('7h_admin_pin') || '130613';
     let tempAvatarBase64 = "";
 
@@ -560,9 +556,9 @@
         document.getElementById('authStatusText').innerText = 'Terhubung';
         document.getElementById('authStatusText').className = 'text-[10px] bg-green-100 text-green-800 font-bold px-2 py-0.5 rounded-full';
 
+        // Cek status checkin harian tersimpan
         const today = new Date().toDateString();
-        const lastCheck = localStorage.getItem(`7h_checkin_${activeUser}`);
-        if (lastCheck === today) {
+        if (uData.lastCheckin === today) {
           document.getElementById('checkinStatus').innerText = "Sudah Check-in ✅";
         } else {
           document.getElementById('checkinStatus').innerText = "Belum Check-in";
@@ -653,7 +649,7 @@
       if (userDatabase[u]) {
         alert("Username sudah terdaftar! Silakan Login.");
       } else {
-        userDatabase[u] = { password: p, points: 0, bio: "Borahae BTS 💜", avatar: "", diary: [] };
+        userDatabase[u] = { password: p, points: 0, bio: "Borahae BTS 💜", avatar: "", lastCheckin: "", diary: [] };
         localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
         activeUser = u;
         localStorage.setItem('7h_active_user', u);
@@ -684,12 +680,11 @@
     function doDailyCheckin() {
       if (!activeUser) return alert("Silakan Login/Daftar akun dulu!");
       const today = new Date().toDateString();
-      const lastCheck = localStorage.getItem(`7h_checkin_${activeUser}`);
-      if (lastCheck === today) return alert("Kamu sudah Check-in hari ini!");
+      if (userDatabase[activeUser].lastCheckin === today) return alert("Kamu sudah Check-in hari ini!");
 
       userDatabase[activeUser].points += 10;
+      userDatabase[activeUser].lastCheckin = today;
       localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
-      localStorage.setItem(`7h_checkin_${activeUser}`, today);
       checkAuthStatus();
       alert("Check-in berhasil! (+10 PTS) 🎉");
     }
@@ -774,14 +769,16 @@
         innerContent.style.transform = `scale(${scale}) rotate(${rotation}deg)`;
       };
 
-      controls.querySelector('.btn-plus').onclick = (e) => { e.stopPropagation(); scale += 0.2; updateTransform(); };
-      controls.querySelector('.btn-minus').onclick = (e) => { e.stopPropagation(); scale = Math.max(0.4, scale - 0.2); updateTransform(); };
-      controls.querySelector('.btn-rot').onclick = (e) => { e.stopPropagation(); rotation += 30; updateTransform(); };
+      controls.querySelector('.btn-plus').onclick = (e) => { e.stopPropagation(); scale += 0.15; updateTransform(); };
+      controls.querySelector('.btn-minus').onclick = (e) => { e.stopPropagation(); scale = Math.max(0.4, scale - 0.15); updateTransform(); };
+      
+      // ROTASI DIPERHALUS DENGAN PERTAMBAHAN 15 DERAJAT
+      controls.querySelector('.btn-rot').onclick = (e) => { e.stopPropagation(); rotation += 15; updateTransform(); };
       controls.querySelector('.btn-del').onclick = (e) => { e.stopPropagation(); container.remove(); };
 
       makeStickerMultiTouch(container, (s, r) => {
         scale = Math.max(0.4, Math.min(3.0, scale * s));
-        rotation += r;
+        rotation += (r * 0.2); // SENSITIVITAS GESTURE DITURUNKAN 80% AGAR SMOOTH
         updateTransform();
       });
     }
