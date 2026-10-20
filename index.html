@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>7HEAVEN PURPLE ♡ ARMY Playground</title>
+<style>
+:root{--ink:#563b72;--purple:#9b76ca;--pale:#f8f3ff;--lav:#eadcff;--line:#eadff6;--white:#fff}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:var(--pale);color:var(--ink)}
+header{background:var(--lav);text-align:center;padding:24px 16px 28px;border-radius:0 0 28px 28px}
+header h1{font-size:clamp(24px,6vw,36px);margin:0 0 8px}header p{margin:0}
+nav{display:flex;gap:8px;overflow:auto;padding:12px;justify-content:center;flex-wrap:wrap}
+button,.btn{border:0;border-radius:999px;padding:11px 15px;background:var(--purple);color:white;font-size:14px;cursor:pointer}
+button.secondary{background:white;color:var(--ink);border:1px solid var(--line)}
+main{max-width:900px;margin:auto;padding:16px}
+.welcome{text-align:center;padding:18px 0}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.card,.panel{background:white;border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 4px 14px #7750a510}
+.card{text-align:center}.emoji{font-size:32px}.card h3{margin:10px 0}.card p{line-height:1.4}
+.hidden{display:none!important}h2{margin-top:8px}
+label{display:block;font-size:13px;margin:10px 0 5px}
+input,select,textarea{width:100%;padding:11px;border:1px solid #d9c8eb;border-radius:12px;background:white;color:var(--ink);font-size:15px}
+textarea{min-height:70px;resize:vertical}
+.row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+#certificate{position:relative;overflow:hidden;min-height:360px;margin:14px 0;padding:24px 16px;border:5px double #b99ad9;border-radius:18px;text-align:center;background:linear-gradient(135deg,#fff,#f2e7ff);touch-action:pan-y}
+#certificate:before{content:"✦  ♡  ✦  ♡  ✦";display:block;color:#b08bd6;letter-spacing:8px;margin-bottom:12px}
+#certTitle{font-size:clamp(23px,6vw,34px);margin:12px 0;color:#7651a0}
+#certName{font-family:Georgia,serif;font-size:clamp(24px,7vw,36px);font-weight:bold;overflow-wrap:anywhere}
+#certDesc{line-height:1.5;overflow-wrap:anywhere}
+#certFooter{font-size:13px;margin-top:20px}
+#proofPreview{display:none;max-width:85%;max-height:180px;object-fit:contain;margin:12px auto;border:2px solid #d8c5ed;border-radius:10px}
+.sticker{position:absolute;font-size:30px;cursor:grab;user-select:none;touch-action:none;z-index:2;line-height:1.2}
+#sticker1{left:12px;top:12px}#sticker2{right:14px;top:45px}#sticker3{left:18px;bottom:16px}#sticker4{right:18px;bottom:16px}
+#certInner{position:relative;z-index:1;pointer-events:none}
+#certificate:before{position:relative;z-index:1;pointer-events:none}
+#message{margin:16px 0;text-align:center;background:white;border-radius:16px;padding:14px}
+.mission{display:flex;gap:10px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line)}
+.mission input{width:auto;margin-top:3px}
+.badges{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.badgeCard{padding:14px;border-radius:16px;background:#f4ecff;text-align:center}
+footer{text-align:center;padding:24px;color:#9b86b3;font-size:12px}
+.small{font-size:12px;color:#8c77a3;line-height:1.5}
+@media(min-width:650px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}.badges{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:420px){main{padding:10px}.panel{padding:13px}.row{gap:8px}#certificate{padding:20px 10px;min-height:350px}}
+</style>
+</head>
+<body>
+<header><h1>୨୧ 7HEAVEN PURPLE ୨୧</h1><p>♡ ARMY PLAYGROUND ♡</p></header>
+<nav>
+<button onclick="showPage('home')">🏠 Home</button>
+<button onclick="showPage('missions')">🎯 Missions</button>
+<button onclick="showPage('badges')">🏆 Badges</button>
+<button onclick="showPage('maker')">🎨 Certificate Maker</button>
+<button onclick="showPage('diary')">📔 Voting Diary</button>
+</nav>
+<main>
+<section id="home">
+<div class="welcome"><h2>Hello, ARMY! 💜</h2><p>Every vote counts, every ARMY matters.</p><p>Let's vote, stream, and support BTS together!</p></div>
+<div class="grid">
+<div class="card"><div class="emoji">🎯</div><h3>Daily Mission</h3><p>Jalankan misi dukunganmu.</p><button onclick="showPage('missions')">Let's Go!</button></div>
+<div class="card"><div class="emoji">🏆</div><h3>My Badges</h3><p>Kumpulkan pencapaianmu.</p><button onclick="showPage('badges')">My Badges</button></div>
+<div class="card"><div class="emoji">🎨</div><h3>Certificate Maker</h3><p>Buat sertifikatmu sendiri.</p><button onclick="showPage('maker')">Create!</button></div>
+<div class="card"><div class="emoji">📔</div><h3>Voting Diary</h3><p>Simpan catatan dukunganmu.</p><button onclick="showPage('diary')">Open Diary</button></div>
+</div><div id="message">✨ Your little ARMY adventure starts here! 💜</div>
+</section>
+<section id="missions" class="hidden">
+<div class="panel"><h2>🎯 Mission Center</h2><p>Selesaikan misi yang kamu lakukan hari ini.</p><div id="missionList"></div><p><b>EXP: <span id="exp">0</span></b> · <b>Level: <span id="level">Baby ARMY</span></b></p><p class="small">Centang adalah catatan pribadi, bukan verifikasi bahwa voting tercatat di platform.</p><button onclick="resetMissions()" class="secondary">Reset centang hari ini</button></div>
+</section>
+<section id="badges" class="hidden">
+<div class="panel"><h2>🏆 My Badge Collection</h2><p>Badge terbuka berdasarkan misi yang kamu tandai selesai.</p><div id="badgeList" class="badges"></div></div>
+</section>
+<section id="maker" class="hidden">
+<div class="panel"><h2>🎨 Certificate Maker</h2><p>Isi detail sertifikat, unggah bukti voting, lalu atur dekorasinya.</p>
+<label for="proofInput">📸 Screenshot bukti voting</label><input id="proofInput" type="file" accept="image/*">
+<p class="small">Gambar akan diproses di browser ini dan dimasukkan ke PNG saat diunduh.</p>
+<div class="row"><div><label for="nameInput">Nama / nickname ARMY</label><input id="nameInput" maxlength="35" placeholder="Nama ARMY"></div><div><label for="awardInput">Gelar sertifikat</label><select id="awardInput"><option>Voting Hero</option><option>Streaming Star</option><option>Vote Warrior</option><option>ARMY Legend</option><option>Forever BTS Supporter</option></select></div></div>
+<div class="row"><div><label for="dateInput">Tanggal</label><input id="dateInput" type="date"></div><div><label for="themeInput">Tema</label><select id="themeInput"><option value="purple">Purple Dream</option><option value="pink">Strawberry Milk</option><option value="blue">Baby Blue</option><option value="cream">Vanilla Cream</option></select></div></div>
+<label for="messageInput">Pesan sertifikat</label><input id="messageInput" value="Thank you for supporting BTS with love!" maxlength="90">
+<div id="certificate">
+<span class="sticker" id="sticker1" style="left:12px;top:12px">💜</span><span class="sticker" id="sticker2" style="right:14px;top:45px">🎀</span><span class="sticker" id="sticker3" style="left:18px;bottom:16px">⭐</span><span class="sticker" id="sticker4" style="right:18px;bottom:16px">🐰</span>
+<div id="certInner"><div style="font-size:13px;letter-spacing:2px">7HEAVEN PURPLE PRESENTS</div><h2 id="certTitle">VOTING HERO</h2><p>This certificate is proudly presented to</p><div id="certName">YOUR NAME</div><p id="certDesc">Thank you for supporting BTS with love!</p><img id="proofPreview" alt="Bukti voting BTS"><div id="certFooter">ARMY PLAYGROUND ♡ <span id="certDate"></span></div></div>
+</div>
+<div class="row"><button onclick="addSticker()">＋ Add sticker</button><button onclick="downloadCert()">Download PNG</button></div>
+<p class="small">Sentuh dan seret stiker untuk memindahkannya. Pastikan screenshot tidak menutupi nama atau teks penting.</p>
+</div>
+</section>
+<section id="diary" class="hidden">
+<div class="panel"><h2>📔 Voting Diary</h2><p>Simpan catatan pribadi aktivitas dukunganmu.</p>
+<label for="diaryTitle">Voting / aktivitas</label><input id="diaryTitle" placeholder="Contoh: MAMA Fans' Choice">
+<label for="diaryDate">Tanggal</label><input id="diaryDate" type="date">
+<label for="diaryNote">Catatan</label><input id="diaryNote" placeholder="Contoh: sudah vote hari ini!">
+<button onclick="addDiary()">Save diary entry</button><div id="diaryEntries"></div>
+<p class="small">Catatan tersimpan di browser/perangkat ini saja.</p></div>
+</section>
+</main>
+<footer>Made with ♡ by 7HEAVEN PURPLE<br>Let's Stream & Support Together</footer>
+<script>
+const missions=[["Vote for BTS in an active official poll",10],["Stream BTS music mindfully",10],["Check official voting deadlines",5],["Share a voting reminder with ARMY",5],["Record today's support activity",5]];
+function read(key,fallback){try{return JSON.parse(localStorage.getItem(key))??fallback}catch(e){return fallback}}
+function save(key,value){try{localStorage.setItem(key,JSON.stringify(value))}catch(e){alert('Penyimpanan browser penuh atau tidak tersedia.')}} 
+function showPage(id){document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');if(id==='missions')renderMissions();if(id==='badges')renderBadges();if(id==='diary')renderDiary();window.scrollTo({top:0,behavior:'smooth'})}
+function renderMissions(){let done=read('vh-done',[]);document.getElementById('missionList').innerHTML=missions.map((m,i)=>`<label class="mission"><input type="checkbox" ${done.includes(i)?'checked':''} onchange="toggleMission(${i},this.checked)"><span><b>${m[0]}</b><br><span class="small">+${m[1]} EXP</span></span></label>`).join('');let exp=missions.reduce((n,m,i)=>n+(done.includes(i)?m[1]:0),0);document.getElementById('exp').textContent=exp;document.getElementById('level').textContent=exp>=30?'Voting Legend':exp>=20?'Vote Warrior':exp>=10?'Purple Rookie':'Baby ARMY'}
+function toggleMission(i,on){let done=read('vh-done',[]);done=on?[...new Set([...done,i])]:done.filter(n=>n!==i);save('vh-done',done);renderMissions()}
+function resetMissions(){save('vh-done',[]);renderMissions()}
+function renderBadges(){let done=read('vh-done',[]);let count=done.length;let badges=[['🌱','Baby ARMY',count>=1],['🎯','Vote Warrior',count>=2],['🎧','Streaming Fairy',count>=3],['👑','ARMY Legend',count>=5]];document.getElementById('badgeList').innerHTML=badges.map(b=>`<div class="badgeCard" style="opacity:${b[2]?1:.45}"><div style="font-size:34px">${b[0]}</div><b>${b[1]}</b><p class="small">${b[2]?'Unlocked!':'Complete more missions'}</p></div>`).join('')}
+function updateCert(){document.getElementById('certName').textContent=document.getElementById('nameInput').value.trim()||'YOUR NAME';document.getElementById('certTitle').textContent=document.getElementById('awardInput').value.toUpperCase();document.getElementById('certDesc').textContent=document.getElementById('messageInput').value;document.getElementById('certDate').textContent=document.getElementById('dateInput').value?' · '+document.getElementById('dateInput').value:''}
+const themes={purple:{a:'#fff',b:'#f0e3ff',border:'#b99ad9',title:'#7651a0',ink:'#563b72',orn:'#b08bd6'},pink:{a:'#fff',b:'#ffeaf2',border:'#e9a9c5',title:'#a54d79',ink:'#713c58',orn:'#d88eb1'},blue:{a:'#fff',b:'#e7f4ff',border:'#a4cde9',title:'#3e7197',ink:'#345a78',orn:'#80b7dc'},cream:{a:'#fffdf5',b:'#f8efd8',border:'#d8c18b',title:'#8d7540',ink:'#66552f',orn:'#b29a60'}};
+function updateTheme(){let t=themes[document.getElementById('themeInput').value],c=document.getElementById('certificate');c.style.background=`linear-gradient(135deg,${t.a},${t.b})`;c.style.borderColor=t.border;document.getElementById('certTitle').style.color=t.title;document.getElementById('certificate').style.color=t.ink;updateCert()}
+let proofData=null;
+document.getElementById('proofInput').addEventListener('change',function(event){const file=event.target.files&&event.target.files[0];if(!file)return;if(!file.type.startsWith('image/')){alert('Pilih file gambar ya 💜');event.target.value='';return}if(file.size>12*1024*1024){alert('Pilih gambar di bawah 12 MB agar mudah diproses di HP.');event.target.value='';return}const reader=new FileReader();reader.onload=e=>{proofData=e.target.result;const img=document.getElementById('proofPreview');img.onload=()=>{img.style.display='block'};img.src=proofData};reader.onerror=()=>alert('Gambar gagal dibaca. Coba pilih gambar lain.');reader.readAsDataURL(file)});
+['nameInput','awardInput','dateInput','messageInput'].forEach(id=>document.getElementById(id).addEventListener('input',updateCert));
+document.getElementById('themeInput').addEventListener('change',updateTheme);
+function addSticker(){let options=['💜','🎀','⭐','🐰','🌷','🧸','✨','♡','🌙','🫧'];let s=document.createElement('span');s.className='sticker';s.textContent=options[Math.floor(Math.random()*options.length)];s.style.left=(15+Math.random()*65)+'%';s.style.top=(15+Math.random()*65)+'%';document.getElementById('certificate').appendChild(s);makeDraggable(s)}
+function makeDraggable(el){let startX=0,startY=0,left=0,top=0,dragging=false;el.addEventListener('pointerdown',e=>{e.preventDefault();dragging=true;startX=e.clientX;startY=e.clientY;let r=el.getBoundingClientRect(),p=document.getElementById('certificate').getBoundingClientRect();left=r.left-p.left;top=r.top-p.top;el.style.right='auto';el.style.bottom='auto';el.style.left=left+'px';el.style.top=top+'px';try{el.setPointerCapture(e.pointerId)}catch(_){}});el.addEventListener('pointermove',e=>{if(!dragging)return;let p=document.getElementById('certificate').getBoundingClientRect();el.style.left=Math.max(0,Math.min(p.width-el.offsetWidth,left+e.clientX-startX))+'px';el.style.top=Math.max(0,Math.min(p.height-el.offsetHeight,top+e.clientY-startY))+'px'});const stop=()=>{dragging=false};el.addEventListener('pointerup',stop);el.addEventListener('pointercancel',stop)}
+document.querySelectorAll('.sticker').forEach(makeDraggable);
+function roundedRect(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath()}
+function drawWrapped(ctx,text,x,y,maxWidth,lineHeight,maxLines=3){let words=String(text||'').split(/\s+/),line='',lines=[];for(const word of words){const test=line?line+' '+word:word;if(ctx.measureText(test).width>maxWidth&&line){lines.push(line);line=word}else line=test}if(line)lines.push(line);if(lines.length>maxLines){lines=lines.slice(0,maxLines);let last=lines[maxLines-1];while(ctx.measureText(last+'…').width>maxWidth&&last.length)last=last.slice(0,-1);lines[maxLines-1]=last+'…'}lines.forEach((l,i)=>ctx.fillText(l,x,y+i*lineHeight));return lines.length*lineHeight}
+function loadImage(src){return new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=reject;im.src=src})}
+async function downloadCert(){const btns=document.querySelectorAll('#maker button');btns.forEach(b=>b.disabled=true);try{const c=document.getElementById('certificate'),r=c.getBoundingClientRect(),scale=2,w=Math.round(r.width),h=Math.round(r.height),canvas=document.createElement('canvas');canvas.width=w*scale;canvas.height=h*scale;const ctx=canvas.getContext('2d');ctx.scale(scale,scale);const theme=themes[document.getElementById('themeInput').value]||themes.purple;let bg=ctx.createLinearGradient(0,0,w,h);bg.addColorStop(0,theme.a);bg.addColorStop(1,theme.b);ctx.fillStyle=bg;roundedRect(ctx,0,0,w,h,18);ctx.fill();ctx.save();ctx.strokeStyle=theme.border;ctx.lineWidth=5;ctx.strokeRect(5,5,w-10,h-10);ctx.lineWidth=1.5;ctx.strokeRect(12,12,w-24,h-24);ctx.restore();
+ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle=theme.orn;ctx.font='18px Arial';ctx.fillText('✦  ♡  ✦  ♡  ✦',w/2,37);
+ctx.fillStyle=theme.ink;ctx.font='13px Arial';ctx.fillText('7HEAVEN PURPLE PRESENTS',w/2,62);
+ctx.fillStyle=theme.title;ctx.font='bold 30px Arial';ctx.fillText(document.getElementById('certTitle').textContent,w/2,101);
+ctx.fillStyle=theme.ink;ctx.font='15px Arial';ctx.fillText('This certificate is proudly presented to',w/2,132);
+ctx.fillStyle=theme.ink;ctx.font='bold 32px Georgia';let nm=document.getElementById('certName').textContent;while(ctx.measureText(nm).width>w-45&&ctx.font.match(/\d+/)){let fs=parseInt(ctx.font.match(/\d+/)[0],10);if(fs<=19)break;ctx.font=`bold ${fs-1}px Georgia`}ctx.fillText(nm,w/2,174);
+ctx.font='15px Arial';drawWrapped(ctx,document.getElementById('certDesc').textContent,w/2,199,w-48,20,3);
+let y=235;if(proofData){try{const im=await loadImage(proofData);const maxW=w*.78,maxH=Math.min(145,h*.38);const ratio=Math.min(maxW/im.width,maxH/im.height);const iw=im.width*ratio,ih=im.height*ratio;const ix=(w-iw)/2;ctx.save();ctx.fillStyle='#ffffff';roundedRect(ctx,ix-4,y-4,iw+8,ih+8,8);ctx.fill();ctx.strokeStyle=theme.border;ctx.lineWidth=2;roundedRect(ctx,ix-4,y-4,iw+8,ih+8,8);ctx.stroke();ctx.drawImage(im,ix,y,iw,ih);ctx.restore();y+=ih+18}catch(e){console.warn('Screenshot tidak dapat dimasukkan',e)}}
+ctx.fillStyle=theme.ink;ctx.font='13px Arial';ctx.fillText('ARMY PLAYGROUND ♡'+(document.getElementById('dateInput').value?' · '+document.getElementById('dateInput').value:''),w/2,h-25);
+for(const el of c.querySelectorAll('.sticker')){const er=el.getBoundingClientRect(),cr=c.getBoundingClientRect();ctx.font='30px Arial';ctx.textAlign='left';ctx.fillText(el.textContent,er.left-cr.left,er.top-cr.top+27)}
+const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));if(!blob)throw new Error('PNG gagal dibuat');const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='7HEAVEN-PURPLE-certificate.png';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500)}catch(e){alert('PNG belum bisa dibuat. Coba kurangi ukuran screenshot lalu ulangi.');console.error(e)}finally{btns.forEach(b=>b.disabled=false)}}
+function addDiary(){let title=document.getElementById('diaryTitle').value.trim();if(!title){alert('Isi nama voting atau aktivitas dulu ya 💜');return}let entries=read('vh-diary',[]);entries.unshift({title,date:document.getElementById('diaryDate').value,note:document.getElementById('diaryNote').value});save('vh-diary',entries);document.getElementById('diaryTitle').value='';document.getElementById('diaryNote').value='';renderDiary()}
+function renderDiary(){let entries=read('vh-diary',[]);document.getElementById('diaryEntries').innerHTML=entries.length?entries.map(e=>`<div class="mission"><span>💜</span><span><b>${escapeHTML(e.title)}</b><br><span class="small">${escapeHTML(e.date||'Tanggal tidak diisi')} · ${escapeHTML(e.note||'')}</span></span></div>`).join(''):'<p class="small">Belum ada catatan. Simpan kenangan pertamamu!</p>'}
+function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+document.getElementById('dateInput').value=new Date().toISOString().slice(0,10);updateTheme();updateCert();renderMissions();renderBadges();renderDiary();
+</script>
+</body>
+  </html>
