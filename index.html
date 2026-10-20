@@ -1,137 +1,615 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>7HEAVEN PURPLE ♡ ARMY Playground</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#6b43a5">
+<title>7HEAVEN PURPLE — ARMY Voting Studio</title>
 <style>
-:root{--ink:#563b72;--purple:#9b76ca;--pale:#f8f3ff;--lav:#eadcff;--line:#eadff6;--white:#fff}
+:root {
+  --purple:#7450aa;
+  --deep:#38234f;
+  --light:#f7f2ff;
+  --pink:#f2dff5;
+  --line:#e8dff0;
+  --ink:#352b40;
+  --muted:#877c92;
+  --white:#fff;
+}
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:var(--pale);color:var(--ink)}
-header{background:var(--lav);text-align:center;padding:24px 16px 28px;border-radius:0 0 28px 28px}
-header h1{font-size:clamp(24px,6vw,36px);margin:0 0 8px}header p{margin:0}
-nav{display:flex;gap:8px;overflow:auto;padding:12px;justify-content:center;flex-wrap:wrap}
-button,.btn{border:0;border-radius:999px;padding:11px 15px;background:var(--purple);color:white;font-size:14px;cursor:pointer}
-button.secondary{background:white;color:var(--ink);border:1px solid var(--line)}
-main{max-width:900px;margin:auto;padding:16px}
-.welcome{text-align:center;padding:18px 0}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.card,.panel{background:white;border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 4px 14px #7750a510}
-.card{text-align:center}.emoji{font-size:32px}.card h3{margin:10px 0}.card p{line-height:1.4}
-.hidden{display:none!important}h2{margin-top:8px}
-label{display:block;font-size:13px;margin:10px 0 5px}
-input,select,textarea{width:100%;padding:11px;border:1px solid #d9c8eb;border-radius:12px;background:white;color:var(--ink);font-size:15px}
-textarea{min-height:70px;resize:vertical}
-.row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-#certificate{position:relative;overflow:hidden;min-height:360px;margin:14px 0;padding:24px 16px;border:5px double #b99ad9;border-radius:18px;text-align:center;background:linear-gradient(135deg,#fff,#f2e7ff);touch-action:pan-y}
-#certificate:before{content:"✦  ♡  ✦  ♡  ✦";display:block;color:#b08bd6;letter-spacing:8px;margin-bottom:12px}
-#certTitle{font-size:clamp(23px,6vw,34px);margin:12px 0;color:#7651a0}
-#certName{font-family:Georgia,serif;font-size:clamp(24px,7vw,36px);font-weight:bold;overflow-wrap:anywhere}
-#certDesc{line-height:1.5;overflow-wrap:anywhere}
-#certFooter{font-size:13px;margin-top:20px}
-#proofPreview{display:none;max-width:85%;max-height:180px;object-fit:contain;margin:12px auto;border:2px solid #d8c5ed;border-radius:10px}
-.sticker{position:absolute;font-size:30px;cursor:grab;user-select:none;touch-action:none;z-index:2;line-height:1.2}
-#sticker1{left:12px;top:12px}#sticker2{right:14px;top:45px}#sticker3{left:18px;bottom:16px}#sticker4{right:18px;bottom:16px}
-#certInner{position:relative;z-index:1;pointer-events:none}
-#certificate:before{position:relative;z-index:1;pointer-events:none}
-#message{margin:16px 0;text-align:center;background:white;border-radius:16px;padding:14px}
-.mission{display:flex;gap:10px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line)}
-.mission input{width:auto;margin-top:3px}
-.badges{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.badgeCard{padding:14px;border-radius:16px;background:#f4ecff;text-align:center}
-footer{text-align:center;padding:24px;color:#9b86b3;font-size:12px}
-.small{font-size:12px;color:#8c77a3;line-height:1.5}
-@media(min-width:650px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}.badges{grid-template-columns:repeat(4,minmax(0,1fr))}}
-@media(max-width:420px){main{padding:10px}.panel{padding:13px}.row{gap:8px}#certificate{padding:20px 10px;min-height:350px}}
+body{
+  margin:0;background:#faf8fc;color:var(--ink);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.topbar{
+  background:linear-gradient(125deg,#39234f,#7953ac);
+  color:white;padding:24px 18px 28px;
+  border-radius:0 0 28px 28px;
+}
+.topinner,.container{max-width:1050px;margin:auto}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{
+  width:45px;height:45px;border:1px solid #ffffff80;
+  border-radius:15px;display:grid;place-items:center;
+  font-size:22px;background:#ffffff12
+}
+.brandname{font-size:17px;font-weight:800;letter-spacing:1.5px}
+.brandtag{font-size:11px;color:#e7d9f7;margin-top:4px}
+.hero{padding:30px 0 4px}
+.eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#e7d9f7}
+.hero h1{font-size:clamp(27px,6vw,42px);line-height:1.12;margin:12px 0}
+.hero p{font-size:14px;line-height:1.7;color:#e8dff1;max-width:570px;margin:0}
+.container{padding:20px 15px 50px}
+.nav{
+  display:flex;gap:8px;overflow-x:auto;padding:3px 0 16px;
+  scrollbar-width:none
+}
+.nav button{
+  flex-shrink:0;border:1px solid var(--line);background:white;
+  color:var(--muted);padding:11px 14px;border-radius:13px;font-size:12px;
+}
+.nav button.active{background:var(--deep);color:white;border-color:var(--deep)}
+.page{display:none}
+.page.active{display:block}
+.sectionhead{margin:8px 0 18px}
+.sectionhead h2{font-size:23px;margin:0 0 7px}
+.sectionhead p{font-size:13px;color:var(--muted);line-height:1.6;margin:0}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:17px;align-items:start}
+.panel{
+  background:white;border:1px solid var(--line);border-radius:20px;
+  padding:18px;margin-bottom:16px;box-shadow:0 5px 22px #37204b08;
+  min-width:0
+}
+.panel h3{font-size:14px;margin:0 0 15px}
+.field{margin-bottom:13px}
+label{display:block;font-size:12px;font-weight:700;margin-bottom:7px}
+input,select,textarea{
+  display:block;width:100%;border:1px solid #e4dbe9;border-radius:11px;
+  padding:12px;background:#fff;color:var(--ink);outline:none;
+  min-width:0;font-size:13px
+}
+input:focus,select:focus,textarea:focus{border-color:var(--purple)}
+input[type=file]{padding:10px;font-size:11px}
+input[type=color]{height:43px;padding:4px}
+.hint{font-size:11px;color:var(--muted);line-height:1.6;margin-top:6px}
+.btn{
+  border:0;border-radius:12px;padding:12px 15px;font-size:12px;
+  font-weight:750;display:inline-flex;align-items:center;justify-content:center;gap:7px
+}
+.primary{background:var(--purple);color:white}
+.dark{background:var(--deep);color:white}
+.soft{background:var(--light);color:var(--deep);border:1px solid var(--line)}
+.danger{background:#fff0f2;color:#a33d55}
+.btnrow{display:flex;gap:8px;flex-wrap:wrap}
+.btnrow .btn{flex:1}
+.stickers{display:flex;gap:8px;flex-wrap:wrap}
+.stickerbtn{
+  background:var(--light);border:1px solid var(--line);border-radius:11px;
+  padding:9px 11px;font-size:22px
+}
+.certwrap{background:#f0e9f6;border-radius:17px;padding:10px;overflow:hidden}
+.certificate{
+  background:#fffdfd;position:relative;overflow:hidden;
+  min-height:350px;padding:25px 16px 20px;text-align:center;
+  border:5px double #c9b3e0;border-radius:10px;
+  background-image:radial-gradient(#d8c6e8 0.7px,transparent 0.7px);
+  background-size:17px 17px;
+}
+.certificate:before{
+  content:"✦  ♡  ✦  ♡  ✦";display:block;
+  color:#a788c7;letter-spacing:5px;font-size:12px;margin-bottom:13px
+}
+.cer-kicker{font-size:9px;letter-spacing:2px;color:#8b72a3;font-weight:800}
+.cer-title{font-family:Georgia,serif;font-size:clamp(22px,5vw,34px);
+  color:#573b76;margin:9px 0}
+.cer-sub{font-size:10px;color:#8b7b98}
+.proof{
+  position:relative;width:100%;height:160px;margin:17px auto 13px;
+  background:#f4eff8;border:1px dashed #bca7d0;border-radius:7px;
+  display:flex;align-items:center;justify-content:center;overflow:hidden
+}
+.proof img{width:100%;height:100%;object-fit:contain;display:none;background:white}
+.proofplaceholder{font-size:11px;color:#9a8ca8;padding:12px}
+.cer-name{font-family:Georgia,serif;font-size:25px;color:#5a3a79;
+  font-weight:bold;overflow-wrap:anywhere;margin:8px 0}
+.cer-detail{font-size:10px;line-height:1.7;color:#71617f}
+.cer-date{font-size:9px;color:#8b7b98;margin-top:10px}
+.cer-footer{font-size:9px;letter-spacing:2px;color:#8d71ad;margin-top:14px}
+.decor{
+  position:absolute;z-index:3;font-size:27px;touch-action:none;
+  cursor:grab;user-select:none;line-height:1
+}
+.decor.selected{outline:1px dashed #9a65c5;outline-offset:4px}
+.previewtip{font-size:10px;color:var(--muted);line-height:1.6;margin-top:10px}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:16px}
+.stat{background:white;border:1px solid var(--line);border-radius:15px;padding:14px}
+.stat strong{display:block;font-size:23px;color:var(--purple)}
+.stat span{font-size:10px;color:var(--muted)}
+.mission{
+  display:flex;align-items:center;gap:11px;padding:12px 0;
+  border-bottom:1px solid var(--line)
+}
+.mission:last-child{border:0}
+.mission input{width:18px;height:18px;accent-color:var(--purple)}
+.mission div{font-size:12px;line-height:1.5}
+.mission small{display:block;color:var(--muted);font-size:10px}
+.diaryitem{padding:13px 0;border-bottom:1px solid var(--line)}
+.diaryitem:last-child{border:0}
+.diaryitem strong{font-size:13px}
+.diaryitem p{font-size:12px;color:var(--muted);margin:6px 0}
+.empty{font-size:12px;color:var(--muted);padding:15px 0}
+footer{text-align:center;padding:22px 15px 35px;font-size:11px;color:var(--muted)}
+.toast{font-size:12px;color:#5c4380;margin-top:10px;line-height:1.5}
+@media(max-width:700px){
+ .layout{grid-template-columns:1fr}
+ .hero{padding-top:25px}
+ .container{padding:17px 12px 35px}
+ .panel{padding:15px}
+ .certificate{min-height:340px}
+ .stats{gap:7px}
+ .stat{padding:11px}
+ .stat strong{font-size:20px}
+}
 </style>
 </head>
 <body>
-<header><h1>୨୧ 7HEAVEN PURPLE ୨୧</h1><p>♡ ARMY PLAYGROUND ♡</p></header>
-<nav>
-<button onclick="showPage('home')">🏠 Home</button>
-<button onclick="showPage('missions')">🎯 Missions</button>
-<button onclick="showPage('badges')">🏆 Badges</button>
-<button onclick="showPage('maker')">🎨 Certificate Maker</button>
-<button onclick="showPage('diary')">📔 Voting Diary</button>
-</nav>
-<main>
-<section id="home">
-<div class="welcome"><h2>Hello, ARMY! 💜</h2><p>Every vote counts, every ARMY matters.</p><p>Let's vote, stream, and support BTS together!</p></div>
-<div class="grid">
-<div class="card"><div class="emoji">🎯</div><h3>Daily Mission</h3><p>Jalankan misi dukunganmu.</p><button onclick="showPage('missions')">Let's Go!</button></div>
-<div class="card"><div class="emoji">🏆</div><h3>My Badges</h3><p>Kumpulkan pencapaianmu.</p><button onclick="showPage('badges')">My Badges</button></div>
-<div class="card"><div class="emoji">🎨</div><h3>Certificate Maker</h3><p>Buat sertifikatmu sendiri.</p><button onclick="showPage('maker')">Create!</button></div>
-<div class="card"><div class="emoji">📔</div><h3>Voting Diary</h3><p>Simpan catatan dukunganmu.</p><button onclick="showPage('diary')">Open Diary</button></div>
-</div><div id="message">✨ Your little ARMY adventure starts here! 💜</div>
-</section>
-<section id="missions" class="hidden">
-<div class="panel"><h2>🎯 Mission Center</h2><p>Selesaikan misi yang kamu lakukan hari ini.</p><div id="missionList"></div><p><b>EXP: <span id="exp">0</span></b> · <b>Level: <span id="level">Baby ARMY</span></b></p><p class="small">Centang adalah catatan pribadi, bukan verifikasi bahwa voting tercatat di platform.</p><button onclick="resetMissions()" class="secondary">Reset centang hari ini</button></div>
-</section>
-<section id="badges" class="hidden">
-<div class="panel"><h2>🏆 My Badge Collection</h2><p>Badge terbuka berdasarkan misi yang kamu tandai selesai.</p><div id="badgeList" class="badges"></div></div>
-</section>
-<section id="maker" class="hidden">
-<div class="panel"><h2>🎨 Certificate Maker</h2><p>Isi detail sertifikat, unggah bukti voting, lalu atur dekorasinya.</p>
-<label for="proofInput">📸 Screenshot bukti voting</label><input id="proofInput" type="file" accept="image/*">
-<p class="small">Gambar akan diproses di browser ini dan dimasukkan ke PNG saat diunduh.</p>
-<div class="row"><div><label for="nameInput">Nama / nickname ARMY</label><input id="nameInput" maxlength="35" placeholder="Nama ARMY"></div><div><label for="awardInput">Gelar sertifikat</label><select id="awardInput"><option>Voting Hero</option><option>Streaming Star</option><option>Vote Warrior</option><option>ARMY Legend</option><option>Forever BTS Supporter</option></select></div></div>
-<div class="row"><div><label for="dateInput">Tanggal</label><input id="dateInput" type="date"></div><div><label for="themeInput">Tema</label><select id="themeInput"><option value="purple">Purple Dream</option><option value="pink">Strawberry Milk</option><option value="blue">Baby Blue</option><option value="cream">Vanilla Cream</option></select></div></div>
-<label for="messageInput">Pesan sertifikat</label><input id="messageInput" value="Thank you for supporting BTS with love!" maxlength="90">
-<div id="certificate">
-<span class="sticker" id="sticker1" style="left:12px;top:12px">💜</span><span class="sticker" id="sticker2" style="right:14px;top:45px">🎀</span><span class="sticker" id="sticker3" style="left:18px;bottom:16px">⭐</span><span class="sticker" id="sticker4" style="right:18px;bottom:16px">🐰</span>
-<div id="certInner"><div style="font-size:13px;letter-spacing:2px">7HEAVEN PURPLE PRESENTS</div><h2 id="certTitle">VOTING HERO</h2><p>This certificate is proudly presented to</p><div id="certName">YOUR NAME</div><p id="certDesc">Thank you for supporting BTS with love!</p><img id="proofPreview" alt="Bukti voting BTS"><div id="certFooter">ARMY PLAYGROUND ♡ <span id="certDate"></span></div></div>
-</div>
-<div class="row"><button onclick="addSticker()">＋ Add sticker</button><button onclick="downloadCert()">Download PNG</button></div>
-<p class="small">Sentuh dan seret stiker untuk memindahkannya. Pastikan screenshot tidak menutupi nama atau teks penting.</p>
-</div>
-</section>
-<section id="diary" class="hidden">
-<div class="panel"><h2>📔 Voting Diary</h2><p>Simpan catatan pribadi aktivitas dukunganmu.</p>
-<label for="diaryTitle">Voting / aktivitas</label><input id="diaryTitle" placeholder="Contoh: MAMA Fans' Choice">
-<label for="diaryDate">Tanggal</label><input id="diaryDate" type="date">
-<label for="diaryNote">Catatan</label><input id="diaryNote" placeholder="Contoh: sudah vote hari ini!">
-<button onclick="addDiary()">Save diary entry</button><div id="diaryEntries"></div>
-<p class="small">Catatan tersimpan di browser/perangkat ini saja.</p></div>
-</section>
+<header class="topbar">
+  <div class="topinner">
+    <div class="brand">
+      <div class="logo">♡</div>
+      <div>
+        <div class="brandname">7HEAVEN PURPLE</div>
+        <div class="brandtag">V&S BTSARMY⁷ · ARMY VOTING STUDIO</div>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="eyebrow">A little space for our purple hearts</div>
+      <h1>Your support.<br>Your story. Your proof.</h1>
+      <p>Buat sertifikat bukti voting dengan desain personal, simpan perjalanan dukunganmu, dan rayakan setiap usaha kecil untuk BTS.</p>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <nav class="nav">
+    <button class="active" data-page="home">⌂ Beranda</button>
+    <button data-page="maker">✧ Certificate Maker</button>
+    <button data-page="missions">♡ Missions</button>
+    <button data-page="diary">▤ Voting Diary</button>
+  </nav>
+
+  <section class="page active" id="home">
+    <div class="sectionhead">
+      <h2>Welcome to your purple space ♡</h2>
+      <p>Semua dukungan punya cerita. Buat bukti votingmu lebih rapi dan personal.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><strong id="statMissions">0</strong><span>Misi selesai</span></div>
+      <div class="stat"><strong id="statDiary">0</strong><span>Catatan voting</span></div>
+      <div class="stat"><strong>⁷</strong><span>One team, one BTS</span></div>
+    </div>
+    <div class="layout">
+      <div class="panel">
+        <h3>✧ Start creating</h3>
+        <p class="hint">Jadikan screenshot votingmu bagian dari sertifikat yang bisa diunduh sebagai PNG.</p>
+        <button class="btn primary" style="width:100%;margin-top:10px" onclick="showPage('maker')">Buat sertifikat →</button>
+      </div>
+      <div class="panel">
+        <h3>♡ Our reminder</h3>
+        <p style="font-family:Georgia,serif;font-size:20px;line-height:1.5;color:#654784;margin:0">“Every vote counts. Every ARMY matters.”</p>
+        <p class="hint">Prioritas kami yang satu-satunya adalah BTS.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="maker">
+    <div class="sectionhead">
+      <h2>Certificate Maker ✧</h2>
+      <p>Isi detail, unggah bukti voting, atur dekorasi, lalu unduh sertifikatmu.</p>
+    </div>
+    <div class="layout">
+      <div>
+        <div class="panel">
+          <h3>01 / Certificate details</h3>
+          <div class="field">
+            <label for="nameInput">Nama / nickname ARMY</label>
+            <input id="nameInput" maxlength="45" placeholder="Contoh: Alysha">
+          </div>
+          <div class="field">
+            <label for="eventInput">Nama event / voting</label>
+            <input id="eventInput" maxlength="70" placeholder="Contoh: MAMA Fans' Choice">
+          </div>
+          <div class="field">
+            <label for="categoryInput">Kategori / nominasi</label>
+            <input id="categoryInput" maxlength="70" placeholder="Contoh: Fans' Choice Male — BTS">
+          </div>
+          <div class="field">
+            <label for="dateInput">Tanggal voting</label>
+            <input id="dateInput" type="date">
+          </div>
+          <div class="field">
+            <label for="proofInput">Screenshot bukti voting</label>
+            <input id="proofInput" type="file" accept="image/*">
+            <div class="hint">Pilih screenshot asli dari perangkatmu. Gambar diproses di browser untuk membuat sertifikat.</div>
+          </div>
+          <div class="field">
+            <label for="themeInput">Warna dekorasi</label>
+            <select id="themeInput">
+              <option value="#b99bd9">Lavender dream</option>
+              <option value="#8e71b8">Royal purple</option>
+              <option value="#e2b8d9">Pink lilac</option>
+              <option value="#9eafdc">Blue moon</option>
+              <option value="#c9b78e">Soft champagne</option>
+            </select>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>02 / Add your decorations</h3>
+          <div class="stickers" id="stickerChoices">
+            <button class="stickerbtn" data-sticker="♡">♡</button>
+            <button class="stickerbtn" data-sticker="✦">✦</button>
+            <button class="stickerbtn" data-sticker="୨୧">୨୧</button>
+            <button class="stickerbtn" data-sticker="🦋">🦋</button>
+            <button class="stickerbtn" data-sticker="💜">💜</button>
+            <button class="stickerbtn" data-sticker="✧">✧</button>
+            <button class="stickerbtn" data-sticker="☾">☾</button>
+            <button class="stickerbtn" data-sticker="🎀">🎀</button>
+          </div>
+          <p class="hint">Ketuk stiker untuk menambahkannya. Seret stiker di sertifikat untuk mengubah posisinya.</p>
+          <div class="btnrow" style="margin-top:13px">
+            <button class="btn soft" id="removeSticker">Hapus stiker terpilih</button>
+            <button class="btn soft" id="clearStickers">Hapus semua stiker</button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="panel">
+          <h3>03 / Live preview</h3>
+          <div class="certwrap">
+            <div class="certificate" id="certificate">
+              <div class="cer-kicker">7HEAVEN PURPLE PRESENTS</div>
+              <div class="cer-title" id="cerTitle">Voting Support</div>
+              <div class="cer-sub">A LITTLE PROOF OF YOUR SUPPORT FOR BTS</div>
+              <div class="proof" id="proofBox">
+                <img id="proofImage" alt="Screenshot bukti voting">
+                <div class="proofplaceholder" id="proofPlaceholder">♡<br><br>Screenshot bukti votingmu<br>akan tampil di sini</div>
+              </div>
+              <div class="cer-detail">PROUDLY SUPPORTED BY</div>
+              <div class="cer-name" id="cerName">Your ARMY Name</div>
+              <div class="cer-detail" id="cerEvent">Voting event</div>
+              <div class="cer-detail" id="cerCategory">BTS · Voting support</div>
+              <div class="cer-date" id="cerDate"></div>
+              <div class="cer-footer">WITH LOVE, FOR BTS ⁷</div>
+            </div>
+          </div>
+          <p class="previewtip">Pratinjau ini adalah desain sertifikat, bukan verifikasi resmi dari penyelenggara voting.</p>
+          <div class="btnrow" style="margin-top:14px">
+            <button class="btn primary" id="downloadBtn">↓ Download PNG</button>
+            <button class="btn soft" id="resetBtn">Reset</button>
+          </div>
+          <div class="toast" id="makerMessage" role="status"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="missions">
+    <div class="sectionhead">
+      <h2>Daily Missions ♡</h2>
+      <p>Tandai aktivitas yang sudah kamu lakukan. Progres tersimpan di browser perangkat ini.</p>
+    </div>
+    <div class="panel">
+      <h3>Today's checklist</h3>
+      <div id="missionList"></div>
+      <div class="btnrow" style="margin-top:12px">
+        <button class="btn soft" id="resetMissions">Reset checklist</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="diary">
+    <div class="sectionhead">
+      <h2>Voting Diary ✧</h2>
+      <p>Catat aktivitas dukunganmu agar mudah mengingat apa yang sudah dilakukan.</p>
+    </div>
+    <div class="panel">
+      <h3>New entry</h3>
+      <div class="field">
+        <label for="diaryTitle">Event / voting</label>
+        <input id="diaryTitle" maxlength="80" placeholder="Contoh: MAMA Fans' Choice">
+      </div>
+      <div class="field">
+        <label for="diaryDate">Tanggal</label>
+        <input id="diaryDate" type="date">
+      </div>
+      <div class="field">
+        <label for="diaryNote">Catatan aktivitas</label>
+        <textarea id="diaryNote" maxlength="500" rows="3" placeholder="Contoh: Voting sudah dilakukan hari ini."></textarea>
+      </div>
+      <button class="btn primary" id="saveDiary">＋ Simpan catatan</button>
+      <div class="toast" id="diaryMessage" role="status"></div>
+    </div>
+    <div class="panel">
+      <h3>My voting records</h3>
+      <div id="diaryList"></div>
+      <button class="btn soft" id="exportDiary">Unduh catatan (.json)</button>
+    </div>
+  </section>
 </main>
-<footer>Made with ♡ by 7HEAVEN PURPLE<br>Let's Stream & Support Together</footer>
+
+<footer>Made with ♡ by 7HEAVEN PURPLE<br>Let's Stream &amp; Support Together</footer>
+
 <script>
-const missions=[["Vote for BTS in an active official poll",10],["Stream BTS music mindfully",10],["Check official voting deadlines",5],["Share a voting reminder with ARMY",5],["Record today's support activity",5]];
-function read(key,fallback){try{return JSON.parse(localStorage.getItem(key))??fallback}catch(e){return fallback}}
-function save(key,value){try{localStorage.setItem(key,JSON.stringify(value))}catch(e){alert('Penyimpanan browser penuh atau tidak tersedia.')}} 
-function showPage(id){document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');if(id==='missions')renderMissions();if(id==='badges')renderBadges();if(id==='diary')renderDiary();window.scrollTo({top:0,behavior:'smooth'})}
-function renderMissions(){let done=read('vh-done',[]);document.getElementById('missionList').innerHTML=missions.map((m,i)=>`<label class="mission"><input type="checkbox" ${done.includes(i)?'checked':''} onchange="toggleMission(${i},this.checked)"><span><b>${m[0]}</b><br><span class="small">+${m[1]} EXP</span></span></label>`).join('');let exp=missions.reduce((n,m,i)=>n+(done.includes(i)?m[1]:0),0);document.getElementById('exp').textContent=exp;document.getElementById('level').textContent=exp>=30?'Voting Legend':exp>=20?'Vote Warrior':exp>=10?'Purple Rookie':'Baby ARMY'}
-function toggleMission(i,on){let done=read('vh-done',[]);done=on?[...new Set([...done,i])]:done.filter(n=>n!==i);save('vh-done',done);renderMissions()}
-function resetMissions(){save('vh-done',[]);renderMissions()}
-function renderBadges(){let done=read('vh-done',[]);let count=done.length;let badges=[['🌱','Baby ARMY',count>=1],['🎯','Vote Warrior',count>=2],['🎧','Streaming Fairy',count>=3],['👑','ARMY Legend',count>=5]];document.getElementById('badgeList').innerHTML=badges.map(b=>`<div class="badgeCard" style="opacity:${b[2]?1:.45}"><div style="font-size:34px">${b[0]}</div><b>${b[1]}</b><p class="small">${b[2]?'Unlocked!':'Complete more missions'}</p></div>`).join('')}
-function updateCert(){document.getElementById('certName').textContent=document.getElementById('nameInput').value.trim()||'YOUR NAME';document.getElementById('certTitle').textContent=document.getElementById('awardInput').value.toUpperCase();document.getElementById('certDesc').textContent=document.getElementById('messageInput').value;document.getElementById('certDate').textContent=document.getElementById('dateInput').value?' · '+document.getElementById('dateInput').value:''}
-const themes={purple:{a:'#fff',b:'#f0e3ff',border:'#b99ad9',title:'#7651a0',ink:'#563b72',orn:'#b08bd6'},pink:{a:'#fff',b:'#ffeaf2',border:'#e9a9c5',title:'#a54d79',ink:'#713c58',orn:'#d88eb1'},blue:{a:'#fff',b:'#e7f4ff',border:'#a4cde9',title:'#3e7197',ink:'#345a78',orn:'#80b7dc'},cream:{a:'#fffdf5',b:'#f8efd8',border:'#d8c18b',title:'#8d7540',ink:'#66552f',orn:'#b29a60'}};
-function updateTheme(){let t=themes[document.getElementById('themeInput').value],c=document.getElementById('certificate');c.style.background=`linear-gradient(135deg,${t.a},${t.b})`;c.style.borderColor=t.border;document.getElementById('certTitle').style.color=t.title;document.getElementById('certificate').style.color=t.ink;updateCert()}
-let proofData=null;
-document.getElementById('proofInput').addEventListener('change',function(event){const file=event.target.files&&event.target.files[0];if(!file)return;if(!file.type.startsWith('image/')){alert('Pilih file gambar ya 💜');event.target.value='';return}if(file.size>12*1024*1024){alert('Pilih gambar di bawah 12 MB agar mudah diproses di HP.');event.target.value='';return}const reader=new FileReader();reader.onload=e=>{proofData=e.target.result;const img=document.getElementById('proofPreview');img.onload=()=>{img.style.display='block'};img.src=proofData};reader.onerror=()=>alert('Gambar gagal dibaca. Coba pilih gambar lain.');reader.readAsDataURL(file)});
-['nameInput','awardInput','dateInput','messageInput'].forEach(id=>document.getElementById(id).addEventListener('input',updateCert));
-document.getElementById('themeInput').addEventListener('change',updateTheme);
-function addSticker(){let options=['💜','🎀','⭐','🐰','🌷','🧸','✨','♡','🌙','🫧'];let s=document.createElement('span');s.className='sticker';s.textContent=options[Math.floor(Math.random()*options.length)];s.style.left=(15+Math.random()*65)+'%';s.style.top=(15+Math.random()*65)+'%';document.getElementById('certificate').appendChild(s);makeDraggable(s)}
-function makeDraggable(el){let startX=0,startY=0,left=0,top=0,dragging=false;el.addEventListener('pointerdown',e=>{e.preventDefault();dragging=true;startX=e.clientX;startY=e.clientY;let r=el.getBoundingClientRect(),p=document.getElementById('certificate').getBoundingClientRect();left=r.left-p.left;top=r.top-p.top;el.style.right='auto';el.style.bottom='auto';el.style.left=left+'px';el.style.top=top+'px';try{el.setPointerCapture(e.pointerId)}catch(_){}});el.addEventListener('pointermove',e=>{if(!dragging)return;let p=document.getElementById('certificate').getBoundingClientRect();el.style.left=Math.max(0,Math.min(p.width-el.offsetWidth,left+e.clientX-startX))+'px';el.style.top=Math.max(0,Math.min(p.height-el.offsetHeight,top+e.clientY-startY))+'px'});const stop=()=>{dragging=false};el.addEventListener('pointerup',stop);el.addEventListener('pointercancel',stop)}
-document.querySelectorAll('.sticker').forEach(makeDraggable);
-function roundedRect(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath()}
-function drawWrapped(ctx,text,x,y,maxWidth,lineHeight,maxLines=3){let words=String(text||'').split(/\s+/),line='',lines=[];for(const word of words){const test=line?line+' '+word:word;if(ctx.measureText(test).width>maxWidth&&line){lines.push(line);line=word}else line=test}if(line)lines.push(line);if(lines.length>maxLines){lines=lines.slice(0,maxLines);let last=lines[maxLines-1];while(ctx.measureText(last+'…').width>maxWidth&&last.length)last=last.slice(0,-1);lines[maxLines-1]=last+'…'}lines.forEach((l,i)=>ctx.fillText(l,x,y+i*lineHeight));return lines.length*lineHeight}
-function loadImage(src){return new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=reject;im.src=src})}
-async function downloadCert(){const btns=document.querySelectorAll('#maker button');btns.forEach(b=>b.disabled=true);try{const c=document.getElementById('certificate'),r=c.getBoundingClientRect(),scale=2,w=Math.round(r.width),h=Math.round(r.height),canvas=document.createElement('canvas');canvas.width=w*scale;canvas.height=h*scale;const ctx=canvas.getContext('2d');ctx.scale(scale,scale);const theme=themes[document.getElementById('themeInput').value]||themes.purple;let bg=ctx.createLinearGradient(0,0,w,h);bg.addColorStop(0,theme.a);bg.addColorStop(1,theme.b);ctx.fillStyle=bg;roundedRect(ctx,0,0,w,h,18);ctx.fill();ctx.save();ctx.strokeStyle=theme.border;ctx.lineWidth=5;ctx.strokeRect(5,5,w-10,h-10);ctx.lineWidth=1.5;ctx.strokeRect(12,12,w-24,h-24);ctx.restore();
-ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillStyle=theme.orn;ctx.font='18px Arial';ctx.fillText('✦  ♡  ✦  ♡  ✦',w/2,37);
-ctx.fillStyle=theme.ink;ctx.font='13px Arial';ctx.fillText('7HEAVEN PURPLE PRESENTS',w/2,62);
-ctx.fillStyle=theme.title;ctx.font='bold 30px Arial';ctx.fillText(document.getElementById('certTitle').textContent,w/2,101);
-ctx.fillStyle=theme.ink;ctx.font='15px Arial';ctx.fillText('This certificate is proudly presented to',w/2,132);
-ctx.fillStyle=theme.ink;ctx.font='bold 32px Georgia';let nm=document.getElementById('certName').textContent;while(ctx.measureText(nm).width>w-45&&ctx.font.match(/\d+/)){let fs=parseInt(ctx.font.match(/\d+/)[0],10);if(fs<=19)break;ctx.font=`bold ${fs-1}px Georgia`}ctx.fillText(nm,w/2,174);
-ctx.font='15px Arial';drawWrapped(ctx,document.getElementById('certDesc').textContent,w/2,199,w-48,20,3);
-let y=235;if(proofData){try{const im=await loadImage(proofData);const maxW=w*.78,maxH=Math.min(145,h*.38);const ratio=Math.min(maxW/im.width,maxH/im.height);const iw=im.width*ratio,ih=im.height*ratio;const ix=(w-iw)/2;ctx.save();ctx.fillStyle='#ffffff';roundedRect(ctx,ix-4,y-4,iw+8,ih+8,8);ctx.fill();ctx.strokeStyle=theme.border;ctx.lineWidth=2;roundedRect(ctx,ix-4,y-4,iw+8,ih+8,8);ctx.stroke();ctx.drawImage(im,ix,y,iw,ih);ctx.restore();y+=ih+18}catch(e){console.warn('Screenshot tidak dapat dimasukkan',e)}}
-ctx.fillStyle=theme.ink;ctx.font='13px Arial';ctx.fillText('ARMY PLAYGROUND ♡'+(document.getElementById('dateInput').value?' · '+document.getElementById('dateInput').value:''),w/2,h-25);
-for(const el of c.querySelectorAll('.sticker')){const er=el.getBoundingClientRect(),cr=c.getBoundingClientRect();ctx.font='30px Arial';ctx.textAlign='left';ctx.fillText(el.textContent,er.left-cr.left,er.top-cr.top+27)}
-const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));if(!blob)throw new Error('PNG gagal dibuat');const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='7HEAVEN-PURPLE-certificate.png';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500)}catch(e){alert('PNG belum bisa dibuat. Coba kurangi ukuran screenshot lalu ulangi.');console.error(e)}finally{btns.forEach(b=>b.disabled=false)}}
-function addDiary(){let title=document.getElementById('diaryTitle').value.trim();if(!title){alert('Isi nama voting atau aktivitas dulu ya 💜');return}let entries=read('vh-diary',[]);entries.unshift({title,date:document.getElementById('diaryDate').value,note:document.getElementById('diaryNote').value});save('vh-diary',entries);document.getElementById('diaryTitle').value='';document.getElementById('diaryNote').value='';renderDiary()}
-function renderDiary(){let entries=read('vh-diary',[]);document.getElementById('diaryEntries').innerHTML=entries.length?entries.map(e=>`<div class="mission"><span>💜</span><span><b>${escapeHTML(e.title)}</b><br><span class="small">${escapeHTML(e.date||'Tanggal tidak diisi')} · ${escapeHTML(e.note||'')}</span></span></div>`).join(''):'<p class="small">Belum ada catatan. Simpan kenangan pertamamu!</p>'}
-function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-document.getElementById('dateInput').value=new Date().toISOString().slice(0,10);updateTheme();updateCert();renderMissions();renderBadges();renderDiary();
+const $ = id => document.getElementById(id);
+const missions = [
+  ["Vote for BTS","Ikut voting di platform resmi yang sedang berlangsung."],
+  ["Stream mindfully","Dengarkan musik BTS sesuai panduan platform."],
+  ["Check official updates","Periksa informasi dari sumber resmi."],
+  ["Share voting reminders","Bantu sebarkan pengingat voting yang valid."],
+  ["Support ARMY","Bantu teman memahami cara voting."]
+];
+function read(key,fallback){
+  try {
+    const value=localStorage.getItem(key);
+    return value===null?fallback:JSON.parse(value);
+  } catch(e){return fallback}
+}
+function write(key,value){
+  try {localStorage.setItem(key,JSON.stringify(value));return true}
+  catch(e){return false}
+}
+function showPage(page){
+  document.querySelectorAll(".page").forEach(el=>el.classList.toggle("active",el.id===page));
+  document.querySelectorAll(".nav button").forEach(el=>el.classList.toggle("active",el.dataset.page===page));
+  window.scrollTo({top:0,behavior:"smooth"});
+  if(page==="missions")renderMissions();
+  if(page==="diary")renderDiary();
+}
+document.querySelectorAll(".nav button").forEach(btn=>{
+  btn.addEventListener("click",()=>showPage(btn.dataset.page));
+});
+
+function renderMissions(){
+  const done=read("vh-done",[]);
+  $("missionList").innerHTML="";
+  missions.forEach((item,i)=>{
+    const row=document.createElement("label");
+    row.className="mission";
+    const checkbox=document.createElement("input");
+    checkbox.type="checkbox";checkbox.checked=done.includes(i);
+    checkbox.addEventListener("change",()=>{
+      let updated=read("vh-done",[]);
+      updated=checkbox.checked?[...new Set([...updated,i])]:updated.filter(n=>n!==i);
+      write("vh-done",updated);renderMissions();updateStats();
+    });
+    const text=document.createElement("div");
+    text.append(document.createTextNode(item[0]));
+    const small=document.createElement("small");small.textContent=item[1];
+    text.appendChild(small);row.append(checkbox,text);$("missionList").appendChild(row);
+  });
+  updateStats();
+}
+function updateStats(){
+  $("statMissions").textContent=read("vh-done",[]).length;
+  $("statDiary").textContent=read("vh-diary",[]).length;
+}
+function renderDiary(){
+  const entries=read("vh-diary",[]);
+  $("diaryList").innerHTML="";
+  if(!entries.length){
+    $("diaryList").innerHTML='<div class="empty">Belum ada catatan. Yuk, simpan aktivitas pertamamu ♡</div>';
+  }
+  entries.slice().reverse().forEach((entry,index)=>{
+    const item=document.createElement("div");item.className="diaryitem";
+    const title=document.createElement("strong");title.textContent=entry.title;
+    const date=document.createElement("p");date.textContent=entry.date||"Tanggal tidak diisi";
+    const note=document.createElement("p");note.textContent=entry.note||"Tidak ada catatan tambahan.";
+    const remove=document.createElement("button");remove.className="btn danger";remove.textContent="Hapus";
+    remove.addEventListener("click",()=>{
+      const current=read("vh-diary",[]);
+      current.splice(current.length-1-index,1);write("vh-diary",current);
+      renderDiary();
+    });
+    item.append(title,date,note,remove);$("diaryList").appendChild(item);
+  });
+  updateStats();
+}
+$("saveDiary").addEventListener("click",()=>{
+  const title=$("diaryTitle").value.trim();
+  if(!title){$("diaryMessage").textContent="Isi nama event terlebih dahulu.";return}
+  const entries=read("vh-diary",[]);
+  entries.push({title,date:$("diaryDate").value,note:$("diaryNote").value.trim()});
+  if(!write("vh-diary",entries)){$("diaryMessage").textContent="Penyimpanan gagal. Periksa ruang penyimpanan browser.";return}
+  $("diaryTitle").value="";$("diaryNote").value="";
+  $("diaryMessage").textContent="Catatan tersimpan di perangkat ini ♡";
+  renderDiary();
+});
+$("resetMissions").addEventListener("click",()=>{
+  if(confirm("Reset semua misi yang sudah ditandai?")){
+    write("vh-done",[]);renderMissions();
+  }
+});
+$("exportDiary").addEventListener("click",()=>{
+  const blob=new Blob([JSON.stringify(read("vh-diary",[]),null,2)],{type:"application/json"});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");a.href=url;a.download="7heaven-voting-diary.json";a.click();
+  URL.revokeObjectURL(url);
+});
+
+let proofData="";
+let selectedSticker=null;
+function updateTheme(){
+  const color=$("themeInput").value;
+  $("certificate").style.borderColor=color;
+  $("cerTitle").style.color=color;
+  $("cerName").style.color=color;
+  $("certificate").style.setProperty("--decor-color",color);
+}
+function updateCert(){
+  $("cerName").textContent=$("nameInput").value.trim()||"Your ARMY Name";
+  $("cerEvent").textContent=$("eventInput").value.trim()||"Voting event";
+  $("cerCategory").textContent=$("categoryInput").value.trim()||"BTS · Voting support";
+  $("cerDate").textContent=$("dateInput").value?
+    new Date($("dateInput").value+"T12:00:00").toLocaleDateString("id-ID",{day:"numeric",month:"long",year:"numeric"}):"";
+  $("cerTitle").textContent=$("eventInput").value.trim()||"Voting Support";
+  updateTheme();
+}
+["nameInput","eventInput","categoryInput","dateInput","themeInput"].forEach(id=>{
+  $(id).addEventListener("input",updateCert);
+  $(id).addEventListener("change",updateCert);
+});
+$("proofInput").addEventListener("change",()=>{
+  const file=$("proofInput").files[0];
+  if(!file)return;
+  if(!file.type.startsWith("image/")){
+    $("makerMessage").textContent="Pilih file gambar yang valid.";return;
+  }
+  if(file.size>12*1024*1024){
+    $("makerMessage").textContent="Ukuran gambar maksimal 12 MB.";return;
+  }
+  const reader=new FileReader();
+  reader.onload=()=>{
+    proofData=reader.result;
+    $("proofImage").src=proofData;
+    $("proofImage").style.display="block";
+    $("proofPlaceholder").style.display="none";
+    $("makerMessage").textContent="Screenshot siap digunakan ♡";
+  };
+  reader.readAsDataURL(file);
+});
+
+function addSticker(symbol){
+  const el=document.createElement("span");
+  el.className="decor";el.textContent=symbol;
+  el.style.left="12%";el.style.top="18%";
+  $("certificate").appendChild(el);selectSticker(el);makeDraggable(el);
+}
+function selectSticker(el){
+  document.querySelectorAll(".decor").forEach(item=>item.classList.remove("selected"));
+  selectedSticker=el;el.classList.add("selected");
+}
+document.querySelectorAll("[data-sticker]").forEach(btn=>{
+  btn.addEventListener("click",()=>addSticker(btn.dataset.sticker));
+});
+$("removeSticker").addEventListener("click",()=>{
+  if(selectedSticker){selectedSticker.remove();selectedSticker=null}
+});
+$("clearStickers").addEventListener("click",()=>{
+  document.querySelectorAll(".decor").forEach(el=>el.remove());selectedSticker=null;
+});
+function makeDraggable(el){
+  let startX=0,startY=0,startLeft=0,startTop=0;
+  el.addEventListener("pointerdown",e=>{
+    e.preventDefault();selectSticker(el);
+    const box=$("certificate").getBoundingClientRect();
+    const r=el.getBoundingClientRect();
+    startX=e.clientX;startY=e.clientY;
+    startLeft=r.left-box.left;startTop=r.top-box.top;
+    el.setPointerCapture(e.pointerId);
+  });
+  el.addEventListener("pointermove",e=>{
+    if(!el.hasPointerCapture(e.pointerId))return;
+    const box=$("certificate").getBoundingClientRect();
+    const x=Math.max(0,Math.min(box.width-el.offsetWidth,startLeft+e.clientX-startX));
+    const y=Math.max(0,Math.min(box.height-el.offsetHeight,startTop+e.clientY-startY));
+    el.style.left=(x/box.width*100)+"%";el.style.top=(y/box.height*100)+"%";
+  });
+  el.addEventListener("pointerup",e=>{
+    if(el.hasPointerCapture(e.pointerId))el.releasePointerCapture(e.pointerId);
+  });
+}
+function loadImage(src){
+  return new Promise((resolve,reject)=>{
+    const img=new Image();img.onload=()=>resolve(img);img.onerror=reject;img.src=src;
+  });
+}
+async function downloadCertificate(){
+  const btn=$("downloadBtn");
+  btn.disabled=true;btn.textContent="Menyiapkan PNG…";
+  try{
+    const W=1200,H=1500,scale=2;
+    const canvas=document.createElement("canvas");
+    canvas.width=W;canvas.height=H;
+    const ctx=canvas.getContext("2d");
+    const color=$("themeInput").value;
+    ctx.fillStyle="#fffdfd";ctx.fillRect(0,0,W,H);
+    ctx.fillStyle="#f4eff8";
+    for(let x=20;x<W;x+=35)for(let y=20;y<H;y+=35){
+      ctx.beginPath();ctx.arc(x,y,1.5,0,Math.PI*2);ctx.fill();
+    }
+    ctx.strokeStyle=color;ctx.lineWidth=9;ctx.strokeRect(22,22,W-44,H-44);
+    ctx.lineWidth=2;ctx.strokeRect(38,38,W-76,H-76);
+    ctx.textAlign="center";ctx.fillStyle=color;
+    ctx.font="bold 28px Arial";ctx.fillText("✦  ♡  ✦  ♡  ✦",W/2,105);
+    ctx.fillStyle="#8b72a3";ctx.font="bold 23px Arial";
+    ctx.fillText("7HEAVEN PURPLE PRESENTS",W/2,160);
+    ctx.fillStyle=color;ctx.font="bold 64px Georgia";
+    const title=$("eventInput").value.trim()||"Voting Support";
+    ctx.fillText(title.slice(0,30),W/2,235,1000);
+    ctx.fillStyle="#8b7b98";ctx.font="21px Arial";
+    ctx.fillText("A LITTLE PROOF OF YOUR SUPPORT FOR BTS",W/2,280);
+    const x=105,y=325,w=990,h=590;
+    ctx.fillStyle="#f4eff8";ctx.fillRect(x,y,w,h);
+    ctx.strokeStyle=color;ctx.lineWidth=3;ctx.strokeRect(x,y,w,h);
+    if(proofData){
+      const img=await loadImage(proofData);
+      const ratio=Math.min(w/img.width,h/img.height);
+      const iw=img.width*ratio,ih=img.height*ratio;
+      ctx.fillStyle="#fff";ctx.fillRect(x,y,w,h);
+      ctx.drawImage(img,x+(w-iw)/2,y+(h-ih)/2,iw,ih);
+    }else{
+      ctx.fillStyle="#9a8ca8";ctx.font="30px Arial";
+      ctx.fillText("Screenshot bukti voting",W/2,y+h/2);
+    }
+    const name=$("nameInput").value.trim()||"Your ARMY Name";
+    ctx.fillStyle="#71617f";ctx.font="22px Arial";
+    ctx.fillText("PROUDLY SUPPORTED BY",W/2,975);
+    ctx.fillStyle=color;ctx.font="bold 55px Georgia";
+    ctx.fillText(name.slice(0,38),W/2,1045,1000);
+    ctx.fillStyle="#71617f";ctx.font="25px Arial";
+    ctx.fillText(title.slice(0,45),W/2,1100,1000);
+    ctx.fillText(($("categoryInput").value.trim()||"BTS · Voting support").slice(0,55),W/2,1145,1000);
+    const date=$("dateInput").value?
+      new Date($("dateInput").value+"T12:00:00").toLocaleDateString("id-ID",{day:"numeric",month:"long",year:"numeric"}):"";
+    ctx.font="22px Arial";ctx.fillText(date,W/2,1200);
+    ctx.fillStyle=color;ctx.font="bold 23px Arial";
+    ctx.fillText("WITH LOVE, FOR BTS ⁷",W/2,1280);
+    const cert=$("certificate").getBoundingClientRect();
+    document.querySelectorAll(".decor").forEach(el=>{
+      const r=el.getBoundingClientRect();
+      const px=(r.left-cert.left)/cert.width*W;
+      const py=(r.top-cert.top)/cert.height*H;
+      ctx.font="55px Arial";ctx.textAlign="left";
+      ctx.fillText(el.textContent,px,py+45);
+    });
+    const a=document.createElement("a");
+    a.download="7HEAVEN-PURPLE-Voting-Certificate.png";
+    a.href=canvas.toDataURL("image/png");a.click();
+    $("makerMessage").textContent="PNG berhasil dibuat. Periksa folder unduhanmu ♡";
+  }catch(error){
+    $("makerMessage").textContent="PNG gagal dibuat. Coba gunakan gambar yang lebih kecil atau periksa browser.";
+  }finally{
+    btn.disabled=false;btn.textContent="↓ Download PNG";
+  }
+}
+$("downloadBtn").addEventListener("click",downloadCertificate);
+$("resetBtn").addEventListener("click",()=>{
+  if(!confirm("Reset isi sertifikat dan dekorasi?"))return;
+  ["nameInput","eventInput","categoryInput"].forEach(id=>$(id).value="");
+  $("proofInput").value="";$("proofImage").removeAttribute("src");
+  $("proofImage").style.display="none";$("proofPlaceholder").style.display="block";
+  proofData="";$("themeInput").value="#b99bd9";
+  document.querySelectorAll(".decor").forEach(el=>el.remove());
+  selectedSticker=null;updateCert();$("makerMessage").textContent="Sertifikat sudah direset.";
+});
+
+$("dateInput").value=new Date().toISOString().slice(0,10);
+$("diaryDate").value=new Date().toISOString().slice(0,10);
+updateCert();renderMissions();renderDiary();
 </script>
 </body>
 </html>
