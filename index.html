@@ -47,17 +47,55 @@
     .cert-frame-softpink { background: #FFF0F5; border: 4px solid #FFB6C1; }
     .cert-frame-white { background: #FFFFFF; border: 4px solid #E2E8F0; }
 
+    /* AUTO-CROP 9:16 PRECISE BOX */
+    .crop-9-16-container {
+      width: 100%;
+      max-width: 260px;
+      aspect-ratio: 9 / 16;
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+      background: rgba(241, 236, 253, 0.6);
+      margin: 0 auto;
+    }
+    .crop-9-16-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
     .sticker-item {
       touch-action: none;
       user-select: none;
       cursor: move;
       position: absolute;
       transform-origin: center center;
+      display: inline-block;
     }
-    .active-sticker {
+    .sticker-item.selected {
       outline: 2px dashed #7D52C1;
       outline-offset: 4px;
     }
+    .sticker-controls {
+      display: none;
+      position: absolute;
+      top: -28px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #7D52C1;
+      color: white;
+      border-radius: 9999px;
+      padding: 2px 6px;
+      font-size: 10px;
+      gap: 4px;
+      z-index: 50;
+      white-space: nowrap;
+    }
+    .sticker-item.selected .sticker-controls {
+      display: flex;
+    }
+
     ::-webkit-scrollbar { width: 4px; height: 4px; }
     ::-webkit-scrollbar-track { background: #F1ECFD; }
     ::-webkit-scrollbar-thumb { background: #9D72E1; border-radius: 10px; }
@@ -113,15 +151,16 @@
 
   <main class="max-w-md mx-auto px-4 pt-3">
 
-    <!-- MODAL AUTH LOGIN / DAFTAR AKUN MEMBER -->
+    <!-- MODAL AUTH LOGIN / REGISTER / EDIT PROFIL MEMBER -->
     <div id="authModal" class="glass-card rounded-3xl p-4 mb-4 border border-purple-200">
       <div class="flex justify-between items-center border-b border-purple-100 pb-2 mb-3">
         <h3 class="text-xs font-bold text-btspurple cute-font flex items-center gap-1.5">
-          <i class="fa-solid fa-user-check"></i> Akun Member 7HEAVEN PURPLE
+          <i class="fa-solid fa-id-card"></i> Akun Member 7HEAVEN PURPLE
         </h3>
         <span id="authStatusText" class="text-[10px] bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-full">Belum Masuk</span>
       </div>
 
+      <!-- FORM LOGIN & REGISTER -->
       <div id="authFormArea" class="space-y-2 text-xs">
         <div class="grid grid-cols-2 gap-2">
           <input type="text" id="authUsername" placeholder="Username / Nama Member" class="w-full px-3 py-1.5 rounded-xl border border-purple-200 bg-white font-semibold">
@@ -133,15 +172,37 @@
         </div>
       </div>
 
-      <div id="loggedInArea" class="hidden flex items-center justify-between text-xs pt-1">
-        <span class="font-bold text-slate-700">Login sebagai: <strong id="loggedInUsername" class="text-btspurple">Alysha</strong></span>
-        <button onclick="logoutUser()" class="px-2.5 py-1 bg-red-100 text-red-600 font-bold rounded-lg text-[10px]">Keluar Akun</button>
+      <!-- INFORMASI PROFIL & MODAL EDIT PROFIL -->
+      <div id="loggedInArea" class="hidden space-y-2 text-xs pt-1">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="font-bold text-slate-800">Login: <strong id="loggedInUsername" class="text-btspurple">Alysha</strong></p>
+            <p id="loggedInBio" class="text-[10px] text-slate-500 italic">"Borahae BTS & ARMY 💜"</p>
+          </div>
+          <div class="flex gap-1.5">
+            <button onclick="toggleEditProfileModal()" class="px-2.5 py-1 bg-purple-100 text-btspurple font-bold rounded-lg text-[10px]">✏️ Edit Profil</button>
+            <button onclick="logoutUser()" class="px-2.5 py-1 bg-red-100 text-red-600 font-bold rounded-lg text-[10px]">Keluar</button>
+          </div>
+        </div>
+
+        <!-- AREA EDIT PROFIL -->
+        <div id="editProfileSection" class="hidden p-3 bg-purple-50/80 rounded-2xl border border-purple-200 space-y-2 mt-2">
+          <h4 class="font-bold text-btspurple text-xs">✏️ Edit Informasi Profil Kamu</h4>
+          <div>
+            <label class="block text-[10px] font-bold text-slate-600 mb-0.5">Nama Tampilan Member:</label>
+            <input type="text" id="editDisplayName" placeholder="Nama Baru" class="w-full px-2.5 py-1 rounded-xl border border-purple-200 text-xs bg-white">
+          </div>
+          <div>
+            <label class="block text-[10px] font-bold text-slate-600 mb-0.5">Bio / Bias Status Quote:</label>
+            <input type="text" id="editBioText" placeholder="misal: Borahae BTS 💜" class="w-full px-2.5 py-1 rounded-xl border border-purple-200 text-xs bg-white">
+          </div>
+          <button onclick="saveProfileChanges()" class="w-full py-1.5 bg-btspurple text-white font-bold rounded-xl text-xs shadow-md">Simpan Perubahan Profil</button>
+        </div>
       </div>
     </div>
 
     <!-- TAB 1: BERANDA -->
     <section id="sec-beranda" class="tab-content space-y-4">
-      <!-- Welcome Banner Card -->
       <div class="bg-gradient-to-br from-btspurple to-purple-800 text-white rounded-3xl p-5 shadow-lg relative overflow-hidden">
         <span class="inline-block bg-white/20 text-white font-bold text-[10px] px-2.5 py-0.5 rounded-full mb-2">WELCOME ARMY 💜</span>
         <h2 class="text-xl font-black cute-font leading-tight">WELCOME TO 7HEAVEN PURPLE</h2>
@@ -155,7 +216,6 @@
         </div>
       </div>
 
-      <!-- Voting On-Going Card -->
       <div class="glass-card rounded-3xl p-4 space-y-3">
         <div class="flex items-center justify-between">
           <h3 class="text-sm font-extrabold text-slate-800 cute-font flex items-center gap-1.5">
@@ -197,7 +257,6 @@
         </div>
       </div>
 
-      <!-- Album Stream Card -->
       <div class="glass-card rounded-3xl p-4 flex items-center justify-between cursor-pointer" onclick="switchTab('misi')">
         <div>
           <h3 class="text-sm font-extrabold text-slate-800 cute-font flex items-center gap-1.5">
@@ -211,7 +270,7 @@
       </div>
     </section>
 
-    <!-- TAB 2: SERTIFIKAT MAKER -->
+    <!-- TAB 2: SERTIFIKAT MAKER (PERBAIKAN CROP 9:16 & STIKER FULL GESTURE) -->
     <section id="sec-sertifikat" class="tab-content hidden space-y-4">
       <div class="glass-card rounded-3xl p-4 space-y-3">
         <h3 class="text-xs font-extrabold text-slate-800 cute-font border-b border-purple-100 pb-1.5">
@@ -236,14 +295,13 @@
             <input type="text" id="inputKategori" value="Fans Choice" oninput="updatePreview()" class="w-full px-3 py-2 rounded-xl border border-purple-200 bg-white font-semibold">
           </div>
           <div class="col-span-2">
-            <label class="font-bold text-slate-700 block mb-0.5">Upload Bukti Screenshot (9:16)</label>
+            <label class="font-bold text-slate-700 block mb-0.5">Upload Bukti Screenshot (Auto-Crop 9:16)</label>
             <input type="file" accept="image/*" onchange="handleBuktiUpload(event)" class="w-full text-xs text-slate-500 file:mr-3 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-purple-100 file:text-btspurple">
           </div>
         </div>
 
-        <!-- PILIHAN WARNA BINGKAI -->
         <div class="pt-2 border-t border-purple-100">
-          <label class="font-bold text-slate-700 text-xs block mb-1.5">Pilih Warna Dekorasi Bingkai</label>
+          <label class="font-bold text-slate-700 text-xs block mb-1.5">Pilih Warna Bingkai Dekorasi</label>
           <div class="flex gap-2 text-xs">
             <button onclick="changeFrameColor('btspurple')" class="px-2.5 py-1 rounded-xl bg-purple-100 text-btspurple font-bold border border-btspurple">Ungu BTS</button>
             <button onclick="changeFrameColor('lavender')" class="px-2.5 py-1 rounded-xl bg-purple-50 text-purple-700 font-bold border border-purple-300">Lavender</button>
@@ -252,16 +310,20 @@
           </div>
         </div>
 
-        <!-- STIKER DEKORASI -->
+        <!-- KATALOG STIKER BTS & ARMY -->
         <div class="pt-2 border-t border-purple-100">
-          <label class="font-bold text-slate-700 text-xs block mb-1.5">Tambah Stiker (Geser & Cubit untuk Zoom/Rotasi)</label>
-          <div class="flex flex-wrap gap-2">
-            <button onclick="addStickerEmoji('💜')" class="w-8 h-8 rounded-xl bg-purple-100 text-base flex items-center justify-center">💜</button>
-            <button onclick="addStickerEmoji('♡')" class="w-8 h-8 rounded-xl bg-purple-100 text-base flex items-center justify-center">♡</button>
-            <button onclick="addStickerEmoji('✨')" class="w-8 h-8 rounded-xl bg-purple-100 text-base flex items-center justify-center">✨</button>
-            <button onclick="addStickerEmoji('⭐')" class="w-8 h-8 rounded-xl bg-purple-100 text-base flex items-center justify-center">⭐</button>
-            <button onclick="addStickerEmoji('🌸')" class="w-8 h-8 rounded-xl bg-purple-100 text-base flex items-center justify-center">🌸</button>
-            <button onclick="addStickerEmoji('🎀')" class="w-8 h-8 rounded-xl bg-purple-100 text-base flex items-center justify-center">🎀</button>
+          <label class="font-bold text-slate-700 text-xs block mb-1.5">Katalog Stiker BTS & ARMY (Bisa Geser, Cubit Zoom & Rotasi)</label>
+          <div class="flex flex-wrap gap-1.5">
+            <button onclick="addStickerEmoji('💜')" class="w-8 h-8 rounded-xl bg-purple-100 text-sm">💜</button>
+            <button onclick="addStickerEmoji('🩵')" class="w-8 h-8 rounded-xl bg-purple-100 text-sm">🩵</button>
+            <button onclick="addStickerEmoji('💡')" class="w-8 h-8 rounded-xl bg-purple-100 text-sm">💡</button>
+            <button onclick="addStickerEmoji('🐳')" class="w-8 h-8 rounded-xl bg-purple-100 text-sm">🐳</button>
+            <button onclick="addStickerEmoji('🧀')" class="w-8 h-8 rounded-xl bg-purple-100 text-sm">🧀</button>
+            <button onclick="addStickerEmoji('🔮')" class="w-8 h-8 rounded-xl bg-purple-100 text-sm">🔮</button>
+            <button onclick="addStickerEmoji('🎙️')" class="w-8 h-8 rounded-xl bg-purple-100 text-sm">🎙️</button>
+            <button onclick="addStickerEmoji('7️⃣')" class="w-8 h-8 rounded-xl bg-purple-100 text-sm">7️⃣</button>
+            <button onclick="addStickerEmoji('🎀')" class="w-8 h-8 rounded-xl bg-purple-100 text-sm">🎀</button>
+            <button onclick="addStickerEmoji('✨')" class="w-8 h-8 rounded-xl bg-purple-100 text-sm">✨</button>
           </div>
           <div class="mt-2">
             <input type="file" accept="image/*" onchange="handleCustomStickerUpload(event)" class="w-full text-xs text-slate-500 file:mr-2 file:py-1 file:px-2 file:rounded-lg file:border-0 file:text-[10px] file:font-bold file:bg-amber-100 file:text-amber-800">
@@ -272,30 +334,26 @@
       <!-- HASIL SERTIFIKAT CANVAS -->
       <div class="flex justify-center">
         <div id="certificateCanvas" class="cert-frame-btspurple relative w-full max-w-[340px] rounded-3xl p-4 shadow-2xl transition-all">
-          
           <div class="text-center pb-2">
             <p class="text-[10px] font-black text-btspurple uppercase tracking-wider cute-font">7HEAVEN PURPLE PRESENTS</p>
             <h3 class="text-base font-black text-btspurple uppercase tracking-wide cute-font">VOTING PROOF</h3>
           </div>
 
-          <!-- BUKTI VOTE AREA 9:16 -->
-          <div id="buktiContainer" class="relative my-1 rounded-2xl overflow-hidden bg-purple-50/50 border border-purple-200 min-h-[360px] flex items-center justify-center shadow-inner">
-            <img id="prevBukti" src="" class="hidden w-[85%] h-auto object-contain max-h-[420px] rounded-xl my-2">
-            <div id="placeholderBukti" class="text-center p-6 text-purple-400">
+          <!-- KOTAK AUTO CROP 9:16 PERBAIKAN -->
+          <div id="buktiContainer" class="crop-9-16-container my-2 border border-purple-200 shadow-inner">
+            <img id="prevBukti" src="" class="crop-9-16-img hidden">
+            <div id="placeholderBukti" class="absolute inset-0 flex flex-col items-center justify-center p-4 text-center text-purple-400">
               <i class="fa-solid fa-image text-3xl mb-1 text-btspurple"></i>
-              <p class="text-xs font-bold text-slate-600">Bukti Vote 9:16</p>
-              <p class="text-[10px] text-slate-400">Akan tampil jelas di tengah frame</p>
+              <p class="text-xs font-bold text-slate-600">Bukti Vote Auto 9:16</p>
+              <p class="text-[10px] text-slate-400">Foto akan otomatis terpotong rapi 9:16</p>
             </div>
 
-            <!-- LAYER STIKER -->
+            <!-- LAYER STIKER DENGAN FULL INTERAKSI -->
             <div id="stickerLayer" class="absolute inset-0 pointer-events-none z-20">
-              <div id="defaultWm" class="sticker-item pointer-events-auto bg-white/90 border border-btspurple px-2.5 py-0.5 rounded-xl shadow-md text-xs font-black text-btspurple cute-font" style="left: 15px; top: 310px;">
-                Alysha 💜
-              </div>
+              <!-- No default watermark -->
             </div>
           </div>
 
-          <!-- DETAIL FOOTER -->
           <div class="pt-2 text-center">
             <h4 id="prevNama" class="text-sm font-black text-slate-800 cute-font">Alysha</h4>
             <div class="text-[10px] font-semibold text-slate-600 space-y-0.5">
@@ -304,7 +362,6 @@
               <p>Tanggal: <span id="prevTanggal" class="text-slate-500">2026-10-21</span></p>
             </div>
           </div>
-
         </div>
       </div>
 
@@ -320,7 +377,6 @@
           <i class="fa-solid fa-bullseye text-btspurple"></i> Misi Vote & Streaming
         </h2>
 
-        <!-- Misi Vote -->
         <div class="space-y-2">
           <h3 class="text-xs font-bold text-btspurple uppercase tracking-wider">🗳️ Misi Vote On-Going</h3>
           <p class="text-[11px] text-slate-500">Buat sertifikat vote di tab "Sertifikat", poin akan diverifikasi oleh Admin secara manual! 💜</p>
@@ -340,14 +396,11 @@
           </div>
         </div>
 
-        <!-- Misi Stream 14 Lagu -->
         <div class="space-y-2 pt-3 border-t border-purple-100">
           <h3 class="text-xs font-bold text-btspurple uppercase tracking-wider">🎵 Misi Streaming Album ARIRANG</h3>
           <div id="misiArirangList" class="space-y-1.5 max-h-60 overflow-y-auto pr-1 text-xs">
-            <!-- 14 Songs -->
           </div>
 
-          <!-- TEMPAT UPLOAD SS STREAMING -->
           <div class="bg-purple-50/70 p-3 rounded-2xl border border-purple-200 space-y-2 mt-3">
             <h4 class="text-xs font-bold text-slate-800 flex items-center gap-1">
               <i class="fa-solid fa-upload text-btspurple"></i> Upload Bukti SS Streaming
@@ -355,7 +408,6 @@
             <input type="file" id="streamSsInput" multiple accept="image/*" onchange="previewStreamSs(event)" class="w-full text-xs text-slate-500 file:mr-2 file:py-1 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-btspurple file:text-white">
 
             <div id="ssPreviewContainer" class="grid grid-cols-3 gap-2 pt-2">
-              <!-- Uploaded SS Preview -->
             </div>
 
             <button onclick="submitStreamProof()" class="w-full py-2 bg-btspurple text-white font-bold rounded-xl text-xs shadow-md hover:bg-btsdark transition-all mt-2">
@@ -371,27 +423,34 @@
       <div class="glass-card rounded-3xl p-4">
         <h2 class="text-sm font-extrabold text-slate-800 cute-font mb-2">📖 Voting Diary & Galeri</h2>
         <div id="diaryList" class="grid grid-cols-2 gap-2 text-xs">
-          <!-- Saved items -->
         </div>
       </div>
     </section>
 
-    <!-- TAB 5: ADMIN PANEL -->
+    <!-- TAB 5: ADMIN PANEL (RAHASIA & PIN BISA DIGANTI) -->
     <section id="sec-admin" class="tab-content hidden space-y-4">
       <div id="adminLoginCard" class="glass-card rounded-3xl p-5 text-center space-y-3">
         <h2 class="text-sm font-bold text-slate-800 cute-font">🔒 Panel Khusus Admin</h2>
-        <p class="text-xs text-slate-500">PIN Default: <strong>130613</strong></p>
-        <input type="password" id="adminPinInput" placeholder="Masukkan PIN Admin" class="w-full text-center py-2 rounded-xl border border-purple-200 text-xs font-bold bg-white">
+        <p class="text-xs text-slate-500">Akses rahasia khusus Admin untuk mengelola poin member.</p>
+        <input type="password" id="adminPinInput" placeholder="Masukkan PIN Admin Rahasia" class="w-full text-center py-2 rounded-xl border border-purple-200 text-xs font-bold bg-white">
         <button onclick="verifyAdminPin()" class="w-full py-2 bg-btspurple text-white font-bold rounded-xl text-xs shadow-md">Unlock Panel Admin</button>
       </div>
 
       <div id="adminDashboard" class="hidden glass-card rounded-3xl p-4 space-y-3">
-        <h3 class="text-xs font-bold text-slate-800 border-b border-purple-100 pb-1">➕ Berikan / Kurangi Poin Member Terdaftar</h3>
+        <div class="flex justify-between items-center border-b border-purple-100 pb-2">
+          <h3 class="text-xs font-bold text-slate-800">⚙️ Panel Kontrol Admin</h3>
+          <button onclick="toggleChangePinModal()" class="px-2 py-0.5 bg-purple-100 text-btspurple font-bold text-[10px] rounded-lg">🔑 Ganti PIN Rahasia</button>
+        </div>
+
+        <div id="changePinSection" class="hidden p-2.5 bg-purple-50 rounded-xl border border-purple-200 text-xs space-y-1.5">
+          <input type="password" id="newAdminPinInput" placeholder="Masukkan PIN Rahasia Baru" class="w-full px-2.5 py-1 rounded-lg border border-purple-200 bg-white">
+          <button onclick="saveNewAdminPin()" class="w-full py-1 bg-btspurple text-white font-bold rounded-lg text-xs">Update PIN Admin</button>
+        </div>
+
         <div class="space-y-2 text-xs">
           <div>
             <label class="font-bold text-slate-700 block mb-1">Pilih Member Terdaftar:</label>
             <select id="adminUserSelect" class="w-full px-3 py-1.5 rounded-xl border border-purple-200 bg-white font-bold text-btspurple">
-              <!-- Registered Users Dropdown -->
             </select>
           </div>
           <div>
@@ -406,7 +465,6 @@
         <div class="pt-3 border-t border-purple-100">
           <h4 class="text-xs font-bold text-slate-700 mb-2">Daftar Poin Seluruh Member:</h4>
           <div id="adminUserList" class="space-y-1 text-xs">
-            <!-- Dynamic Member List -->
           </div>
         </div>
       </div>
@@ -416,7 +474,8 @@
 
   <script>
     let activeUser = localStorage.getItem('7h_active_user') || null;
-    let userDatabase = JSON.parse(localStorage.getItem('7h_users_db') || '{"Alysha":{"password":"123","points":50,"diary":[]}}');
+    let userDatabase = JSON.parse(localStorage.getItem('7h_users_db') || '{"Alysha":{"password":"123","points":50,"bio":"Borahae BTS & ARMY 💜","diary":[]}}');
+    let adminPinSecret = localStorage.getItem('7h_admin_pin') || '130613';
 
     const arirangSongs = [
       "1. Body to Body", "2. Hooligan", "3. Aliens", "4. FYA", "5. 2.0",
@@ -429,7 +488,6 @@
       checkAuthStatus();
       document.getElementById('prevTanggal').innerText = new Date().toISOString().split('T')[0];
       renderMissions();
-      setupStickerGestures();
     });
 
     function getBadgeTitle(pts) {
@@ -446,12 +504,12 @@
         document.getElementById('userPoints').innerText = `${uData.points} PTS`;
         document.getElementById('userBadge').innerText = getBadgeTitle(uData.points);
         document.getElementById('inputNama').value = activeUser;
-        document.getElementById('defaultWm').innerText = `${activeUser} 💜`;
         document.getElementById('prevNama').innerText = activeUser;
 
         document.getElementById('authFormArea').classList.add('hidden');
         document.getElementById('loggedInArea').classList.remove('hidden');
         document.getElementById('loggedInUsername').innerText = activeUser;
+        document.getElementById('loggedInBio').innerText = `"${uData.bio || 'Borahae BTS 💜'}"`;
         document.getElementById('authStatusText').innerText = 'Terhubung';
         document.getElementById('authStatusText').className = 'text-[10px] bg-green-100 text-green-800 font-bold px-2 py-0.5 rounded-full';
         renderDiary();
@@ -464,6 +522,40 @@
         document.getElementById('authStatusText').innerText = 'Belum Masuk';
         document.getElementById('authStatusText').className = 'text-[10px] bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-full';
       }
+    }
+
+    function toggleEditProfileModal() {
+      const sec = document.getElementById('editProfileSection');
+      sec.classList.toggle('hidden');
+      if (!sec.classList.contains('hidden') && activeUser) {
+        document.getElementById('editDisplayName').value = activeUser;
+        document.getElementById('editBioText').value = userDatabase[activeUser].bio || '';
+      }
+    }
+
+    function saveProfileChanges() {
+      const newName = document.getElementById('editDisplayName').value.trim();
+      const newBio = document.getElementById('editBioText').value.trim();
+
+      if (!newName) return alert("Nama tidak boleh kosong!");
+
+      if (newName !== activeUser && userDatabase[newName]) {
+        return alert("Nama member tersebut sudah terpakai!");
+      }
+
+      const currentData = userDatabase[activeUser];
+      delete userDatabase[activeUser];
+
+      activeUser = newName;
+      currentData.bio = newBio;
+      userDatabase[newName] = currentData;
+
+      localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
+      localStorage.setItem('7h_active_user', activeUser);
+
+      checkAuthStatus();
+      toggleEditProfileModal();
+      alert("Profil berhasil diperbarui ✨");
     }
 
     function loginUser() {
@@ -484,17 +576,17 @@
     function registerUser() {
       const u = document.getElementById('authUsername').value.trim();
       const p = document.getElementById('authPassword').value.trim();
-      if (!u || !p) return alert("Isi Username dan Kata Sandi untuk pendaftaran!");
+      if (!u || !p) return alert("Isi Username dan Kata Sandi!");
 
       if (userDatabase[u]) {
-        alert("Username sudah terdaftar! Silakan login.");
+        alert("Username sudah terdaftar!");
       } else {
-        userDatabase[u] = { password: p, points: 0, diary: [] };
+        userDatabase[u] = { password: p, points: 0, bio: "Borahae BTS 💜", diary: [] };
         localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
         activeUser = u;
         localStorage.setItem('7h_active_user', u);
         checkAuthStatus();
-        alert(`Akun ${u} berhasil dibuat! Selamat bergabung 🎉`);
+        alert(`Akun ${u} berhasil dibuat! 🎉`);
       }
     }
 
@@ -518,7 +610,7 @@
     }
 
     function doDailyCheckin() {
-      if (!activeUser) return alert("Silakan Login akun dulu untuk Check-in!");
+      if (!activeUser) return alert("Silakan Login akun dulu!");
       const today = new Date().toDateString();
       const lastCheck = localStorage.getItem(`7h_checkin_${activeUser}`);
       if (lastCheck === today) return alert("Kamu sudah Check-in hari ini!");
@@ -536,7 +628,6 @@
       document.getElementById('prevNama').innerText = nama;
       document.getElementById('prevEvent').innerText = document.getElementById('inputEvent').value;
       document.getElementById('prevKategori').innerText = document.getElementById('inputKategori').value;
-      document.getElementById('defaultWm').innerText = `${nama} 💜`;
     }
 
     function changeFrameColor(colorClass) {
@@ -558,14 +649,7 @@
     }
 
     function addStickerEmoji(emoji) {
-      const layer = document.getElementById('stickerLayer');
-      const div = document.createElement('div');
-      div.className = 'sticker-item pointer-events-auto text-xl';
-      div.innerText = emoji;
-      div.style.left = '80px';
-      div.style.top = '120px';
-      makeElementInteractive(div);
-      layer.appendChild(div);
+      createInteractiveSticker(emoji, 'text');
     }
 
     function handleCustomStickerUpload(e) {
@@ -573,38 +657,107 @@
       if (file) {
         const reader = new FileReader();
         reader.onload = function(evt) {
-          const layer = document.getElementById('stickerLayer');
-          const div = document.createElement('div');
-          div.className = 'sticker-item pointer-events-auto w-12 h-12';
-          const img = document.createElement('img');
-          img.src = evt.target.result;
-          img.className = 'w-full h-full object-contain';
-          div.appendChild(img);
-          div.style.left = '100px';
-          div.style.top = '140px';
-          makeElementInteractive(div);
-          layer.appendChild(div);
+          createInteractiveSticker(evt.target.result, 'image');
         }
         reader.readAsDataURL(file);
       }
     }
 
-    function makeElementInteractive(el) {
+    function createInteractiveSticker(content, type) {
+      const layer = document.getElementById('stickerLayer');
+      const container = document.createElement('div');
+      container.className = 'sticker-item pointer-events-auto';
+      container.style.left = '90px';
+      container.style.top = '120px';
+
+      let scale = 1.0;
+      let rotation = 0;
+
+      const innerContent = document.createElement('div');
+      if (type === 'text') {
+        innerContent.className = 'text-2xl';
+        innerContent.innerText = content;
+      } else {
+        innerContent.className = 'w-12 h-12';
+        const img = document.createElement('img');
+        img.src = content;
+        img.className = 'w-full h-full object-contain';
+        innerContent.appendChild(img);
+      }
+
+      const controls = document.createElement('div');
+      controls.className = 'sticker-controls';
+      controls.innerHTML = `
+        <button class="btn-plus">＋</button>
+        <button class="btn-minus">－</button>
+        <button class="btn-rot">🔄</button>
+        <button class="btn-del">❌</button>
+      `;
+
+      container.appendChild(controls);
+      container.appendChild(innerContent);
+      layer.appendChild(container);
+
+      const updateTransform = () => {
+        innerContent.style.transform = `scale(${scale}) rotate(${rotation}deg)`;
+      };
+
+      controls.querySelector('.btn-plus').onclick = (e) => { e.stopPropagation(); scale += 0.2; updateTransform(); };
+      controls.querySelector('.btn-minus').onclick = (e) => { e.stopPropagation(); scale = Math.max(0.4, scale - 0.2); updateTransform(); };
+      controls.querySelector('.btn-rot').onclick = (e) => { e.stopPropagation(); rotation += 30; updateTransform(); };
+      controls.querySelector('.btn-del').onclick = (e) => { e.stopPropagation(); container.remove(); };
+
+      makeStickerMultiTouch(container, (s, r) => {
+        scale = Math.max(0.4, Math.min(3.0, scale * s));
+        rotation += r;
+        updateTransform();
+      });
+    }
+
+    function makeStickerMultiTouch(el, onGesture) {
       let isDragging = false, startX, startY, initialLeft, initialTop;
+      let initialDist = 0, initialAngle = 0;
+
+      const selectSticker = (e) => {
+        document.querySelectorAll('.sticker-item').forEach(s => s.classList.remove('selected'));
+        el.classList.add('selected');
+      };
+
+      const getTouchDist = (t) => Math.hypot(t[0].clientX - t[1].clientX, t[0].clientY - t[1].clientY);
+      const getTouchAngle = (t) => Math.atan2(t[1].clientY - t[0].clientY, t[1].clientX - t[0].clientX) * 180 / Math.PI;
+
       const onStart = (e) => {
-        isDragging = true;
-        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-        startX = clientX; startY = clientY;
-        initialLeft = el.offsetLeft; initialTop = el.offsetTop;
+        selectSticker(e);
+        if (e.touches && e.touches.length === 2) {
+          isDragging = false;
+          initialDist = getTouchDist(e.touches);
+          initialAngle = getTouchAngle(e.touches);
+        } else {
+          isDragging = true;
+          const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+          const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+          startX = clientX; startY = clientY;
+          initialLeft = el.offsetLeft; initialTop = el.offsetTop;
+        }
       };
+
       const onMove = (e) => {
-        if (!isDragging) return;
-        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-        el.style.left = `${initialLeft + (clientX - startX)}px`;
-        el.style.top = `${initialTop + (clientY - startY)}px`;
+        if (e.touches && e.touches.length === 2) {
+          const currentDist = getTouchDist(e.touches);
+          const currentAngle = getTouchAngle(e.touches);
+          const scaleFactor = currentDist / initialDist;
+          const angleDiff = currentAngle - initialAngle;
+          onGesture(scaleFactor, angleDiff);
+          initialDist = currentDist;
+          initialAngle = currentAngle;
+        } else if (isDragging) {
+          const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+          const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+          el.style.left = `${initialLeft + (clientX - startX)}px`;
+          el.style.top = `${initialTop + (clientY - startY)}px`;
+        }
       };
+
       const onEnd = () => { isDragging = false; };
 
       el.addEventListener('mousedown', onStart);
@@ -615,12 +768,11 @@
       document.addEventListener('touchend', onEnd);
     }
 
-    function setupStickerGestures() {
-      makeElementInteractive(document.getElementById('defaultWm'));
-    }
-
     function downloadCertificate() {
       if (!activeUser) return alert("Login akun terlebih dahulu!");
+
+      document.querySelectorAll('.sticker-item').forEach(s => s.classList.remove('selected'));
+
       html2canvas(document.getElementById('certificateCanvas'), { scale: 3 }).then(canvas => {
         const link = document.createElement('a');
         link.download = `7HEAVEN_Proof_${Date.now()}.png`;
@@ -635,7 +787,7 @@
         });
         localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
         renderDiary();
-        alert("Sertifikat berhasil didownload & disimpan ke Diary! Tunggu verifikasi poin dari Admin ✨");
+        alert("Sertifikat didownload & tersimpan ke Diary! ✨");
       });
     }
 
@@ -667,7 +819,7 @@
 
     function submitStreamProof() {
       if (!activeUser) return alert("Login akun terlebih dahulu!");
-      alert("Bukti SS Streaming berhasil dikirim ke Admin untuk verifikasi! 💜");
+      alert("Bukti SS Streaming dikirim ke Admin! 💜");
     }
 
     function renderDiary() {
@@ -685,11 +837,25 @@
     }
 
     function verifyAdminPin() {
-      if (document.getElementById('adminPinInput').value === '130613') {
+      if (document.getElementById('adminPinInput').value === adminPinSecret) {
         document.getElementById('adminLoginCard').classList.add('hidden');
         document.getElementById('adminDashboard').classList.remove('hidden');
         renderAdminUserSelect();
       } else { alert("PIN Admin Salah!"); }
+    }
+
+    function toggleChangePinModal() {
+      document.getElementById('changePinSection').classList.toggle('hidden');
+    }
+
+    function saveNewAdminPin() {
+      const newPin = document.getElementById('newAdminPinInput').value.trim();
+      if (newPin) {
+        adminPinSecret = newPin;
+        localStorage.setItem('7h_admin_pin', newPin);
+        alert("PIN Rahasia Admin berhasil diperbarui!");
+        toggleChangePinModal();
+      }
     }
 
     function renderAdminUserSelect() {
@@ -717,7 +883,7 @@
         localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
         checkAuthStatus();
         renderAdminUserSelect();
-        alert(`Berhasil memperbarui poin member ${target}!`);
+        alert(`Poin member ${target} diperbarui!`);
       } else {
         alert("Masukkan jumlah poin!");
       }
