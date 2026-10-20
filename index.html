@@ -4,684 +4,474 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#493064">
-<title>7HEAVEN PURPLE | V&S BTSARMY⁷</title>
+<title>7HEAVEN PURPLE</title>
 <style>
-:root{
-  --purple:#7954a6;--deep:#493064;--lav:#e9def5;
-  --pale:#faf7ff;--ink:#352b40;--muted:#897c94;
-  --line:#e8dff0;--accent:#b99bd9;
-}
+:root{--p:#8054b8;--p2:#eee4ff;--bg:#faf8ff;--ink:#302641;--muted:#837891;--white:#fff}
 *{box-sizing:border-box}
-body{margin:0;background:#faf8fc;color:var(--ink);font-family:Arial,sans-serif}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,sans-serif}
 button,input,select,textarea{font:inherit}
-button{cursor:pointer}
-button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--purple);outline-offset:2px}
-.header{background:linear-gradient(135deg,#352047,#644583 65%,#9c80bd);color:white;padding:22px 17px 29px;border-radius:0 0 27px 27px}
-.header-inner,.container{max-width:1120px;margin:auto}
-.brand{display:flex;align-items:center;gap:12px}
-.brand-logo{width:45px;height:45px;border:1px solid #ffffff80;border-radius:15px;display:grid;place-items:center;font-size:23px;background:#ffffff12}
-.brand-name{font-size:14px;font-weight:850;letter-spacing:1.6px}
-.brand-sub{font-size:10px;color:#e7d9f4;letter-spacing:1px;margin-top:5px}
-.hero{padding:30px 0 0}
-.eyebrow{font-size:10px;letter-spacing:2px;color:#e7d9f4;text-transform:uppercase}
-.hero h1{font-family:Georgia,serif;font-size:clamp(32px,6vw,48px);line-height:1.1;font-weight:500;margin:12px 0}
-.hero p{max-width:590px;font-size:13px;line-height:1.8;color:#eee4f7;margin:0}
-.container{padding:17px 13px 42px}
-.nav{display:flex;gap:7px;overflow-x:auto;padding:2px 0 18px;scrollbar-width:none}
-.nav button{white-space:nowrap;border:1px solid var(--line);background:white;color:var(--muted);padding:11px 13px;border-radius:11px;font-size:11px}
-.nav button.active{background:var(--deep);color:white;border-color:var(--deep)}
-.page{display:none}.page.active{display:block}
-.section-head{margin:5px 0 18px}
-.section-head h2{font-family:Georgia,serif;font-size:26px;font-weight:500;margin:0 0 7px}
-.section-head p{font-size:12px;color:var(--muted);line-height:1.7;margin:0}
-.layout{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:15px;align-items:start}
-.panel{background:white;border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:14px;min-width:0;box-shadow:0 6px 24px #39214b08}
-.panel h3{font-size:13px;margin:0 0 13px}
-.field{margin-bottom:12px}
-label{display:block;font-size:11px;font-weight:750;margin-bottom:6px}
-input,select,textarea{width:100%;min-width:0;border:1px solid #e2d8eb;border-radius:10px;background:white;padding:11px;color:var(--ink);font-size:12px}
-input[type=file]{padding:8px;font-size:11px}
-input[type=color]{height:40px;padding:3px}
-input[type=range]{padding:0;accent-color:var(--purple)}
-.hint{font-size:10px;color:var(--muted);line-height:1.7;margin-top:6px}
-.btn{border:0;border-radius:10px;padding:11px 12px;font-size:11px;font-weight:750;display:inline-flex;justify-content:center;align-items:center;gap:5px}
-.primary{background:var(--purple);color:white}.dark{background:var(--deep);color:white}
-.soft{background:var(--pale);color:var(--deep);border:1px solid var(--line)}
-.danger{background:#fff0f2;color:#a13b56}
-.btn-row{display:flex;gap:7px;flex-wrap:wrap}.btn-row .btn{flex:1}
-.grid-two{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:14px}
-.stat{background:white;border:1px solid var(--line);border-radius:14px;padding:12px}
-.stat strong{display:block;font-size:22px;color:var(--purple)}.stat span{font-size:10px;color:var(--muted)}
-.quick-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
-.quick{background:white;border:1px solid var(--line);border-radius:16px;padding:15px}
-.quick-icon{font-size:23px}.quick h3{font-size:13px;margin:9px 0 5px}.quick p{font-size:11px;line-height:1.7;color:var(--muted)}
-.notice{background:#f8f3ff;border:1px solid #e7dcf5;border-radius:11px;padding:12px;font-size:10px;line-height:1.7;color:#66527b}
-.certificate-wrap{background:#efe7f6;padding:8px;border-radius:15px}
-.certificate{position:relative;isolation:isolate;overflow:hidden;aspect-ratio:4/5;background:#fffdfd;border:5px double var(--accent);border-radius:7px;padding:5%;text-align:center;background-image:radial-gradient(#d8c6e8 .65px,transparent .65px);background-size:15px 15px}
-.certificate-header{color:#9275ae;font-weight:800;font-size:clamp(7px,1.5vw,11px);letter-spacing:2px}
-.certificate-title{font-family:Georgia,serif;font-size:clamp(19px,4vw,35px);line-height:1.15;color:var(--accent);margin:9px 0 5px;overflow-wrap:anywhere}
-.certificate-sub{font-size:clamp(6px,1.3vw,10px);letter-spacing:1px;color:#8b7b98}
-.proof-slot{width:100%;height:55%;position:relative;overflow:hidden;margin:4% auto 3%;border:1px dashed var(--accent);border-radius:6px;background:#f5f0fa;display:flex;align-items:center;justify-content:center}
-.proof-slot img{display:none;width:100%;height:100%;object-fit:contain;background:white}
-.proof-placeholder{font-size:11px;color:#9989a7;line-height:1.7;padding:10px}
-.certificate-name{font-family:Georgia,serif;font-weight:bold;color:var(--accent);font-size:clamp(15px,3.2vw,27px);overflow-wrap:anywhere;margin:2% 0}
-.certificate-detail{font-size:clamp(7px,1.4vw,11px);line-height:1.7;color:#71617f;overflow-wrap:anywhere}
-.certificate-footer{font-size:clamp(6px,1.3vw,10px);letter-spacing:1.4px;color:#8d71ad;margin-top:3%}
-.decor{position:absolute;z-index:5;left:10%;top:10%;font-size:28px;line-height:1;touch-action:none;user-select:none;cursor:grab;transform-origin:center center;white-space:nowrap}
-.decor.selected{outline:1px dashed #9364c0;outline-offset:4px}
-.sticker-grid{display:flex;gap:7px;flex-wrap:wrap}
-.sticker-btn{border:1px solid var(--line);background:var(--pale);border-radius:10px;min-width:39px;padding:7px;font-size:21px}
-.template-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-.template{border:1px solid var(--line);border-radius:11px;padding:8px 4px;background:white;text-align:center;font-size:10px;color:var(--ink)}
-.template-sample{height:48px;border:3px double #b99bd9;background:#faf5ff;margin-bottom:7px;border-radius:4px}
-.template.active{border:2px solid var(--purple);background:var(--pale)}
-.mission-item{display:flex;align-items:flex-start;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}
-.mission-item:last-child{border:0}.mission-item input{width:18px;height:18px;accent-color:var(--purple);margin-top:2px}
-.mission-item strong{font-size:12px}.mission-item small{display:block;color:var(--muted);font-size:10px;line-height:1.6;margin-top:4px}
-.points{margin-left:auto;color:var(--purple);font-weight:800;font-size:10px;white-space:nowrap}
-.diary-item{padding:12px 0;border-bottom:1px solid var(--line)}.diary-item strong{font-size:12px}.diary-item p{font-size:11px;line-height:1.6;color:var(--muted);white-space:pre-wrap}
-.gallery-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.gallery-item{border:1px solid var(--line);border-radius:12px;padding:8px;min-width:0}
-.gallery-item img{width:100%;aspect-ratio:4/5;object-fit:contain;background:#f6f0fb;border-radius:7px}
-.gallery-item p{font-size:10px;overflow-wrap:anywhere}
-.empty{font-size:11px;color:var(--muted);padding:12px 0;line-height:1.7}
-.message{font-size:11px;color:#624783;line-height:1.7;margin-top:9px;overflow-wrap:anywhere}
-footer{text-align:center;padding:23px 12px 30px;font-size:10px;line-height:1.8;color:var(--muted)}
-@media(max-width:760px){.layout{grid-template-columns:1fr}.hero{padding-top:26px}.container{padding:15px 10px 32px}.panel{padding:13px}}
-@media(min-width:761px){#maker .layout>div:last-child{position:sticky;top:12px}}
+button{cursor:pointer;border:0;border-radius:12px;padding:11px 14px;background:var(--p);color:white;font-weight:700}
+button.secondary{background:var(--p2);color:var(--p)}
+button.danger{background:#ffe7ec;color:#a52d4b}
+header{padding:23px 18px;background:linear-gradient(135deg,#e6d5ff,#faf7ff);border-bottom:1px solid #e8ddf5}
+header h1{margin:0;color:#7548a9;letter-spacing:1px;font-size:24px}
+header p{margin:8px 0 0;color:#79688d;font-size:13px}
+nav{display:flex;gap:8px;overflow-x:auto;padding:12px;background:white;position:sticky;top:0;z-index:5;border-bottom:1px solid #eee}
+nav button{white-space:nowrap;padding:10px 13px}
+nav button.active{background:#5f3b91}
+main{max-width:1050px;margin:auto;padding:16px}
+section{display:none}
+section.active{display:block}
+h2{font-size:21px;margin:8px 0 14px}
+h3{margin:0 0 10px}
+p{line-height:1.5}
+.card{background:white;border:1px solid #eee5f6;border-radius:18px;padding:16px;margin:12px 0;box-shadow:0 4px 18px #5a33750a}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.muted{color:var(--muted);font-size:13px}
+input,select,textarea{width:100%;padding:11px;border:1px solid #e3d8ef;border-radius:10px;background:white;color:var(--ink);margin:5px 0 12px}
+label{font-size:13px;font-weight:700}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.row>*{flex:1}
+.hero{padding:22px;border-radius:20px;background:linear-gradient(135deg,#eadcff,#fff);margin-bottom:14px}
+.points{font-size:32px;color:var(--p);font-weight:800}
+.level{display:inline-block;background:#eee2ff;color:#7043a5;padding:7px 12px;border-radius:30px;font-size:13px;font-weight:700}
+.progress{height:10px;background:#eee6f5;border-radius:20px;overflow:hidden;margin:10px 0}
+.progress span{display:block;height:100%;background:linear-gradient(90deg,#9a70d3,#c7a6f3)}
+.badges{display:flex;gap:8px;flex-wrap:wrap}
+.badge{background:#f4edff;border:1px solid #e5d6fa;border-radius:12px;padding:10px;font-size:12px}
+.small{font-size:12px}
+#certificate{width:min(100%,420px);aspect-ratio:9/16;margin:14px auto;background:linear-gradient(145deg,#fff,#f5edff);border:5px double #a885d5;border-radius:8px;position:relative;overflow:hidden;padding:5%;text-align:center}
+#certificate h2{font-size:clamp(17px,5vw,25px);color:#7548a9;margin:4% 0}
+#certificate .subtitle{font-size:12px;letter-spacing:2px}
+#certificate .proof{height:57%;width:100%;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#eee5f7;border:1px dashed #b69bd4;border-radius:9px;position:relative}
+#proofPreview{max-width:100%;max-height:100%;width:100%;height:100%;object-fit:contain}
+#emptyProof{padding:15px;color:#79668e;font-size:13px}
+#certName{font-size:18px;font-weight:bold;margin:12px 0 5px}
+#certInfo{font-size:12px;white-space:pre-line}
+#decorLayer{position:absolute;inset:0;pointer-events:none}
+.sticker{position:absolute;pointer-events:auto;touch-action:none;cursor:move;user-select:none;transform-origin:center center}
+.sticker.selected{outline:1px dashed #8a5cbf}
+.sticker img{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none}
+.sticker .emoji{font-size:100%;line-height:1}
+#certFooter{position:absolute;bottom:4%;left:5%;right:5%;font-size:10px;color:#8064a0}
+.toolbar{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.toolbar button{font-size:12px;padding:9px}
+.mission{display:flex;gap:10px;align-items:flex-start;padding:12px 0;border-bottom:1px solid #f0e8f7}
+.mission input{width:auto;margin:3px 0}
+.mission label{flex:1;line-height:1.5}
+.hidden{display:none!important}
+.gallery img{width:100%;border-radius:10px}
+footer{text-align:center;padding:24px;color:var(--muted);font-size:12px}
+@media(min-width:700px){main{padding:25px}.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}}
 </style>
 </head>
 <body>
-<header class="header">
-  <div class="header-inner">
-    <div class="brand">
-      <div class="brand-logo">♡</div>
-      <div>
-        <div class="brand-name">7HEAVEN PURPLE</div>
-        <div class="brand-sub">V&S BTSARMY⁷ · VOTE & STREAMING</div>
-      </div>
-    </div>
-    <div class="hero">
-      <div class="eyebrow">A little space for our purple heart</div>
-      <h1>Our effort,<br>our little memories.</h1>
-      <p>Tempat ARMY menyimpan bukti voting, membuat sertifikat, mencatat misi, dan merayakan setiap dukungan untuk BTS.</p>
-    </div>
-  </div>
+<header>
+  <h1>7HEAVEN PURPLE ♡</h1>
+  <p>A little space for ARMY to vote, stream, and grow together.</p>
 </header>
 
-<main class="container">
-<nav class="nav" aria-label="Navigasi utama">
-  <button class="active" data-page="home">⌂ Home</button>
-  <button data-page="maker">✧ Certificate Studio</button>
-  <button data-page="missions">♡ Daily Missions</button>
-  <button data-page="diary">✎ Voting Diary</button>
-  <button data-page="gallery">▧ My Gallery</button>
+<nav id="nav">
+  <button class="active" data-page="home">Beranda</button>
+  <button data-page="certificatePage">Sertifikat</button>
+  <button data-page="missionsPage">Misi</button>
+  <button data-page="diaryPage">Voting Diary</button>
+  <button data-page="galleryPage">Galeri</button>
+  <button data-page="adminPage">Admin</button>
 </nav>
 
-<section id="home" class="page active">
-  <div class="section-head"><h2>Welcome to 7HEAVEN</h2><p>Your small space to keep every effort meaningful.</p></div>
-  <div class="stats">
-    <div class="stat"><strong id="homePoints">0</strong><span>Mission points</span></div>
-    <div class="stat"><strong id="homeMissions">0</strong><span>Today's missions</span></div>
-    <div class="stat"><strong id="homeGallery">0</strong><span>Saved designs</span></div>
+<main>
+<section id="home" class="active">
+  <div class="hero">
+    <p class="muted">WELCOME TO 7HEAVEN PURPLE</p>
+    <h2>Keep supporting BTS, one mission at a time. 💜</h2>
+    <p class="muted">Selesaikan misi, kumpulkan pencapaian, dan simpan bukti dukunganmu.</p>
   </div>
-  <div class="quick-grid">
-    <div class="quick"><div class="quick-icon">✧</div><h3>Certificate Studio</h3><p>Upload bukti voting, tambahkan identitas dan dekorasi, lalu simpan hasilnya sebagai PNG.</p><button class="btn primary" data-go="maker">Buka studio ↗</button></div>
-    <div class="quick"><div class="quick-icon">♡</div><h3>Daily Missions</h3><p>Centang aktivitas dukunganmu dan kumpulkan poin pribadi di browser.</p><button class="btn soft" data-go="missions">Lihat misi ↗</button></div>
-    <div class="quick"><div class="quick-icon">✎</div><h3>Voting Diary</h3><p>Catat event, kategori, dan aktivitas voting yang ingin kamu ingat.</p><button class="btn soft" data-go="diary">Tulis diary ↗</button></div>
-    <div class="quick"><div class="quick-icon">▧</div><h3>My Gallery</h3><p>Lihat sertifikat yang sudah kamu simpan di browser ini.</p><button class="btn soft" data-go="gallery">Buka galeri ↗</button></div>
+  <div class="card">
+    <label>Nama member</label>
+    <input id="memberName" placeholder="Masukkan nama member">
+    <button onclick="saveMember()">Simpan nama</button>
+    <p class="muted">Nama ini digunakan untuk menampilkan profil di browser ini.</p>
   </div>
-  <div class="notice" style="margin-top:15px">♡ Fan-made community tool untuk ARMY. Poin di website ini bukan poin resmi voting. Bukti yang diunggah hanya diproses di browser dan tidak dikirim ke admin secara otomatis.</div>
+  <div class="card">
+    <p class="muted">TOTAL POIN KAMU</p>
+    <div class="points" id="homePoints">0 POIN</div>
+    <p><span class="level" id="homeLevel">Level 1 · Baby ARMY</span></p>
+    <div class="progress"><span id="levelBar" style="width:0%"></span></div>
+    <p class="muted" id="levelProgress">Mulai kumpulkan pencapaianmu!</p>
+    <h3>🏅 Badge kamu</h3>
+    <div class="badges" id="homeBadges"><span class="muted">Belum ada badge.</span></div>
+  </div>
+  <div class="grid">
+    <div class="card"><h3>🗳️ Vote Mission</h3><p class="muted">Cek misi voting yang tersedia.</p><button onclick="go('missionsPage')">Lihat misi</button></div>
+    <div class="card"><h3>🎵 Stream Mission</h3><p class="muted">Pantau daftar misi streaming BTS.</p><button onclick="go('missionsPage')">Lihat misi</button></div>
+    <div class="card"><h3>🪄 Certificate Studio</h3><p class="muted">Buat sertifikat bukti vote.</p><button onclick="go('certificatePage')">Buat sertifikat</button></div>
+  </div>
 </section>
 
-<section id="maker" class="page">
-  <div class="section-head"><h2>Certificate Studio</h2><p>Buat sertifikat bukti voting versimu sendiri. Pilih desain, masukkan bukti, lalu atur dekorasi.</p></div>
-  <div class="layout">
-    <div>
-      <div class="panel">
-        <h3>01 · Certificate details</h3>
-        <div class="field"><label for="memberName">Nama / nickname</label><input id="memberName" maxlength="60" placeholder="Nama ARMY kamu" value="ARMY"></div>
-        <div class="field"><label for="eventName">Nama event</label><input id="eventName" maxlength="80" placeholder="Contoh: MAMA 2026" value="BTS VOTING SUPPORT"></div>
-        <div class="field"><label for="categoryName">Kategori</label><input id="categoryName" maxlength="80" placeholder="Kategori voting"></div>
-        <div class="field"><label for="dateName">Tanggal</label><input id="dateName" type="date"></div>
-        <div class="field"><label for="watermark">Watermark / nama base</label><input id="watermark" maxlength="50" placeholder="7HEAVEN PURPLE" value="7HEAVEN PURPLE"></div>
-        <div class="field"><label for="proofUpload">Upload screenshot bukti voting</label><input id="proofUpload" type="file" accept="image/*"><div class="hint">Screenshot ditampilkan utuh tanpa crop. Gunakan gambar yang jelas dan tidak terlalu besar.</div></div>
+<section id="certificatePage">
+  <h2>Certificate Studio ♡</h2>
+  <p class="muted">Kanvas selalu vertikal 9:16. Foto bukti menyesuaikan area tanpa dipotong.</p>
+  <div class="two">
+    <div class="card">
+      <h3>Detail sertifikat</h3>
+      <label>Nama member</label><input id="certNameInput" placeholder="Nama / nickname" oninput="updateCert()">
+      <label>Event</label><input id="certEvent" placeholder="Contoh: MAMA 2026" oninput="updateCert()">
+      <label>Kategori</label><input id="certCategory" placeholder="Contoh: Fans' Choice" oninput="updateCert()">
+      <label>Tanggal</label><input id="certDate" type="date" oninput="updateCert()">
+      <label>Upload bukti vote</label><input id="proofUpload" type="file" accept="image/*">
+      <p class="muted">Format gambar: JPG, PNG, atau WEBP. Gambar tidak akan dipotong.</p>
+      <label>Template</label>
+      <select id="certTheme" onchange="changeTheme()">
+        <option value="lilac">Lilac Dream</option>
+        <option value="white">Purple Minimal</option>
+        <option value="pink">Lavender Blush</option>
+      </select>
+      <label>Warna dekorasi</label><input id="accent" type="color" value="#9b78c9" oninput="changeAccent()">
+      <h3>Tambah stiker</h3>
+      <div class="toolbar">
+        <button onclick="addEmoji('💜')">💜</button>
+        <button onclick="addEmoji('♡')">♡</button>
+        <button onclick="addEmoji('✦')">✦</button>
+        <button onclick="addEmoji('★')">★</button>
+        <button onclick="addEmoji('🦋')">🦋</button>
+        <button onclick="addEmoji('🎀')">🎀</button>
       </div>
-      <div class="panel">
-        <h3>02 · Choose a template</h3>
-        <div class="template-grid">
-          <button class="template active" data-template="classic"><div class="template-sample"></div>Classic</button>
-          <button class="template" data-template="soft"><div class="template-sample" style="border-style:solid;background:#fff8fc"></div>Soft Pink</button>
-          <button class="template" data-template="night"><div class="template-sample" style="background:#493064;border-color:#d7b6f0"></div>Purple Night</button>
-        </div>
-        <div class="field" style="margin-top:14px"><label for="accentColor">Warna aksen</label><input id="accentColor" type="color" value="#b99bd9"></div>
+      <label>Upload stiker dari galeri</label><input id="stickerUpload" type="file" accept="image/*">
+      <p class="muted">Pilih stiker untuk mengatur posisi, ukuran, dan rotasinya.</p>
+      <label>Ukuran stiker</label><input id="stickerSize" type="range" min="20" max="180" value="60" oninput="editSticker('size',this.value)">
+      <label>Rotasi stiker</label><input id="stickerRotation" type="range" min="0" max="360" value="0" oninput="editSticker('rotate',this.value)">
+      <div class="toolbar">
+        <button class="secondary" onclick="editSticker('front')">Ke depan</button>
+        <button class="secondary" onclick="editSticker('back')">Ke belakang</button>
+        <button class="danger" onclick="deleteSticker()">Hapus stiker</button>
       </div>
-      <div class="panel">
-        <h3>03 · Add decorations</h3>
-        <div class="sticker-grid" id="stickerPresets">
-          <button class="sticker-btn" data-sticker="♡">♡</button>
-          <button class="sticker-btn" data-sticker="✦">✦</button>
-          <button class="sticker-btn" data-sticker="✧">✧</button>
-          <button class="sticker-btn" data-sticker="💜">💜</button>
-          <button class="sticker-btn" data-sticker="🦋">🦋</button>
-          <button class="sticker-btn" data-sticker="🎀">🎀</button>
-          <button class="sticker-btn" data-sticker="🐰">🐰</button>
-          <button class="sticker-btn" data-sticker="☁️">☁️</button>
-          <button class="sticker-btn" data-sticker="⭐">⭐</button>
-          <button class="sticker-btn" data-sticker="🌙">🌙</button>
-        </div>
-        <div class="field" style="margin-top:13px"><label for="stickerUpload">Upload stiker sendiri (PNG disarankan)</label><input id="stickerUpload" type="file" accept="image/*"></div>
-        <div class="field"><label for="textDecoration">Tambahkan teks dekorasi</label><input id="textDecoration" maxlength="40" placeholder="Contoh: WE LOVE BTS"></div>
-        <button class="btn soft" id="addTextBtn" style="width:100%">＋ Tambahkan teks ke sertifikat</button>
-        <p class="hint">Ketuk dekorasi untuk memilihnya. Geser untuk memindahkan. Atur ukuran, rotasi, atau hapus lewat kontrol di bawah.</p>
-        <div class="field" style="margin-top:14px"><label for="decorSize">Ukuran dekorasi</label><input id="decorSize" type="range" min="12" max="90" value="28"></div>
-        <div class="field"><label for="decorRotate">Rotasi dekorasi</label><input id="decorRotate" type="range" min="-180" max="180" value="0"></div>
-        <div class="btn-row">
-          <button class="btn soft" id="deleteDecorBtn">Hapus pilihan</button>
-          <button class="btn soft" id="clearDecorBtn">Hapus semua</button>
-        </div>
-        <div id="decorMessage" class="message" aria-live="polite">Belum ada dekorasi dipilih.</div>
-      </div>
-      <div class="panel">
-        <h3>04 · Save your design</h3>
-        <div class="btn-row">
-          <button class="btn primary" id="downloadBtn">↓ Download PNG</button>
-          <button class="btn soft" id="saveGalleryBtn">♡ Simpan ke galeri</button>
-        </div>
-        <div id="makerMessage" class="message" aria-live="polite"></div>
-        <p class="hint">Simpan ke galeri menyimpan salinan di browser perangkat ini. Unduh PNG agar kamu punya salinan di galeri HP.</p>
+      <div class="toolbar">
+        <button onclick="downloadCert()">Download PNG</button>
+        <button class="secondary" onclick="saveGallery()">Simpan ke galeri</button>
       </div>
     </div>
-    <div>
-      <div class="panel">
-        <h3>Live preview · Certificate</h3>
-        <div class="certificate-wrap">
-          <div class="certificate" id="certificate">
-            <div class="certificate-header">7HEAVEN PURPLE PRESENTS</div>
-            <div class="certificate-title">Voting<br>Certificate</div>
-            <div class="certificate-sub">A LITTLE PROOF OF OUR SUPPORT</div>
-            <div class="proof-slot" id="proofSlot">
-              <img id="proofImage" alt="Screenshot bukti voting">
-              <div class="proof-placeholder" id="proofPlaceholder">♡<br>Screenshot bukti voting kamu<br>akan tampil di sini</div>
-            </div>
-            <div class="certificate-name" id="previewName">ARMY</div>
-            <div class="certificate-detail" id="previewEvent">BTS VOTING SUPPORT</div>
-            <div class="certificate-detail" id="previewCategory"></div>
-            <div class="certificate-detail" id="previewDate"></div>
-            <div class="certificate-footer" id="previewWatermark">7HEAVEN PURPLE · WITH BTS</div>
-          </div>
+    <div class="card">
+      <h3>Preview sertifikat</h3>
+      <div id="certificate">
+        <div class="subtitle">7HEAVEN PURPLE PRESENTS</div>
+        <h2>VOTING PROOF</h2>
+        <div class="proof" id="proofArea">
+          <div id="emptyProof">Upload screenshot bukti vote kamu di sini ♡</div>
+          <img id="proofPreview" class="hidden" alt="Bukti vote">
         </div>
-        <p class="preview-tip">Preview di atas adalah desain sertifikat. Screenshot tetap utuh di dalam bingkai. Kamu bisa memilih stiker lalu menggesernya langsung di sertifikat.</p>
+        <div id="certName">Nama Member</div>
+        <div id="certInfo">Event: —<br>Kategori: —<br>Tanggal: —</div>
+        <div id="decorLayer"></div>
+        <div id="certFooter">LET'S VOTE & SUPPORT BTS TOGETHER ♡</div>
       </div>
+      <p class="muted">Tekan dan geser stiker untuk memindahkannya. Gunakan kontrol ukuran dan rotasi di samping.</p>
     </div>
   </div>
 </section>
 
-<section id="missions" class="page">
-  <div class="section-head"><h2>Daily Missions</h2><p>Aktivitas kecil untuk mendukung BTS dengan konsisten.</p></div>
-  <div class="stats">
-    <div class="stat"><strong id="missionPoints">0</strong><span>Total poin</span></div>
-    <div class="stat"><strong id="missionCount">0/5</strong><span>Misi hari ini</span></div>
-    <div class="stat"><strong id="missionStreak">0</strong><span>Hari check-in</span></div>
+<section id="missionsPage">
+  <h2>Missions ♡</h2>
+  <p class="muted">Centang untuk mencatat progres pribadi. Centang tidak otomatis memberikan poin.</p>
+  <div class="card">
+    <h3>🗳️ Misi Vote</h3>
+    <div id="voteMissions"></div>
   </div>
-  <div class="panel">
-    <h3>Today's checklist</h3>
-    <div class="progress"><div class="progress-fill" id="missionProgress"></div></div>
-    <div id="missionList"></div>
-    <div class="btn-row"><button class="btn primary" id="checkinBtn">♡ Check-in hari ini</button><button class="btn soft" id="resetMissionsBtn">Reset checklist</button></div>
-    <div id="missionMessage" class="message" aria-live="polite"></div>
+  <div class="card">
+    <h3>🎵 Misi Streaming — ARIRANG</h3>
+    <p class="muted">Daftar awal yang bisa kamu ubah melalui pengaturan admin.</p>
+    <div id="streamMissions"></div>
   </div>
-  <div class="notice">Poin adalah pencapaian pribadi di website ini, bukan poin resmi MAMA, MMA, atau platform voting lainnya. Checklist baru tersedia setiap hari berdasarkan tanggal perangkat.</div>
 </section>
 
-<section id="diary" class="page">
-  <div class="section-head"><h2>Voting Diary</h2><p>Simpan catatan kegiatan voting dan streaming untuk dirimu sendiri.</p></div>
-  <div class="panel">
-    <h3>New diary entry</h3>
-    <form id="diaryForm">
-      <div class="field"><label for="diaryDate">Tanggal</label><input id="diaryDate" type="date" required></div>
-      <div class="field"><label for="diaryEvent">Event / platform</label><input id="diaryEvent" maxlength="100" placeholder="Contoh: MAMA 2026" required></div>
-      <div class="field"><label for="diaryActivity">Aktivitas</label><select id="diaryActivity"><option>Voting</option><option>Streaming</option><option>Voting & Streaming</option><option>Mission / Check-in</option><option>Lainnya</option></select></div>
-      <div class="field"><label for="diaryNotes">Catatan</label><textarea id="diaryNotes" maxlength="1000" rows="4" placeholder="Tulis progres atau catatanmu..."></textarea></div>
-      <button class="btn primary" type="submit">＋ Simpan catatan</button>
-    </form>
-    <div id="diaryMessage" class="message" aria-live="polite"></div>
+<section id="diaryPage">
+  <h2>Voting Diary ♡</h2>
+  <div class="card">
+    <label>Tanggal</label><input id="diaryDate" type="date">
+    <label>Event / platform</label><input id="diaryEvent" placeholder="Contoh: MAMA 2026">
+    <label>Catatan</label><textarea id="diaryNote" rows="3" placeholder="Catatan voting atau streaming hari ini..."></textarea>
+    <button onclick="addDiary()">Simpan catatan</button>
   </div>
-  <div class="panel"><h3>Saved entries</h3><div id="diaryList" class="empty">Belum ada catatan.</div></div>
+  <div id="diaryList"></div>
 </section>
 
-<section id="gallery" class="page">
-  <div class="section-head"><h2>My Gallery</h2><p>Kumpulan sertifikat yang kamu simpan dari studio ini.</p></div>
-  <div class="panel">
-    <div class="btn-row"><button class="btn soft" id="refreshGalleryBtn">↻ Perbarui galeri</button><button class="btn danger" id="clearGalleryBtn">Hapus semua</button></div>
-    <p class="hint">Galeri tersimpan di browser yang kamu gunakan. Membersihkan data browser dapat menghapus galeri ini.</p>
-    <div id="galleryList" class="gallery-grid" style="margin-top:14px"></div>
+<section id="galleryPage">
+  <h2>My Gallery ♡</h2>
+  <p class="muted">Sertifikat yang disimpan dari browser ini akan tampil di sini.</p>
+  <div class="grid gallery" id="gallery"></div>
+</section>
+
+<section id="adminPage">
+  <h2>Admin Control ♡</h2>
+  <div class="card">
+    <h3>⚠️ Mode dasar / penyimpanan lokal</h3>
+    <p class="muted">Panel ini hanya contoh lokal untuk pengembangan. Data tidak tersinkron ke perangkat member lain. Jangan gunakan PIN sederhana sebagai keamanan admin untuk website publik.</p>
+    <label>PIN admin demo</label><input id="adminPin" type="password" placeholder="Masukkan PIN demo">
+    <button onclick="unlockAdmin()">Buka panel demo</button>
+    <div id="adminControls" class="hidden">
+      <hr>
+      <h3>Kelola poin member di browser ini</h3>
+      <label>Nama member</label><input id="pointMember" placeholder="Nama member">
+      <label>Jumlah poin (+ atau -)</label><input id="pointAmount" type="number" value="10">
+      <label>Alasan</label><input id="pointReason" placeholder="Contoh: setoran vote sudah dicek">
+      <button onclick="changePoints()">Simpan perubahan poin</button>
+      <h3 style="margin-top:20px">Atur misi</h3>
+      <label>Jenis misi</label><select id="missionType"><option value="vote">Vote</option><option value="stream">Streaming</option></select>
+      <label>Nama misi</label><input id="missionTitle" placeholder="Nama event atau lagu">
+      <button onclick="addMission()">Tambah misi</button>
+      <h3 style="margin-top:20px">Riwayat perubahan poin</h3>
+      <div id="pointHistory"></div>
+    </div>
   </div>
 </section>
 </main>
-
-<footer>
-  <strong>7HEAVEN PURPLE · V&S BTSARMY⁷</strong><br>
-  Let's Stream & Support Together ♡<br>
-  Fan-made community tool. Not affiliated with BTS or official voting platforms.
-</footer>
+<footer>7HEAVEN PURPLE · VOTE & STREAM BTS 💜</footer>
 
 <script>
-(function(){
-"use strict";
 const $=id=>document.getElementById(id);
-const today=()=>new Date().toLocaleDateString("en-CA");
-const safeRead=(key,fallback)=>{try{const v=JSON.parse(localStorage.getItem(key));return v??fallback}catch(e){return fallback}};
-const safeWrite=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value));return true}catch(e){return false}};
-const state={
-  decorations:[],selected:null,proofUrl:null,template:"classic",
-  gallery:safeRead("hp_gallery_v1",[]),
-  diary:safeRead("hp_diary_v1",[]),
-  missions:safeRead("hp_missions_v1",{day:today(),done:[],points:0,streak:0,lastCheckin:""})
+const get=(k,d)=>{try{return JSON.parse(localStorage.getItem('7hp_'+k))??d}catch{return d}};
+const put=(k,v)=>localStorage.setItem('7hp_'+k,JSON.stringify(v));
+let selectedSticker=null,stickerCounter=0,proofData='',gallery=get('gallery',[]),diary=get('diary',[]);
+let missions=get('missions',null);
+if(!missions) missions={
+ vote:[
+  {id:'mama',title:'MAMA 2026 — Fans’ Choice',type:'vote'},
+  {id:'kca',title:'KCA 2026 — Vote BTS / SWIM',type:'vote'},
+  {id:'aaa',title:'AAA 2026 — Popularity Vote',type:'vote'}
+ ],
+ stream:[
+  {id:'swim',title:'BTS — SWIM',type:'stream'},
+  {id:'arirang1',title:'BTS — ARIRANG: misi streaming lagu 2',type:'stream'},
+  {id:'arirang2',title:'BTS — ARIRANG: misi streaming lagu 3',type:'stream'}
+ ]
 };
-const missionData=[
-  {title:"Check voting updates",desc:"Periksa informasi dari sumber resmi.",points:5},
-  {title:"Vote untuk BTS",desc:"Gunakan kesempatan voting yang tersedia.",points:10},
-  {title:"Streaming dengan benar",desc:"Ikuti panduan streaming yang berlaku.",points:10},
-  {title:"Bagikan informasi valid",desc:"Bantu ARMY dengan info dan link resmi.",points:5},
-  {title:"Catat progres hari ini",desc:"Tulis kegiatan di Voting Diary.",points:5}
-];
-function escapeHTML(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-function goPage(id){
-  document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.id===id));
-  document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===id));
-  if(id==="gallery")renderGallery();
-  if(id==="diary")renderDiary();
-  if(id==="missions")renderMissions();
-  if(id==="home")renderHome();
-  window.scrollTo({top:0,behavior:"smooth"});
-}
-document.querySelectorAll("[data-page]").forEach(b=>b.addEventListener("click",()=>goPage(b.dataset.page)));
-document.querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>goPage(b.dataset.go)));
+let checks=get('checks',{});
+let pointBook=get('pointBook',{});
+let pointHistory=get('pointHistory',[]);
+let diarySaved=false;
 
-$("dateName").value=today();
-$("diaryDate").value=today();
+function go(id){
+ document.querySelectorAll('main section').forEach(s=>s.classList.toggle('active',s.id===id));
+ document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===id));
+ if(id==='galleryPage')renderGallery();
+ if(id==='diaryPage')renderDiary();
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>go(b.dataset.page));
+function saveMember(){put('memberName',$('memberName').value.trim());renderHome();alert('Nama tersimpan di browser ini.')}
+$('memberName').value=get('memberName','');
+function currentName(){return $('memberName').value.trim()||'Member'}
+function currentPoints(){return Number(pointBook[currentName()]||0)}
+function levelFor(n){
+ const levels=[
+  {name:'Baby ARMY',min:0,max:100},
+  {name:'Purple Rookie',min:100,max:300},
+  {name:'Vote Warrior',min:300,max:600},
+  {name:'Purple Star',min:600,max:1000},
+  {name:'Diamond ARMY',min:1000,max:2000},
+  {name:'BTS Guardian',min:2000,max:Infinity}
+ ];
+ let i=levels.findIndex(l=>n>=l.min&&n<l.max);
+ return {...levels[Math.max(0,i)],number:Math.max(0,i)+1};
+}
+function renderHome(){
+ let n=currentPoints(),l=levelFor(n);
+ $('homePoints').textContent=n.toLocaleString('id-ID')+' POIN';
+ $('homeLevel').textContent='Level '+l.number+' · '+l.name;
+ let next=l.max===Infinity?l.min:l.max;
+ let pct=l.max===Infinity?100:Math.min(100,((n-l.min)/(l.max-l.min))*100);
+ $('levelBar').style.width=pct+'%';
+ $('levelProgress').textContent=l.max===Infinity?'Level tertinggi tercapai!':`${Math.max(0,next-n)} poin lagi menuju level berikutnya.`;
+ let b=[];
+ if(n>=50)b.push('💜 ARMY Heart');
+ if(n>=100)b.push('🗳️ Vote Hero');
+ if(n>=300)b.push('🎵 Stream Star');
+ if(n>=600)b.push('✦ Purple Star');
+ if(n>=1000)b.push('💎 Diamond ARMY');
+ $('homeBadges').innerHTML=b.length?b.map(x=>`<span class="badge">${x}</span>`).join(''):'<span class="muted">Selesaikan misi untuk membuka badge.</span>';
+}
+renderHome();
 
-function updatePreview(){
-  $("previewName").textContent=$("memberName").value.trim()||"ARMY";
-  $("previewEvent").textContent=$("eventName").value.trim()||"BTS VOTING SUPPORT";
-  $("previewCategory").textContent=$("categoryName").value.trim();
-  $("previewDate").textContent=$("dateName").value;
-  $("previewWatermark").textContent=($("watermark").value.trim()||"7HEAVEN PURPLE")+" · WITH BTS";
+function updateCert(){
+ $('certName').textContent=$('certNameInput').value.trim()||'Nama Member';
+ let date=$('certDate').value||'—';
+ $('certInfo').innerHTML='Event: '+escapeHtml($('certEvent').value||'—')+'<br>Kategori: '+escapeHtml($('certCategory').value||'—')+'<br>Tanggal: '+escapeHtml(date);
 }
-["memberName","eventName","categoryName","dateName","watermark"].forEach(id=>$(id).addEventListener("input",updatePreview));
-
-$("proofUpload").addEventListener("change",e=>{
-  const file=e.target.files&&e.target.files[0];
-  if(!file)return;
-  if(!file.type.startsWith("image/")){$("makerMessage").textContent="Pilih file gambar yang valid.";return}
-  if(file.size>12*1024*1024){$("makerMessage").textContent="Ukuran gambar maksimal 12 MB.";e.target.value="";return}
-  const reader=new FileReader();
-  reader.onload=()=>{
-    state.proofUrl=reader.result;
-    $("proofImage").src=state.proofUrl;
-    $("proofImage").style.display="block";
-    $("proofPlaceholder").style.display="none";
-    $("makerMessage").textContent="Screenshot berhasil dimuat.";
-  };
-  reader.onerror=()=>{$("makerMessage").textContent="Gambar gagal dibaca. Coba file lain."};
-  reader.readAsDataURL(file);
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+$('certDate').value=new Date().toISOString().slice(0,10);
+updateCert();
+$('proofUpload').addEventListener('change',e=>{
+ let f=e.target.files[0];if(!f)return;
+ if(!f.type.startsWith('image/'))return alert('Pilih file gambar.');
+ if(f.size>12*1024*1024)return alert('Ukuran gambar maksimal 12 MB.');
+ let r=new FileReader();r.onload=()=>{
+  proofData=r.result;$('proofPreview').src=proofData;
+  $('proofPreview').classList.remove('hidden');$('emptyProof').classList.add('hidden');
+ };r.readAsDataURL(f);
 });
-
-function applyTemplate(name){
-  state.template=name;
-  document.querySelectorAll("[data-template]").forEach(b=>b.classList.toggle("active",b.dataset.template===name));
-  const cert=$("certificate");
-  if(name==="classic"){
-    cert.style.backgroundColor="#fffdfd";cert.style.backgroundImage="radial-gradient(#d8c6e8 .65px,transparent .65px)";cert.style.backgroundSize="15px 15px";cert.style.color="#352b40";
-    $("accentColor").value="#b99bd9";
-  }else if(name==="soft"){
-    cert.style.backgroundColor="#fff8fc";cert.style.backgroundImage="linear-gradient(135deg,#fff8fc,#f7e9f4)";cert.style.backgroundSize="auto";
-    $("accentColor").value="#c17ca9";
-  }else{
-    cert.style.backgroundColor="#493064";cert.style.backgroundImage="linear-gradient(145deg,#493064,#654780)";cert.style.backgroundSize="auto";
-    $("accentColor").value="#e2c4fa";
-  }
-  applyAccent();
+function changeTheme(){
+ let t=$('certTheme').value,c=$('certificate');
+ c.style.background=t==='white'?'#fff':t==='pink'?'linear-gradient(145deg,#fff7fb,#f0e4ff)':'linear-gradient(145deg,#fff,#f5edff)';
 }
-function applyAccent(){
-  const color=$("accentColor").value;
-  document.querySelectorAll(".certificate-title,.certificate-name,.certificate-header,.certificate-sub,.certificate-detail,.certificate-footer").forEach(el=>el.style.color=color);
-  $("certificate").style.borderColor=color;
-  $("proofSlot").style.borderColor=color;
+function changeAccent(){
+ let c=$('accent').value;$('certificate').style.borderColor=c;
+ $('certificate h2').style.color=c;$('certFooter').style.color=c;
 }
-document.querySelectorAll("[data-template]").forEach(b=>b.addEventListener("click",()=>applyTemplate(b.dataset.template)));
-$("accentColor").addEventListener("input",applyAccent);
-
-let decorCounter=0;
-function selectDecor(id){
-  state.selected=id;
-  state.decorations.forEach(d=>d.el.classList.toggle("selected",d.id===id));
-  const d=state.decorations.find(x=>x.id===id);
-  if(d){
-    $("decorSize").value=parseInt(d.el.style.fontSize)||28;
-    $("decorRotate").value=d.rotation||0;
-    $("decorMessage").textContent="Dekorasi dipilih. Geser langsung di preview.";
-  }else $("decorMessage").textContent="Belum ada dekorasi dipilih.";
+function addSticker(content,isImage=false){
+ const el=document.createElement('div');el.className='sticker';el.dataset.id=String(++stickerCounter);
+ el.style.left='10%';el.style.top='30%';el.style.width='60px';el.style.height='60px';
+ if(isImage){let img=document.createElement('img');img.src=content;el.appendChild(img)}
+ else{el.classList.add('emoji');el.textContent=content;el.style.fontSize='42px';el.style.width='55px';el.style.height='55px'}
+ $('decorLayer').appendChild(el);selectSticker(el);enableDrag(el);
 }
-function addDecor(content,type="text",imageData=null){
-  const el=document.createElement("div");
-  el.className="decor";
-  el.style.left="8%";el.style.top="8%";
-  if(type==="image"){
-    const img=document.createElement("img");
-    img.src=imageData;img.alt="Stiker";img.draggable=false;
-    img.style.width="65px";img.style.height="65px";img.style.objectFit="contain";
-    el.appendChild(img);el.style.width="65px";
-  }else{
-    el.textContent=content;
-    el.style.fontSize=type==="text"?"14px":"28px";
-    if(type==="text"){el.style.fontWeight="bold";el.style.color=$("accentColor").value;el.style.maxWidth="80%;white-space:normal"}
-  }
-  const id=++decorCounter;
-  const item={id,el,type,rotation:0};
-  state.decorations.push(item);
-  $("certificate").appendChild(el);
-  enableDrag(item);
-  el.addEventListener("pointerdown",()=>selectDecor(id));
-  selectDecor(id);
+function addEmoji(e){addSticker(e)}
+$('stickerUpload').addEventListener('change',e=>{
+ const f=e.target.files[0];if(!f)return;
+ if(f.size>5*1024*1024)return alert('Ukuran stiker maksimal 5 MB.');
+ const r=new FileReader();r.onload=()=>addSticker(r.result,true);r.readAsDataURL(f);e.target.value='';
+});
+function selectSticker(el){
+ document.querySelectorAll('.sticker').forEach(s=>s.classList.remove('selected'));
+ selectedSticker=el;el.classList.add('selected');
+ let w=parseInt(el.style.width)||60;
+ $('stickerSize').value=w;
+ $('stickerRotation').value=Number(el.dataset.rotation||0);
 }
-function enableDrag(item){
-  const el=item.el;let startX=0,startY=0,startLeft=0,startTop=0,moving=false;
-  el.addEventListener("pointerdown",e=>{
-    e.stopPropagation();
-    selectDecor(item.id);
-    const rect=$("certificate").getBoundingClientRect();
-    const er=el.getBoundingClientRect();
-    startX=e.clientX;startY=e.clientY;
-    startLeft=(er.left-rect.left)/rect.width*100;
-    startTop=(er.top-rect.top)/rect.height*100;
-    moving=true;
-    try{el.setPointerCapture(e.pointerId)}catch(err){}
-  });
-  el.addEventListener("pointermove",e=>{
-    if(!moving)return;
-    const rect=$("certificate").getBoundingClientRect();
-    const x=startLeft+(e.clientX-startX)/rect.width*100;
-    const y=startTop+(e.clientY-startY)/rect.height*100;
-    el.style.left=Math.max(0,Math.min(94,x))+"%";
-    el.style.top=Math.max(0,Math.min(94,y))+"%";
-  });
-  const stop=()=>{moving=false};
-  el.addEventListener("pointerup",stop);el.addEventListener("pointercancel",stop);
+function enableDrag(el){
+ let sx=0,sy=0,ox=0,oy=0,drag=false;
+ el.addEventListener('pointerdown',e=>{
+  e.preventDefault();selectSticker(el);drag=true;sx=e.clientX;sy=e.clientY;
+  ox=parseFloat(el.style.left)||0;oy=parseFloat(el.style.top)||0;
+  el.setPointerCapture(e.pointerId);
+ });
+ el.addEventListener('pointermove',e=>{
+  if(!drag)return;
+  const box=$('certificate').getBoundingClientRect();
+  el.style.left=Math.max(0,Math.min(90,ox+(e.clientX-sx)/box.width*100))+'%';
+  el.style.top=Math.max(0,Math.min(90,oy+(e.clientY-sy)/box.height*100))+'%';
+ });
+ el.addEventListener('pointerup',()=>drag=false);
+ el.addEventListener('pointercancel',()=>drag=false);
 }
-$("stickerPresets").addEventListener("click",e=>{
-  const b=e.target.closest("[data-sticker]");
-  if(b)addDecor(b.dataset.sticker,"sticker");
-});
-$("addTextBtn").addEventListener("click",()=>{
-  const text=$("textDecoration").value.trim();
-  if(!text){$("decorMessage").textContent="Tulis teks dekorasi terlebih dahulu.";return}
-  addDecor(text,"text");$("textDecoration").value="";
-});
-$("stickerUpload").addEventListener("change",e=>{
-  const file=e.target.files&&e.target.files[0];if(!file)return;
-  if(!file.type.startsWith("image/")){$("decorMessage").textContent="Pilih gambar stiker yang valid.";return}
-  if(file.size>5*1024*1024){$("decorMessage").textContent="Ukuran stiker maksimal 5 MB.";e.target.value="";return}
-  const reader=new FileReader();
-  reader.onload=()=>addDecor("", "image",reader.result);
-  reader.onerror=()=>{$("decorMessage").textContent="Stiker gagal dibaca."};
-  reader.readAsDataURL(file);e.target.value="";
-});
-$("certificate").addEventListener("pointerdown",e=>{
-  if(e.target===$("certificate"))selectDecor(null);
-});
-$("decorSize").addEventListener("input",()=>{
-  const d=state.decorations.find(x=>x.id===state.selected);if(!d)return;
-  const size=$("decorSize").value;
-  if(d.type==="image"){d.el.style.width=size+"px";const img=d.el.querySelector("img");img.style.width=size+"px";img.style.height=size+"px"}
-  else d.el.style.fontSize=size+"px";
-});
-$("decorRotate").addEventListener("input",()=>{
-  const d=state.decorations.find(x=>x.id===state.selected);if(!d)return;
-  d.rotation=Number($("decorRotate").value);
-  d.el.style.transform="rotate("+d.rotation+"deg)";
-});
-$("deleteDecorBtn").addEventListener("click",()=>{
-  const i=state.decorations.findIndex(x=>x.id===state.selected);
-  if(i<0)return;
-  state.decorations[i].el.remove();state.decorations.splice(i,1);selectDecor(null);
-});
-$("clearDecorBtn").addEventListener("click",()=>{
-  state.decorations.forEach(d=>d.el.remove());state.decorations=[];selectDecor(null);
-});
-
-function loadImage(src){
-  return new Promise((resolve,reject)=>{
-    const img=new Image();img.onload=()=>resolve(img);img.onerror=reject;img.src=src;
-  });
+function editSticker(type,val){
+ if(!selectedSticker)return;
+ if(type==='size'){
+  selectedSticker.style.width=val+'px';selectedSticker.style.height=val+'px';
+  if(selectedSticker.classList.contains('emoji'))selectedSticker.style.fontSize=Math.max(16,val*.75)+'px';
+ }
+ if(type==='rotate'){
+  selectedSticker.dataset.rotation=val;
+  selectedSticker.style.transform=`rotate(${val}deg)`;
+ }
+ if(type==='front')selectedSticker.style.zIndex=String(Date.now());
+ if(type==='back')selectedSticker.style.zIndex='0';
 }
-async function renderCertificateBlob(){
-  const cert=$("certificate");
-  const rect=cert.getBoundingClientRect();
-  const scale=2;
-  const canvas=document.createElement("canvas");
-  canvas.width=Math.round(rect.width*scale);canvas.height=Math.round(rect.height*scale);
-  const ctx=canvas.getContext("2d");
-  ctx.scale(scale,scale);
-  const bg=getComputedStyle(cert).backgroundColor||"#fffdfd";
-  ctx.fillStyle=bg;ctx.fillRect(0,0,rect.width,rect.height);
-  if(state.template==="classic"){
-    ctx.fillStyle="#e2d5ee";
-    for(let x=8;x<rect.width;x+=15)for(let y=8;y<rect.height;y+=15){ctx.beginPath();ctx.arc(x,y,.65,0,Math.PI*2);ctx.fill()}
-  }else if(state.template==="soft"){
-    const g=ctx.createLinearGradient(0,0,rect.width,rect.height);g.addColorStop(0,"#fff8fc");g.addColorStop(1,"#f7e9f4");ctx.fillStyle=g;ctx.fillRect(0,0,rect.width,rect.height);
-  }else{
-    const g=ctx.createLinearGradient(0,0,rect.width,rect.height);g.addColorStop(0,"#493064");g.addColorStop(1,"#654780");ctx.fillStyle=g;ctx.fillRect(0,0,rect.width,rect.height);
-  }
-  const accent=$("accentColor").value;
-  ctx.strokeStyle=accent;ctx.lineWidth=5;ctx.strokeRect(3,3,rect.width-6,rect.height-6);
-  ctx.lineWidth=1.3;ctx.strokeRect(8,8,rect.width-16,rect.height-16);
-  ctx.textAlign="center";ctx.textBaseline="middle";
-  const cx=rect.width/2;
-  function text(txt,y,font,color,maxWidth=rect.width*.88){
-    ctx.fillStyle=color;ctx.font=font;
-    let s=String(txt||"");
-    while(ctx.measureText(s).width>maxWidth&&s.length>1){
-      ctx.font=font.replace(/(\d+(?:\.\d+)?)px/,(_,n)=>(Math.max(7,Number(n)-1))+"px");
-      if(ctx.measureText(s).width<=maxWidth)break;
-      s=s.slice(0,-1);
-    }
-    ctx.fillText(s,cx,y,maxWidth);
-  }
-  const headerSize=Math.max(7,rect.width*.025);
-  text("7HEAVEN PURPLE PRESENTS",rect.height*.09,"800 "+headerSize+"px Arial",accent);
-  text("Voting",rect.height*.17,"500 "+Math.max(19,rect.width*.075)+"px Georgia",accent);
-  text("Certificate",rect.height*.23,"500 "+Math.max(19,rect.width*.075)+"px Georgia",accent);
-  text("A LITTLE PROOF OF OUR SUPPORT",rect.height*.28,Math.max(7,rect.width*.022)+"px Arial",accent);
-  const slot=$("proofSlot").getBoundingClientRect();
-  const x=slot.left-rect.left,y=slot.top-rect.top,w=slot.width,h=slot.height;
-  ctx.fillStyle="#f5f0fa";ctx.fillRect(x,y,w,h);
-  ctx.strokeStyle=accent;ctx.lineWidth=1;ctx.setLineDash([4,3]);ctx.strokeRect(x,y,w,h);ctx.setLineDash([]);
-  if(state.proofUrl){
-    try{
-      const img=await loadImage(state.proofUrl);
-      const ratio=Math.min((w-2)/img.width,(h-2)/img.height);
-      const iw=img.width*ratio,ih=img.height*ratio;
-      ctx.fillStyle="#ffffff";ctx.fillRect(x,y,w,h);
-      ctx.drawImage(img,x+(w-iw)/2,y+(h-ih)/2,iw,ih);
-    }catch(e){}
-  }else{
-    ctx.fillStyle="#9989a7";ctx.font="11px Arial";
-    ctx.fillText("Upload screenshot bukti voting",cx,y+h/2);
-  }
-  text($("memberName").value.trim()||"ARMY",rect.height*.77,"bold "+Math.max(15,rect.width*.06)+"px Georgia",accent);
-  text($("eventName").value.trim()||"BTS VOTING SUPPORT",rect.height*.82,Math.max(8,rect.width*.027)+"px Arial",accent);
-  text($("categoryName").value.trim(),rect.height*.855,Math.max(7,rect.width*.023)+"px Arial",accent);
-  text($("dateName").value,rect.height*.885,Math.max(7,rect.width*.023)+"px Arial",accent);
-  text(($("watermark").value.trim()||"7HEAVEN PURPLE")+" · WITH BTS",rect.height*.94,Math.max(7,rect.width*.022)+"px Arial",accent);
-  for(const d of state.decorations){
-    const dr=d.el.getBoundingClientRect();
-    const dx=dr.left-rect.left,dy=dr.top-rect.top;
-    ctx.save();
-    ctx.translate(dx+dr.width/2,dy+dr.height/2);
-    ctx.rotate((d.rotation||0)*Math.PI/180);
-    if(d.type==="image"){
-      const img=d.el.querySelector("img");
-      if(img&&img.complete&&img.naturalWidth){
-        const dw=dr.width,dh=dr.height;ctx.drawImage(img,-dw/2,-dh/2,dw,dh);
-      }
-    }else{
-      const style=getComputedStyle(d.el);
-      ctx.font=(style.fontWeight==="bold"?"bold ":"")+style.fontSize+" Arial";
-      ctx.textAlign="center";ctx.textBaseline="middle";
-      ctx.fillStyle=d.type==="text"?style.color:"#493064";
-      ctx.fillText(d.el.textContent,0,0,rect.width*.8);
-    }
-    ctx.restore();
-  }
-  return new Promise((resolve,reject)=>canvas.toBlob(blob=>blob?resolve(blob):reject(new Error("PNG gagal dibuat")), "image/png"));
-}
-async function downloadCertificate(){
-  $("makerMessage").textContent="Sedang menyiapkan PNG...";
-  try{
-    const blob=await renderCertificateBlob();
-    const url=URL.createObjectURL(blob);
-    const a=document.createElement("a");a.href=url;
-    a.download="7HEAVEN-PURPLE-"+(today())+".png";
-    document.body.appendChild(a);a.click();a.remove();
-    setTimeout(()=>URL.revokeObjectURL(url),1500);
-    $("makerMessage").textContent="PNG siap diunduh. Periksa folder Download atau galeri file HP kamu.";
-  }catch(e){$("makerMessage").textContent="Gagal membuat PNG. Coba lagi atau kurangi ukuran gambar."}
-}
-$("downloadBtn").addEventListener("click",downloadCertificate);
-$("saveGalleryBtn").addEventListener("click",async()=>{
-  $("makerMessage").textContent="Menyimpan desain ke galeri...";
-  try{
-    const blob=await renderCertificateBlob();
-    const reader=new FileReader();
-    reader.onload=()=>{
-      const item={id:Date.now(),name:$("memberName").value.trim()||"ARMY",event:$("eventName").value.trim()||"BTS VOTING SUPPORT",date:today(),image:reader.result};
-      state.gallery.unshift(item);
-      if(state.gallery.length>20)state.gallery=state.gallery.slice(0,20);
-      if(safeWrite("hp_gallery_v1",state.gallery)){
-        $("makerMessage").textContent="Berhasil disimpan ke galeri browser.";
-        renderHome();
-      }else{
-        state.gallery.shift();
-        $("makerMessage").textContent="Penyimpanan browser penuh. Unduh PNG sebagai gantinya.";
-      }
-    };
-    reader.onerror=()=>{$("makerMessage").textContent="Gagal menyimpan desain."};
-    reader.readAsDataURL(blob);
-  }catch(e){$("makerMessage").textContent="Gagal menyimpan. Coba lagi."}
-});
-
-function resetMissionsIfNeeded(){
-  if(state.missions.day!==today()){
-    state.missions.day=today();state.missions.done=[];
-    safeWrite("hp_missions_v1",state.missions);
-  }
-}
+function deleteSticker(){if(selectedSticker){selectedSticker.remove();selectedSticker=null}}
 function renderMissions(){
-  resetMissionsIfNeeded();
-  $("missionPoints").textContent=state.missions.points||0;
-  $("missionCount").textContent=(state.missions.done||[]).length+"/5";
-  $("missionStreak").textContent=state.missions.streak||0;
-  $("missionProgress").style.width=((state.missions.done||[]).length/missionData.length*100)+"%";
-  $("missionList").innerHTML=missionData.map((m,i)=>{
-    const checked=state.missions.done.includes(i);
-    return '<label class="mission-item"><input type="checkbox" data-mission="'+i+'" '+(checked?"checked":"")+'><span><strong>'+escapeHTML(m.title)+'</strong><small>'+escapeHTML(m.desc)+'</small></span><span class="points">+'+m.points+' pts</span></label>';
-  }).join("");
-  $("missionList").querySelectorAll("[data-mission]").forEach(input=>input.addEventListener("change",()=>{
-    const i=Number(input.dataset.mission);
-    const done=new Set(state.missions.done);
-    if(input.checked){if(!done.has(i)){done.add(i);state.missions.points=(state.missions.points||0)+missionData[i].points}}
-    else{done.delete(i);state.missions.points=Math.max(0,(state.missions.points||0)-missionData[i].points)}
-    state.missions.done=[...done];
-    safeWrite("hp_missions_v1",state.missions);
-    $("missionMessage").textContent="Checklist diperbarui.";
-    renderMissions();renderHome();
-  }));
+ ['vote','stream'].forEach(type=>{
+  const target=$(type==='vote'?'voteMissions':'streamMissions');
+  target.innerHTML='';
+  missions[type].forEach(m=>{
+   const row=document.createElement('div');row.className='mission';
+   const cb=document.createElement('input');cb.type='checkbox';
+   cb.checked=!!checks[m.id];cb.onchange=()=>{checks[m.id]=cb.checked;put('checks',checks)};
+   const label=document.createElement('label');label.textContent=m.title;
+   row.append(cb,label);target.appendChild(row);
+  });
+ });
 }
-$("checkinBtn").addEventListener("click",()=>{
-  if(state.missions.lastCheckin===today()){
-    $("missionMessage").textContent="Kamu sudah check-in hari ini. Sampai besok, ARMY! ♡";return;
-  }
-  const yesterday=new Date();yesterday.setDate(yesterday.getDate()-1);
-  const y=yesterday.toLocaleDateString("en-CA");
-  state.missions.streak=state.missions.lastCheckin===y?(state.missions.streak||0)+1:1;
-  state.missions.lastCheckin=today();state.missions.points=(state.missions.points||0)+5;
-  safeWrite("hp_missions_v1",state.missions);
-  $("missionMessage").textContent="Check-in berhasil! +5 poin pribadi ♡";
-  renderMissions();renderHome();
-});
-$("resetMissionsBtn").addEventListener("click",()=>{
-  resetMissionsIfNeeded();
-  if(!confirm("Reset checklist hari ini? Poin dari misi yang dicentang akan dikurangi."))return;
-  for(const i of state.missions.done)state.missions.points=Math.max(0,(state.missions.points||0)-missionData[i].points);
-  state.missions.done=[];
-  safeWrite("hp_missions_v1",state.missions);renderMissions();renderHome();
-});
-
-$("diaryForm").addEventListener("submit",e=>{
-  e.preventDefault();
-  const item={id:Date.now(),date:$("diaryDate").value,event:$("diaryEvent").value.trim(),activity:$("diaryActivity").value,notes:$("diaryNotes").value.trim()};
-  state.diary.unshift(item);
-  if(state.diary.length>100)state.diary=state.diary.slice(0,100);
-  if(!safeWrite("hp_diary_v1",state.diary)){
-    state.diary.shift();$("diaryMessage").textContent="Penyimpanan penuh. Hapus beberapa catatan lalu coba lagi.";return;
-  }
-  $("diaryMessage").textContent="Catatan berhasil disimpan.";
-  $("diaryEvent").value="";$("diaryNotes").value="";
-  renderDiary();renderHome();
-});
+renderMissions();
+function unlockAdmin(){
+ if($('adminPin').value!=='7HP-DEMO')return alert('PIN demo salah. Untuk contoh ini, PIN-nya 7HP-DEMO.');
+ $('adminControls').classList.remove('hidden');renderHistory();
+}
+function changePoints(){
+ const name=$('pointMember').value.trim(),amount=Number($('pointAmount').value),reason=$('pointReason').value.trim();
+ if(!name||!Number.isFinite(amount)||!amount)return alert('Isi nama member dan jumlah poin.');
+ pointBook[name]=Math.max(0,Number(pointBook[name]||0)+amount);
+ put('pointBook',pointBook);
+ pointHistory.unshift({name,amount,reason:reason||'Perubahan poin',date:new Date().toLocaleString('id-ID')});
+ pointHistory=pointHistory.slice(0,100);put('pointHistory',pointHistory);
+ renderHistory();renderHome();alert('Poin diperbarui di browser ini.');
+}
+function renderHistory(){
+ $('pointHistory').innerHTML=pointHistory.length?pointHistory.map(h=>`<div class="mission"><div><b>${escapeHtml(h.name)}</b><br><span class="muted">${escapeHtml(h.reason)} · ${escapeHtml(h.date)}</span></div><b>${h.amount>0?'+':''}${h.amount}</b></div>`).join(''):'<p class="muted">Belum ada riwayat poin.</p>';
+}
+function addMission(){
+ const type=$('missionType').value,title=$('missionTitle').value.trim();
+ if(!title)return alert('Masukkan nama misi.');
+ missions[type].push({id:'custom-'+Date.now(),title,type});
+ put('missions',missions);$('missionTitle').value='';renderMissions();alert('Misi ditambahkan.');
+}
+function addDiary(){
+ const date=$('diaryDate').value||new Date().toISOString().slice(0,10);
+ const event=$('diaryEvent').value.trim(),note=$('diaryNote').value.trim();
+ if(!event&&!note)return alert('Isi event atau catatan dulu.');
+ diary.unshift({date,event,note});put('diary',diary);
+ $('diaryEvent').value='';$('diaryNote').value='';renderDiary();
+}
 function renderDiary(){
-  if(!state.diary.length){$("diaryList").className="empty";$("diaryList").textContent="Belum ada catatan.";return}
-  $("diaryList").className="";
-  $("diaryList").innerHTML=state.diary.map(d=>
-    '<div class="diary-item"><strong>'+escapeHTML(d.event)+'</strong><div class="hint">'+escapeHTML(d.date)+' · '+escapeHTML(d.activity)+'</div><p>'+escapeHTML(d.notes||"Tanpa catatan.")+'</p><button class="btn danger" data-delete-diary="'+d.id+'">Hapus catatan</button></div>'
-  ).join("");
-  $("diaryList").querySelectorAll("[data-delete-diary]").forEach(b=>b.addEventListener("click",()=>{
-    const id=Number(b.dataset.deleteDiary);
-    if(!confirm("Hapus catatan ini?"))return;
-    state.diary=state.diary.filter(d=>d.id!==id);
-    safeWrite("hp_diary_v1",state.diary);renderDiary();renderHome();
-  }));
+ $('diaryList').innerHTML=diary.length?diary.map((d,i)=>`<div class="card"><b>${escapeHtml(d.event||'Catatan voting')}</b><p class="muted">${escapeHtml(d.date)}</p><p>${escapeHtml(d.note)}</p><button class="danger" onclick="deleteDiary(${i})">Hapus</button></div>`).join(''):'<p class="muted">Belum ada catatan.</p>';
+}
+function deleteDiary(i){diary.splice(i,1);put('diary',diary);renderDiary()}
+async function downloadCert(){
+ try{
+  const node=$('certificate'),rect=node.getBoundingClientRect();
+  const scale=2,canvas=document.createElement('canvas');
+  canvas.width=rect.width*scale;canvas.height=canvas.width*16/9;
+  const ctx=canvas.getContext('2d');
+  ctx.scale(scale,scale);
+  const w=rect.width,h=rect.width*16/9;
+  const theme=$('certTheme').value;
+  ctx.fillStyle=theme==='white'?'#fff':theme==='pink'?'#fff4fb':'#f8f2ff';
+  ctx.fillRect(0,0,w,h);
+  ctx.strokeStyle=$('accent').value;ctx.lineWidth=5;ctx.strokeRect(3,3,w-6,h-6);
+  ctx.lineWidth=1;ctx.strokeRect(8,8,w-16,h-16);
+  ctx.textAlign='center';ctx.fillStyle=$('accent').value;
+  ctx.font='12px Arial';ctx.fillText('7HEAVEN PURPLE PRESENTS',w/2,h*.055);
+  ctx.font='bold 25px Arial';ctx.fillText('VOTING PROOF',w/2,h*.105);
+  const px=w*.07,py=h*.15,pw=w*.86,ph=h*.57;
+  ctx.fillStyle='#eee5f7';ctx.fillRect(px,py,pw,ph);
+  if(proofData){
+   const img=await loadImage(proofData);
+   const ratio=Math.min(pw/img.width,ph/img.height);
+   const iw=img.width*ratio,ih=img.height*ratio;
+   ctx.drawImage(img,px+(pw-iw)/2,py+(ph-ih)/2,iw,ih);
+  }else{
+   ctx.fillStyle='#79668e';ctx.font='13px Arial';ctx.fillText('Upload bukti vote',w/2,py+ph/2);
+  }
+  ctx.fillStyle=$('accent').value;ctx.font='bold 18px Arial';
+  ctx.fillText($('certName').textContent,w/2,h*.77);
+  ctx.fillStyle='#5f4b72';ctx.font='12px Arial';
+  const lines=[
+   'Event: '+($('certEvent').value||'—'),
+   'Kategori: '+($('certCategory').value||'—'),
+   'Tanggal: '+($('certDate').value||'—')
+  ];
+  lines.forEach((line,i)=>ctx.fillText(line,w/2,h*.81+i*17));
+  document.querySelectorAll('.sticker').forEach(el=>{
+   const box=el.getBoundingClientRect(),cr=node.getBoundingClientRect();
+   const x=(box.left-cr.left+box.width/2),y=(box.top-cr.top+box.height/2);
+   ctx.save();ctx.translate(x,y);ctx.rotate((Number(el.dataset.rotation||0))*Math.PI/180);
+   if(el.querySelector('img')){
+    try{ctx.drawImage(el.querySelector('img'),-box.width/2,-box.height/2,box.width,box.height)}catch{}
+   }else{ctx.font=`${parseFloat(el.style.fontSize)||42}px Arial`;ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillStyle='#8054b8';ctx.fillText(el.textContent,0,0)}
+   ctx.restore();
+  });
+  ctx.font='10px Arial';ctx.fillStyle=$('accent').value;
+  ctx.fillText("LET'S VOTE & SUPPORT BTS TOGETHER ♡",w/2,h*.96);
+  const a=document.createElement('a');a.download='7HEAVEN-PURPLE-certificate.png';a.href=canvas.toDataURL('image/png');a.click();
+ }catch(e){alert('Gagal membuat PNG. Coba gunakan gambar yang lebih kecil.')}
+}
+function loadImage(src){return new Promise((resolve,reject)=>{const i=new Image();i.onload=()=>resolve(i);i.onerror=reject;i.src=src})}
+function saveGallery(){
+ downloadCert();
+ alert('Sertifikat sedang diunduh. Untuk menyimpan ke galeri website, gunakan tombol ini lagi setelah fitur penyimpanan gambar diaktifkan.');
 }
 function renderGallery(){
-  const el=$("galleryList");
-  if(!state.gallery.length){el.className="empty";el.textContent="Belum ada desain tersimpan. Buat sertifikat terlebih dahulu.";return}
-  el.className="gallery-grid";
-  el.innerHTML=state.gallery.map(g=>
-    '<div class="gallery-item"><img src="'+g.image+'" alt="Sertifikat '+escapeHTML(g.name)+'"><p><strong>'+escapeHTML(g.name)+'</strong><br>'+escapeHTML(g.event)+'<br>'+escapeHTML(g.date)+'</p><div class="btn-row"><button class="btn soft" data-download-gallery="'+g.id+'">Download</button><button class="btn danger" data-delete-gallery="'+g.id+'">Hapus</button></div></div>'
-  ).join("");
-  el.querySelectorAll("[data-download-gallery]").forEach(b=>b.addEventListener("click",()=>{
-    const g=state.gallery.find(x=>x.id===Number(b.dataset.downloadGallery));if(!g)return;
-    const a=document.createElement("a");a.href=g.image;a.download="7HEAVEN-"+g.date+".png";document.body.appendChild(a);a.click();a.remove();
-  }));
-  el.querySelectorAll("[data-delete-gallery]").forEach(b=>b.addEventListener("click",()=>{
-    if(!confirm("Hapus desain ini dari galeri?"))return;
-    state.gallery=state.gallery.filter(g=>g.id!==Number(b.dataset.deleteGallery));
-    safeWrite("hp_gallery_v1",state.gallery);renderGallery();renderHome();
-  }));
+ $('gallery').innerHTML=gallery.length?gallery.map((g,i)=>`<div class="card"><img src="${g.data}" alt="Sertifikat"><p>${escapeHtml(g.name)}</p><button class="danger" onclick="removeGallery(${i})">Hapus</button></div>`).join(''):'<div class="card"><p class="muted">Belum ada sertifikat tersimpan.</p></div>';
 }
-$("refreshGalleryBtn").addEventListener("click",renderGallery);
-$("clearGalleryBtn").addEventListener("click",()=>{
-  if(!state.gallery.length)return;
-  if(!confirm("Hapus seluruh desain yang tersimpan di galeri browser ini?"))return;
-  state.gallery=[];safeWrite("hp_gallery_v1",state.gallery);renderGallery();renderHome();
-});
-function renderHome(){
-  resetMissionsIfNeeded();
-  $("homePoints").textContent=state.missions.points||0;
-  $("homeMissions").textContent=(state.missions.done||[]).length+"/5";
-  $("homeGallery").textContent=state.gallery.length;
-}
-applyTemplate("classic");
-updatePreview();
-renderMissions();
-renderDiary();
-renderGallery();
-renderHome();
-})();
+function removeGallery(i){gallery.splice(i,1);put('gallery',gallery);renderGallery()}
 </script>
 </body>
 </html>
