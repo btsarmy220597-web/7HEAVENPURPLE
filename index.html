@@ -47,13 +47,17 @@
     .cert-frame-softpink { background: #FFF0F5; border: 4px solid #FFB6C1; }
     .cert-frame-white { background: #FFFFFF; border: 4px solid #E2E8F0; }
 
-    /* AUTO CROP 9:16 CONTAINER */
+    /* WADAH SERTIFIKAT UTAMA & FOTO - DIPAKSA OVERFLOW VISIBLE SUPAYA STIKER BEBAS KELUAR */
+    #certificateCanvas {
+      overflow: visible !important;
+      position: relative;
+    }
     .crop-9-16-container {
       width: 100%;
       max-width: 250px;
       aspect-ratio: 9 / 16;
       position: relative;
-      overflow: hidden;
+      overflow: hidden; /* Hanya foto internal yang di crop 9:16 */
       border-radius: 1.25rem;
       background: rgba(241, 236, 253, 0.6);
       margin: 0 auto;
@@ -65,7 +69,7 @@
       object-position: center !important;
     }
 
-    /* STICKER CONTAINER BISA DI TARIK BEBAS DI LUAR FOTO */
+    /* STICKER CONTAINER - BEBAS MELAYANG DI ATAS DENGAN Z-INDEX TINGGI */
     .sticker-item {
       touch-action: none;
       user-select: none;
@@ -73,7 +77,7 @@
       position: absolute;
       transform-origin: center center;
       display: inline-block;
-      z-index: 50;
+      z-index: 999 !important;
     }
     .sticker-item.selected {
       outline: 2px dashed #7D52C1;
@@ -91,7 +95,7 @@
       padding: 2px 6px;
       font-size: 10px;
       gap: 4px;
-      z-index: 60;
+      z-index: 1000 !important;
       white-space: nowrap;
     }
     .sticker-item.selected .sticker-controls {
@@ -279,7 +283,7 @@
       </div>
     </section>
 
-    <!-- TAB 2: SERTIFIKAT MAKER (FORMULIR EDIT SERTIFIKAT DIATAS) -->
+    <!-- TAB 2: SERTIFIKAT MAKER (PERBAIKAN OVERFLOW VISIBLE: STIKER BEBAS KELUAR FOTO) -->
     <section id="sec-sertifikat" class="tab-content hidden space-y-4">
       <div class="glass-card rounded-3xl p-4 space-y-3">
         <h3 class="text-xs font-extrabold text-slate-800 cute-font border-b border-purple-100 pb-1.5">
@@ -325,7 +329,7 @@
 
         <!-- KATALOG STIKER -->
         <div class="pt-2 border-t border-purple-100">
-          <label class="font-bold text-slate-700 text-xs block mb-1.5">Stiker BTS & ARMY (Bisa Ditarik Bebas Keluar Foto ke Bingkai!)</label>
+          <label class="font-bold text-slate-700 text-xs block mb-1.5">Stiker BTS & ARMY (Bisa Ditarik BEBAS Keluar Foto Tanpa Terpotong!)</label>
           <div class="flex flex-wrap gap-1.5">
             <button onclick="addStickerEmoji('💜')" class="w-8 h-8 rounded-xl bg-purple-100 text-sm">💜</button>
             <button onclick="addStickerEmoji('🩵')" class="w-8 h-8 rounded-xl bg-purple-100 text-sm">🩵</button>
@@ -345,11 +349,11 @@
       </div>
 
       <!-- HASIL SERTIFIKAT CANVAS -->
-      <div class="flex justify-center">
-        <div id="certificateCanvas" class="cert-frame-btspurple relative w-full max-w-[340px] rounded-3xl p-4 shadow-2xl transition-all overflow-hidden">
+      <div class="flex justify-center p-2">
+        <div id="certificateCanvas" class="cert-frame-btspurple relative w-full max-w-[340px] rounded-3xl p-4 shadow-2xl transition-all">
           
-          <!-- LAYER STIKER UTAMA MENUTUPI SELURUH SERTIFIKAT -->
-          <div id="stickerLayer" class="absolute inset-0 pointer-events-none z-30">
+          <!-- LAYER STIKER UTAMA MENUTUPI SELURUH SERTIFIKAT DENGAN Z-INDEX RAKSASA -->
+          <div id="stickerLayer" class="absolute inset-0 pointer-events-none" style="z-index: 999 !important;">
           </div>
 
           <div class="text-center pb-2 relative z-10">
@@ -687,7 +691,7 @@
     }
 
     function changeFrameColor(colorClass) {
-      document.getElementById('certificateCanvas').className = `cert-frame-${colorClass} relative w-full max-w-[340px] rounded-3xl p-4 shadow-2xl transition-all overflow-hidden`;
+      document.getElementById('certificateCanvas').className = `cert-frame-${colorClass} relative w-full max-w-[340px] rounded-3xl p-4 shadow-2xl transition-all`;
     }
 
     function handleBuktiUpload(e) {
