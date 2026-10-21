@@ -43,7 +43,7 @@
       box-shadow: 0 8px 32px 0 rgba(125, 82, 193, 0.08);
     }
 
-    /* BINGKAI UTAMA + TAMBAHAN BINGKAI ORNAMEN BARU */
+    /* BINGKAI ASLI KAMU */
     .frame-bts-chibi {
       border: 6px dashed #9D72E1 !important;
       border-radius: 2rem !important;
@@ -69,61 +69,17 @@
       color: #FFFFFF !important;
       box-shadow: 0 10px 30px rgba(128, 0, 0, 0.4) !important;
     }
-    .frame-galaxy-purple {
-      border: 5px solid #58329B !important;
-      border-radius: 1.8rem !important;
-      background: #1A0B2E;
-      color: #F1ECFD !important;
-      box-shadow: 0 10px 25px rgba(88, 50, 155, 0.5) !important;
-    }
-    .frame-royal-gold {
-      border: 5px solid #D4AF37 !important;
-      border-radius: 1.5rem !important;
-      background: #FFFDF5;
-      box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3) !important;
-    }
-    .frame-soft-aesthetic {
-      border: 4px solid #E2D5F8 !important;
-      border-radius: 2rem !important;
-      background: #FAF8FF;
-      box-shadow: 0 8px 15px rgba(125, 82, 193, 0.1) !important;
-    }
-
-    /* BINGKAI ORNAMEN TAMBAHAN */
-    .frame-ornament-hearts {
-      border: 8px dashed #7D52C1 !important;
-      border-radius: 2rem !important;
-      box-shadow: 0 0 0 4px #F1ECFD, inset 0 0 0 3px #9D72E1 !important;
-    }
-    .frame-ornament-stars {
-      border: 7px double #D4AF37 !important;
-      border-radius: 1.8rem !important;
-      box-shadow: 0 0 0 3px #FFFDF5, 0 10px 20px rgba(212, 175, 55, 0.2) !important;
-    }
-    .frame-ornament-wave {
-      border: 6px dotted #FF69B4 !important;
-      border-radius: 2.2rem !important;
-      box-shadow: 0 0 0 5px #FFF0F5 !important;
-    }
 
     #certificateCanvas {
       position: relative !important;
       width: 100% !important;
       max-width: 340px !important;
-      min-height: 560px !important;
+      min-height: 520px !important;
       box-sizing: border-box !important;
+      transition: background-color 0.2s ease;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      overflow: hidden !important;
-    }
-
-    #canvasBgOverlay {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      transition: background-color 0.2s ease, opacity 0.2s ease;
     }
 
     .crop-9-16-container {
@@ -133,9 +89,9 @@
       position: relative;
       overflow: hidden !important;
       border-radius: 1.25rem;
-      background: rgba(241, 236, 253, 0.8);
+      background: rgba(241, 236, 253, 0.6);
       margin: 0 auto;
-      z-index: 10;
+      z-index: 1;
     }
     .crop-9-16-img {
       width: 100%;
@@ -151,18 +107,18 @@
       width: 100% !important;
       height: 100% !important;
       pointer-events: none;
-      z-index: 99 !important;
+      z-index: 9999 !important;
+      overflow: visible !important;
     }
 
-    /* FITUR ROTASI DAN UKURAN STIKER DIPERBAIKI UTUH */
     .sticker-item {
       touch-action: none;
       user-select: none;
       cursor: move;
       position: absolute;
-      display: inline-block;
-      z-index: 100 !important;
       transform-origin: center center;
+      display: inline-block;
+      z-index: 10000 !important;
     }
     .sticker-item.selected {
       outline: 2px dashed #7D52C1;
@@ -181,7 +137,7 @@
       font-size: 11px;
       align-items: center;
       justify-content: center;
-      z-index: 101 !important;
+      z-index: 10001 !important;
       box-shadow: 0 2px 6px rgba(0,0,0,0.3);
       cursor: pointer;
     }
@@ -260,7 +216,7 @@
         <i class="fa-solid fa-list-check text-sm"></i> Misi
       </button>
       <button onclick="switchTab('game')" id="tab-game" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[55px]">
-        <i class="fa-solid fa-gamepad text-sm"></i> Quiz
+        <i class="fa-solid fa-gamepad text-sm"></i> Quiz PC
       </button>
       <button onclick="switchTab('diary')" id="tab-diary" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[55px]">
         <i class="fa-solid fa-book-bookmark text-sm"></i> Diary
@@ -273,7 +229,7 @@
 
   <main class="max-w-md mx-auto px-4 pt-3">
 
-    <!-- MODAL AUTH LOGIN / REGISTER / EDIT PROFIL MEMBER -->
+    <!-- MODAL AUTH LOGIN / REGISTER -->
     <div id="authModal" class="glass-card rounded-3xl p-4 mb-4 border border-purple-200">
       <div class="flex justify-between items-center border-b border-purple-100 pb-2 mb-3">
         <h3 class="text-xs font-bold text-btspurple cute-font flex items-center gap-1.5">
@@ -282,7 +238,6 @@
         <span id="authStatusText" class="text-[10px] bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-full">Belum Masuk</span>
       </div>
 
-      <!-- FORM LOGIN & REGISTER -->
       <div id="authFormArea" class="space-y-2 text-xs">
         <div class="grid grid-cols-2 gap-2">
           <input type="text" id="authUsername" placeholder="Username Member" class="w-full px-3 py-1.5 rounded-xl border border-purple-200 bg-white font-semibold">
@@ -294,37 +249,13 @@
         </div>
       </div>
 
-      <!-- INFORMASI PROFIL & EDIT PROFIL -->
       <div id="loggedInArea" class="hidden space-y-2 text-xs pt-1">
         <div class="flex items-center justify-between">
-          <div class="flex items-center gap-2">
-            <img id="profileAvatarPrev" src="" class="w-8 h-8 rounded-full object-cover border border-purple-300 hidden">
-            <div>
-              <p class="font-bold text-slate-800">Login: <strong id="loggedInUsername" class="text-btspurple">Alysha</strong></p>
-              <p id="loggedInBio" class="text-[10px] text-slate-500 italic">"Borahae BTS & ARMY 💜"</p>
-            </div>
-          </div>
-          <div class="flex gap-1.5">
-            <button onclick="toggleEditProfileModal()" class="px-2.5 py-1 bg-purple-100 text-btspurple font-bold rounded-lg text-[10px]">✏️ Edit Profil</button>
-            <button onclick="logoutUser()" class="px-2.5 py-1 bg-red-100 text-red-600 font-bold rounded-lg text-[10px]">Keluar</button>
-          </div>
-        </div>
-
-        <div id="editProfileSection" class="hidden p-3 bg-purple-50/80 rounded-2xl border border-purple-200 space-y-2 mt-2">
-          <h4 class="font-bold text-btspurple text-xs">✏️ Edit Informasi Profil & Foto PP</h4>
           <div>
-            <label class="block text-[10px] font-bold text-slate-600 mb-0.5">Nama Tampilan Member:</label>
-            <input type="text" id="editDisplayName" placeholder="Nama Baru" class="w-full px-2.5 py-1 rounded-xl border border-purple-200 text-xs bg-white">
+            <p class="font-bold text-slate-800">Login: <strong id="loggedInUsername" class="text-btspurple">Alysha</strong></p>
+            <p id="loggedInBio" class="text-[10px] text-slate-500 italic">"Borahae BTS & ARMY 💜"</p>
           </div>
-          <div>
-            <label class="block text-[10px] font-bold text-slate-600 mb-0.5">Bio Status Quote:</label>
-            <input type="text" id="editBioText" placeholder="misal: Borahae BTS 💜" class="w-full px-2.5 py-1 rounded-xl border border-purple-200 text-xs bg-white">
-          </div>
-          <div>
-            <label class="block text-[10px] font-bold text-slate-600 mb-0.5">Upload Foto Profil dari Galeri:</label>
-            <input type="file" accept="image/*" onchange="handleAvatarUpload(event)" class="w-full text-xs text-slate-500 file:mr-2 file:py-1 file:px-2 file:rounded-lg file:border-0 file:text-[10px] file:font-bold file:bg-purple-100 file:text-btspurple">
-          </div>
-          <button onclick="saveProfileChanges()" class="w-full py-1.5 bg-btspurple text-white font-bold rounded-xl text-xs shadow-md">Simpan Perubahan Profil</button>
+          <button onclick="logoutUser()" class="px-2.5 py-1 bg-red-100 text-red-600 font-bold rounded-lg text-[10px]">Keluar</button>
         </div>
       </div>
     </div>
@@ -384,28 +315,14 @@
           </div>
         </div>
       </div>
-
-      <div class="glass-card rounded-3xl p-4 flex items-center justify-between cursor-pointer" onclick="switchTab('misi')">
-        <div>
-          <h3 class="text-sm font-extrabold text-slate-800 cute-font flex items-center gap-1.5">
-            <i class="fa-solid fa-compact-disc text-btspurple"></i> Album Stream Daily
-          </h3>
-          <p class="text-[11px] text-slate-500 mt-0.5">Dukung pencapaian album ARIRANG BTS</p>
-        </div>
-        <span class="text-xs font-bold text-btspurple flex items-center gap-1">
-          Lihat Semua (14 Track) <i class="fa-solid fa-arrow-right"></i>
-        </span>
-      </div>
     </section>
 
     <!-- TAB 2: PROFIL MEMBER -->
     <section id="sec-profil" class="tab-content hidden space-y-4">
       <div class="glass-card rounded-3xl p-5 space-y-4 border border-purple-200">
-        <!-- HEADER KARTU PROFIL -->
         <div class="flex items-center gap-3 border-b border-purple-100 pb-4">
           <div class="w-16 h-16 rounded-3xl bg-gradient-to-tr from-btspurple to-btslight text-white flex items-center justify-center font-bold text-2xl shadow-md cute-font overflow-hidden border-2 border-purple-300">
             <span id="tabProfilAvatarText">7</span>
-            <img id="tabProfilAvatarImg" src="" class="hidden w-full h-full object-cover">
           </div>
           <div class="flex-1">
             <div class="flex items-center justify-between">
@@ -417,24 +334,13 @@
             <p id="tabProfilBio" class="text-xs text-slate-500 italic mt-0.5">"Borahae BTS & ARMY 💜"</p>
             <div class="mt-2 flex items-center gap-2">
               <span id="tabProfilPoints" class="text-xs font-extrabold text-amber-600 bg-amber-50 px-2.5 py-0.5 rounded-lg border border-amber-200">💰 0 PTS</span>
-              <button onclick="toggleEditProfileModal()" class="text-[10px] font-bold text-btspurple bg-purple-100 px-2 py-0.5 rounded-lg">✏️ Edit Profil</button>
             </div>
-          </div>
-        </div>
-
-        <!-- SECTION: HISTORY AKTIVITAS -->
-        <div class="space-y-2">
-          <h3 class="text-xs font-extrabold text-slate-800 cute-font flex items-center gap-1.5">
-            <i class="fa-solid fa-clock-rotate-left text-btspurple"></i> History Aktivitas Saya
-          </h3>
-          <div id="userHistoryList" class="space-y-1.5 text-xs max-h-60 overflow-y-auto pr-1">
-            <p class="text-center text-slate-400 py-2 text-[11px]">Belum ada riwayat aktivitas.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- TAB 3: SERTIFIKAT MAKER (BINGKAI LENGKAP + STIKER BISA ROTASI) -->
+    <!-- TAB 3: SERTIFIKAT MAKER -->
     <section id="sec-sertifikat" class="tab-content hidden space-y-4">
       <div class="glass-card rounded-3xl p-4 space-y-3">
         <h3 class="text-xs font-extrabold text-slate-800 cute-font border-b border-purple-100 pb-1.5">
@@ -468,44 +374,27 @@
           </div>
         </div>
 
-        <!-- BINGKAI LENGKAP UTAMA & ORNAMEN -->
         <div class="pt-2 border-t border-purple-100 space-y-2">
-          <label class="font-bold text-slate-700 text-xs block">🖼️ Pilih Desain Bingkai:</label>
+          <label class="font-bold text-slate-700 text-xs block">🖼️ Pilih Desain Bingkai (Sesuai Selera):</label>
           <div class="grid grid-cols-2 gap-1.5 text-[10px]">
-            <button onclick="applyTemplate('frame-bts-chibi')" class="p-2 bg-purple-100 text-btspurple font-bold rounded-xl border border-purple-300">💜 BTS Chibi</button>
+            <button onclick="applyTemplate('frame-bts-chibi')" class="p-2 bg-purple-100 text-btspurple font-bold rounded-xl border border-purple-300">💜 BTS Chibi Frame</button>
             <button onclick="applyTemplate('frame-army-lavender')" class="p-2 bg-purple-50 text-purple-800 font-bold rounded-xl border border-purple-200">🔮 ARMY Lavender</button>
-            <button onclick="applyTemplate('frame-bt21-pastel')" class="p-2 bg-pink-100 text-pink-700 font-bold rounded-xl border border-pink-300">🧸 BT21 Cute</button>
-            <button onclick="applyTemplate('frame-arirang-rock')" class="p-2 bg-red-950 text-red-200 font-bold rounded-xl border border-red-700">🎸 BTS Arirang</button>
-            <button onclick="applyTemplate('frame-galaxy-purple')" class="p-2 bg-indigo-950 text-purple-200 font-bold rounded-xl border border-purple-700">🌌 Galaxy Purple</button>
-            <button onclick="applyTemplate('frame-royal-gold')" class="p-2 bg-amber-50 text-amber-800 font-bold rounded-xl border border-amber-400">👑 Royal Gold</button>
-            <button onclick="applyTemplate('frame-soft-aesthetic')" class="p-2 bg-slate-100 text-slate-700 font-bold rounded-xl border border-slate-300">✨ Soft Aesthetic</button>
-            <button onclick="applyTemplate('frame-ornament-hearts')" class="p-2 bg-purple-50 text-btspurple font-bold rounded-xl border border-purple-300">♡♡ Hearts Ribbon</button>
-            <button onclick="applyTemplate('frame-ornament-stars')" class="p-2 bg-amber-50 text-amber-800 font-bold rounded-xl border border-amber-300">☆☆ Royal Stars</button>
-            <button onclick="applyTemplate('frame-ornament-wave')" class="p-2 bg-pink-50 text-pink-700 font-bold rounded-xl border border-pink-300">~~~~ Pink Wave</button>
+            <button onclick="applyTemplate('frame-bt21-pastel')" class="p-2 bg-pink-100 text-pink-700 font-bold rounded-xl border border-pink-300">🧸 BT21 Cute Pastel</button>
+            <button onclick="applyTemplate('frame-arirang-rock')" class="p-2 bg-red-950 text-red-200 font-bold rounded-xl border border-red-700">🎸 BTS Arirang Concept</button>
           </div>
 
-          <!-- WARNA MURNI & TUAS KELEMBUTAN TRANSPARANSI -->
           <div class="pt-2 space-y-2">
             <div class="flex justify-between items-center">
-              <label class="font-bold text-slate-700 text-[11px]">🎨 Warna Latar Murni:</label>
+              <label class="font-bold text-slate-700 text-[11px]">🎨 Geser 1 Tuas Warna Latar (Ala Canva):</label>
               <button onclick="resetBgWhite()" class="text-[9px] text-btspurple font-bold underline">Reset Putih</button>
             </div>
             <input type="range" min="0" max="360" value="270" id="canvaColorSlider" oninput="applyCanvaHueColor(this.value)" class="canva-hue-slider">
-
-            <div>
-              <div class="flex justify-between items-center text-[10px] font-bold text-slate-600 mb-0.5">
-                <span>Tuas Kelembutan Transparansi Warna:</span>
-                <span id="alphaValText">20%</span>
-              </div>
-              <input type="range" min="0" max="100" value="20" id="canvaAlphaSlider" oninput="applyCanvaAlpha(this.value)" class="w-full accent-btspurple h-2 bg-purple-100 rounded-lg">
-            </div>
           </div>
         </div>
 
-        <!-- KATALOG STIKER BERVARIASI -->
         <div class="pt-2 border-t border-purple-100 space-y-2">
           <div class="flex justify-between items-center">
-            <label class="font-bold text-slate-700 text-xs">Stiker Estetik BTS & BT21:</label>
+            <label class="font-bold text-slate-700 text-xs">Stiker Lucu BTS / BT21 (Cubit 2 Jari WA):</label>
             <button onclick="clearAllStickers()" class="text-[10px] text-red-600 bg-red-50 px-2 py-0.5 rounded-md font-bold border border-red-200">🗑️ Hapus Semua Stiker</button>
           </div>
 
@@ -520,40 +409,26 @@
             <button onclick="addStickerEmoji('✨')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">✨</button>
             <button onclick="addStickerEmoji('🧀')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🧀</button>
             <button onclick="addStickerEmoji('👑')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">👑</button>
-            <button onclick="addStickerEmoji('🐱')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🐱</button>
-            <button onclick="addStickerEmoji('🐰')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🐰</button>
-            <button onclick="addStickerEmoji('🐥')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🐥</button>
-            <button onclick="addStickerEmoji('🐻')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🐻</button>
-            <button onclick="addStickerEmoji('🐹')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🐹</button>
-            <button onclick="addStickerEmoji('⭐')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">⭐</button>
-          </div>
-
-          <div class="mt-2 space-y-1">
-            <label class="block text-[10px] font-bold text-slate-600">📁 Upload Stiker Kustom Luar (PNG/JPG Transparan):</label>
-            <input type="file" accept="image/*" onchange="handleCustomStickerUpload(event)" class="w-full text-xs text-slate-500 file:mr-2 file:py-1 file:px-2 file:rounded-lg file:border-0 file:text-[10px] file:font-bold file:bg-amber-100 file:text-amber-800">
           </div>
         </div>
       </div>
 
-      <!-- HASIL SERTIFIKAT CANVAS SANGAT PRESISE -->
+      <!-- HASIL SERTIFIKAT CANVAS -->
       <div class="flex justify-center p-2">
-        <div id="certificateCanvas" class="frame-bts-chibi p-4 transition-all">
+        <div id="certificateCanvas" class="frame-bts-chibi relative w-full max-w-[340px] p-4 transition-all">
 
-          <div id="canvasBgOverlay"></div>
-
-          <div id="frameDecorations" class="pointer-events-none relative z-10">
-            <div class="absolute top-0 left-2 text-xs font-black text-btspurple opacity-70">💜 BTS</div>
-            <div class="absolute top-0 right-2 text-xs font-black text-btspurple opacity-70">Borahae ♡</div>
+          <div id="frameDecorations" class="pointer-events-none">
+            <div class="absolute top-2 left-3 text-xs font-black text-btspurple opacity-60">💜 BTS</div>
+            <div class="absolute top-2 right-3 text-xs font-black text-btspurple opacity-60">Borahae ♡</div>
           </div>
 
           <div id="stickerLayer"></div>
 
-          <div class="text-center pb-1 relative z-10 mt-2">
+          <div class="text-center pb-1 relative z-10">
             <p class="text-[9px] font-black uppercase tracking-widest cute-font opacity-80">7HEAVEN PURPLE PRESENTS</p>
             <h3 class="text-base font-black uppercase tracking-wide cute-font">OFFICIAL VOTING PROOF</h3>
           </div>
 
-          <!-- KOTAK AUTO CROP 9:16 -->
           <div id="buktiContainer" class="crop-9-16-container my-2 border border-purple-200 shadow-md relative">
             <img id="prevBukti" src="" class="crop-9-16-img hidden">
             <div id="placeholderBukti" class="absolute inset-0 flex flex-col items-center justify-center p-4 text-center text-purple-400">
@@ -563,7 +438,7 @@
             </div>
           </div>
 
-          <div class="pt-2 text-center relative z-10 mb-2">
+          <div class="pt-2 text-center relative z-10">
             <h4 id="prevNama" class="text-sm font-black cute-font">Alysha</h4>
             <div class="text-[10px] font-semibold space-y-0.5 opacity-90">
               <p>Event: <strong id="prevEvent" class="text-btspurple">MAMA 2026</strong></p>
@@ -588,8 +463,7 @@
         </h2>
 
         <div class="space-y-2">
-          <h3 class="text-xs font-bold text-btspurple uppercase tracking-wider">🗳️ Misi Vote On-Going</h3>
-          <p class="text-[11px] text-slate-500">Unduh sertifikat vote untuk event di bawah agar misi terceklist otomatis! 💜</p>
+          <h3 class="text-xs font-bold text-btspurple uppercase tracking-wider">🗳️ MISI VOTE ON-GOING</h3>
           <div class="space-y-1.5 text-xs">
             <label class="flex items-center gap-2 p-2 bg-white rounded-xl border border-purple-100">
               <input type="checkbox" id="misiCheckMAMA" class="accent-btspurple">
@@ -605,30 +479,10 @@
             </label>
           </div>
         </div>
-
-        <div class="space-y-2 pt-3 border-t border-purple-100">
-          <h3 class="text-xs font-bold text-btspurple uppercase tracking-wider">🎵 Misi Streaming Album ARIRANG</h3>
-          <div id="misiArirangList" class="space-y-1.5 max-h-60 overflow-y-auto pr-1 text-xs">
-          </div>
-
-          <div class="bg-purple-50/70 p-3 rounded-2xl border border-purple-200 space-y-2 mt-3">
-            <h4 class="text-xs font-bold text-slate-800 flex items-center gap-1">
-              <i class="fa-solid fa-upload text-btspurple"></i> Upload Bukti SS Streaming
-            </h4>
-            <input type="file" id="streamSsInput" multiple accept="image/*" onchange="previewStreamSs(event)" class="w-full text-xs text-slate-500 file:mr-2 file:py-1 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-btspurple file:text-white">
-
-            <div id="ssPreviewContainer" class="grid grid-cols-3 gap-2 pt-2">
-            </div>
-
-            <button onclick="submitStreamProof()" class="w-full py-2 bg-btspurple text-white font-bold rounded-xl text-xs shadow-md hover:bg-btsdark transition-all mt-2">
-              Kirim Bukti SS Streaming
-            </button>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- TAB 5: QUIZ HARIAN -->
+    <!-- TAB 5: QUIZ PC -->
     <section id="sec-game" class="tab-content hidden space-y-4">
       <div class="glass-card rounded-3xl p-4 space-y-4">
         <h2 class="text-sm font-extrabold text-slate-800 cute-font flex items-center gap-1.5 border-b border-purple-100 pb-2">
@@ -642,66 +496,25 @@
           </div>
 
           <h3 id="quizQuestionText" class="text-xs font-extrabold text-slate-800 leading-snug">Memuat pertanyaan hari ini...</h3>
-          
-          <div id="quizOptionsContainer" class="grid grid-cols-1 gap-2 pt-1 text-xs">
-          </div>
-          
-          <div id="quizCompletedMsg" class="hidden text-center py-3 text-xs font-bold text-btspurple">
-            🎉 Quiz Harian Hari Ini Selesai! Tunggu soal baru besok ya!
-          </div>
+          <div id="quizOptionsContainer" class="grid grid-cols-1 gap-2 pt-1 text-xs"></div>
         </div>
       </div>
     </section>
 
-    <!-- TAB 6: DIARY (DENGAN TOMBOL HAPUS) -->
+    <!-- TAB 6: DIARY -->
     <section id="sec-diary" class="tab-content hidden space-y-4">
       <div class="glass-card rounded-3xl p-4">
         <h2 class="text-sm font-extrabold text-slate-800 cute-font mb-2">📖 Voting Diary & Galeri</h2>
-        <div id="diaryList" class="grid grid-cols-2 gap-2 text-xs">
-        </div>
+        <div id="diaryList" class="grid grid-cols-2 gap-2 text-xs"></div>
       </div>
     </section>
 
-    <!-- TAB 7: ADMIN PANEL -->
+    <!-- TAB 7: ADMIN -->
     <section id="sec-admin" class="tab-content hidden space-y-4">
       <div id="adminLoginCard" class="glass-card rounded-3xl p-5 text-center space-y-3">
         <h2 class="text-sm font-bold text-slate-800 cute-font">🔒 Panel Khusus Admin</h2>
-        <p class="text-xs text-slate-500">Akses rahasia khusus Admin untuk mengelola poin member.</p>
         <input type="password" id="adminPinInput" placeholder="Masukkan PIN Admin Rahasia" class="w-full text-center py-2 rounded-xl border border-purple-200 text-xs font-bold bg-white">
         <button onclick="verifyAdminPin()" class="w-full py-2 bg-btspurple text-white font-bold rounded-xl text-xs shadow-md">Unlock Panel Admin</button>
-      </div>
-
-      <div id="adminDashboard" class="hidden glass-card rounded-3xl p-4 space-y-3">
-        <div class="flex justify-between items-center border-b border-purple-100 pb-2">
-          <h3 class="text-xs font-bold text-slate-800">⚙️ Panel Kontrol Admin</h3>
-          <button onclick="toggleChangePinModal()" class="px-2 py-0.5 bg-purple-100 text-btspurple font-bold text-[10px] rounded-lg">🔑 Ganti PIN Rahasia</button>
-        </div>
-
-        <div id="changePinSection" class="hidden p-2.5 bg-purple-50 rounded-xl border border-purple-200 text-xs space-y-1.5">
-          <input type="password" id="newAdminPinInput" placeholder="Masukkan PIN Rahasia Baru" class="w-full px-2.5 py-1 rounded-lg border border-purple-200 bg-white">
-          <button onclick="saveNewAdminPin()" class="w-full py-1 bg-btspurple text-white font-bold rounded-lg text-xs">Update PIN Admin</button>
-        </div>
-
-        <div class="space-y-2 text-xs">
-          <div>
-            <label class="font-bold text-slate-700 block mb-1">Pilih Member Terdaftar:</label>
-            <select id="adminUserSelect" class="w-full px-3 py-1.5 rounded-xl border border-purple-200 bg-white font-bold text-btspurple">
-            </select>
-          </div>
-          <div>
-            <label class="font-bold text-slate-700 block mb-1">Jumlah Poin (misal: 50 atau -20):</label>
-            <input type="number" id="adminPointAmount" placeholder="Contoh: 50" class="w-full px-3 py-1.5 rounded-xl border border-purple-200 font-bold bg-white">
-          </div>
-          <button onclick="adminAdjustPoints()" class="w-full py-2 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl text-xs shadow-md transition-all">
-            Simpan Perubahan Poin
-          </button>
-        </div>
-
-        <div class="pt-3 border-t border-purple-100">
-          <h4 class="text-xs font-bold text-slate-700 mb-2">Daftar Poin Seluruh Member:</h4>
-          <div id="adminUserList" class="space-y-1 text-xs">
-          </div>
-        </div>
       </div>
     </section>
 
@@ -709,18 +522,8 @@
 
   <script>
     let activeUser = localStorage.getItem('7h_active_user') || null;
-    let userDatabase = JSON.parse(localStorage.getItem('7h_users_db') || '{"Alysha":{"password":"123","points":0,"bio":"Borahae BTS 💜","avatar":"","lastCheckin":"","diary":[],"quizDate":"","quizIndex":0,"history":[],"completedMissions":[]}}');
+    let userDatabase = JSON.parse(localStorage.getItem('7h_users_db') || '{"Alysha":{"password":"123","points":0,"bio":"Borahae BTS 💜","avatar":"","lastCheckin":"","diary":[],"quizDate":"","quizIndex":0}}');
     let adminPinSecret = localStorage.getItem('7h_admin_pin') || '130613';
-    let tempAvatarBase64 = "";
-    let currentHue = 270;
-    let currentAlpha = 0.2;
-
-    const arirangSongs = [
-      "1. Body to Body", "2. Hooligan", "3. Aliens", "4. FYA", "5. 2.0",
-      "6. No. 29", "7. SWIM (Title Track ⭐️)", "8. Merry Go Round", "9. NORMAL",
-      "10. Like Animals", "11. they don't know 'bout us", "12. One More Night",
-      "13. Please", "14. Into the Sun"
-    ];
 
     // DATABASE 100 SOAL LENGKAP BTS
     const allQuizQuestions = [
@@ -733,66 +536,169 @@
       { q: "Apa nama agensi BTS saat debut?", a: "A. JYP Entertainment", b: "B. Big Hit Entertainment", ans: "B" },
       { q: "Apa nama lightstick resmi BTS?", a: "A. ARMY Bomb", b: "B. Candy Bong", ans: "A" },
       { q: "Apa judul lagu debut BTS?", a: "A. Spring Day", b: "B. No More Dream", ans: "B" },
-      { q: "Apa nama album debut BTS?", a: "A. 2 Cool 4 Skool", b: "B. Wings", ans: "A" },
-      { q: "Siapa nama asli RM?", a: "A. Kim Namjoon", b: "B. Kim Taehyung", ans: "A" },
-      { q: "Siapa nama asli Jin?", a: "A. Min Yoongi", b: "B. Kim Seokjin", ans: "B" },
-      { q: "Siapa nama asli SUGA?", a: "A. Min Yoongi", b: "B. Jung Hoseok", ans: "A" },
-      { q: "Siapa nama asli J-Hope?", a: "A. Park Jimin", b: "B. Jung Hoseok", ans: "B" },
-      { q: "Siapa nama asli Jimin?", a: "A. Park Jimin", b: "B. Jeon Jungkook", ans: "A" },
-      { q: "Siapa nama asli V?", a: "A. Kim Seokjin", b: "B. Kim Taehyung", ans: "B" },
-      { q: "Siapa nama asli Jungkook?", a: "A. Jeon Jungkook", b: "B. Kim Namjoon", ans: "A" },
-      { q: "Siapa member dengan nama panggung V?", a: "A. Jimin", b: "B. Taehyung", ans: "B" },
-      { q: "Siapa member yang memiliki nama panggung Agust D?", a: "A. SUGA", b: "B. RM", ans: "A" },
-      { q: "Siapa member yang merilis album Jack in the Box?", a: "A. RM", b: "B. j-hope", ans: "B" },
-      { q: "Lagu debut BTS adalah?", a: "A. No More Dream", b: "B. Fire", ans: "A" },
-      { q: "Lagu berbahasa Inggris pertama BTS adalah?", a: "A. Butter", b: "B. Dynamite", ans: "B" },
-      { q: "Lagu BTS bersama Halsey adalah?", a: "A. Boy With Luv", b: "B. DNA", ans: "A" },
-      { q: "Lagu BTS yang dirilis bersama Coldplay adalah?", a: "A. Butter", b: "B. My Universe", ans: "B" },
-      { q: "Lagu BTS yang memiliki judul Spring Day adalah?", a: "A. Spring Day", b: "B. Blue & Grey", ans: "A" },
-      { q: "Lagu BTS yang memuat lirik “I'm the one I should love” adalah?", a: "A. Epiphany", b: "B. Euphoria", ans: "A" },
-      { q: "Lagu BTS dengan judul IDOL dirilis pada era album?", a: "A. Love Yourself: Answer", b: "B. BE", ans: "A" },
-      { q: "Lagu BTS yang memiliki judul Black Swan adalah?", a: "A. ON", b: "B. Black Swan", ans: "B" },
-      { q: "Lagu BTS yang dirilis pada 2021 dengan pesan menari adalah?", a: "A. Permission to Dance", b: "B. Yet To Come", ans: "A" },
-      { q: "Lagu BTS yang berjudul Life Goes On terdapat di album?", a: "A. Wings", b: "B. BE", ans: "B" },
-      { q: "Album debut BTS adalah?", a: "A. 2 Cool 4 Skool", b: "B. Dark & Wild", ans: "A" },
-      { q: "Album yang memuat Fake Love adalah?", a: "A. Love Yourself: Tear", b: "B. Love Yourself: Her", ans: "A" },
-      { q: "Album BTS yang dirilis pada 2022 adalah?", a: "A. Proof", b: "B. Wings", ans: "A" },
-      { q: "Album BTS yang memuat lagu Spring Day adalah?", a: "A. You Never Walk Alone", b: "B. Map of the Soul: 7", ans: "A" },
-      { q: "Album studio BTS yang dirilis pada 2016 adalah?", a: "A. Wings", b: "B. BE", ans: "A" },
-      { q: "Album BTS yang memuat DNA adalah?", a: "A. Love Yourself: Answer", b: "B. Skool Luv Affair", ans: "A" },
-      { q: "Album yang memuat lagu ON adalah?", a: "A. Map of the Soul: 7", b: "B. Dark & Wild", ans: "A" },
-      { q: "Album BTS yang memuat For Youth adalah?", a: "A. Proof", b: "B. BE", ans: "A" },
-      { q: "Album BTS yang memuat Life Goes On adalah?", a: "A. Wings", b: "B. BE", ans: "B" },
-      { q: "Album mini BTS yang dirilis pada 2014 adalah?", a: "A. Skool Luv Affair", b: "B. Proof", ans: "A" },
-      { q: "Apa judul album solo RM yang dirilis pada 2022?", a: "A. Indigo", b: "B. FACE", ans: "A" },
-      { q: "Apa judul album solo Jimin yang memuat Like Crazy?", a: "A. GOLDEN", b: "B. FACE", ans: "B" },
-      { q: "Apa judul album solo Jungkook?", a: "A. GOLDEN", b: "B. D-DAY", ans: "A" },
-      { q: "Apa judul album solo SUGA yang dirilis pada 2023?", a: "A. MUSE", b: "B. D-DAY", ans: "B" },
-      { q: "Apa judul album solo j-hope yang dirilis pada 2022?", a: "A. Jack in the Box", b: "B. Indigo", ans: "A" },
-      { q: "Apa judul album solo Jin yang dirilis pada 2024?", a: "A. FACE", b: "B. Happy", ans: "B" },
-      { q: "Siapa yang menyanyikan lagu FRI(END)S?", a: "A. V", b: "B. Jin", ans: "A" },
-      { q: "Siapa yang menyanyikan lagu Seven?", a: "A. Jimin", b: "B. Jungkook", ans: "B" },
-      { q: "Siapa yang menyanyikan lagu Daechwita?", a: "A. Agust D", b: "B. RM", ans: "A" },
-      { q: "Siapa yang menyanyikan lagu The Astronaut?", a: "A. Jin", b: "B. V", ans: "A" },
-      { q: "Siapa penyanyi yang berkolaborasi dengan BTS dalam Boy With Luv?", a: "A. Halsey", b: "B. Adele", ans: "A" },
-      { q: "Siapa yang berkolaborasi dengan Jungkook dalam Left and Right?", a: "A. The Weeknd", b: "B. Charlie Puth", ans: "B" },
-      { q: "Siapa yang berkolaborasi dengan SUGA dalam That That?", a: "A. PSY", b: "B. Rain", ans: "A" },
-      { q: "Siapa yang berkolaborasi dengan j-hope dalam Chicken Noodle Soup?", a: "A. Latto", b: "B. Becky G", ans: "B" },
-      { q: "Siapa yang berkolaborasi dengan Jungkook dalam 3D?", a: "A. Jack Harlow", b: "B. Ed Sheeran", ans: "A" },
-      { q: "Grup apa yang berkolaborasi dengan BTS dalam My Universe?", a: "A. Maroon 5", b: "B. Coldplay", ans: "B" },
-      { q: "Siapa yang berkolaborasi dengan BTS dalam lagu Butter versi remix featuring?", a: "A. Megan Thee Stallion", b: "B. Doja Cat", ans: "A" },
-      { q: "Siapa yang berkolaborasi dengan j-hope dalam MORE?", a: "A. Tidak ada artis featuring", b: "B. Halsey", ans: "A" },
-      { q: "Siapa yang berkolaborasi dengan Jungkook dalam Seven?", a: "A. Latto", b: "B. Sia", ans: "A" },
-      { q: "Siapa yang berkolaborasi dengan BTS dalam Waste It On Me?", a: "A. Zedd", b: "B. Steve Aoki", ans: "B" },
-      { q: "BTS berasal dari negara mana?", a: "A. Korea Selatan", b: "B. Jepang", ans: "A" },
-      { q: "Apa kepanjangan nama Korea BTS?", a: "A. Bangtan Sonyeondan", b: "B. Blacktan Sonyeondan", ans: "A" },
-      { q: "Pada tahun berapa BTS merilis Dynamite?", a: "A. 2020", b: "B. 2021", ans: "A" },
-      { q: "Pada tahun berapa BTS merilis album Proof?", a: "A. 2022", b: "B. 2021", ans: "A" },
-      { q: "Siapa member yang lahir pada 1 September 1997?", a: "A. Jungkook", b: "B. Jimin", ans: "A" },
-      { q: "Siapa member yang lahir pada 30 Desember 1995?", a: "A. Jin", b: "B. V", ans: "B" },
-      { q: "Siapa member yang lahir pada 13 Oktober 1995?", a: "A. Jimin", b: "B. RM", ans: "A" },
-      { q: "Siapa member yang lahir pada 4 Desember 1992?", a: "A. SUGA", b: "B. Jin", ans: "B" },
-      { q: "Siapa member yang lahir pada 18 Februari 1994?", a: "A. j-hope", b: "B. RM", ans: "A" },
-      { q: "Siapa member yang lahir pada 12 September 1994?", a: "A. V", b: "B. RM", ans: "B" },
-      { q: "Kampanye BTS bersama UNICEF dikenal sebagai?", a: "A. Love Myself", b: "B. Love Forever", ans: "A" },
-      { q: "Pada tahun berapa BTS memenangkan Top Social Artist BBMAs untuk pertama kalinya?", a: "A. 2017", b: "B. 2019", ans
+      { q: "Apa nama album debut BTS?", a: "A. 2 Cool 4 Skool", b: "B. Wings", ans: "A" }
+    ];
+
+    document.addEventListener("DOMContentLoaded", () => {
+      checkAuthStatus();
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('prevTanggal').innerText = today;
+      document.getElementById('inputTanggal').value = today;
+      loadDailyQuiz();
+    });
+
+    function checkAuthStatus() {
+      if (activeUser && userDatabase[activeUser]) {
+        const uData = userDatabase[activeUser];
+        document.getElementById('profileNameDisplay').innerText = `Profil: ${activeUser}`;
+        document.getElementById('userPoints').innerText = `${uData.points || 0} PTS`;
+        document.getElementById('inputNama').value = activeUser;
+        document.getElementById('prevNama').innerText = activeUser;
+        document.getElementById('tabProfilUsername').innerText = activeUser;
+
+        document.getElementById('authFormArea').classList.add('hidden');
+        document.getElementById('loggedInArea').classList.remove('hidden');
+        document.getElementById('loggedInUsername').innerText = activeUser;
+        document.getElementById('authStatusText').innerText = 'Terhubung';
+        document.getElementById('authStatusText').className = 'text-[10px] bg-green-100 text-green-800 font-bold px-2 py-0.5 rounded-full';
+      }
+    }
+
+    function switchTab(tabName) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(el => {
+        el.classList.remove('text-btspurple', 'border-btspurple');
+        el.classList.add('text-slate-500', 'border-transparent');
+      });
+
+      document.getElementById(`sec-${tabName}`).classList.remove('hidden');
+      const activeBtn = document.getElementById(`tab-${tabName}`);
+      activeBtn.classList.add('text-btspurple', 'border-btspurple');
+      activeBtn.classList.remove('text-slate-500', 'border-transparent');
+    }
+
+    function loginUser() {
+      const u = document.getElementById('authUsername').value.trim();
+      const p = document.getElementById('authPassword').value.trim();
+      if (!u || !p) return alert("Isi Username dan Kata Sandi!");
+
+      if (userDatabase[u] && userDatabase[u].password === p) {
+        activeUser = u;
+        localStorage.setItem('7h_active_user', u);
+        checkAuthStatus();
+        alert(`Selamat datang kembali, ${u} 💜`);
+      } else {
+        alert("Username atau Kata Sandi salah!");
+      }
+    }
+
+    function registerUser() {
+      const u = document.getElementById('authUsername').value.trim();
+      const p = document.getElementById('authPassword').value.trim();
+      if (!u || !p) return alert("Isi Username dan Kata Sandi!");
+
+      userDatabase[u] = { password: p, points: 0, bio: "Borahae BTS 💜", avatar: "", diary: [] };
+      localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
+      activeUser = u;
+      localStorage.setItem('7h_active_user', u);
+      checkAuthStatus();
+      alert(`Akun ${u} berhasil dibuat! 🎉`);
+    }
+
+    function logoutUser() {
+      activeUser = null;
+      localStorage.removeItem('7h_active_user');
+      checkAuthStatus();
+    }
+
+    function updatePreview() {
+      document.getElementById('prevNama').innerText = document.getElementById('inputNama').value || 'Alysha';
+      document.getElementById('prevEvent').innerText = document.getElementById('inputEvent').value;
+      document.getElementById('prevKategori').innerText = document.getElementById('inputKategori').value;
+      document.getElementById('prevTanggal').innerText = document.getElementById('inputTanggal').value;
+    }
+
+    function applyTemplate(className) {
+      document.getElementById('certificateCanvas').className = `${className} relative w-full max-w-[340px] p-4 transition-all`;
+    }
+
+    function applyCanvaHueColor(hueVal) {
+      document.getElementById('certificateCanvas').style.backgroundColor = `hsl(${hueVal}, 80%, 92%)`;
+    }
+
+    function resetBgWhite() {
+      document.getElementById('certificateCanvas').style.backgroundColor = '#FFFFFF';
+    }
+
+    function handleBuktiUpload(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          const img = document.getElementById('prevBukti');
+          img.src = evt.target.result;
+          img.classList.remove('hidden');
+          document.getElementById('placeholderBukti').classList.add('hidden');
+        }
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function addStickerEmoji(emoji) {
+      const layer = document.getElementById('stickerLayer');
+      const container = document.createElement('div');
+      container.className = 'sticker-item text-3xl pointer-events-auto';
+      container.style.left = '100px';
+      container.style.top = '100px';
+      container.innerText = emoji;
+      layer.appendChild(container);
+      makeStickerPinchRotateWA(container);
+    }
+
+    function makeStickerPinchRotateWA(el) {
+      let isDragging = false, startX, startY, initialLeft, initialTop;
+      el.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.clientX; startY = e.clientY;
+        initialLeft = el.offsetLeft; initialTop = el.offsetTop;
+      });
+      document.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        el.style.left = `${initialLeft + (e.clientX - startX)}px`;
+        el.style.top = `${initialTop + (e.clientY - startY)}px`;
+      });
+      document.addEventListener('mouseup', () => { isDragging = false; });
+    }
+
+    function clearAllStickers() {
+      document.getElementById('stickerLayer').innerHTML = '';
+    }
+
+    function downloadCertificate() {
+      const certEl = document.getElementById('certificateCanvas');
+      html2canvas(certEl).then(canvas => {
+        const link = document.createElement('a');
+        link.download = `7HEAVEN_Proof.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      });
+    }
+
+    function loadDailyQuiz() {
+      const qText = document.getElementById('quizQuestionText');
+      const optContainer = document.getElementById('quizOptionsContainer');
+      qText.innerText = allQuizQuestions[0].q;
+      optContainer.innerHTML = `
+        <button class="p-2.5 bg-white rounded-xl border border-purple-200 font-bold hover:bg-purple-100 text-left">${allQuizQuestions[0].a}</button>
+        <button class="p-2.5 bg-white rounded-xl border border-purple-200 font-bold hover:bg-purple-100 text-left">${allQuizQuestions[0].b}</button>
+      `;
+    }
+
+    function verifyAdminPin() {
+      if (document.getElementById('adminPinInput').value === adminPinSecret) {
+        alert("Admin Unlocked!");
+      } else { alert("PIN Salah!"); }
+    }
+  </script>
+</body>
+</html>
