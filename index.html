@@ -1,704 +1,1492 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>7HEAVEN PURPLE — Official ARMY Base</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>7HEAVEN PURPLE — Official ARMY Base</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            btspurple: '#7D52C1',
-            btsdark: '#58329B',
-            btslight: '#9D72E1',
-            lavender: '#F1ECFD',
-            softpink: '#FDE2E4'
-          },
-          fontFamily: {
-            sans: ['Plus Jakarta Sans', 'sans-serif'],
-            cute: ['Fredoka', 'cursive']
-          }
-        }
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        btspurple: '#7D52C1',
+        btsdark: '#58329B',
+        btslight: '#9D72E1',
+        lavender: '#F1ECFD',
+        softpink: '#FDE2E4'
+      },
+      fontFamily: {
+        sans: ['Plus Jakarta Sans', 'sans-serif'],
+        cute: ['Fredoka', 'cursive']
       }
     }
-  </script>
-  <style>
-    body {
-      background: linear-gradient(180deg, #F5F0FF 0%, #EAE0FA 100%);
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .cute-font { font-family: 'Fredoka', cursive; }
-    .glass-card {
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      box-shadow: 0 8px 32px 0 rgba(125, 82, 193, 0.08);
-    }
+  }
+}
+</script>
+<style>
+body {
+  background: linear-gradient(180deg, #F5F0FF 0%, #EAE0FA 100%);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+.cute-font { font-family: 'Fredoka', cursive; }
+.glass-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 32px 0 rgba(125, 82, 193, 0.08);
+}
 
-    /* BINGKAI ASLI KAMU */
-    .frame-bts-chibi {
-      border: 6px dashed #9D72E1 !important;
-      border-radius: 2rem !important;
-      background: #F8F5FF;
-      box-shadow: 0 10px 25px rgba(125, 82, 193, 0.15) !important;
-    }
-    .frame-army-lavender {
-      border: 5px double #7D52C1 !important;
-      border-radius: 1.5rem !important;
-      background: #FFFFFF;
-      box-shadow: inset 0 0 15px rgba(125, 82, 193, 0.2), 0 8px 20px rgba(0,0,0,0.1) !important;
-    }
-    .frame-bt21-pastel {
-      border: 6px solid #FFB6C1 !important;
-      border-radius: 2.2rem !important;
-      background: #FFF5F7;
-      box-shadow: 0 10px 20px rgba(255, 182, 193, 0.3) !important;
-    }
-    .frame-arirang-rock {
-      border: 6px solid #800000 !important;
-      border-radius: 1.2rem !important;
-      background: #2B0508;
-      color: #FFFFFF !important;
-      box-shadow: 0 10px 30px rgba(128, 0, 0, 0.4) !important;
-    }
+/* BINGKAI TEMPLATE SESUAI FOTO CONTOH */
+.frame-bts-chibi {
+  border: 5px dashed #9D72E1 !important;
+  border-radius: 2rem !important;
+  background: #F8F5FF;
+  box-shadow: 0 10px 25px rgba(125, 82, 193, 0.15) !important;
+}
+.frame-army-lavender {
+  border: 4px double #7D52C1 !important;
+  border-radius: 1.5rem !important;
+  background: #FFFFFF;
+  box-shadow: inset 0 0 15px rgba(125, 82, 193, 0.2), 0 8px 20px rgba(0,0,0,0.1) !important;
+}
+.frame-bt21-pastel {
+  border: 6px solid #FFB6C1 !important;
+  border-radius: 2.2rem !important;
+  background: #FFF5F7;
+  box-shadow: 0 10px 20px rgba(255, 182, 193, 0.3) !important;
+}
+.frame-arirang-rock {
+  border: 5px solid #800000 !important;
+  border-radius: 1.2rem !important;
+  background: #2B0508;
+  color: #FFFFFF !important;
+  box-shadow: 0 10px 30px rgba(128, 0, 0, 0.4) !important;
+}
 
-    #certificateCanvas {
-      position: relative !important;
-      width: 100% !important;
-      max-width: 340px !important;
-      min-height: 520px !important;
-      box-sizing: border-box !important;
-      transition: background-color 0.2s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
+#certificateCanvas {
+  overflow: visible !important;
+  position: relative !important;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  width: 100% !important;
+  max-width: 340px !important;
+  min-height: 520px !important;
+  box-sizing: border-box !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-    .crop-9-16-container {
-      width: 100%;
-      max-width: 240px;
-      aspect-ratio: 9 / 16;
-      position: relative;
-      overflow: hidden !important;
-      border-radius: 1.25rem;
-      background: rgba(241, 236, 253, 0.6);
-      margin: 0 auto;
-      z-index: 1;
-    }
-    .crop-9-16-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover !important;
-      object-position: center !important;
-    }
+.crop-9-16-container {
+  width: 100%;
+  max-width: 250px;
+  aspect-ratio: 9 / 16;
+  position: relative;
+  overflow: hidden !important;
+  border-radius: 1.25rem;
+  background: rgba(241, 236, 253, 0.6);
+  margin: 0 auto;
+  z-index: 1;
+}
+.crop-9-16-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover !important;
+  object-position: center !important;
+}
 
-    #stickerLayer {
-      position: absolute !important;
-      top: 0 !important;
-      left: 0 !important;
-      width: 100% !important;
-      height: 100% !important;
-      pointer-events: none;
-      z-index: 9999 !important;
-      overflow: visible !important;
-    }
+#stickerLayer {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none;
+  z-index: 9999 !important;
+  overflow: visible !important;
+}
 
-    .sticker-item {
-      touch-action: none;
-      user-select: none;
-      cursor: move;
-      position: absolute;
-      transform-origin: center center;
-      display: inline-block;
-      z-index: 10000 !important;
-    }
-    .sticker-item.selected {
-      outline: 2px dashed #7D52C1;
-      outline-offset: 4px;
-    }
-    .sticker-delete-btn {
-      display: none;
-      position: absolute;
-      top: -12px;
-      right: -12px;
-      background: #FF4D4D;
-      color: white;
-      border-radius: 9999px;
-      width: 22px;
-      height: 22px;
-      font-size: 11px;
-      align-items: center;
-      justify-content: center;
-      z-index: 10001 !important;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-      cursor: pointer;
-    }
-    .sticker-item.selected .sticker-delete-btn {
-      display: flex;
-    }
+.sticker-item {
+  touch-action: none;
+  user-select: none;
+  cursor: move;
+  position: absolute;
+  transform-origin: center center;
+  display: inline-block;
+  z-index: 10000 !important;
+  will-change: transform, left, top;
+}
+.sticker-item.selected {
+  outline: 2px dashed #7D52C1;
+  outline-offset: 4px;
+}
+.sticker-delete-btn {
+  display: none;
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  background: #FF4D4D;
+  color: white;
+  border-radius: 9999px;
+  width: 22px;
+  height: 22px;
+  font-size: 11px;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001 !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  cursor: pointer;
+}
+.sticker-item.selected .sticker-delete-btn {
+  display: flex;
+}
 
-    .canva-hue-slider {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 100%;
-      height: 14px;
-      border-radius: 10px;
-      background: linear-gradient(to right, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000);
-      outline: none;
-      box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
-    }
-    .canva-hue-slider::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: #ffffff;
-      border: 3px solid #7D52C1;
-      cursor: pointer;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    }
+.canva-hue-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 14px;
+  border-radius: 10px;
+  background: linear-gradient(to right, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000);
+  outline: none;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+}
+.canva-hue-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid #7D52C1;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
 
-    ::-webkit-scrollbar { width: 4px; height: 4px; }
-    ::-webkit-scrollbar-track { background: #F1ECFD; }
-    ::-webkit-scrollbar-thumb { background: #9D72E1; border-radius: 10px; }
-  </style>
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: #F1ECFD; }
+::-webkit-scrollbar-thumb { background: #9D72E1; border-radius: 10px; }
+</style>
 </head>
 <body class="text-slate-800 min-h-screen pb-24">
 
-  <!-- HEADER SECTION -->
-  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-purple-100 shadow-sm">
-    <div class="max-w-md mx-auto px-4 py-2.5 flex items-center justify-between">
-      <div class="flex items-center gap-2">
-        <div id="headerAvatarContainer" class="w-9 h-9 rounded-2xl bg-gradient-to-tr from-btspurple to-btslight text-white flex items-center justify-center font-bold text-lg shadow-md cute-font overflow-hidden border border-purple-200">
-          <span id="headerAvatarText">7</span>
-          <img id="headerAvatarImg" src="" class="hidden w-full h-full object-cover">
-        </div>
-        <div>
-          <h1 class="text-sm font-extrabold text-btspurple leading-tight cute-font tracking-wide">
-            7HEAVEN <span class="text-[10px] px-1.5 py-0.2 rounded-full bg-purple-100 font-bold">PURPLE</span>
-          </h1>
-          <p id="profileNameDisplay" class="text-[10px] text-purple-600 font-semibold">Profil: Guest (Belum Login)</p>
-        </div>
+<!-- HEADER SECTION -->
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-purple-100 shadow-sm">
+  <div class="max-w-md mx-auto px-4 py-2.5 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <div id="headerAvatarContainer" class="w-9 h-9 rounded-2xl bg-gradient-to-tr from-btspurple to-btslight text-white flex items-center justify-center font-bold text-lg shadow-md cute-font overflow-hidden border border-purple-200">
+        <span id="headerAvatarText">7</span>
+        <img id="headerAvatarImg" src="" class="hidden w-full h-full object-cover">
       </div>
-
-      <div class="flex flex-col items-end gap-0.5">
-        <div class="flex items-center bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-full shadow-sm">
-          <i class="fa-solid fa-coins text-amber-500 mr-1 text-[10px]"></i>
-          <span id="userPoints" class="font-extrabold text-amber-700 text-xs cute-font">0 PTS</span>
-        </div>
-        <span id="userBadge" class="text-[9px] font-extrabold text-purple-700 bg-purple-100 px-2 py-0.5 rounded-full border border-purple-200">
-          🐣 Baby ARMY
-        </span>
+      <div>
+        <h1 class="text-sm font-extrabold text-btspurple leading-tight cute-font tracking-wide">
+          7HEAVEN <span class="text-[10px] px-1.5 py-0.2 rounded-full bg-purple-100 font-bold">PURPLE</span>
+        </h1>
+        <p id="profileNameDisplay" class="text-[10px] text-purple-600 font-semibold">Profil: Guest (Belum Login)</p>
       </div>
     </div>
 
-    <!-- NAVIGATION TABS -->
-    <nav class="flex border-t border-purple-50 max-w-md mx-auto bg-white/50 px-1 pt-1 overflow-x-auto">
-      <button onclick="switchTab('beranda')" id="tab-beranda" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-btspurple border-b-2 border-btspurple flex flex-col items-center gap-0.5 min-w-[55px]">
-        <i class="fa-solid fa-house text-sm"></i> Beranda
-      </button>
-      <button onclick="switchTab('profil')" id="tab-profil" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[55px]">
-        <i class="fa-solid fa-user text-sm"></i> Profil
-      </button>
-      <button onclick="switchTab('sertifikat')" id="tab-sertifikat" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[55px]">
-        <i class="fa-solid fa-certificate text-sm"></i> Sertifikat
-      </button>
-      <button onclick="switchTab('misi')" id="tab-misi" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[55px]">
-        <i class="fa-solid fa-list-check text-sm"></i> Misi
-      </button>
-      <button onclick="switchTab('game')" id="tab-game" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[55px]">
-        <i class="fa-solid fa-gamepad text-sm"></i> Quiz PC
-      </button>
-      <button onclick="switchTab('diary')" id="tab-diary" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[55px]">
-        <i class="fa-solid fa-book-bookmark text-sm"></i> Diary
-      </button>
-      <button onclick="switchTab('admin')" id="tab-admin" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[55px]">
-        <i class="fa-solid fa-user-shield text-sm"></i> Admin
-      </button>
-    </nav>
-  </header>
-
-  <main class="max-w-md mx-auto px-4 pt-3">
-
-    <!-- MODAL AUTH LOGIN / REGISTER -->
-    <div id="authModal" class="glass-card rounded-3xl p-4 mb-4 border border-purple-200">
-      <div class="flex justify-between items-center border-b border-purple-100 pb-2 mb-3">
-        <h3 class="text-xs font-bold text-btspurple cute-font flex items-center gap-1.5">
-          <i class="fa-solid fa-id-card"></i> Akun Member 7HEAVEN PURPLE
-        </h3>
-        <span id="authStatusText" class="text-[10px] bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-full">Belum Masuk</span>
+    <div class="flex flex-col items-end gap-0.5">
+      <div class="flex items-center bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-full shadow-sm">
+        <i class="fa-solid fa-coins text-amber-500 mr-1 text-[10px]"></i>
+        <span id="userPoints" class="font-extrabold text-amber-700 text-xs cute-font">0 PTS</span>
       </div>
+      <span id="userBadge" class="text-[9px] font-extrabold text-purple-700 bg-purple-100 px-2 py-0.5 rounded-full border border-purple-200">
+        🐣 Baby ARMY
+      </span>
+    </div>
+  </div>
 
-      <div id="authFormArea" class="space-y-2 text-xs">
-        <div class="grid grid-cols-2 gap-2">
-          <input type="text" id="authUsername" placeholder="Username Member" class="w-full px-3 py-1.5 rounded-xl border border-purple-200 bg-white font-semibold">
-          <input type="password" id="authPassword" placeholder="Kata Sandi" class="w-full px-3 py-1.5 rounded-xl border border-purple-200 bg-white font-semibold">
-        </div>
-        <div class="flex gap-2">
-          <button onclick="loginUser()" class="flex-1 py-1.5 bg-btspurple text-white font-bold rounded-xl shadow-md text-xs">Masuk Akun</button>
-          <button onclick="registerUser()" class="flex-1 py-1.5 bg-purple-100 text-btspurple border border-purple-300 font-bold rounded-xl text-xs">Daftar Akun Baru</button>
-        </div>
+  <!-- NAVIGATION TABS -->
+  <nav class="flex border-t border-purple-50 max-w-md mx-auto bg-white/50 px-1 pt-1 overflow-x-auto">
+    <button onclick="switchTab('beranda')" id="tab-beranda" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-btspurple border-b-2 border-btspurple flex flex-col items-center gap-0.5 min-w-[50px]">
+      <i class="fa-solid fa-house text-sm"></i> Beranda
+    </button>
+    <button onclick="switchTab('profil')" id="tab-profil" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[50px]">
+      <i class="fa-solid fa-user text-sm"></i> Profil
+    </button>
+    <button onclick="switchTab('sertifikat')" id="tab-sertifikat" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[50px]">
+      <i class="fa-solid fa-certificate text-sm"></i> Sertifikat
+    </button>
+    <button onclick="switchTab('misi')" id="tab-misi" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[50px]">
+      <i class="fa-solid fa-list-check text-sm"></i> Misi
+    </button>
+    <button onclick="switchTab('game')" id="tab-game" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[50px]">
+      <i class="fa-solid fa-gamepad text-sm"></i> Quiz PC
+    </button>
+    <button onclick="switchTab('diary')" id="tab-diary" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[50px]">
+      <i class="fa-solid fa-book-bookmark text-sm"></i> Diary
+    </button>
+    <button onclick="switchTab('admin')" id="tab-admin" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[50px]">
+      <i class="fa-solid fa-user-shield text-sm"></i> Admin
+    </button>
+  </nav>
+</header>
+
+<main class="max-w-md mx-auto px-4 pt-3">
+
+  <!-- MODAL AUTH LOGIN / REGISTER / EDIT PROFIL MEMBER -->
+  <div id="authModal" class="glass-card rounded-3xl p-4 mb-4 border border-purple-200">
+    <div class="flex justify-between items-center border-b border-purple-100 pb-2 mb-3">
+      <h3 class="text-xs font-bold text-btspurple cute-font flex items-center gap-1.5">
+        <i class="fa-solid fa-id-card"></i> Akun Member 7HEAVEN PURPLE
+      </h3>
+      <span id="authStatusText" class="text-[10px] bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-full">Belum Masuk</span>
+    </div>
+
+    <!-- FORM LOGIN & REGISTER -->
+    <div id="authFormArea" class="space-y-2 text-xs">
+      <div class="grid grid-cols-2 gap-2">
+        <input type="text" id="authUsername" placeholder="Username Member" class="w-full px-3 py-1.5 rounded-xl border border-purple-200 bg-white font-semibold">
+        <input type="password" id="authPassword" placeholder="Kata Sandi" class="w-full px-3 py-1.5 rounded-xl border border-purple-200 bg-white font-semibold">
       </div>
+      <div class="flex gap-2">
+        <button onclick="loginUser()" class="flex-1 py-1.5 bg-btspurple text-white font-bold rounded-xl shadow-md text-xs">Masuk Akun</button>
+        <button onclick="registerUser()" class="flex-1 py-1.5 bg-purple-100 text-btspurple border border-purple-300 font-bold rounded-xl text-xs">Daftar Akun Baru</button>
+      </div>
+    </div>
 
-      <div id="loggedInArea" class="hidden space-y-2 text-xs pt-1">
-        <div class="flex items-center justify-between">
+    <!-- INFORMASI PROFIL & EDIT PROFIL -->
+    <div id="loggedInArea" class="hidden space-y-2 text-xs pt-1">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <img id="profileAvatarPrev" src="" class="w-8 h-8 rounded-full object-cover border border-purple-300 hidden">
           <div>
             <p class="font-bold text-slate-800">Login: <strong id="loggedInUsername" class="text-btspurple">Alysha</strong></p>
             <p id="loggedInBio" class="text-[10px] text-slate-500 italic">"Borahae BTS & ARMY 💜"</p>
           </div>
+        </div>
+        <div class="flex gap-1.5">
+          <button onclick="toggleEditProfileModal()" class="px-2.5 py-1 bg-purple-100 text-btspurple font-bold rounded-lg text-[10px]">✏️ Edit Profil</button>
           <button onclick="logoutUser()" class="px-2.5 py-1 bg-red-100 text-red-600 font-bold rounded-lg text-[10px]">Keluar</button>
+        </div>
+      </div>
+
+      <div id="editProfileSection" class="hidden p-3 bg-purple-50/80 rounded-2xl border border-purple-200 space-y-2 mt-2">
+        <h4 class="font-bold text-btspurple text-xs">✏️ Edit Informasi Profil & Foto PP</h4>
+        <div>
+          <label class="block text-[10px] font-bold text-slate-600 mb-0.5">Nama Tampilan Member:</label>
+          <input type="text" id="editDisplayName" placeholder="Nama Baru" class="w-full px-2.5 py-1 rounded-xl border border-purple-200 text-xs bg-white">
+        </div>
+        <div>
+          <label class="block text-[10px] font-bold text-slate-600 mb-0.5">Bio Status Quote:</label>
+          <input type="text" id="editBioText" placeholder="misal: Borahae BTS 💜" class="w-full px-2.5 py-1 rounded-xl border border-purple-200 text-xs bg-white">
+        </div>
+        <div>
+          <label class="block text-[10px] font-bold text-slate-600 mb-0.5">Upload Foto Profil Avatar (PP):</label>
+          <input type="file" accept="image/*" onchange="handleAvatarUpload(event)" class="w-full text-xs text-slate-500 file:mr-2 file:py-1 file:px-2 file:rounded-lg file:border-0 file:text-[10px] file:font-bold file:bg-purple-100 file:text-btspurple">
+        </div>
+        <button onclick="saveProfileChanges()" class="w-full py-1.5 bg-btspurple text-white font-bold rounded-xl text-xs shadow-md">Simpan Perubahan Profil</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 1: BERANDA -->
+  <section id="sec-beranda" class="tab-content space-y-4">
+    <div class="bg-gradient-to-br from-btspurple to-purple-800 text-white rounded-3xl p-5 shadow-lg relative overflow-hidden">
+      <span class="inline-block bg-white/20 text-white font-bold text-[10px] px-2.5 py-0.5 rounded-full mb-2">WELCOME ARMY 💜</span>
+      <h2 class="text-xl font-black cute-font leading-tight">WELCOME TO 7HEAVEN PURPLE</h2>
+      <p class="text-xs text-purple-100 mt-1.5 italic">"Let's stream and vote together."</p>
+
+      <div class="mt-4 pt-3 border-t border-white/20 flex items-center justify-between">
+        <button id="btnCheckin" onclick="doDailyCheckin()" class="px-4 py-2 bg-amber-400 hover:bg-amber-300 text-purple-950 font-black rounded-2xl text-xs shadow-md transition-all cute-font flex items-center gap-1.5">
+          <i class="fa-solid fa-calendar-check"></i> Check-in Harian (+10 Pts)
+        </button>
+        <span id="checkinStatus" class="text-[11px] font-bold text-purple-200">Belum Check-in</span>
+      </div>
+    </div>
+
+    <div class="glass-card rounded-3xl p-4 space-y-3">
+      <div class="flex items-center justify-between">
+        <h3 class="text-sm font-extrabold text-slate-800 cute-font flex items-center gap-1.5">
+          <i class="fa-solid fa-fire text-amber-500"></i> Voting On-Going
+        </h3>
+        <span class="bg-red-100 text-red-600 text-[10px] font-black px-2 py-0.5 rounded-full animate-pulse">LIVE</span>
+      </div>
+
+      <div class="space-y-2 text-xs">
+        <div class="p-3 bg-purple-50/70 rounded-2xl flex items-center justify-between border border-purple-100">
+          <div>
+            <p class="font-extrabold text-slate-800">MAMA 2026</p>
+            <p class="text-[10px] text-slate-500">Fans' Choice Category (Male)</p>
+          </div>
+          <button onclick="switchTab('sertifikat')" class="px-3 py-1.5 bg-btspurple text-white font-bold rounded-xl shadow-md hover:bg-btsdark transition-all text-[11px]">
+            Buat Bukti
+          </button>
+        </div>
+
+        <div class="p-3 bg-purple-50/70 rounded-2xl flex items-center justify-between border border-purple-100">
+          <div>
+            <p class="font-extrabold text-slate-800">KCA 2026</p>
+            <p class="text-[10px] text-slate-500">Vote BTS / SWIM</p>
+          </div>
+          <button onclick="switchTab('sertifikat')" class="px-3 py-1.5 bg-btspurple text-white font-bold rounded-xl shadow-md hover:bg-btsdark transition-all text-[11px]">
+            Buat Bukti
+          </button>
+        </div>
+
+        <div class="p-3 bg-purple-50/70 rounded-2xl flex items-center justify-between border border-purple-100">
+          <div>
+            <p class="font-extrabold text-slate-800">AAA (Final)</p>
+            <p class="text-[10px] text-slate-500">Popularity Vote</p>
+          </div>
+          <button onclick="switchTab('sertifikat')" class="px-3 py-1.5 bg-btspurple text-white font-bold rounded-xl shadow-md hover:bg-btsdark transition-all text-[11px]">
+            Buat Bukti
+          </button>
         </div>
       </div>
     </div>
 
-    <!-- TAB 1: BERANDA -->
-    <section id="sec-beranda" class="tab-content space-y-4">
-      <div class="bg-gradient-to-br from-btspurple to-purple-800 text-white rounded-3xl p-5 shadow-lg relative overflow-hidden">
-        <span class="inline-block bg-white/20 text-white font-bold text-[10px] px-2.5 py-0.5 rounded-full mb-2">WELCOME ARMY 💜</span>
-        <h2 class="text-xl font-black cute-font leading-tight">WELCOME TO 7HEAVEN PURPLE</h2>
-        <p class="text-xs text-purple-100 mt-1.5 italic">"Let's stream and vote together."</p>
-
-        <div class="mt-4 pt-3 border-t border-white/20 flex items-center justify-between">
-          <button id="btnCheckin" onclick="doDailyCheckin()" class="px-4 py-2 bg-amber-400 hover:bg-amber-300 text-purple-950 font-black rounded-2xl text-xs shadow-md transition-all cute-font flex items-center gap-1.5">
-            <i class="fa-solid fa-calendar-check"></i> Check-in Harian (+10 Pts)
-          </button>
-          <span id="checkinStatus" class="text-[11px] font-bold text-purple-200">Belum Check-in</span>
-        </div>
-      </div>
-
-      <div class="glass-card rounded-3xl p-4 space-y-3">
-        <div class="flex items-center justify-between">
-          <h3 class="text-sm font-extrabold text-slate-800 cute-font flex items-center gap-1.5">
-            <i class="fa-solid fa-fire text-amber-500"></i> Voting On-Going
-          </h3>
-          <span class="bg-red-100 text-red-600 text-[10px] font-black px-2 py-0.5 rounded-full animate-pulse">LIVE</span>
-        </div>
-
-        <div class="space-y-2 text-xs">
-          <div class="p-3 bg-purple-50/70 rounded-2xl flex items-center justify-between border border-purple-100">
-            <div>
-              <p class="font-extrabold text-slate-800">MAMA 2026</p>
-              <p class="text-[10px] text-slate-500">Fans' Choice Category (Male)</p>
-            </div>
-            <button onclick="switchTab('sertifikat')" class="px-3 py-1.5 bg-btspurple text-white font-bold rounded-xl shadow-md hover:bg-btsdark transition-all text-[11px]">
-              Buat Bukti
-            </button>
-          </div>
-
-          <div class="p-3 bg-purple-50/70 rounded-2xl flex items-center justify-between border border-purple-100">
-            <div>
-              <p class="font-extrabold text-slate-800">KCA 2026</p>
-              <p class="text-[10px] text-slate-500">Vote BTS / SWIM</p>
-            </div>
-            <button onclick="switchTab('sertifikat')" class="px-3 py-1.5 bg-btspurple text-white font-bold rounded-xl shadow-md hover:bg-btsdark transition-all text-[11px]">
-              Buat Bukti
-            </button>
-          </div>
-
-          <div class="p-3 bg-purple-50/70 rounded-2xl flex items-center justify-between border border-purple-100">
-            <div>
-              <p class="font-extrabold text-slate-800">AAA (Final)</p>
-              <p class="text-[10px] text-slate-500">Popularity Vote</p>
-            </div>
-            <button onclick="switchTab('sertifikat')" class="px-3 py-1.5 bg-btspurple text-white font-bold rounded-xl shadow-md hover:bg-btsdark transition-all text-[11px]">
-              Buat Bukti
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TAB 2: PROFIL MEMBER -->
-    <section id="sec-profil" class="tab-content hidden space-y-4">
-      <div class="glass-card rounded-3xl p-5 space-y-4 border border-purple-200">
-        <div class="flex items-center gap-3 border-b border-purple-100 pb-4">
-          <div class="w-16 h-16 rounded-3xl bg-gradient-to-tr from-btspurple to-btslight text-white flex items-center justify-center font-bold text-2xl shadow-md cute-font overflow-hidden border-2 border-purple-300">
-            <span id="tabProfilAvatarText">7</span>
-          </div>
-          <div class="flex-1">
-            <div class="flex items-center justify-between">
-              <h2 id="tabProfilUsername" class="text-base font-black text-slate-800 cute-font">Guest</h2>
-              <span id="tabProfilBadge" class="text-[10px] font-extrabold text-purple-700 bg-purple-100 px-2.5 py-0.5 rounded-full border border-purple-200">
-                🐣 Baby ARMY
-              </span>
-            </div>
-            <p id="tabProfilBio" class="text-xs text-slate-500 italic mt-0.5">"Borahae BTS & ARMY 💜"</p>
-            <div class="mt-2 flex items-center gap-2">
-              <span id="tabProfilPoints" class="text-xs font-extrabold text-amber-600 bg-amber-50 px-2.5 py-0.5 rounded-lg border border-amber-200">💰 0 PTS</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TAB 3: SERTIFIKAT MAKER -->
-    <section id="sec-sertifikat" class="tab-content hidden space-y-4">
-      <div class="glass-card rounded-3xl p-4 space-y-3">
-        <h3 class="text-xs font-extrabold text-slate-800 cute-font border-b border-purple-100 pb-1.5">
-          🎨 Editor Sertifikat Estetik ARMY
+    <div class="glass-card rounded-3xl p-4 flex items-center justify-between cursor-pointer" onclick="switchTab('misi')">
+      <div>
+        <h3 class="text-sm font-extrabold text-slate-800 cute-font flex items-center gap-1.5">
+          <i class="fa-solid fa-compact-disc text-btspurple"></i> Album Stream Daily
         </h3>
+        <p class="text-[11px] text-slate-500 mt-0.5">Dukung pencapaian album ARIRANG BTS</p>
+      </div>
+      <span class="text-xs font-bold text-btspurple flex items-center gap-1">
+        Lihat Semua (14 Track) <i class="fa-solid fa-arrow-right"></i>
+      </span>
+    </div>
+  </section>
 
-        <div class="grid grid-cols-2 gap-2 text-xs">
-          <div class="col-span-2">
-            <label class="font-bold text-slate-700 block mb-0.5">Nama Member</label>
-            <input type="text" id="inputNama" value="Alysha" oninput="updatePreview()" class="w-full px-3 py-2 rounded-xl border border-purple-200 bg-white font-semibold">
-          </div>
-          <div>
-            <label class="font-bold text-slate-700 block mb-0.5">Event</label>
-            <select id="inputEvent" onchange="updatePreview()" class="w-full px-3 py-2 rounded-xl border border-purple-200 bg-white font-semibold">
-              <option value="MAMA 2026">MAMA 2026</option>
-              <option value="KCA 2026">KCA 2026</option>
-              <option value="AAA (Final)">AAA (Final)</option>
-            </select>
-          </div>
-          <div>
-            <label class="font-bold text-slate-700 block mb-0.5">Kategori</label>
-            <input type="text" id="inputKategori" value="Fans Choice" oninput="updatePreview()" class="w-full px-3 py-2 rounded-xl border border-purple-200 bg-white font-semibold">
-          </div>
-          <div class="col-span-2">
-            <label class="font-bold text-slate-700 block mb-0.5">Tanggal Vote</label>
-            <input type="date" id="inputTanggal" onchange="updatePreview()" class="w-full px-3 py-2 rounded-xl border border-purple-200 bg-white font-semibold">
-          </div>
-          <div class="col-span-2">
-            <label class="font-bold text-slate-700 block mb-0.5">Upload Bukti Screenshot (Auto-Crop 9:16)</label>
-            <input type="file" accept="image/*" onchange="handleBuktiUpload(event)" class="w-full text-xs text-slate-500 file:mr-3 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-purple-100 file:text-btspurple">
-          </div>
+  <!-- TAB 2: PROFIL MEMBER -->
+  <section id="sec-profil" class="tab-content hidden space-y-4">
+    <div class="glass-card rounded-3xl p-5 space-y-4 border border-purple-200">
+      <div class="flex items-center gap-3 border-b border-purple-100 pb-4">
+        <div class="w-16 h-16 rounded-3xl bg-gradient-to-tr from-btspurple to-btslight text-white flex items-center justify-center font-bold text-2xl shadow-md cute-font overflow-hidden border-2 border-purple-300">
+          <span id="tabProfilAvatarText">7</span>
+          <img id="tabProfilAvatarImg" src="" class="hidden w-full h-full object-cover">
         </div>
-
-        <div class="pt-2 border-t border-purple-100 space-y-2">
-          <label class="font-bold text-slate-700 text-xs block">🖼️ Pilih Desain Bingkai (Sesuai Selera):</label>
-          <div class="grid grid-cols-2 gap-1.5 text-[10px]">
-            <button onclick="applyTemplate('frame-bts-chibi')" class="p-2 bg-purple-100 text-btspurple font-bold rounded-xl border border-purple-300">💜 BTS Chibi Frame</button>
-            <button onclick="applyTemplate('frame-army-lavender')" class="p-2 bg-purple-50 text-purple-800 font-bold rounded-xl border border-purple-200">🔮 ARMY Lavender</button>
-            <button onclick="applyTemplate('frame-bt21-pastel')" class="p-2 bg-pink-100 text-pink-700 font-bold rounded-xl border border-pink-300">🧸 BT21 Cute Pastel</button>
-            <button onclick="applyTemplate('frame-arirang-rock')" class="p-2 bg-red-950 text-red-200 font-bold rounded-xl border border-red-700">🎸 BTS Arirang Concept</button>
+        <div class="flex-1">
+          <div class="flex items-center justify-between">
+            <h2 id="tabProfilUsername" class="text-base font-black text-slate-800 cute-font">Guest</h2>
+            <span id="tabProfilBadge" class="text-[10px] font-extrabold text-purple-700 bg-purple-100 px-2.5 py-0.5 rounded-full border border-purple-200">
+              🐣 Baby ARMY
+            </span>
           </div>
-
-          <div class="pt-2 space-y-2">
-            <div class="flex justify-between items-center">
-              <label class="font-bold text-slate-700 text-[11px]">🎨 Geser 1 Tuas Warna Latar (Ala Canva):</label>
-              <button onclick="resetBgWhite()" class="text-[9px] text-btspurple font-bold underline">Reset Putih</button>
-            </div>
-            <input type="range" min="0" max="360" value="270" id="canvaColorSlider" oninput="applyCanvaHueColor(this.value)" class="canva-hue-slider">
-          </div>
-        </div>
-
-        <div class="pt-2 border-t border-purple-100 space-y-2">
-          <div class="flex justify-between items-center">
-            <label class="font-bold text-slate-700 text-xs">Stiker Lucu BTS / BT21 (Cubit 2 Jari WA):</label>
-            <button onclick="clearAllStickers()" class="text-[10px] text-red-600 bg-red-50 px-2 py-0.5 rounded-md font-bold border border-red-200">🗑️ Hapus Semua Stiker</button>
-          </div>
-
-          <div class="flex flex-wrap gap-1.5">
-            <button onclick="addStickerEmoji('💜')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">💜</button>
-            <button onclick="addStickerEmoji('🩵')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🩵</button>
-            <button onclick="addStickerEmoji('🎙️')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🎙️</button>
-            <button onclick="addStickerEmoji('🔮')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🔮</button>
-            <button onclick="addStickerEmoji('🐳')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🐳</button>
-            <button onclick="addStickerEmoji('🧸')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🧸</button>
-            <button onclick="addStickerEmoji('🎀')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🎀</button>
-            <button onclick="addStickerEmoji('✨')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">✨</button>
-            <button onclick="addStickerEmoji('🧀')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🧀</button>
-            <button onclick="addStickerEmoji('👑')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">👑</button>
+          <p id="tabProfilBio" class="text-xs text-slate-500 italic mt-0.5">"Borahae BTS & ARMY 💜"</p>
+          <div class="mt-2 flex items-center gap-2">
+            <span id="tabProfilPoints" class="text-xs font-extrabold text-amber-600 bg-amber-50 px-2.5 py-0.5 rounded-lg border border-amber-200">💰 0 PTS</span>
+            <button onclick="toggleEditProfileModal()" class="text-[10px] font-bold text-btspurple bg-purple-100 px-2 py-0.5 rounded-lg">✏️ Edit Profil</button>
           </div>
         </div>
       </div>
 
-      <!-- HASIL SERTIFIKAT CANVAS -->
-      <div class="flex justify-center p-2">
-        <div id="certificateCanvas" class="frame-bts-chibi relative w-full max-w-[340px] p-4 transition-all">
-
-          <div id="frameDecorations" class="pointer-events-none">
-            <div class="absolute top-2 left-3 text-xs font-black text-btspurple opacity-60">💜 BTS</div>
-            <div class="absolute top-2 right-3 text-xs font-black text-btspurple opacity-60">Borahae ♡</div>
-          </div>
-
-          <div id="stickerLayer"></div>
-
-          <div class="text-center pb-1 relative z-10">
-            <p class="text-[9px] font-black uppercase tracking-widest cute-font opacity-80">7HEAVEN PURPLE PRESENTS</p>
-            <h3 class="text-base font-black uppercase tracking-wide cute-font">OFFICIAL VOTING PROOF</h3>
-          </div>
-
-          <div id="buktiContainer" class="crop-9-16-container my-2 border border-purple-200 shadow-md relative">
-            <img id="prevBukti" src="" class="crop-9-16-img hidden">
-            <div id="placeholderBukti" class="absolute inset-0 flex flex-col items-center justify-center p-4 text-center text-purple-400">
-              <i class="fa-solid fa-image text-3xl mb-1 text-btspurple"></i>
-              <p class="text-xs font-bold text-slate-600">Bukti Vote Auto 9:16</p>
-              <p class="text-[10px] text-slate-400">Foto otomatis terpotong rapi 9:16</p>
-            </div>
-          </div>
-
-          <div class="pt-2 text-center relative z-10">
-            <h4 id="prevNama" class="text-sm font-black cute-font">Alysha</h4>
-            <div class="text-[10px] font-semibold space-y-0.5 opacity-90">
-              <p>Event: <strong id="prevEvent" class="text-btspurple">MAMA 2026</strong></p>
-              <p>Kategori: <strong id="prevKategori">Fans Choice</strong></p>
-              <p>Tanggal: <span id="prevTanggal">2026-10-21</span></p>
-            </div>
-          </div>
-
+      <!-- SECTION 1: MY PHOTOCARD -->
+      <div class="space-y-2">
+        <h3 class="text-xs font-extrabold text-slate-800 cute-font flex items-center gap-1.5">
+          <i class="fa-solid fa-images text-btspurple"></i> My Photocard Collection
+        </h3>
+        <p class="text-[10px] text-slate-500">Photocard eksklusif yang berhasil kamu klaim/dapatkan dari Gacha!</p>
+        <div id="myPhotocardGrid" class="grid grid-cols-3 gap-2 text-xs pt-1">
         </div>
       </div>
 
-      <button onclick="downloadCertificate()" class="w-full py-3 bg-btspurple text-white font-black rounded-2xl shadow-lg text-sm flex items-center justify-center gap-2 hover:bg-btsdark transition-all cute-font">
-        <i class="fa-solid fa-download"></i> Download Sertifikat PNG
-      </button>
-    </section>
-
-    <!-- TAB 4: MISI -->
-    <section id="sec-misi" class="tab-content hidden space-y-4">
-      <div class="glass-card rounded-3xl p-4 space-y-4">
-        <h2 class="text-sm font-extrabold text-slate-800 cute-font flex items-center gap-1.5 border-b border-purple-100 pb-2">
-          <i class="fa-solid fa-bullseye text-btspurple"></i> Misi Vote & Streaming
-        </h2>
-
-        <div class="space-y-2">
-          <h3 class="text-xs font-bold text-btspurple uppercase tracking-wider">🗳️ MISI VOTE ON-GOING</h3>
-          <div class="space-y-1.5 text-xs">
-            <label class="flex items-center gap-2 p-2 bg-white rounded-xl border border-purple-100">
-              <input type="checkbox" id="misiCheckMAMA" class="accent-btspurple">
-              <span class="font-semibold text-slate-700">MAMA 2026 — Fans' Choice Category</span>
-            </label>
-            <label class="flex items-center gap-2 p-2 bg-white rounded-xl border border-purple-100">
-              <input type="checkbox" id="misiCheckKCA" class="accent-btspurple">
-              <span class="font-semibold text-slate-700">KCA 2026 — Vote BTS / SWIM</span>
-            </label>
-            <label class="flex items-center gap-2 p-2 bg-white rounded-xl border border-purple-100">
-              <input type="checkbox" id="misiCheckAAA" class="accent-btspurple">
-              <span class="font-semibold text-slate-700">AAA (Final) — Popularity Vote</span>
-            </label>
-          </div>
+      <!-- SECTION 2: HISTORY AKTIVITAS -->
+      <div class="pt-3 border-t border-purple-100 space-y-2">
+        <h3 class="text-xs font-extrabold text-slate-800 cute-font flex items-center gap-1.5">
+          <i class="fa-solid fa-clock-rotate-left text-btspurple"></i> History Aktivitas Saya
+        </h3>
+        <div id="userHistoryList" class="space-y-1.5 text-xs max-h-48 overflow-y-auto pr-1">
+          <p class="text-center text-slate-400 py-2 text-[11px]">Belum ada riwayat aktivitas.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- TAB 5: QUIZ PC -->
-    <section id="sec-game" class="tab-content hidden space-y-4">
-      <div class="glass-card rounded-3xl p-4 space-y-4">
-        <h2 class="text-sm font-extrabold text-slate-800 cute-font flex items-center gap-1.5 border-b border-purple-100 pb-2">
-          <i class="fa-solid fa-gamepad text-btspurple"></i> 💜 BTS ARMY Quiz Harian
-        </h2>
-        
-        <div id="quizGameArea" class="p-3.5 bg-purple-50 rounded-2xl border border-purple-200 space-y-3">
-          <div class="flex justify-between items-center">
-            <span id="quizCounterInfo" class="text-[10px] font-bold bg-btspurple text-white px-2 py-0.5 rounded-full">Soal 1 / 20</span>
-            <span class="text-[10px] font-bold text-purple-700">Benar = +5 Poin ✨</span>
-          </div>
+  <!-- TAB 3: SERTIFIKAT MAKER -->
+  <section id="sec-sertifikat" class="tab-content hidden space-y-4">
+    <div class="glass-card rounded-3xl p-4 space-y-3">
+      <h3 class="text-xs font-extrabold text-slate-800 cute-font border-b border-purple-100 pb-1.5">
+        🎨 Editor Sertifikat Estetik ARMY
+      </h3>
 
-          <h3 id="quizQuestionText" class="text-xs font-extrabold text-slate-800 leading-snug">Memuat pertanyaan hari ini...</h3>
-          <div id="quizOptionsContainer" class="grid grid-cols-1 gap-2 pt-1 text-xs"></div>
+      <div class="grid grid-cols-2 gap-2 text-xs">
+        <div class="col-span-2">
+          <label class="font-bold text-slate-700 block mb-0.5">Nama Member</label>
+          <input type="text" id="inputNama" value="Alysha" oninput="updatePreview()" class="w-full px-3 py-2 rounded-xl border border-purple-200 bg-white font-semibold">
+        </div>
+        <div>
+          <label class="font-bold text-slate-700 block mb-0.5">Event</label>
+          <select id="inputEvent" onchange="updatePreview()" class="w-full px-3 py-2 rounded-xl border border-purple-200 bg-white font-semibold">
+            <option value="MAMA 2026">MAMA 2026</option>
+            <option value="KCA 2026">KCA 2026</option>
+            <option value="AAA (Final)">AAA (Final)</option>
+          </select>
+        </div>
+        <div>
+          <label class="font-bold text-slate-700 block mb-0.5">Kategori</label>
+          <input type="text" id="inputKategori" value="Fans Choice" oninput="updatePreview()" class="w-full px-3 py-2 rounded-xl border border-purple-200 bg-white font-semibold">
+        </div>
+        <div class="col-span-2">
+          <label class="font-bold text-slate-700 block mb-0.5">Tanggal Vote</label>
+          <input type="date" id="inputTanggal" onchange="updatePreview()" class="w-full px-3 py-2 rounded-xl border border-purple-200 bg-white font-semibold">
+        </div>
+        <div class="col-span-2">
+          <label class="font-bold text-slate-700 block mb-0.5">Upload Bukti Screenshot (Auto-Crop 9:16)</label>
+          <input type="file" accept="image/*" onchange="handleBuktiUpload(event)" class="w-full text-xs text-slate-500 file:mr-3 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-purple-100 file:text-btspurple">
         </div>
       </div>
-    </section>
 
-    <!-- TAB 6: DIARY -->
-    <section id="sec-diary" class="tab-content hidden space-y-4">
-      <div class="glass-card rounded-3xl p-4">
-        <h2 class="text-sm font-extrabold text-slate-800 cute-font mb-2">📖 Voting Diary & Galeri</h2>
-        <div id="diaryList" class="grid grid-cols-2 gap-2 text-xs"></div>
+      <!-- PILIHAN TEMPLATE BINGKAI LENGKAP -->
+      <div class="pt-2 border-t border-purple-100 space-y-2">
+        <label class="font-bold text-slate-700 text-xs block">🖼️ Pilih Desain Bingkai (Sesuai Selera):</label>
+        <div class="grid grid-cols-2 gap-1.5 text-[10px]">
+          <button onclick="applyTemplate('frame-bts-chibi')" class="p-2 bg-purple-100 text-btspurple font-bold rounded-xl border border-purple-300">💜 BTS Chibi Frame</button>
+          <button onclick="applyTemplate('frame-army-lavender')" class="p-2 bg-purple-50 text-purple-800 font-bold rounded-xl border border-purple-200">🔮 ARMY Lavender</button>
+          <button onclick="applyTemplate('frame-bt21-pastel')" class="p-2 bg-pink-100 text-pink-700 font-bold rounded-xl border border-pink-300">🧸 BT21 Cute Pastel</button>
+          <button onclick="applyTemplate('frame-arirang-rock')" class="p-2 bg-red-950 text-red-200 font-bold rounded-xl border border-red-700">🎸 BTS Arirang Concept</button>
+        </div>
+
+        <!-- SLIDER GESER WARNA CANVA -->
+        <div class="pt-2">
+          <div class="flex justify-between items-center mb-1">
+            <label class="font-bold text-slate-700 text-[11px]">🎨 Geser 1 Tuas Warna Latar (Ala Canva):</label>
+            <button onclick="resetBgWhite()" class="text-[9px] text-btspurple font-bold underline">Reset Putih</button>
+          </div>
+          <input type="range" min="0" max="360" value="270" id="canvaColorSlider" oninput="applyCanvaHueColor(this.value)" class="canva-hue-slider">
+        </div>
       </div>
-    </section>
 
-    <!-- TAB 7: ADMIN -->
-    <section id="sec-admin" class="tab-content hidden space-y-4">
-      <div id="adminLoginCard" class="glass-card rounded-3xl p-5 text-center space-y-3">
-        <h2 class="text-sm font-bold text-slate-800 cute-font">🔒 Panel Khusus Admin</h2>
-        <input type="password" id="adminPinInput" placeholder="Masukkan PIN Admin Rahasia" class="w-full text-center py-2 rounded-xl border border-purple-200 text-xs font-bold bg-white">
-        <button onclick="verifyAdminPin()" class="w-full py-2 bg-btspurple text-white font-bold rounded-xl text-xs shadow-md">Unlock Panel Admin</button>
+      <!-- KATALOG STIKER BT21 & CUSTOM -->
+      <div class="pt-2 border-t border-purple-100 space-y-2">
+        <div class="flex justify-between items-center">
+          <label class="font-bold text-slate-700 text-xs">Stiker Lucu BTS / BT21 (Cubit 2 Jari WA):</label>
+          <button onclick="clearAllStickers()" class="text-[10px] text-red-600 bg-red-50 px-2 py-0.5 rounded-md font-bold border border-red-200">🗑️ Hapus Semua Stiker</button>
+        </div>
+
+        <div class="flex flex-wrap gap-1.5">
+          <button onclick="addStickerEmoji('💜')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">💜</button>
+          <button onclick="addStickerEmoji('🩵')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🩵</button>
+          <button onclick="addStickerEmoji('🎙️')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🎙️</button>
+          <button onclick="addStickerEmoji('🔮')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🔮</button>
+          <button onclick="addStickerEmoji('🐳')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🐳</button>
+          <button onclick="addStickerEmoji('🧸')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🧸</button>
+          <button onclick="addStickerEmoji('🎀')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🎀</button>
+          <button onclick="addStickerEmoji('✨')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">✨</button>
+          <button onclick="addStickerEmoji('🧀')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🧀</button>
+          <button onclick="addStickerEmoji('👑')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">👑</button>
+        </div>
+
+        <div class="mt-2 space-y-1">
+          <label class="block text-[10px] font-bold text-slate-600">📁 Upload Stiker Kustom Luar (PNG/JPG):</label>
+          <input type="file" accept="image/*" onchange="handleCustomStickerUpload(event)" class="w-full text-xs text-slate-500 file:mr-2 file:py-1 file:px-2 file:rounded-lg file:border-0 file:text-[10px] file:font-bold file:bg-amber-100 file:text-amber-800">
+        </div>
       </div>
-    </section>
+    </div>
 
-  </main>
+    <!-- HASIL SERTIFIKAT CANVAS -->
+    <div class="flex justify-center p-2">
+      <div id="certificateCanvas" class="frame-bts-chibi relative w-full max-w-[340px] p-4 transition-all">
 
-  <script>
-    let activeUser = localStorage.getItem('7h_active_user') || null;
-    let userDatabase = JSON.parse(localStorage.getItem('7h_users_db') || '{"Alysha":{"password":"123","points":0,"bio":"Borahae BTS 💜","avatar":"","lastCheckin":"","diary":[],"quizDate":"","quizIndex":0}}');
-    let adminPinSecret = localStorage.getItem('7h_admin_pin') || '130613';
+        <!-- DEKORASI ORNAMEN OTOMATIS TAMBAHAN -->
+        <div id="frameDecorations" class="pointer-events-none">
+          <div class="absolute top-2 left-3 text-xs font-black text-btspurple opacity-60">💜 BTS</div>
+          <div class="absolute top-2 right-3 text-xs font-black text-btspurple opacity-60">Borahae ♡</div>
+        </div>
 
-    // DATABASE 100 SOAL LENGKAP BTS
-    const allQuizQuestions = [
-      { q: "Kapan BTS debut?", a: "A. 13 Juni 2013", b: "B. 13 Juli 2013", ans: "A" },
-      { q: "Siapa leader BTS?", a: "A. Jin", b: "B. RM", ans: "B" },
-      { q: "Apa nama fandom BTS?", a: "A. ARMY", b: "B. MOA", ans: "A" },
-      { q: "Berapa jumlah anggota BTS?", a: "A. 7", b: "B. 6", ans: "A" },
-      { q: "Siapa maknae BTS?", a: "A. Jimin", b: "B. Jungkook", ans: "B" },
-      { q: "Siapa anggota tertua BTS?", a: "A. Jin", b: "B. SUGA", ans: "A" },
-      { q: "Apa nama agensi BTS saat debut?", a: "A. JYP Entertainment", b: "B. Big Hit Entertainment", ans: "B" },
-      { q: "Apa nama lightstick resmi BTS?", a: "A. ARMY Bomb", b: "B. Candy Bong", ans: "A" },
-      { q: "Apa judul lagu debut BTS?", a: "A. Spring Day", b: "B. No More Dream", ans: "B" },
-      { q: "Apa nama album debut BTS?", a: "A. 2 Cool 4 Skool", b: "B. Wings", ans: "A" }
-    ];
+        <div id="stickerLayer"></div>
 
-    document.addEventListener("DOMContentLoaded", () => {
-      checkAuthStatus();
-      const today = new Date().toISOString().split('T')[0];
-      document.getElementById('prevTanggal').innerText = today;
-      document.getElementById('inputTanggal').value = today;
-      loadDailyQuiz();
+        <div class="text-center pb-1 relative z-10">
+          <p class="text-[9px] font-black uppercase tracking-widest cute-font opacity-80">7HEAVEN PURPLE PRESENTS</p>
+          <h3 class="text-base font-black uppercase tracking-wide cute-font">OFFICIAL VOTING PROOF</h3>
+        </div>
+
+        <!-- KOTAK AUTO CROP 9:16 -->
+        <div id="buktiContainer" class="crop-9-16-container my-2 border border-purple-200 shadow-md relative">
+          <img id="prevBukti" src="" class="crop-9-16-img hidden">
+          <div id="placeholderBukti" class="absolute inset-0 flex flex-col items-center justify-center p-4 text-center text-purple-400">
+            <i class="fa-solid fa-image text-3xl mb-1 text-btspurple"></i>
+            <p class="text-xs font-bold text-slate-600">Bukti Vote Auto 9:16</p>
+            <p class="text-[10px] text-slate-400">Foto otomatis terpotong rapi 9:16</p>
+          </div>
+        </div>
+
+        <div class="pt-2 text-center relative z-10">
+          <h4 id="prevNama" class="text-sm font-black cute-font">Alysha</h4>
+          <div class="text-[10px] font-semibold space-y-0.5 opacity-90">
+            <p>Event: <strong id="prevEvent" class="text-btspurple">MAMA 2026</strong></p>
+            <p>Kategori: <strong id="prevKategori">Fans Choice</strong></p>
+            <p>Tanggal: <span id="prevTanggal">2026-10-21</span></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <button onclick="downloadCertificate()" class="w-full py-3 bg-btspurple text-white font-black rounded-2xl shadow-lg text-sm flex items-center justify-center gap-2 hover:bg-btsdark transition-all cute-font">
+      <i class="fa-solid fa-download"></i> Download Sertifikat PNG
+    </button>
+  </section>
+
+  <!-- TAB 4: MISI -->
+  <section id="sec-misi" class="tab-content hidden space-y-4">
+    <div class="glass-card rounded-3xl p-4 space-y-4">
+      <h2 class="text-sm font-extrabold text-slate-800 cute-font flex items-center gap-1.5 border-b border-purple-100 pb-2">
+        <i class="fa-solid fa-bullseye text-btspurple"></i> Misi Vote & Streaming
+      </h2>
+
+      <div class="space-y-2">
+        <h3 class="text-xs font-bold text-btspurple uppercase tracking-wider">🗳️ Misi Vote On-Going</h3>
+        <p class="text-[11px] text-slate-500">Buat sertifikat vote di tab "Sertifikat", misi akan terceklist otomatis! 💜</p>
+        <div class="space-y-1.5 text-xs">
+          <label class="flex items-center gap-2 p-2 bg-white rounded-xl border border-purple-100">
+            <input type="checkbox" id="misiCheckMAMA" class="accent-btspurple" disabled>
+            <span class="font-semibold text-slate-700">MAMA 2026 — Fans' Choice Category</span>
+          </label>
+          <label class="flex items-center gap-2 p-2 bg-white rounded-xl border border-purple-100">
+            <input type="checkbox" id="misiCheckKCA" class="accent-btspurple" disabled>
+            <span class="font-semibold text-slate-700">KCA 2026 — Vote BTS / SWIM</span>
+          </label>
+          <label class="flex items-center gap-2 p-2 bg-white rounded-xl border border-purple-100">
+            <input type="checkbox" id="misiCheckAAA" class="accent-btspurple" disabled>
+            <span class="font-semibold text-slate-700">AAA (Final) — Popularity Vote</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="space-y-2 pt-3 border-t border-purple-100">
+        <h3 class="text-xs font-bold text-btspurple uppercase tracking-wider">🎵 Misi Streaming Album ARIRANG</h3>
+        <div id="misiArirangList" class="space-y-1.5 max-h-60 overflow-y-auto pr-1 text-xs">
+        </div>
+
+        <div class="bg-purple-50/70 p-3 rounded-2xl border border-purple-200 space-y-2 mt-3">
+          <h4 class="text-xs font-bold text-slate-800 flex items-center gap-1">
+            <i class="fa-solid fa-upload text-btspurple"></i> Upload Bukti SS Streaming
+          </h4>
+          <input type="file" id="streamSsInput" multiple accept="image/*" onchange="previewStreamSs(event)" class="w-full text-xs text-slate-500 file:mr-2 file:py-1 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-btspurple file:text-white">
+
+          <div id="ssPreviewContainer" class="grid grid-cols-3 gap-2 pt-2">
+          </div>
+
+          <button onclick="submitStreamProof()" class="w-full py-2 bg-btspurple text-white font-bold rounded-xl text-xs shadow-md hover:bg-btsdark transition-all mt-2">
+            Kirim Bukti SS Streaming
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 5: QUIZ HARIAN & GACHA PHOTOCARD -->
+  <section id="sec-game" class="tab-content hidden space-y-4">
+    <div class="glass-card rounded-3xl p-4 space-y-4">
+      <h2 class="text-sm font-extrabold text-slate-800 cute-font flex items-center gap-1.5 border-b border-purple-100 pb-2">
+        <i class="fa-solid fa-gamepad text-btspurple"></i> 💜 BTS ARMY Quiz Harian & Gacha PC
+      </h2>
+
+      <!-- KOTAK QUIZ HARIAN BERGANTI-GANTI -->
+      <div id="quizGameArea" class="p-3.5 bg-purple-50 rounded-2xl border border-purple-200 space-y-3">
+        <div class="flex justify-between items-center">
+          <span id="quizCounterInfo" class="text-[10px] font-bold bg-btspurple text-white px-2 py-0.5 rounded-full">Soal 1 / 20</span>
+          <span class="text-[10px] font-bold text-purple-700">Benar = +5 Poin ✨</span>
+        </div>
+
+        <h3 id="quizQuestionText" class="text-xs font-extrabold text-slate-800 leading-snug">Memuat pertanyaan hari ini...</h3>
+
+        <div id="quizOptionsContainer" class="grid grid-cols-1 gap-2 pt-1 text-xs">
+        </div>
+
+        <div id="quizCompletedMsg" class="hidden text-center py-3 text-xs font-bold text-btspurple">
+          🎉 Quiz Harian Hari Ini Selesai! Tunggu soal baru besok ya!
+        </div>
+      </div>
+
+      <!-- KOTAK GACHA PHOTOCARD -->
+      <div class="p-3 bg-pink-50 rounded-2xl border border-pink-200 text-center space-y-2">
+        <h3 class="text-xs font-bold text-pink-700 cute-font">🎁 Tarik Gacha Photocard Member (50 Pts)</h3>
+        <button onclick="pullGachaCard()" class="w-full py-2.5 bg-gradient-to-r from-btspurple to-pink-500 text-white font-bold rounded-xl text-xs shadow-md">
+          Tarik Photocard Acak ✨
+        </button>
+      </div>
+
+      <!-- ALBUM KOLEKSI MEMBER -->
+      <div class="pt-2 border-t border-purple-100">
+        <div class="flex justify-between items-center mb-2">
+          <h3 class="text-xs font-bold text-slate-700">Album Koleksi Photocard Kamu:</h3>
+          <span class="text-[10px] text-btspurple font-bold">Terupdate Otomatis 🔄</span>
+        </div>
+        <div id="photocardGrid" class="grid grid-cols-3 gap-2 text-xs">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 6: DIARY (DENGAN TOMBOL HAPUS) -->
+  <section id="sec-diary" class="tab-content hidden space-y-4">
+    <div class="glass-card rounded-3xl p-4">
+      <h2 class="text-sm font-extrabold text-slate-800 cute-font mb-2">📖 Voting Diary & Galeri</h2>
+      <div id="diaryList" class="grid grid-cols-2 gap-2 text-xs">
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 7: ADMIN PANEL -->
+  <section id="sec-admin" class="tab-content hidden space-y-4">
+    <div id="adminLoginCard" class="glass-card rounded-3xl p-5 text-center space-y-3">
+      <h2 class="text-sm font-bold text-slate-800 cute-font">🔒 Panel Khusus Admin</h2>
+      <p class="text-xs text-slate-500">Akses rahasia khusus Admin untuk mengelola poin member.</p>
+      <input type="password" id="adminPinInput" placeholder="Masukkan PIN Admin Rahasia" class="w-full text-center py-2 rounded-xl border border-purple-200 text-xs font-bold bg-white">
+      <button onclick="verifyAdminPin()" class="w-full py-2 bg-btspurple text-white font-bold rounded-xl text-xs shadow-md">Unlock Panel Admin</button>
+    </div>
+
+    <div id="adminDashboard" class="hidden glass-card rounded-3xl p-4 space-y-3">
+      <div class="flex justify-between items-center border-b border-purple-100 pb-2">
+        <h3 class="text-xs font-bold text-slate-800">⚙️ Panel Kontrol Admin</h3>
+        <button onclick="toggleChangePinModal()" class="px-2 py-0.5 bg-purple-100 text-btspurple font-bold text-[10px] rounded-lg">🔑 Ganti PIN Rahasia</button>
+      </div>
+
+      <div id="changePinSection" class="hidden p-2.5 bg-purple-50 rounded-xl border border-purple-200 text-xs space-y-1.5">
+        <input type="password" id="newAdminPinInput" placeholder="Masukkan PIN Rahasia Baru" class="w-full px-2.5 py-1 rounded-lg border border-purple-200 bg-white">
+        <button onclick="saveNewAdminPin()" class="w-full py-1 bg-btspurple text-white font-bold rounded-lg text-xs">Update PIN Admin</button>
+      </div>
+
+      <div class="space-y-2 text-xs">
+        <div>
+          <label class="font-bold text-slate-700 block mb-1">Pilih Member Terdaftar:</label>
+          <select id="adminUserSelect" class="w-full px-3 py-1.5 rounded-xl border border-purple-200 bg-white font-bold text-btspurple">
+          </select>
+        </div>
+        <div>
+          <label class="font-bold text-slate-700 block mb-1">Jumlah Poin (misal: 50 atau -20):</label>
+          <input type="number" id="adminPointAmount" placeholder="Contoh: 50" class="w-full px-3 py-1.5 rounded-xl border border-purple-200 font-bold bg-white">
+        </div>
+        <button onclick="adminAdjustPoints()" class="w-full py-2 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl text-xs shadow-md transition-all">
+          Simpan Perubahan Poin
+        </button>
+      </div>
+
+      <div class="pt-3 border-t border-purple-100">
+        <h4 class="text-xs font-bold text-slate-700 mb-2">Daftar Poin Seluruh Member:</h4>
+        <div id="adminUserList" class="space-y-1 text-xs">
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+let activeUser = localStorage.getItem('7h_active_user') || null;
+let userDatabase = JSON.parse(localStorage.getItem('7h_users_db') || '{"Alysha":{"password":"123","points":0,"bio":"Borahae BTS 💜","avatar":"","lastCheckin":"","diary":[],"cards":[],"quizDate":"","quizIndex":0,"history":[],"completedMissions":[]}}');
+let adminPinSecret = localStorage.getItem('7h_admin_pin') || '130613';
+let tempAvatarBase64 = "";
+
+const arirangSongs = [
+  "1. Body to Body", "2. Hooligan", "3. Aliens", "4. FYA", "5. 2.0",
+  "6. No. 29", "7. SWIM (Title Track ⭐️)", "8. Merry Go Round", "9. NORMAL",
+  "10. Like Animals", "11. they don't know 'bout us", "12. One More Night",
+  "13. Please", "14. Into the Sun"
+];
+
+const btsPhotocardsCatalog = [
+  { id: 'rm', name: 'RM (Namjoon)', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=300&q=80' },
+  { id: 'jin', name: 'Jin (Seokjin)', img: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=300&q=80' },
+  { id: 'suga', name: 'SUGA (Yoongi)', img: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=300&q=80' },
+  { id: 'jhope', name: 'J-Hope (Hoseok)', img: 'https://images.unsplash.com/photo-1563089145-599997674d42?w=300&q=80' },
+  { id: 'jimin', name: 'Jimin', img: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=300&q=80' },
+  { id: 'v', name: 'V (Taehyung)', img: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=300&q=80' },
+  { id: 'jungkook', name: 'Jungkook', img: 'https://images.unsplash.com/photo-1579202673506-ca3ce28943ef?w=300&q=80' }
+];
+
+// DATABASE 100 SOAL LENGKAP BTS
+const allQuizQuestions = [
+  { q: "Kapan BTS debut?", a: "A. 13 Juni 2013", b: "B. 13 Juli 2013", ans: "A" },
+  { q: "Siapa leader BTS?", a: "A. Jin", b: "B. RM", ans: "B" },
+  { q: "Apa nama fandom BTS?", a: "A. ARMY", b: "B. MOA", ans: "A" },
+  { q: "Berapa jumlah anggota BTS?", a: "A. 7", b: "B. 6", ans: "A" },
+  { q: "Siapa maknae BTS?", a: "A. Jimin", b: "B. Jungkook", ans: "B" },
+  { q: "Siapa anggota tertua BTS?", a: "A. Jin", b: "B. SUGA", ans: "A" },
+  { q: "Apa nama agensi BTS saat debut?", a: "A. JYP Entertainment", b: "B. Big Hit Entertainment", ans: "B" },
+  { q: "Apa nama lightstick resmi BTS?", a: "A. ARMY Bomb", b: "B. Candy Bong", ans: "A" },
+  { q: "Apa judul lagu debut BTS?", a: "A. Spring Day", b: "B. No More Dream", ans: "B" },
+  { q: "Apa nama album debut BTS?", a: "A. 2 Cool 4 Skool", b: "B. Wings", ans: "A" },
+  { q: "Siapa nama asli RM?", a: "A. Kim Namjoon", b: "B. Kim Taehyung", ans: "A" },
+  { q: "Siapa nama asli Jin?", a: "A. Min Yoongi", b: "B. Kim Seokjin", ans: "B" },
+  { q: "Siapa nama asli SUGA?", a: "A. Min Yoongi", b: "B. Jung Hoseok", ans: "A" },
+  { q: "Siapa nama asli J-Hope?", a: "A. Park Jimin", b: "B. Jung Hoseok", ans: "B" },
+  { q: "Siapa nama asli Jimin?", a: "A. Park Jimin", b: "B. Jeon Jungkook", ans: "A" },
+  { q: "Siapa nama asli V?", a: "A. Kim Seokjin", b: "B. Kim Taehyung", ans: "B" },
+  { q: "Siapa nama asli Jungkook?", a: "A. Jeon Jungkook", b: "B. Kim Namjoon", ans: "A" },
+  { q: "Siapa member dengan nama panggung V?", a: "A. Jimin", b: "B. Taehyung", ans: "B" },
+  { q: "Siapa member yang memiliki nama panggung Agust D?", a: "A. SUGA", b: "B. RM", ans: "A" },
+  { q: "Siapa member yang merilis album Jack in the Box?", a: "A. RM", b: "B. j-hope", ans: "B" },
+  { q: "Lagu debut BTS adalah?", a: "A. No More Dream", b: "B. Fire", ans: "A" },
+  { q: "Lagu berbahasa Inggris pertama BTS adalah?", a: "A. Butter", b: "B. Dynamite", ans: "B" },
+  { q: "Lagu BTS bersama Halsey adalah?", a: "A. Boy With Luv", b: "B. DNA", ans: "A" },
+  { q: "Lagu BTS yang dirilis bersama Coldplay adalah?", a: "A. Butter", b: "B. My Universe", ans: "B" },
+  { q: "Lagu BTS yang memiliki judul Spring Day adalah?", a: "A. Spring Day", b: "B. Blue & Grey", ans: "A" },
+  { q: "Lagu BTS yang memuat lirik “I'm the one I should love” adalah?", a: "A. Epiphany", b: "B. Euphoria", ans: "A" },
+  { q: "Lagu BTS dengan judul IDOL dirilis pada era album?", a: "A. Love Yourself: Answer", b: "B. BE", ans: "A" },
+  { q: "Lagu BTS yang memiliki judul Black Swan adalah?", a: "A. ON", b: "B. Black Swan", ans: "B" },
+  { q: "Lagu BTS yang dirilis pada 2021 dengan pesan menari adalah?", a: "A. Permission to Dance", b: "B. Yet To Come", ans: "A" },
+  { q: "Lagu BTS yang berjudul Life Goes On terdapat di album?", a: "A. Wings", b: "B. BE", ans: "B" },
+  { q: "Album debut BTS adalah?", a: "A. 2 Cool 4 Skool", b: "B. Dark & Wild", ans: "A" },
+  { q: "Album yang memuat Fake Love adalah?", a: "A. Love Yourself: Tear", b: "B. Love Yourself: Her", ans: "A" },
+  { q: "Album BTS yang dirilis pada 2022 adalah?", a: "A. Proof", b: "B. Wings", ans: "A" },
+  { q: "Album BTS yang memuat lagu Spring Day adalah?", a: "A. You Never Walk Alone", b: "B. Map of the Soul: 7", ans: "A" },
+  { q: "Album studio BTS yang dirilis pada 2016 adalah?", a: "A. Wings", b: "B. BE", ans: "A" },
+  { q: "Album BTS yang memuat DNA adalah?", a: "A. Love Yourself: Answer", b: "B. Skool Luv Affair", ans: "A" },
+  { q: "Album yang memuat lagu ON adalah?", a: "A. Map of the Soul: 7", b: "B. Dark & Wild", ans: "A" },
+  { q: "Album BTS yang memuat For Youth adalah?", a: "A. Proof", b: "B. BE", ans: "A" },
+  { q: "Album BTS yang memuat Life Goes On adalah?", a: "A. Wings", b: "B. BE", ans: "B" },
+  { q: "Album mini BTS yang dirilis pada 2014 adalah?", a: "A. Skool Luv Affair", b: "B. Proof", ans: "A" },
+  { q: "Apa judul album solo RM yang dirilis pada 2022?", a: "A. Indigo", b: "B. FACE", ans: "A" },
+  { q: "Apa judul album solo Jimin yang memuat Like Crazy?", a: "A. GOLDEN", b: "B. FACE", ans: "B" },
+  { q: "Apa judul album solo Jungkook?", a: "A. GOLDEN", b: "B. D-DAY", ans: "A" },
+  { q: "Apa judul album solo SUGA yang dirilis pada 2023?", a: "A. MUSE", b: "B. D-DAY", ans: "B" },
+  { q: "Apa judul album solo j-hope yang dirilis pada 2022?", a: "A. Jack in the Box", b: "B. Indigo", ans: "A" },
+  { q: "Apa judul album solo Jin yang dirilis pada 2024?", a: "A. FACE", b: "B. Happy", ans: "B" },
+  { q: "Siapa yang menyanyikan lagu FRI(END)S?", a: "A. V", b: "B. Jin", ans: "A" },
+  { q: "Siapa yang menyanyikan lagu Seven?", a: "A. Jimin", b: "B. Jungkook", ans: "B" },
+  { q: "Siapa yang menyanyikan lagu Daechwita?", a: "A. Agust D", b: "B. RM", ans: "A" },
+  { q: "Siapa yang menyanyikan lagu The Astronaut?", a: "A. Jin", b: "B. V", ans: "A" },
+  { q: "Siapa penyanyi yang berkolaborasi dengan BTS dalam Boy With Luv?", a: "A. Halsey", b: "B. Adele", ans: "A" },
+  { q: "Siapa yang berkolaborasi dengan Jungkook dalam Left and Right?", a: "A. The Weeknd", b: "B. Charlie Puth", ans: "B" },
+  { q: "Siapa yang berkolaborasi dengan SUGA dalam That That?", a: "A. PSY", b: "B. Rain", ans: "A" },
+  { q: "Siapa yang berkolaborasi dengan j-hope dalam Chicken Noodle Soup?", a: "A. Latto", b: "B. Becky G", ans: "B" },
+  { q: "Siapa yang berkolaborasi dengan Jungkook dalam 3D?", a: "A. Jack Harlow", b: "B. Ed Sheeran", ans: "A" },
+  { q: "Grup apa yang berkolaborasi dengan BTS dalam My Universe?", a: "A. Maroon 5", b: "B. Coldplay", ans: "B" },
+  { q: "Siapa yang berkolaborasi dengan BTS dalam lagu Butter versi remix featuring?", a: "A. Megan Thee Stallion", b: "B. Doja Cat", ans: "A" },
+  { q: "Siapa yang berkolaborasi dengan j-hope dalam MORE?", a: "A. Tidak ada artis featuring", b: "B. Halsey", ans: "A" },
+  { q: "Siapa yang berkolaborasi dengan Jungkook dalam Seven?", a: "A. Latto", b: "B. Sia", ans: "A" },
+  { q: "Siapa yang berkolaborasi dengan BTS dalam Waste It On Me?", a: "A. Zedd", b: "B. Steve Aoki", ans: "B" },
+  { q: "BTS berasal dari negara mana?", a: "A. Korea Selatan", b: "B. Jepang", ans: "A" },
+  { q: "Apa kepanjangan nama Korea BTS?", a: "A. Bangtan Sonyeondan", b: "B. Blacktan Sonyeondan", ans: "A" },
+  { q: "Pada tahun berapa BTS merilis Dynamite?", a: "A. 2020", b: "B. 2021", ans: "A" },
+  { q: "Pada tahun berapa BTS merilis album Proof?", a: "A. 2021", b: "B. 2022", ans: "B" },
+  { q: "Siapa member yang lahir pada 1 September 1997?", a: "A. Jungkook", b: "B. Jimin", ans: "A" },
+  { q: "Siapa member yang lahir pada 30 Desember 1995?", a: "A. Jin", b: "B. V", ans: "B" },
+  { q: "Siapa member yang lahir pada 13 Oktober 1995?", a: "A. Jimin", b: "B. RM", ans: "A" },
+  { q: "Siapa member yang lahir pada 4 Desember 1992?", a: "A. SUGA", b: "B. Jin", ans: "B" },
+  { q: "Siapa member yang lahir pada 18 Februari 1994?", a: "A. j-hope", b: "B. RM", ans: "A" },
+  { q: "Siapa member yang lahir pada 12 September 1994?", a: "A. V", b: "B. RM", ans: "B" },
+  { q: "Kampanye BTS bersama UNICEF dikenal sebagai?", a: "A. Love Myself", b: "B. Love Forever", ans: "A" },
+  { q: "Pada tahun berapa BTS memenangkan Top Social Artist BBMAs untuk pertama kalinya?", a: "A. 2017", b: "B. 2019", ans: "A" },
+  { q: "Lagu BTS yang mendapat nominasi Grammy pada 2021 adalah?", a: "A. Dynamite", b: "B. Fire", ans: "A" },
+  { q: "BTS pernah berpidato di forum PBB. Di forum mana?", a: "A. United Nations", b: "B. NATO", ans: "A" },
+  { q: "BTS memenangkan Artist of the Year di American Music Awards pada tahun?", a: "A. 2019", b: "B. 2021", ans: "B" },
+  { q: "Apa judul lagu BTS yang menjadi soundtrack film Eternals?", a: "A. Friends", b: "B. Life Goes On", ans: "A" },
+  { q: "BTS pernah tampil di acara The Tonight Show Starring siapa?", a: "A. Jimmy Fallon", b: "B. Jimmy Kimmel", ans: "A" },
+  { q: "Lagu BTS yang digunakan dalam kampanye Love Myself adalah?", a: "A. Kampanye ini tidak terbatas pada satu lagu", b: "B. Hanya Dynamite", ans: "A" },
+  { q: "BTS tampil di Grammy Awards dengan lagu Dynamite pada tahun?", a: "A. 2021", b: "B. 2018", ans: "A" },
+  { q: "BTS merilis lagu Take Two untuk memperingati anniversary ke-berapa pada 2023?", a: "A. Ke-10", b: "B. Ke-7", ans: "A" },
+  { q: "Lagu BTS yang dirilis pada 2015 adalah?", a: "A. I NEED U", b: "B. Butter", ans: "A" },
+  { q: "Lagu BTS yang memuat frasa “You can't stop me lovin' myself” adalah?", a: "A. IDOL", b: "B. Spring Day", ans: "A" },
+  { q: "Lagu BTS yang berjudul Anpanman terinspirasi dari karakter asal negara?", a: "A. Jepang", b: "B. Korea Selatan", ans: "A" },
+  { q: "Lagu BTS berbahasa Jepang yang dirilis pada 2021 adalah?", a: "A. Film Out", b: "B. Black Swan", ans: "A" },
+  { q: "Lagu BTS yang berjudul Run BTS terdapat dalam album?", a: "A. Proof", b: "B. Wings", ans: "A" },
+  { q: "Lagu BTS yang memiliki judul Fire dirilis pada tahun?", a: "A. 2016", b: "B. 2019", ans: "A" },
+  { q: "Lagu BTS yang dirilis pada 2018 adalah?", a: "A. Fake Love", b: "B. Dynamite", ans: "A" },
+  { q: "Lagu BTS yang berjudul Blue & Grey terdapat di album?", a: "A. BE", b: "B. Dark & Wild", ans: "A" },
+  { q: "Lagu BTS yang dirilis pada 2023 untuk anniversary mereka adalah?", a: "A. Take Two", b: "B. Yet To Come", ans: "A" },
+  { q: "Lagu BTS yang berjudul For Youth dirilis pada tahun?", a: "A. 2022", b: "B. 2017", ans: "A" },
+  { q: "Siapa member BTS yang merilis album D-DAY?", a: "A. SUGA", b: "B. RM", ans: "A" },
+  { q: "Apa judul album solo V yang dirilis pada 2023?", a: "A. Layover", b: "B. Indigo", ans: "A" },
+  { q: "Apa judul album solo Jimin yang dirilis pada 2024?", a: "A. MUSE", b: "B. FACE", ans: "A" },
+  { q: "Apa judul album solo Jin yang dirilis pada 2022?", a: "A. The Astronaut", b: "B. Happy", ans: "A" },
+  { q: "Apa judul lagu solo j-hope yang dirilis pada 2022 dan menjadi single utama album Jack in the Box?", a: "A. MORE", b: "B. Arson", ans: "B" },
+  { q: "Siapa member BTS yang merilis lagu solo Euphoria?", a: "A. Jungkook", b: "B. Jin", ans: "A" },
+  { q: "Siapa member BTS yang menyanyikan lagu Serendipity?", a: "A. Jimin", b: "B. V", ans: "A" },
+  { q: "Siapa member BTS yang menyanyikan lagu Singularity?", a: "A. RM", b: "B. V", ans: "B" },
+  { q: "Siapa member BTS yang menyanyikan lagu Epiphany?", a: "A. Jin", b: "B. SUGA", ans: "A" },
+  { q: "Apa judul album BTS yang dirilis pada 2026?", a: "A. ARIRANG", b: "B. PROOF", ans: "A" }
+];
+
+document.addEventListener("DOMContentLoaded", () => {
+  checkAuthStatus();
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('prevTanggal').innerText = today;
+  document.getElementById('inputTanggal').value = today;
+  renderMissions();
+  renderPhotocards();
+  loadDailyQuiz();
+});
+
+function getBadgeTitle(cardsCount) {
+  if (cardsCount >= 6) return '👑 Borahae Elite';
+  if (cardsCount >= 4) return '🔮 Magic Shop ARMY';
+  if (cardsCount >= 2) return '💜 Purple ARMY';
+  return '🐣 Baby ARMY';
+}
+
+function checkAuthStatus() {
+  if (activeUser && userDatabase[activeUser]) {
+    const uData = userDatabase[activeUser];
+    if (!uData.cards) uData.cards = [];
+    if (!uData.history) uData.history = [];
+    if (!uData.completedMissions) uData.completedMissions = [];
+
+    const badge = getBadgeTitle(uData.cards.length);
+
+    document.getElementById('profileNameDisplay').innerText = `Profil: ${activeUser}`;
+    document.getElementById('userPoints').innerText = `${uData.points} PTS`;
+    document.getElementById('userBadge').innerText = badge;
+    document.getElementById('inputNama').value = activeUser;
+    document.getElementById('prevNama').innerText = activeUser;
+
+    document.getElementById('tabProfilUsername').innerText = activeUser;
+    document.getElementById('tabProfilBio').innerText = `"${uData.bio || 'Borahae BTS 💜'}"`;
+    document.getElementById('tabProfilBadge').innerText = badge;
+    document.getElementById('tabProfilPoints').innerText = `💰 ${uData.points} PTS`;
+
+    if (uData.avatar) {
+      document.getElementById('headerAvatarText').classList.add('hidden');
+      document.getElementById('headerAvatarImg').src = uData.avatar;
+      document.getElementById('headerAvatarImg').classList.remove('hidden');
+
+      document.getElementById('profileAvatarPrev').src = uData.avatar;
+      document.getElementById('profileAvatarPrev').classList.remove('hidden');
+
+      document.getElementById('tabProfilAvatarText').classList.add('hidden');
+      document.getElementById('tabProfilAvatarImg').src = uData.avatar;
+      document.getElementById('tabProfilAvatarImg').classList.remove('hidden');
+    } else {
+      document.getElementById('headerAvatarText').classList.remove('hidden');
+      document.getElementById('headerAvatarImg').classList.add('hidden');
+      document.getElementById('profileAvatarPrev').classList.add('hidden');
+
+      document.getElementById('tabProfilAvatarText').classList.remove('hidden');
+      document.getElementById('tabProfilAvatarImg').classList.add('hidden');
+    }
+
+    document.getElementById('authFormArea').classList.add('hidden');
+    document.getElementById('loggedInArea').classList.remove('hidden');
+    document.getElementById('loggedInUsername').innerText = activeUser;
+    document.getElementById('loggedInBio').innerText = `"${uData.bio || 'Borahae BTS 💜'}"`;
+    document.getElementById('authStatusText').innerText = 'Terhubung';
+    document.getElementById('authStatusText').className = 'text-[10px] bg-green-100 text-green-800 font-bold px-2 py-0.5 rounded-full';
+
+    const today = new Date().toDateString();
+    const checkinBtn = document.getElementById('btnCheckin');
+    if (uData.lastCheckin === today) {
+      document.getElementById('checkinStatus').innerText = "Sudah Check-in ✅";
+      checkinBtn.disabled = true;
+      checkinBtn.classList.add('opacity-50', 'cursor-not-allowed');
+    } else {
+      document.getElementById('checkinStatus').innerText = "Belum Check-in";
+      checkinBtn.disabled = false;
+      checkinBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+    }
+
+    syncMissionsChecklist();
+    renderDiary();
+    renderPhotocards();
+    loadDailyQuiz();
+    renderUserHistory();
+  } else {
+    document.getElementById('profileNameDisplay').innerText = `Profil: Guest (Belum Login)`;
+    document.getElementById('userPoints').innerText = `0 PTS`;
+    document.getElementById('userBadge').innerText = `🐣 Baby ARMY`;
+    document.getElementById('headerAvatarText').classList.remove('hidden');
+    document.getElementById('headerAvatarImg').classList.add('hidden');
+    document.getElementById('authFormArea').classList.remove('hidden');
+    document.getElementById('loggedInArea').classList.add('hidden');
+    document.getElementById('authStatusText').innerText = 'Belum Masuk';
+    document.getElementById('authStatusText').className = 'text-[10px] bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-full';
+    document.getElementById('checkinStatus').innerText = "Belum Check-in";
+
+    document.getElementById('tabProfilUsername').innerText = 'Guest';
+    document.getElementById('tabProfilBio').innerText = '"Belum Login"';
+    document.getElementById('tabProfilBadge').innerText = '🐣 Baby ARMY';
+    document.getElementById('tabProfilPoints').innerText = '💰 0 PTS';
+  }
+}
+
+function addHistory(actionText) {
+  if (!activeUser || !userDatabase[activeUser]) return;
+  userDatabase[activeUser].history = userDatabase[activeUser].history || [];
+  const timeStr = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  userDatabase[activeUser].history.unshift({ text: actionText, time: timeStr });
+  localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
+  renderUserHistory();
+}
+
+function renderUserHistory() {
+  const container = document.getElementById('userHistoryList');
+  if (!container) return;
+  if (!activeUser || !userDatabase[activeUser] || !userDatabase[activeUser].history || userDatabase[activeUser].history.length === 0) {
+    container.innerHTML = `<p class="text-center text-slate-400 py-2 text-[11px]">Belum ada riwayat aktivitas.</p>`;
+    return;
+  }
+  container.innerHTML = userDatabase[activeUser].history.map(item => `
+    <div class="p-2 bg-purple-50/80 rounded-xl border border-purple-100 flex justify-between items-center">
+      <span class="font-bold text-slate-700">${item.text}</span>
+      <span class="text-[9px] text-purple-400 font-bold">${item.time}</span>
+    </div>
+  `).join('');
+}
+
+function handleAvatarUpload(e) {
+  const file = e.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(evt) {
+      tempAvatarBase64 = evt.target.result;
+    }
+    reader.readAsDataURL(file);
+  }
+}
+
+function toggleEditProfileModal() {
+  const sec = document.getElementById('editProfileSection');
+  sec.classList.toggle('hidden');
+  if (!sec.classList.contains('hidden') && activeUser) {
+    document.getElementById('editDisplayName').value = activeUser;
+    document.getElementById('editBioText').value = userDatabase[activeUser].bio || '';
+  }
+}
+
+function saveProfileChanges() {
+  const newName = document.getElementById('editDisplayName').value.trim();
+  const newBio = document.getElementById('editBioText').value.trim();
+
+  if (!newName) return alert("Nama tidak boleh kosong!");
+
+  if (newName !== activeUser && userDatabase[newName]) {
+    return alert("Nama member tersebut sudah terpakai!");
+  }
+
+  const currentData = userDatabase[activeUser];
+  delete userDatabase[activeUser];
+
+  activeUser = newName;
+  currentData.bio = newBio;
+  if (tempAvatarBase64) {
+    currentData.avatar = tempAvatarBase64;
+  }
+  userDatabase[newName] = currentData;
+
+  localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
+  localStorage.setItem('7h_active_user', activeUser);
+
+  checkAuthStatus();
+  toggleEditProfileModal();
+  alert("Profil berhasil diperbarui ✨");
+}
+
+function loginUser() {
+  const u = document.getElementById('authUsername').value.trim();
+  const p = document.getElementById('authPassword').value.trim();
+  if (!u || !p) return alert("Isi Username dan Kata Sandi!");
+
+  if (userDatabase[u] && userDatabase[u].password === p) {
+    activeUser = u;
+    localStorage.setItem('7h_active_user', u);
+    checkAuthStatus();
+    alert(`Selamat datang kembali, ${u} 💜`);
+  } else {
+    alert("Username atau Kata Sandi salah!");
+  }
+}
+
+function registerUser() {
+  const u = document.getElementById('authUsername').value.trim();
+  const p = document.getElementById('authPassword').value.trim();
+  if (!u || !p) return alert("Isi Username dan Kata Sandi!");
+
+  if (userDatabase[u]) {
+    alert("Username sudah terdaftar! Silakan Login.");
+  } else {
+    userDatabase[u] = { password: p, points: 0, bio: "Borahae BTS 💜", avatar: "", lastCheckin: "", diary: [], cards: [], quizDate: "", quizIndex: 0, history: [], completedMissions: [] };
+    localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
+    activeUser = u;
+    localStorage.setItem('7h_active_user', u);
+    checkAuthStatus();
+    alert(`Akun ${u} berhasil dibuat! 🎉`);
+  }
+}
+
+function logoutUser() {
+  activeUser = null;
+  localStorage.removeItem('7h_active_user');
+  checkAuthStatus();
+}
+
+function switchTab(tabName) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+  document.querySelectorAll('.tab-btn').forEach(el => {
+    el.classList.remove('text-btspurple', 'border-btspurple');
+    el.classList.add('text-slate-500', 'border-transparent');
+  });
+
+  document.getElementById(`sec-${tabName}`).classList.remove('hidden');
+  const activeBtn = document.getElementById(`tab-${tabName}`);
+  activeBtn.classList.add('text-btspurple', 'border-btspurple');
+  activeBtn.classList.remove('text-slate-500', 'border-transparent');
+}
+
+function doDailyCheckin() {
+  if (!activeUser) return alert("Silakan Login/Daftar akun dulu!");
+  const today = new Date().toDateString();
+  if (userDatabase[activeUser].lastCheckin === today) return alert("Kamu sudah Check-in hari ini!");
+
+  userDatabase[activeUser].points += 10;
+  userDatabase[activeUser].lastCheckin = today;
+  addHistory("📅 Check-in Harian (+10 Pts)");
+  localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
+  checkAuthStatus();
+  alert("Check-in berhasil! (+10 PTS) 🎉");
+}
+
+function getDailyQuestions() {
+  const todayStr = new Date().toISOString().split('T')[0];
+  let seed = 0;
+  for (let i = 0; i < todayStr.length; i++) {
+    seed += todayStr.charCodeAt(i);
+  }
+
+  let shuffled = [...allQuizQuestions];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    let j = (seed * (i + 1)) % shuffled.length;
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled.slice(0, 20);
+}
+
+function loadDailyQuiz() {
+  const qText = document.getElementById('quizQuestionText');
+  const optContainer = document.getElementById('quizOptionsContainer');
+  const counterInfo = document.getElementById('quizCounterInfo');
+  const completedMsg = document.getElementById('quizCompletedMsg');
+
+  if (!activeUser || !userDatabase[activeUser]) {
+    qText.innerText = "Silakan login terlebih dahulu untuk bermain Quiz Harian!";
+    optContainer.innerHTML = "";
+    return;
+  }
+
+  const todayStr = new Date().toISOString().split('T')[0];
+  const uData = userDatabase[activeUser];
+
+  if (uData.quizDate !== todayStr) {
+    uData.quizDate = todayStr;
+    uData.quizIndex = 0;
+    localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
+  }
+
+  const dailyList = getDailyQuestions();
+  const currentIndex = uData.quizIndex || 0;
+
+  if (currentIndex >= dailyList.length) {
+    qText.classList.add('hidden');
+    optContainer.classList.add('hidden');
+    counterInfo.classList.add('hidden');
+    completedMsg.classList.remove('hidden');
+    return;
+  }
+
+  qText.classList.remove('hidden');
+  optContainer.classList.remove('hidden');
+  counterInfo.classList.remove('hidden');
+  completedMsg.classList.add('hidden');
+
+  counterInfo.innerText = `Soal ${currentIndex + 1} / 20`;
+  const currentQ = dailyList[currentIndex];
+  qText.innerText = currentQ.q;
+
+  optContainer.innerHTML = `
+    <button onclick="answerDailyQuiz('${currentQ.ans}', 'A')" class="p-2.5 bg-white rounded-xl border border-purple-200 font-bold hover:bg-purple-100 text-left transition-all">${currentQ.a}</button>
+    <button onclick="answerDailyQuiz('${currentQ.ans}', 'B')" class="p-2.5 bg-white rounded-xl border border-purple-200 font-bold hover:bg-purple-100 text-left transition-all">${currentQ.b}</button>
+  `;
+}
+
+function answerDailyQuiz(correctAns, chosenAns) {
+  if (!activeUser) return;
+  const uData = userDatabase[activeUser];
+
+  if (chosenAns === correctAns) {
+    uData.points += 5;
+    addHistory("🧠 Menjawab Quiz Benar (+5 Pts)");
+    alert("✨ Jawaban Benar! Kamu mendapatkan +5 Poin!");
+  } else {
+    alert(`❌ Kurang tepat! Jawaban yang benar adalah ${correctAns}.`);
+  }
+
+  uData.quizIndex = (uData.quizIndex || 0) + 1;
+  localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
+  checkAuthStatus();
+  loadDailyQuiz();
+}
+
+function pullGachaCard() {
+  if (!activeUser) return alert("Silakan Login akun terlebih dahulu!");
+  if (userDatabase[activeUser].points < 50) return alert("Poin kamu kurang! Minimal 50 PTS untuk tarik Gacha.");
+
+  userDatabase[activeUser].points -= 50;
+  const randomCard = btsPhotocardsCatalog[Math.floor(Math.random() * btsPhotocardsCatalog.length)];
+
+  userDatabase[activeUser].cards = userDatabase[activeUser].cards || [];
+  if (!userDatabase[activeUser].cards.includes(randomCard.id)) {
+    userDatabase[activeUser].cards.push(randomCard.id);
+  }
+
+  addHistory(`🎁 Gacha PC: Got ${randomCard.name}`);
+  localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
+  checkAuthStatus();
+  alert(`🎉 HORE! Kamu mendapatkan Photocard: ${randomCard.name}! Cek album koleksimu.`);
+}
+
+function renderPhotocards() {
+  const mainGrid = document.getElementById('photocardGrid');
+  const profilGrid = document.getElementById('myPhotocardGrid');
+
+  const userCards = (activeUser && userDatabase[activeUser]?.cards) ? userDatabase[activeUser].cards : [];
+
+  const htmlContent = btsPhotocardsCatalog.map(card => {
+    const isOwned = userCards.includes(card.id);
+    return `
+      <div class="bg-white p-2 rounded-2xl border border-purple-100 text-center space-y-1 shadow-sm">
+        <img src="${card.img}" class="w-full h-24 object-cover rounded-xl ${isOwned ? '' : 'photocard-locked'}">
+        <p class="font-bold text-[10px] text-slate-700 truncate">${card.name}</p>
+        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full ${isOwned ? 'bg-purple-100 text-btspurple' : 'bg-slate-100 text-slate-400'}">
+          ${isOwned ? 'Milikmu ✨' : 'Terkunci 🔒'}
+        </span>
+      </div>
+    `;
+  }).join('');
+
+  if (mainGrid) mainGrid.innerHTML = htmlContent;
+  if (profilGrid) profilGrid.innerHTML = htmlContent;
+}
+
+function updatePreview() {
+  const nama = document.getElementById('inputNama').value || 'Alysha';
+  document.getElementById('prevNama').innerText = nama;
+  document.getElementById('prevEvent').innerText = document.getElementById('inputEvent').value;
+  document.getElementById('prevKategori').innerText = document.getElementById('inputKategori').value;
+  document.getElementById('prevTanggal').innerText = document.getElementById('inputTanggal').value;
+}
+
+function applyTemplate(className) {
+  const canvas = document.getElementById('certificateCanvas');
+  canvas.className = `${className} relative w-full max-w-[340px] p-4 transition-all`;
+  canvas.style.backgroundColor = '';
+}
+
+function applyCanvaHueColor(hueVal) {
+  const canvas = document.getElementById('certificateCanvas');
+  canvas.style.backgroundColor = `hsl(${hueVal}, 80%, 94%)`;
+}
+
+function resetBgWhite() {
+  document.getElementById('certificateCanvas').style.backgroundColor = '#FFFFFF';
+  document.getElementById('canvaColorSlider').value = 270;
+}
+
+function handleBuktiUpload(e) {
+  const file = e.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(evt) {
+      const img = document.getElementById('prevBukti');
+      img.src = evt.target.result;
+      img.classList.remove('hidden');
+      document.getElementById('placeholderBukti').classList.add('hidden');
+    }
+    reader.readAsDataURL(file);
+  }
+}
+
+function addStickerEmoji(emoji) {
+  createInteractiveSticker(emoji, 'text');
+}
+
+function handleCustomStickerUpload(e) {
+  const file = e.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(evt) {
+      createInteractiveSticker(evt.target.result, 'image');
+    }
+    reader.readAsDataURL(file);
+  }
+}
+
+function clearAllStickers() {
+  document.getElementById('stickerLayer').innerHTML = '';
+}
+
+function createInteractiveSticker(content, type) {
+  const layer = document.getElementById('stickerLayer');
+  const container = document.createElement('div');
+  container.className = 'sticker-item pointer-events-auto';
+  container.style.left = '100px';
+  container.style.top = '100px';
+
+  let scale = 1.0;
+  let rotation = 0;
+
+  const innerContent = document.createElement('div');
+  if (type === 'text') {
+    innerContent.className = 'text-3xl';
+    innerContent.innerText = content;
+  } else {
+    innerContent.className = 'w-20 h-20';
+    const img = document.createElement('img');
+    img.src = content;
+    img.className = 'w-full h-full object-contain drop-shadow-md';
+    innerContent.appendChild(img);
+  }
+
+  const delBtn = document.createElement('div');
+  delBtn.className = 'sticker-delete-btn';
+  delBtn.innerText = '✕';
+  delBtn.onclick = (e) => { e.stopPropagation(); container.remove(); };
+
+  container.appendChild(delBtn);
+  container.appendChild(innerContent);
+  layer.appendChild(container);
+
+  const updateTransform = () => {
+    innerContent.style.transform = `scale(${scale}) rotate(${rotation}deg)`;
+  };
+
+  makeStickerPinchRotateWA(container, (sDelta, rDelta) => {
+    scale = Math.max(0.3, Math.min(4.0, scale * sDelta));
+    rotation += rDelta;
+    updateTransform();
+  });
+}
+
+function makeStickerPinchRotateWA(el, onTransform) {
+  let isDragging = false, startX, startY, initialLeft, initialTop;
+  let initialDist = 0, initialAngle = 0;
+
+  const selectSticker = () => {
+    document.querySelectorAll('.sticker-item').forEach(s => s.classList.remove('selected'));
+    el.classList.add('selected');
+  };
+
+  const getTouchDist = (t) => Math.hypot(t[0].clientX - t[1].clientX, t[0].clientY - t[1].clientY);
+  const getTouchAngle = (t) => Math.atan2(t[1].clientY - t[0].clientY, t[1].clientX - t[0].clientX) * 180 / Math.PI;
+
+  const onStart = (e) => {
+    e.stopPropagation();
+    selectSticker();
+
+    if (e.touches && e.touches.length === 2) {
+      isDragging = false;
+      initialDist = getTouchDist(e.touches);
+      initialAngle = getTouchAngle(e.touches);
+    } else {
+      isDragging = true;
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      startX = clientX; startY = clientY;
+      initialLeft = el.offsetLeft; initialTop = el.offsetTop;
+    }
+  };
+
+  const onMove = (e) => {
+    if (!el.classList.contains('selected')) return;
+
+    if (e.touches && e.touches.length === 2) {
+      const currentDist = getTouchDist(e.touches);
+      const currentAngle = getTouchAngle(e.touches);
+
+      if (initialDist > 0) {
+        const scaleFactor = currentDist / initialDist;
+        const angleDiff = currentAngle - initialAngle;
+        onTransform(scaleFactor, angleDiff);
+      }
+      initialDist = currentDist;
+      initialAngle = currentAngle;
+    } else if (isDragging) {
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      el.style.left = `${initialLeft + (clientX - startX)}px`;
+      el.style.top = `${initialTop + (clientY - startY)}px`;
+    }
+  };
+
+  const onEnd = () => { isDragging = false; initialDist = 0; };
+
+  el.addEventListener('mousedown', onStart);
+  document.addEventListener('mousemove', onMove);
+  document.addEventListener('mouseup', onEnd);
+
+  el.addEventListener('touchstart', onStart, {passive: false});
+  document.addEventListener('touchmove', onMove, {passive: false});
+  document.addEventListener('touchend', onEnd);
+}
+
+function downloadCertificate() {
+  if (!activeUser) return alert("Silakan Login akun terlebih dahulu!");
+
+  document.querySelectorAll('.sticker-item').forEach(s => s.classList.remove('selected'));
+  const certEl = document.getElementById('certificateCanvas');
+
+  html2canvas(certEl, {
+    scale: 2,
+    useCORS: true,
+    backgroundColor: null,
+    logging: false
+  }).then(canvas => {
+    const link = document.createElement('a');
+    link.download = `7HEAVEN_Proof_${Date.now()}.png`;
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+
+    userDatabase[activeUser].diary = userDatabase[activeUser].diary || [];
+    const eventName = document.getElementById('inputEvent').value;
+    userDatabase[activeUser].diary.unshift({
+      id: Date.now(),
+      title: eventName,
+      date: new Date().toLocaleDateString(),
+      img: canvas.toDataURL('image/png')
     });
 
-    function checkAuthStatus() {
-      if (activeUser && userDatabase[activeUser]) {
-        const uData = userDatabase[activeUser];
-        document.getElementById('profileNameDisplay').innerText = `Profil: ${activeUser}`;
-        document.getElementById('userPoints').innerText = `${uData.points || 0} PTS`;
-        document.getElementById('inputNama').value = activeUser;
-        document.getElementById('prevNama').innerText = activeUser;
-        document.getElementById('tabProfilUsername').innerText = activeUser;
-
-        document.getElementById('authFormArea').classList.add('hidden');
-        document.getElementById('loggedInArea').classList.remove('hidden');
-        document.getElementById('loggedInUsername').innerText = activeUser;
-        document.getElementById('authStatusText').innerText = 'Terhubung';
-        document.getElementById('authStatusText').className = 'text-[10px] bg-green-100 text-green-800 font-bold px-2 py-0.5 rounded-full';
-      }
+    userDatabase[activeUser].completedMissions = userDatabase[activeUser].completedMissions || [];
+    if (!userDatabase[activeUser].completedMissions.includes(eventName)) {
+      userDatabase[activeUser].completedMissions.push(eventName);
     }
 
-    function switchTab(tabName) {
-      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-      document.querySelectorAll('.tab-btn').forEach(el => {
-        el.classList.remove('text-btspurple', 'border-btspurple');
-        el.classList.add('text-slate-500', 'border-transparent');
-      });
+    addHistory(`🖼️ Unduh Sertifikat: ${eventName}`);
+    localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
 
-      document.getElementById(`sec-${tabName}`).classList.remove('hidden');
-      const activeBtn = document.getElementById(`tab-${tabName}`);
-      activeBtn.classList.add('text-btspurple', 'border-btspurple');
-      activeBtn.classList.remove('text-slate-500', 'border-transparent');
+    syncMissionsChecklist();
+    renderDiary();
+    alert("Sertifikat didownload & tersimpan ke Diary! Misi vote terceklist otomatis ✨");
+  });
+}
+
+function syncMissionsChecklist() {
+  if (!activeUser || !userDatabase[activeUser]) return;
+  const completed = userDatabase[activeUser].completedMissions || [];
+
+  if (document.getElementById('misiCheckMAMA')) {
+    document.getElementById('misiCheckMAMA').checked = completed.includes('MAMA 2026');
+  }
+  if (document.getElementById('misiCheckKCA')) {
+    document.getElementById('misiCheckKCA').checked = completed.includes('KCA 2026');
+  }
+  if (document.getElementById('misiCheckAAA')) {
+    document.getElementById('misiCheckAAA').checked = completed.includes('AAA (Final)');
+  }
+}
+
+function deleteDiaryItem(id) {
+  if (!activeUser || !userDatabase[activeUser]) return;
+  if (confirm("Yakin ingin menghapus sertifikat ini dari Diary?")) {
+    userDatabase[activeUser].diary = userDatabase[activeUser].diary.filter(item => item.id !== id);
+    localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
+    renderDiary();
+  }
+}
+
+function renderMissions() {
+  const container = document.getElementById('misiArirangList');
+  if(!container) return;
+  container.innerHTML = arirangSongs.map(song => `
+    <label class="flex items-center justify-between p-2 bg-white rounded-xl border border-purple-100">
+      <span class="font-bold text-slate-700">${song}</span>
+      <input type="checkbox" class="accent-btspurple w-4 h-4 rounded">
+    </label>
+  `).join('');
+}
+
+function previewStreamSs(e) {
+  const files = e.target.files;
+  const container = document.getElementById('ssPreviewContainer');
+  container.innerHTML = '';
+  Array.from(files).forEach(file => {
+    const reader = new FileReader();
+    reader.onload = function(evt) {
+      const img = document.createElement('img');
+      img.src = evt.target.result;
+      img.className = 'w-full h-16 object-cover rounded-lg border border-purple-200';
+      container.appendChild(img);
     }
+    reader.readAsDataURL(file);
+  });
+}
 
-    function loginUser() {
-      const u = document.getElementById('authUsername').value.trim();
-      const p = document.getElementById('authPassword').value.trim();
-      if (!u || !p) return alert("Isi Username dan Kata Sandi!");
+function submitStreamProof() {
+  if (!activeUser) return alert("Silakan Login akun terlebih dahulu!");
+  addHistory("🎵 Kirim Bukti SS Streaming Album");
+  alert("Bukti SS Streaming dikirim ke Admin! 💜");
+}
 
-      if (userDatabase[u] && userDatabase[u].password === p) {
-        activeUser = u;
-        localStorage.setItem('7h_active_user', u);
-        checkAuthStatus();
-        alert(`Selamat datang kembali, ${u} 💜`);
-      } else {
-        alert("Username atau Kata Sandi salah!");
-      }
-    }
+function renderDiary() {
+  const container = document.getElementById('diaryList');
+  if (!container) return;
+  if (!activeUser || !userDatabase[activeUser] || !userDatabase[activeUser].diary || userDatabase[activeUser].diary.length === 0) {
+    container.innerHTML = `<p class="col-span-2 text-center text-slate-400 py-4">Belum ada sertifikat tersimpan.</p>`;
+    return;
+  }
+  container.innerHTML = userDatabase[activeUser].diary.map(item => `
+    <div class="bg-white p-2 rounded-2xl border border-purple-100 space-y-1.5 shadow-sm relative group">
+      <img src="${item.img}" class="w-full h-auto rounded-xl object-contain border border-purple-50">
+      <div class="flex justify-between items-center px-1">
+        <p class="font-bold text-[10px] text-slate-700 truncate">${item.title}</p>
+        <button onclick="deleteDiaryItem(${item.id})" class="text-red-500 hover:text-red-700 text-xs p-1" title="Hapus Sertifikat">
+          <i class="fa-solid fa-trash-can"></i>
+        </button>
+      </div>
+    </div>
+  `).join('');
+}
 
-    function registerUser() {
-      const u = document.getElementById('authUsername').value.trim();
-      const p = document.getElementById('authPassword').value.trim();
-      if (!u || !p) return alert("Isi Username dan Kata Sandi!");
+function verifyAdminPin() {
+  if (document.getElementById('adminPinInput').value === adminPinSecret) {
+    document.getElementById('adminLoginCard').classList.add('hidden');
+    document.getElementById('adminDashboard').classList.remove('hidden');
+    renderAdminUserSelect();
+  } else { alert("PIN Admin Salah!"); }
+}
 
-      userDatabase[u] = { password: p, points: 0, bio: "Borahae BTS 💜", avatar: "", diary: [] };
-      localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
-      activeUser = u;
-      localStorage.setItem('7h_active_user', u);
-      checkAuthStatus();
-      alert(`Akun ${u} berhasil dibuat! 🎉`);
-    }
+function toggleChangePinModal() {
+  document.getElementById('changePinSection').classList.toggle('hidden');
+}
 
-    function logoutUser() {
-      activeUser = null;
-      localStorage.removeItem('7h_active_user');
-      checkAuthStatus();
-    }
+function saveNewAdminPin() {
+  const newPin = document.getElementById('newAdminPinInput').value.trim();
+  if (newPin) {
+    adminPinSecret = newPin;
+    localStorage.setItem('7h_admin_pin', newPin);
+    alert("PIN Rahasia Admin berhasil diperbarui!");
+    toggleChangePinModal();
+  }
+}
 
-    function updatePreview() {
-      document.getElementById('prevNama').innerText = document.getElementById('inputNama').value || 'Alysha';
-      document.getElementById('prevEvent').innerText = document.getElementById('inputEvent').value;
-      document.getElementById('prevKategori').innerText = document.getElementById('inputKategori').value;
-      document.getElementById('prevTanggal').innerText = document.getElementById('inputTanggal').value;
-    }
+function renderAdminUserSelect() {
+  const select = document.getElementById('adminUserSelect');
+  const listContainer = document.getElementById('adminUserList');
+  if (!select || !listContainer) return;
+  select.innerHTML = '';
+  listContainer.innerHTML = '';
 
-    function applyTemplate(className) {
-      document.getElementById('certificateCanvas').className = `${className} relative w-full max-w-[340px] p-4 transition-all`;
-    }
+  Object.keys(userDatabase).forEach(u => {
+    select.innerHTML += `<option value="${u}">${u} (${userDatabase[u].points || 0} PTS)</option>`;
+    listContainer.innerHTML += `
+      <div class="flex justify-between items-center p-2 bg-white rounded-xl border border-purple-100">
+        <span class="font-bold text-slate-700">${u}</span>
+        <span class="font-extrabold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-md text-[11px]">${userDatabase[u].points || 0} PTS</span>
+      </div>
+    `;
+  });
+}
 
-    function applyCanvaHueColor(hueVal) {
-      document.getElementById('certificateCanvas').style.backgroundColor = `hsl(${hueVal}, 80%, 92%)`;
-    }
-
-    function resetBgWhite() {
-      document.getElementById('certificateCanvas').style.backgroundColor = '#FFFFFF';
-    }
-
-    function handleBuktiUpload(e) {
-      const file = e.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function(evt) {
-          const img = document.getElementById('prevBukti');
-          img.src = evt.target.result;
-          img.classList.remove('hidden');
-          document.getElementById('placeholderBukti').classList.add('hidden');
-        }
-        reader.readAsDataURL(file);
-      }
-    }
-
-    function addStickerEmoji(emoji) {
-      const layer = document.getElementById('stickerLayer');
-      const container = document.createElement('div');
-      container.className = 'sticker-item text-3xl pointer-events-auto';
-      container.style.left = '100px';
-      container.style.top = '100px';
-      container.innerText = emoji;
-      layer.appendChild(container);
-      makeStickerPinchRotateWA(container);
-    }
-
-    function makeStickerPinchRotateWA(el) {
-      let isDragging = false, startX, startY, initialLeft, initialTop;
-      el.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        startX = e.clientX; startY = e.clientY;
-        initialLeft = el.offsetLeft; initialTop = el.offsetTop;
-      });
-      document.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-        el.style.left = `${initialLeft + (e.clientX - startX)}px`;
-        el.style.top = `${initialTop + (e.clientY - startY)}px`;
-      });
-      document.addEventListener('mouseup', () => { isDragging = false; });
-    }
-
-    function clearAllStickers() {
-      document.getElementById('stickerLayer').innerHTML = '';
-    }
-
-    function downloadCertificate() {
-      const certEl = document.getElementById('certificateCanvas');
-      html2canvas(certEl).then(canvas => {
-        const link = document.createElement('a');
-        link.download = `7HEAVEN_Proof.png`;
-        link.href = canvas.toDataURL('image/png');
-        link.click();
-      });
-    }
-
-    function loadDailyQuiz() {
-      const qText = document.getElementById('quizQuestionText');
-      const optContainer = document.getElementById('quizOptionsContainer');
-      qText.innerText = allQuizQuestions[0].q;
-      optContainer.innerHTML = `
-        <button class="p-2.5 bg-white rounded-xl border border-purple-200 font-bold hover:bg-purple-100 text-left">${allQuizQuestions[0].a}</button>
-        <button class="p-2.5 bg-white rounded-xl border border-purple-200 font-bold hover:bg-purple-100 text-left">${allQuizQuestions[0].b}</button>
-      `;
-    }
-
-    function verifyAdminPin() {
-      if (document.getElementById('adminPinInput').value === adminPinSecret) {
-        alert("Admin Unlocked!");
-      } else { alert("PIN Salah!"); }
-    }
-  </script>
+function adminAdjustPoints() {
+  const target = document.getElementById('adminUserSelect').value;
+  const amt = parseInt(document.getElementById('adminPointAmount').value);
+  if (target && !isNaN(amt)) {
+    userDatabase[target].points = Math.max(0, (userDatabase[target].points || 0) + amt);
+    localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
+    checkAuthStatus();
+    renderAdminUserSelect();
+    alert(`Poin member ${target} diperbarui!`);
+  } else {
+    alert("Masukkan jumlah poin!");
+  }
+}
+</script>
 </body>
 </html>
