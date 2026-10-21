@@ -43,49 +43,34 @@
       box-shadow: 0 8px 32px 0 rgba(125, 82, 193, 0.08);
     }
 
-    /* BINGKAI TEMPLATE SESUAI FOTO CONTOH */
-    .frame-bts-chibi {
-      border: 5px dashed #9D72E1 !important;
-      border-radius: 2rem !important;
-      background: #F8F5FF;
-      box-shadow: 0 10px 25px rgba(125, 82, 193, 0.15) !important;
-    }
-    .frame-army-lavender {
-      border: 4px double #7D52C1 !important;
-      border-radius: 1.5rem !important;
-      background: #FFFFFF;
-      box-shadow: inset 0 0 15px rgba(125, 82, 193, 0.2), 0 8px 20px rgba(0,0,0,0.1) !important;
-    }
-    .frame-bt21-pastel {
-      border: 6px solid #FFB6C1 !important;
-      border-radius: 2.2rem !important;
-      background: #FFF5F7;
-      box-shadow: 0 10px 20px rgba(255, 182, 193, 0.3) !important;
-    }
-    .frame-arirang-rock {
-      border: 5px solid #800000 !important;
-      border-radius: 1.2rem !important;
-      background: #2B0508;
-      color: #FFFFFF !important;
-      box-shadow: 0 10px 30px rgba(128, 0, 0, 0.4) !important;
+    #certificateCanvas {
+      overflow: hidden !important;
+      position: relative !important;
+      transition: background-color 0.2s ease;
+      border-radius: 1.8rem;
     }
 
-    #certificateCanvas {
-      overflow: visible !important;
-      position: relative !important;
-      transition: background-color 0.2s ease, border-color 0.2s ease;
+    /* OVERLAY BINGKAI BERGAMBAR */
+    .frame-overlay-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+      pointer-events: none;
+      z-index: 20;
     }
 
     .crop-9-16-container {
       width: 100%;
-      max-width: 250px;
+      max-width: 230px;
       aspect-ratio: 9 / 16;
       position: relative;
       overflow: hidden !important;
       border-radius: 1.25rem;
       background: rgba(241, 236, 253, 0.6);
       margin: 0 auto;
-      z-index: 1;
+      z-index: 10;
     }
     .crop-9-16-img {
       width: 100%;
@@ -105,7 +90,7 @@
       overflow: visible !important;
     }
 
-    /* MURNI CUBIT & PUTAR DUA JARI SEPERTI WHATSAPP */
+    /* STIKER CUBIT & PUTAR DUA JARI WA */
     .sticker-item {
       touch-action: none;
       user-select: none;
@@ -379,20 +364,25 @@
           </div>
         </div>
 
-        <!-- PILIHAN TEMPLATE BINGKAI LENGKAP -->
+        <!-- PILIHAN TEMPLATE BINGKAI BERGAMBAR LENGKAP -->
         <div class="pt-2 border-t border-purple-100 space-y-2">
-          <label class="font-bold text-slate-700 text-xs block">🖼️ Pilih Desain Bingkai (Sesuai Selera):</label>
+          <label class="font-bold text-slate-700 text-xs block">🖼️ Pilih Tema & Template Bingkai:</label>
           <div class="grid grid-cols-2 gap-1.5 text-[10px]">
-            <button onclick="applyTemplate('frame-bts-chibi')" class="p-2 bg-purple-100 text-btspurple font-bold rounded-xl border border-purple-300">💜 BTS Chibi Frame</button>
-            <button onclick="applyTemplate('frame-army-lavender')" class="p-2 bg-purple-50 text-purple-800 font-bold rounded-xl border border-purple-200">🔮 ARMY Lavender</button>
-            <button onclick="applyTemplate('frame-bt21-pastel')" class="p-2 bg-pink-100 text-pink-700 font-bold rounded-xl border border-pink-300">🧸 BT21 Cute Pastel</button>
-            <button onclick="applyTemplate('frame-arirang-rock')" class="p-2 bg-red-950 text-red-200 font-bold rounded-xl border border-red-700">🎸 BTS Arirang Concept</button>
+            <button onclick="setFrameTemplate('bts-chibi')" class="p-2 bg-purple-100 text-btspurple font-bold rounded-xl border border-purple-300">💜 BTS Chibi Frame</button>
+            <button onclick="setFrameTemplate('army-lavender')" class="p-2 bg-purple-50 text-purple-800 font-bold rounded-xl border border-purple-200">🔮 ARMY Lavender</button>
+            <button onclick="setFrameTemplate('bt21-pastel')" class="p-2 bg-pink-100 text-pink-700 font-bold rounded-xl border border-pink-300">🧸 BT21 Cute Pastel</button>
+            <button onclick="setFrameTemplate('arirang-rock')" class="p-2 bg-red-950 text-red-200 font-bold rounded-xl border border-red-700">🎸 BTS Arirang Concept</button>
           </div>
 
-          <!-- SLIDER GESER WARNA CANVA (1 TUAS HUE SLIDER) -->
+          <div class="mt-2 space-y-1">
+            <label class="block text-[10px] font-bold text-slate-600">📁 Unggah Bingkai Custom (PNG):</label>
+            <input type="file" accept="image/*" onchange="handleCustomFrameUpload(event)" class="w-full text-xs text-slate-500 file:mr-2 file:py-1 file:px-2 file:rounded-lg file:border-0 file:text-[10px] file:font-bold file:bg-purple-100 file:text-btspurple">
+          </div>
+
+          <!-- SLIDER GESER WARNA TERPADU -->
           <div class="pt-2">
             <div class="flex justify-between items-center mb-1">
-              <label class="font-bold text-slate-700 text-[11px]">🎨 Geser 1 Tuas Warna Latar (Ala Canva):</label>
+              <label class="font-bold text-slate-700 text-[11px]">🎨 Warna Latar Belakang Sertifikat:</label>
               <button onclick="resetBgWhite()" class="text-[9px] text-btspurple font-bold underline">Reset Putih</button>
             </div>
             <input type="range" min="0" max="360" value="270" id="canvaColorSlider" oninput="applyCanvaHueColor(this.value)" class="canva-hue-slider">
@@ -402,7 +392,7 @@
         <!-- KATALOG STIKER BT21 & CUSTOM -->
         <div class="pt-2 border-t border-purple-100 space-y-2">
           <div class="flex justify-between items-center">
-            <label class="font-bold text-slate-700 text-xs">Stiker Lucu BTS / BT21 (Cubit 2 Jari WA):</label>
+            <label class="font-bold text-slate-700 text-xs">✨ Koleksi Stiker & Aksesoris:</label>
             <button onclick="clearAllStickers()" class="text-[10px] text-red-600 bg-red-50 px-2 py-0.5 rounded-md font-bold border border-red-200">🗑️ Hapus Semua Stiker</button>
           </div>
 
@@ -420,7 +410,7 @@
           </div>
 
           <div class="mt-2 space-y-1">
-            <label class="block text-[10px] font-bold text-slate-600">📁 Upload Stiker Kustom Luar (PNG/JPG):</label>
+            <label class="block text-[10px] font-bold text-slate-600">📁 Unggah Stiker Custom (PNG/JPG):</label>
             <input type="file" accept="image/*" onchange="handleCustomStickerUpload(event)" class="w-full text-xs text-slate-500 file:mr-2 file:py-1 file:px-2 file:rounded-lg file:border-0 file:text-[10px] file:font-bold file:bg-amber-100 file:text-amber-800">
           </div>
         </div>
@@ -428,19 +418,16 @@
 
       <!-- HASIL SERTIFIKAT CANVAS -->
       <div class="flex justify-center p-2">
-        <div id="certificateCanvas" class="frame-bts-chibi relative w-full max-w-[340px] p-4 transition-all">
+        <div id="certificateCanvas" class="relative w-full max-w-[340px] p-4 transition-all bg-white shadow-2xl">
 
-          <!-- DEKORASI ORNAMEN OTOMATIS TAMBAHAN -->
-          <div id="frameDecorations" class="pointer-events-none">
-            <div class="absolute top-2 left-3 text-xs font-black text-btspurple opacity-60">💜 BTS</div>
-            <div class="absolute top-2 right-3 text-xs font-black text-btspurple opacity-60">Borahae ♡</div>
-          </div>
+          <!-- GAMBAR BINGKAI OVERLAY -->
+          <img id="activeFrameImg" src="" class="frame-overlay-img hidden">
 
           <div id="stickerLayer"></div>
 
-          <div class="text-center pb-1 relative z-10">
-            <p class="text-[9px] font-black uppercase tracking-widest cute-font opacity-80">7HEAVEN PURPLE PRESENTS</p>
-            <h3 class="text-base font-black uppercase tracking-wide cute-font">OFFICIAL VOTING PROOF</h3>
+          <div class="text-center pb-1 relative z-10 pt-2">
+            <p class="text-[9px] font-black uppercase tracking-widest cute-font opacity-80 text-btspurple">7HEAVEN PURPLE PRESENTS</p>
+            <h3 class="text-base font-black uppercase tracking-wide cute-font text-btspurple">OFFICIAL VOTING PROOF</h3>
           </div>
 
           <!-- KOTAK AUTO CROP 9:16 -->
@@ -453,9 +440,9 @@
             </div>
           </div>
 
-          <div class="pt-2 text-center relative z-10">
-            <h4 id="prevNama" class="text-sm font-black cute-font">Alysha</h4>
-            <div class="text-[10px] font-semibold space-y-0.5 opacity-90">
+          <div class="pt-2 text-center relative z-10 pb-2">
+            <h4 id="prevNama" class="text-sm font-black cute-font text-slate-800">Alysha</h4>
+            <div class="text-[10px] font-semibold space-y-0.5 text-slate-600">
               <p>Event: <strong id="prevEvent" class="text-btspurple">MAMA 2026</strong></p>
               <p>Kategori: <strong id="prevKategori">Fans Choice</strong></p>
               <p>Tanggal: <span id="prevTanggal">2026-10-21</span></p>
@@ -578,6 +565,13 @@
     let adminPinSecret = localStorage.getItem('7h_admin_pin') || '130613';
     let tempAvatarBase64 = "";
 
+    const frameLibrary = {
+      'bts-chibi': `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="340" height="480" viewBox="0 0 340 480"><rect x="6" y="6" width="328" height="468" rx="28" fill="none" stroke="%239D72E1" stroke-width="6" stroke-dasharray="10 6"/><path d="M12,40 Q170,10 328,40" fill="none" stroke="%237D52C1" stroke-width="2"/><text x="25" y="32" font-family="sans-serif" font-weight="bold" font-size="12" fill="%237D52C1">💜 BTS</text><text x="250" y="32" font-family="sans-serif" font-weight="bold" font-size="12" fill="%237D52C1">Borahae ♡</text><rect x="15" y="40" width="35" height="15" fill="%23F3E8FF" rx="4"/><text x="18" y="52" font-size="10" fill="%237D52C1">I Purple You</text><g transform="translate(20,410)"><circle cx="15" cy="15" r="14" fill="%23E9D5FF"/><text x="8" y="21" font-size="14">🎙️</text><text x="32" y="20" font-family="sans-serif" font-weight="bold" font-size="12" fill="%237D52C1">ARMY BOMB</text></g><g transform="translate(200,410)"><circle cx="60" cy="20" r="18" fill="%23FBCFE8"/><text x="50" y="26" font-size="16">🧸</text><text x="10" y="25" font-family="sans-serif" font-weight="bold" font-size="11" fill="%23DB2777">LOVE MYSELF</text></g><path d="M150,15 L170,15 L170,30 L160,25 L150,30 Z" fill="%237D52C1"/></svg>`,
+      'army-lavender': `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="340" height="480" viewBox="0 0 340 480"><rect x="8" y="8" width="324" height="464" rx="20" fill="none" stroke="%237D52C1" stroke-width="4"/><rect x="14" y="14" width="312" height="452" rx="16" fill="none" stroke="%23C084FC" stroke-width="1.5"/><path d="M10,10 C100,50 240,10 330,30" fill="none" stroke="%23A855F7" stroke-width="2"/><text x="20" y="35" font-family="sans-serif" font-weight="bold" font-size="13" fill="%236B21A8">🔮 ARMY</text><text x="270" y="35" font-size="16">🦋</text><text x="290" y="55" font-size="12">🦋</text><g transform="translate(15,415)"><circle cx="20" cy="20" r="18" fill="%23F3E8FF"/><text x="10" y="27" font-size="18">🎙️</text></g><g transform="translate(240,425)"><text x="0" y="20" font-family="sans-serif" font-weight="bold" font-size="14" fill="%237E22CE">ARMY ♡</text></g></svg>`,
+      'bt21-pastel': `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="340" height="480" viewBox="0 0 340 480"><rect x="0" y="0" width="340" height="480" rx="30" fill="none" stroke="%23F472B6" stroke-width="12"/><text x="20" y="30" font-size="20">🐰</text><text x="290" y="30" font-size="20">🐥</text><text x="20" y="460" font-size="20">🐶</text><text x="290" y="460" font-size="20">🐨</text><text x="150" y="25" font-size="18">🎀 BT21 🎀</text></svg>`,
+      'arirang-rock': `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="340" height="480" viewBox="0 0 340 480"><rect x="4" y="4" width="332" height="472" rx="18" fill="none" stroke="%23991B1B" stroke-width="8"/><text x="20" y="35" font-family="sans-serif" font-weight="bold" font-size="14" fill="%23EF4444">🎸 BTS ARIRANG</text><text x="280" y="35" font-size="18">🌹</text><text x="20" y="455" font-size="22">🎸</text><text x="280" y="455" font-size="22">🦋</text></svg>`
+    };
+
     const arirangSongs = [
       "1. Body to Body", "2. Hooligan", "3. Aliens", "4. FYA", "5. 2.0",
       "6. No. 29", "7. SWIM (Title Track ⭐️)", "8. Merry Go Round", "9. NORMAL",
@@ -591,6 +585,7 @@
       document.getElementById('prevTanggal').innerText = today;
       document.getElementById('inputTanggal').value = today;
       renderMissions();
+      setFrameTemplate('bts-chibi');
     });
 
     function getBadgeTitle(pts) {
@@ -598,6 +593,27 @@
       if (pts >= 150) return '🔮 Magic Shop ARMY';
       if (pts >= 50) return '💜 Purple ARMY';
       return '🐣 Baby ARMY';
+    }
+
+    function setFrameTemplate(key) {
+      const img = document.getElementById('activeFrameImg');
+      if (frameLibrary[key]) {
+        img.src = frameLibrary[key];
+        img.classList.remove('hidden');
+      }
+    }
+
+    function handleCustomFrameUpload(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          const img = document.getElementById('activeFrameImg');
+          img.src = evt.target.result;
+          img.classList.remove('hidden');
+        }
+        reader.readAsDataURL(file);
+      }
     }
 
     function checkAuthStatus() {
@@ -775,12 +791,6 @@
       document.getElementById('prevTanggal').innerText = document.getElementById('inputTanggal').value;
     }
 
-    function applyTemplate(className) {
-      const canvas = document.getElementById('certificateCanvas');
-      canvas.className = `${className} relative w-full max-w-[340px] p-4 transition-all`;
-      canvas.style.backgroundColor = '';
-    }
-
     function applyCanvaHueColor(hueVal) {
       const canvas = document.getElementById('certificateCanvas');
       canvas.style.backgroundColor = `hsl(${hueVal}, 80%, 94%)`;
@@ -858,7 +868,6 @@
         innerContent.style.transform = `scale(${scale}) rotate(${rotation}deg)`;
       };
 
-      /* CUBIT & ROTASI MURNI 2 JARI SEPERTI WHATSAPP */
       makeStickerPinchRotateWA(container, (sDelta, rDelta) => {
         scale = Math.max(0.3, Math.min(4.0, scale * sDelta));
         rotation += rDelta;
