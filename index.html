@@ -1,613 +1,733 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7HEAVENPURPLE - BTS ARMY Fan Hub & Album Stream</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts Inter & Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        heading: ['Poppins', 'sans-serif'],
-                    },
-                    colors: {
-                        purple7h: {
-                            50: '#F5F3FF',
-                            100: '#EDE9FE',
-                            200: '#DDD6FE',
-                            300: '#C4B5FD',
-                            400: '#A78BFA',
-                            500: '#8B5CF6',
-                            600: '#7C3AED',
-                            700: '#6D28D9',
-                            800: '#5B21B6',
-                            900: '#4C1D95',
-                            950: '#2E1065',
-                        },
-                        bts: {
-                            neon: '#C084FC',
-                            pink: '#EC4899',
-                            dark: '#0B0A16',
-                            card: '#161426',
-                            cardBorder: '#2E274C',
-                        }
-                    }
-                }
-            }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>7HEAVEN PURPLE — Official ARMY Base</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Fredoka:wght@400;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            btspurple: '#7D52C1',
+            btsdark: '#58329B',
+            btslight: '#9D72E1',
+            lavender: '#F1ECFD',
+            softpink: '#FDE2E4',
+            purple7h: {
+              50: '#F5F3FF',
+              100: '#EDE9FE',
+              200: '#DDD6FE',
+              300: '#C4B5FD',
+              400: '#A78BFA',
+              500: '#8B5CF6',
+              600: '#7C3AED',
+              700: '#6D28D9',
+              800: '#5B21B6',
+              900: '#4C1D95',
+              950: '#2E1065',
+            },
+            btsdarkhub: '#0B0A16',
+            btscard: '#161426',
+            btscardBorder: '#2E274C',
+            btsneon: '#C084FC',
+            btspink: '#EC4899',
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            cute: ['Fredoka', 'cursive'],
+            heading: ['Poppins', 'sans-serif']
+          }
         }
-    </script>
-    <style>
-        body {
-            background-color: #0B0A16;
-            color: #F8FAFC;
-        }
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-        .glow-purple {
-            box-shadow: 0 0 25px -5px rgba(139, 92, 246, 0.4);
-        }
-        .glow-pink {
-            box-shadow: 0 0 20px -5px rgba(236, 72, 153, 0.3);
-        }
-        .purple-gradient-text {
-            background: linear-gradient(135deg, #C084FC 0%, #EC4899 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-    </style>
+      }
+    }
+  </script>
+  <style>
+    body {
+      background: linear-gradient(180deg, #F5F0FF 0%, #EAE0FA 100%);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .cute-font { font-family: 'Fredoka', cursive; }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 8px 32px 0 rgba(125, 82, 193, 0.08);
+    }
+
+    /* BINGKAI SERTIFIKAT */
+    .frame-bts-chibi {
+      border: 6px dashed #9D72E1 !important;
+      border-radius: 2rem !important;
+      background: #F8F5FF;
+      box-shadow: 0 10px 25px rgba(125, 82, 193, 0.15) !important;
+    }
+    .frame-army-lavender {
+      border: 5px double #7D52C1 !important;
+      border-radius: 1.5rem !important;
+      background: #FFFFFF;
+      box-shadow: inset 0 0 15px rgba(125, 82, 193, 0.2), 0 8px 20px rgba(0,0,0,0.1) !important;
+    }
+    .frame-bt21-pastel {
+      border: 6px solid #FFB6C1 !important;
+      border-radius: 2.2rem !important;
+      background: #FFF5F7;
+      box-shadow: 0 10px 20px rgba(255, 182, 193, 0.3) !important;
+    }
+
+    #certificateCanvas {
+      position: relative !important;
+      width: 100% !important;
+      max-width: 340px !important;
+      min-height: 520px !important;
+      box-sizing: border-box !important;
+      transition: background-color 0.2s ease, filter 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .crop-9-16-container {
+      width: 100%;
+      max-width: 240px;
+      aspect-ratio: 9 / 16;
+      position: relative;
+      overflow: hidden !important;
+      border-radius: 1.25rem;
+      background: rgba(241, 236, 253, 0.6);
+      margin: 0 auto;
+      z-index: 1;
+    }
+    .crop-9-16-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover !important;
+      object-position: center !important;
+    }
+
+    #stickerLayer {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      pointer-events: none;
+      z-index: 9999 !important;
+      overflow: visible !important;
+    }
+
+    .sticker-item {
+      touch-action: none;
+      user-select: none;
+      cursor: move;
+      position: absolute;
+      transform-origin: center center;
+      display: inline-block;
+      z-index: 10000 !important;
+    }
+    .sticker-item.selected {
+      outline: 2px dashed #7D52C1;
+      outline-offset: 4px;
+    }
+    .sticker-delete-btn {
+      display: none;
+      position: absolute;
+      top: -12px;
+      right: -12px;
+      background: #FF4D4D;
+      color: white;
+      border-radius: 9999px;
+      width: 22px;
+      height: 22px;
+      font-size: 11px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .sticker-item.selected .sticker-delete-btn {
+      display: flex;
+    }
+
+    .canva-hue-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 14px;
+      border-radius: 10px;
+      background: linear-gradient(to right, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000);
+      outline: none;
+    }
+    .canva-hue-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 3px solid #7D52C1;
+      cursor: pointer;
+    }
+
+    ::-webkit-scrollbar { width: 4px; height: 4px; }
+    ::-webkit-scrollbar-track { background: #F1ECFD; }
+    ::-webkit-scrollbar-thumb { background: #9D72E1; border-radius: 10px; }
+  </style>
 </head>
-<body class="font-sans min-h-screen flex flex-col pb-24 md:pb-0">
+<body class="text-slate-800 min-h-screen pb-24">
 
-    <!-- Top Navigation Header -->
-    <header class="sticky top-0 z-50 bg-[#0B0A16]/90 backdrop-blur-xl border-b border-purple7h-900/50 px-4 py-3">
-        <div class="max-w-4xl mx-auto flex justify-between items-center">
-            <!-- Brand Logo / Title -->
-            <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('home')">
-                <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-purple7h-700 via-purple7h-500 to-bts-pink p-0.5 shadow-lg glow-purple">
-                    <div class="w-full h-full bg-bts-dark rounded-[14px] flex items-center justify-center font-extrabold text-xs text-purple-200 font-heading">
-                        7H
-                    </div>
-                </div>
-                <div>
-                    <h1 class="text-base font-extrabold tracking-wide font-heading purple-gradient-text leading-tight">
-                        7HEAVENPURPLE
-                    </h1>
-                    <p class="text-[11px] text-purple-300/70 font-medium">BTS ARMY Stream Hub</p>
-                </div>
-            </div>
-            
-            <!-- User Points Indicator -->
-            <div class="flex items-center gap-2 bg-purple7h-950/80 border border-purple7h-600/40 px-3.5 py-1.5 rounded-full shadow-inner">
-                <i class="fa-solid fa-star text-amber-400 text-sm animate-pulse"></i>
-                <span id="user-points" class="font-bold text-sm text-purple-100">1,450</span>
-                <span class="text-[11px] font-semibold text-purple-300">PTS</span>
-            </div>
+  <!-- HEADER SECTION -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-purple-100 shadow-sm">
+    <div class="max-w-md mx-auto px-4 py-2.5 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div id="headerAvatarContainer" class="w-9 h-9 rounded-2xl bg-gradient-to-tr from-btspurple to-btslight text-white flex items-center justify-center font-bold text-lg shadow-md cute-font overflow-hidden border border-purple-200">
+          <span id="headerAvatarText">7</span>
+          <img id="headerAvatarImg" src="" class="hidden w-full h-full object-cover">
         </div>
-    </header>
-
-    <!-- Main Container -->
-    <main class="flex-1 max-w-4xl w-full mx-auto p-4 space-y-6">
-
-        <!-- TAB 1: BERANDA (HOME) -->
-        <section id="tab-home" class="space-y-6">
-            
-            <!-- Banner Hero Section -->
-            <div class="relative rounded-3xl overflow-hidden bg-gradient-to-br from-purple7h-950 via-bts-card to-purple7h-900 p-6 md:p-8 border border-purple7h-500/30 shadow-2xl glow-purple">
-                <div class="relative z-10 max-w-lg space-y-3">
-                    <span class="inline-flex items-center gap-1.5 bg-pink-500/20 text-pink-300 text-xs font-bold px-3 py-1 rounded-full border border-pink-500/30">
-                        <span class="w-2 h-2 rounded-full bg-pink-500 animate-ping"></span>
-                        SPECIAL COMEBACK ERA
-                    </span>
-                    <h2 class="text-2xl md:text-3xl font-extrabold text-white font-heading leading-tight">
-                        BTS 'ARIRANG' ALBUM STREAMING
-                    </h2>
-                    <p class="text-purple-200/80 text-xs md:text-sm leading-relaxed">
-                        Bergabunglah dengan jutaan ARMY di seluruh dunia. Putar seluruh lagu album terbaru, selesaikan misi harian, dan tingkatkan peringkat kamu di leaderboard global!
-                    </p>
-                    <div class="pt-2 flex flex-wrap gap-3">
-                        <button onclick="switchTab('mission')" class="bg-gradient-to-r from-purple7h-600 to-bts-pink hover:from-purple7h-500 hover:to-pink-500 text-white font-bold px-5 py-2.5 rounded-2xl transition shadow-lg text-xs md:text-sm flex items-center gap-2 cursor-pointer">
-                            <i class="fa-solid fa-fire"></i>
-                            <span>Mulai Misi Stream</span>
-                        </button>
-                        <button onclick="switchTab('leaderboard')" class="bg-purple7h-900/60 hover:bg-purple7h-800/80 text-purple-200 font-semibold px-4 py-2.5 rounded-2xl transition border border-purple7h-600/40 text-xs md:text-sm flex items-center gap-2 cursor-pointer">
-                            <i class="fa-solid fa-trophy text-amber-400"></i>
-                            <span>Lihat Ranking</span>
-                        </button>
-                    </div>
-                </div>
-                <!-- Background Ambient Glow -->
-                <div class="absolute -right-12 -bottom-12 w-64 h-64 bg-purple7h-600/20 rounded-full blur-3xl pointer-events-none"></div>
-                <div class="absolute right-12 top-0 w-40 h-40 bg-bts-pink/10 rounded-full blur-2xl pointer-events-none"></div>
-            </div>
-
-            <!-- Streaming Status Highlights -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-                <div class="bg-bts-card border border-bts-cardBorder p-4 rounded-2xl">
-                    <div class="text-[11px] text-purple-300/70 font-medium">Total Stream Target</div>
-                    <div class="text-lg font-bold text-purple-200 mt-1 font-heading">50M Goal</div>
-                    <div class="w-full bg-purple7h-950 h-1.5 rounded-full mt-2.5 overflow-hidden border border-purple7h-800">
-                        <div class="bg-gradient-to-r from-purple7h-500 to-bts-pink h-full rounded-full" style="width: 74%;"></div>
-                    </div>
-                </div>
-                <div class="bg-bts-card border border-bts-cardBorder p-4 rounded-2xl">
-                    <div class="text-[11px] text-purple-300/70 font-medium">Misi Selesai Kamu</div>
-                    <div id="home-completed-count" class="text-lg font-bold text-bts-pink mt-1 font-heading">4 / 14 Track</div>
-                    <div class="w-full bg-purple7h-950 h-1.5 rounded-full mt-2.5 overflow-hidden border border-purple7h-800">
-                        <div id="home-completed-bar" class="bg-bts-pink h-full rounded-full" style="width: 28%;"></div>
-                    </div>
-                </div>
-                <div class="bg-bts-card border border-bts-cardBorder p-4 rounded-2xl">
-                    <div class="text-[11px] text-purple-300/70 font-medium">Global Chart Pos.</div>
-                    <div class="text-lg font-bold text-amber-400 mt-1 font-heading">#1 Global Spotify</div>
-                    <div class="text-[10px] text-emerald-400 mt-1 flex items-center gap-1">
-                        <i class="fa-solid fa-arrow-trend-up"></i> Top Album Worldwide
-                    </div>
-                </div>
-                <div class="bg-bts-card border border-bts-cardBorder p-4 rounded-2xl">
-                    <div class="text-[11px] text-purple-300/70 font-medium">Bonus Streak</div>
-                    <div class="text-lg font-bold text-purple-300 mt-1 font-heading">7 Hari berturut</div>
-                    <div class="text-[10px] text-purple-300/70 mt-1 flex items-center gap-1">
-                        <i class="fa-solid fa-bolt text-amber-400"></i> +200 Pts Multiplier
-                    </div>
-                </div>
-            </div>
-
-            <!-- BAGIAN BERANDA PALING BAWAH (ALBUM STREAM) -->
-            <div class="bg-bts-card/90 border border-purple7h-500/30 rounded-3xl p-5 md:p-6 shadow-xl backdrop-blur-md relative overflow-hidden">
-                <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-purple7h-500 to-bts-pink"></div>
-                
-                <!-- Section Header -->
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
-                    <h3 class="text-lg md:text-xl font-extrabold text-white font-heading flex items-center gap-2.5">
-                        <span class="p-2 rounded-xl bg-purple7h-900/60 text-bts-neon border border-purple7h-700/50">
-                            <i class="fa-solid fa-compact-disc animate-spin" style="animation-duration: 7s;"></i>
-                        </span>
-                        Album Stream For BTS
-                    </h3>
-                    
-                    <!-- Tombol Kanan Navigation Button -->
-                    <button onclick="switchTab('mission')" class="inline-flex items-center justify-center gap-2 text-xs font-bold text-purple-200 bg-gradient-to-r from-purple7h-800 to-purple7h-900 hover:from-purple7h-700 hover:to-purple7h-800 border border-purple7h-500/40 px-4 py-2 rounded-xl transition shadow-md hover:shadow-purple7h-500/20 group cursor-pointer w-full sm:w-auto">
-                        <span>Lihat Semua (14 Track)</span>
-                        <i class="fa-solid fa-arrow-right text-xs text-bts-pink transition-transform group-hover:translate-x-1"></i>
-                    </button>
-                </div>
-
-                <!-- Section Description -->
-                <p class="text-purple-200/80 text-xs md:text-sm leading-relaxed mb-5 border-b border-purple7h-900/60 pb-4">
-                    Dukung pencapaian album ARIRANG BTS. Dengarkan & centang lagu streaming kamu di tab Misi untuk dapat poin!
-                </p>
-
-                <!-- Track Preview Snippet Grid -->
-                <div class="space-y-2.5">
-                    <div onclick="switchTab('mission')" class="flex items-center justify-between p-3 rounded-2xl bg-purple7h-950/50 border border-purple7h-800/40 hover:border-purple7h-500/50 transition cursor-pointer group">
-                        <div class="flex items-center gap-3">
-                            <span class="w-7 h-7 rounded-lg bg-purple7h-900/80 text-bts-neon flex items-center justify-center font-bold text-xs">01</span>
-                            <div>
-                                <h4 class="text-xs md:text-sm font-bold text-slate-100 group-hover:text-purple-300 transition">ARIRANG (Title Track)</h4>
-                                <p class="text-[11px] text-purple-300/60">BTS • Track 1 • Main Title</p>
-                            </div>
-                        </div>
-                        <span class="text-xs font-semibold text-purple-300 bg-purple7h-900/60 border border-purple7h-700/40 px-3 py-1 rounded-lg group-hover:bg-purple7h-700 group-hover:text-white transition flex items-center gap-1">
-                            <i class="fa-solid fa-circle-play text-bts-pink"></i> Check
-                        </span>
-                    </div>
-
-                    <div onclick="switchTab('mission')" class="flex items-center justify-between p-3 rounded-2xl bg-purple7h-950/50 border border-purple7h-800/40 hover:border-purple7h-500/50 transition cursor-pointer group">
-                        <div class="flex items-center gap-3">
-                            <span class="w-7 h-7 rounded-lg bg-purple7h-900/80 text-bts-neon flex items-center justify-center font-bold text-xs">02</span>
-                            <div>
-                                <h4 class="text-xs md:text-sm font-bold text-slate-100 group-hover:text-purple-300 transition">Eternal Harmony</h4>
-                                <p class="text-[11px] text-purple-300/60">BTS • Track 2 • Vocal Line</p>
-                            </div>
-                        </div>
-                        <span class="text-xs font-semibold text-purple-300 bg-purple7h-900/60 border border-purple7h-700/40 px-3 py-1 rounded-lg group-hover:bg-purple7h-700 group-hover:text-white transition flex items-center gap-1">
-                            <i class="fa-solid fa-circle-play text-bts-pink"></i> Check
-                        </span>
-                    </div>
-
-                    <div onclick="switchTab('mission')" class="flex items-center justify-between p-3 rounded-2xl bg-purple7h-950/50 border border-purple7h-800/40 hover:border-purple7h-500/50 transition cursor-pointer group">
-                        <div class="flex items-center gap-3">
-                            <span class="w-7 h-7 rounded-lg bg-purple7h-900/80 text-bts-neon flex items-center justify-center font-bold text-xs">03</span>
-                            <div>
-                                <h4 class="text-xs md:text-sm font-bold text-slate-100 group-hover:text-purple-300 transition">Purple Horizon</h4>
-                                <p class="text-[11px] text-purple-300/60">BTS • Track 3 • Rap Line</p>
-                            </div>
-                        </div>
-                        <span class="text-xs font-semibold text-purple-300 bg-purple7h-900/60 border border-purple7h-700/40 px-3 py-1 rounded-lg group-hover:bg-purple7h-700 group-hover:text-white transition flex items-center gap-1">
-                            <i class="fa-solid fa-circle-play text-bts-pink"></i> Check
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Bottom Banner Action Switcher -->
-                <div onclick="switchTab('mission')" class="mt-4 p-3.5 rounded-2xl bg-gradient-to-r from-purple7h-900/80 via-purple7h-800/60 to-purple7h-900/80 border border-purple7h-500/40 flex items-center justify-between cursor-pointer hover:border-bts-pink/60 transition group shadow-lg">
-                    <div class="flex items-center gap-2.5">
-                        <i class="fa-solid fa-headphones text-bts-pink text-sm"></i>
-                        <span class="text-xs font-bold text-purple-100">Buka Misi Streaming Lengkap (14 Track)</span>
-                    </div>
-                    <div class="text-xs font-extrabold text-bts-pink flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                        <span>Tab Misi</span>
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </div>
-                </div>
-            </div>
-
-        </section>
-
-        <!-- TAB 2: MISI (MISSION TRACKER) -->
-        <section id="tab-mission" class="space-y-5 hidden">
-            <!-- Section Header -->
-            <div class="bg-bts-card border border-bts-cardBorder p-5 rounded-3xl space-y-2">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                    <h2 class="text-xl font-extrabold text-white font-heading flex items-center gap-2.5">
-                        <span class="p-2 rounded-xl bg-pink-500/20 text-bts-pink border border-pink-500/30">
-                            <i class="fa-solid fa-list-check"></i>
-                        </span>
-                        Misi Stream Album ARIRANG
-                    </h2>
-                    <span class="text-xs font-bold bg-purple7h-900/80 text-purple-200 border border-purple7h-600/50 px-3 py-1 rounded-full w-fit">
-                        Total 14 Track BTS
-                    </span>
-                </div>
-                <p class="text-purple-200/70 text-xs leading-relaxed">
-                    Dengarkan lagu resmi di platform streaming favoritmu (Spotify, Apple Music, YouTube Music). Centang lagu di bawah ini untuk klaim poin kamu!
-                </p>
-            </div>
-
-            <!-- External Links Platform Buttons -->
-            <div class="flex flex-wrap gap-2">
-                <a href="https://open.spotify.com" target="_blank" class="flex-1 min-w-[120px] bg-emerald-950/60 hover:bg-emerald-900/60 border border-emerald-500/30 p-2.5 rounded-2xl flex items-center justify-center gap-2 text-xs font-bold text-emerald-300 transition">
-                    <i class="fa-brands fa-spotify text-base"></i> Spotify
-                </a>
-                <a href="https://music.apple.com" target="_blank" class="flex-1 min-w-[120px] bg-rose-950/60 hover:bg-rose-900/60 border border-rose-500/30 p-2.5 rounded-2xl flex items-center justify-center gap-2 text-xs font-bold text-rose-300 transition">
-                    <i class="fa-brands fa-apple text-base"></i> Apple Music
-                </a>
-                <a href="https://youtube.com" target="_blank" class="flex-1 min-w-[120px] bg-red-950/60 hover:bg-red-900/60 border border-red-500/30 p-2.5 rounded-2xl flex items-center justify-center gap-2 text-xs font-bold text-red-300 transition">
-                    <i class="fa-brands fa-youtube text-base"></i> YouTube
-                </a>
-            </div>
-
-            <!-- Track List (14 Track Items) -->
-            <div id="mission-track-list" class="space-y-3">
-                <!-- Javascript populates 14 tracks here -->
-            </div>
-        </section>
-
-        <!-- TAB 3: LEADERBOARD -->
-        <section id="tab-leaderboard" class="space-y-4 hidden">
-            <div class="bg-bts-card border border-bts-cardBorder p-5 rounded-3xl">
-                <h2 class="text-xl font-extrabold text-white font-heading mb-1 flex items-center gap-2.5">
-                    <span class="p-2 rounded-xl bg-amber-500/20 text-amber-400 border border-amber-500/30">
-                        <i class="fa-solid fa-trophy"></i>
-                    </span>
-                    Klasemen Top ARMY Streamer
-                </h2>
-                <p class="text-xs text-purple-200/70">
-                    Peringkat kontribusi streaming terbanyak minggu ini. Terus kumpulkan poin untuk masuk 10 Besar!
-                </p>
-            </div>
-
-            <div class="bg-bts-card border border-bts-cardBorder rounded-3xl overflow-hidden divide-y divide-purple7h-900/50 shadow-xl">
-                <div class="p-4 flex items-center justify-between bg-purple7h-950/80">
-                    <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-400 font-extrabold text-sm flex items-center justify-center border border-amber-500/40">1</div>
-                        <div>
-                            <div class="font-bold text-sm text-white flex items-center gap-1.5">
-                                ARMY_Borahae_07 <i class="fa-solid fa-circle-check text-purple7h-400 text-xs"></i>
-                            </div>
-                            <div class="text-[11px] text-purple-300/60">140 Misi Selesai • 7H Founder</div>
-                        </div>
-                    </div>
-                    <span class="font-extrabold text-amber-400 text-sm font-heading">8,450 Pts</span>
-                </div>
-
-                <div class="p-4 flex items-center justify-between bg-purple7h-950/40">
-                    <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-full bg-slate-400/20 text-slate-300 font-extrabold text-sm flex items-center justify-center border border-slate-400/40">2</div>
-                        <div>
-                            <div class="font-bold text-sm text-white">JK_97_Streamer</div>
-                            <div class="text-[11px] text-purple-300/60">132 Misi Selesai</div>
-                        </div>
-                    </div>
-                    <span class="font-extrabold text-purple-200 text-sm font-heading">7,920 Pts</span>
-                </div>
-
-                <div class="p-4 flex items-center justify-between bg-purple7h-950/20">
-                    <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-full bg-amber-700/20 text-amber-600 font-extrabold text-sm flex items-center justify-center border border-amber-700/40">3</div>
-                        <div>
-                            <div class="font-bold text-sm text-white">TaeTae_V_World</div>
-                            <div class="text-[11px] text-purple-300/60">125 Misi Selesai</div>
-                        </div>
-                    </div>
-                    <span class="font-extrabold text-purple-200 text-sm font-heading">7,500 Pts</span>
-                </div>
-
-                <div class="p-4 flex items-center justify-between">
-                    <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-full bg-purple7h-900 text-purple-300 font-bold text-xs flex items-center justify-center">4</div>
-                        <div>
-                            <div class="font-bold text-sm text-slate-200">ChimChim_1013</div>
-                            <div class="text-[11px] text-purple-300/60">110 Misi Selesai</div>
-                        </div>
-                    </div>
-                    <span class="font-bold text-purple-300 text-sm font-heading">6,800 Pts</span>
-                </div>
-
-                <!-- Current User Rank Row -->
-                <div class="p-4 flex items-center justify-between bg-gradient-to-r from-purple7h-900/60 to-bts-pink/20 border-t-2 border-bts-pink/50">
-                    <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-full bg-bts-pink text-white font-bold text-xs flex items-center justify-center shadow">YOU</div>
-                        <div>
-                            <div class="font-bold text-sm text-white flex items-center gap-1">
-                                Kamu (ARMY User)
-                                <span class="bg-bts-pink/30 text-bts-pink text-[9px] px-1.5 py-0.5 rounded">Aktif</span>
-                            </div>
-                            <div class="text-[11px] text-purple-200/80">Peringkat Ke-42 Global</div>
-                        </div>
-                    </div>
-                    <span id="user-points-rank" class="font-extrabold text-bts-pink text-sm font-heading">1,450 Pts</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- TAB 4: REWARDS / SHOP -->
-        <section id="tab-shop" class="space-y-4 hidden">
-            <div class="bg-bts-card border border-bts-cardBorder p-5 rounded-3xl">
-                <h2 class="text-xl font-extrabold text-white font-heading mb-1 flex items-center gap-2.5">
-                    <span class="p-2 rounded-xl bg-purple7h-500/20 text-bts-neon border border-purple7h-500/30">
-                        <i class="fa-solid fa-gift"></i>
-                    </span>
-                    Penukaran Poin ARMY Rewards
-                </h2>
-                <p class="text-xs text-purple-200/70">
-                    Tukarkan poin hasil streaming album BTS milikmu dengan reward digital & badge profil eksklusif!
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div class="bg-bts-card border border-bts-cardBorder p-4 rounded-2xl flex justify-between items-center">
-                    <div class="space-y-1">
-                        <span class="text-[10px] bg-purple7h-900 text-purple-300 px-2 py-0.5 rounded-full font-semibold">Digital Badge</span>
-                        <h4 class="text-sm font-bold text-white">7HEAVEN PURPLE Streamer Badge</h4>
-                        <p class="text-xs text-amber-400 font-bold">500 Points</p>
-                    </div>
-                    <button onclick="claimReward('7HEAVEN PURPLE Badge', 500)" class="bg-purple7h-700 hover:bg-purple7h-600 text-white text-xs font-bold px-3 py-2 rounded-xl transition cursor-pointer">
-                        Tukar
-                    </button>
-                </div>
-
-                <div class="bg-bts-card border border-bts-cardBorder p-4 rounded-2xl flex justify-between items-center">
-                    <div class="space-y-1">
-                        <span class="text-[10px] bg-pink-950 text-pink-300 px-2 py-0.5 rounded-full font-semibold">Wallpaper Pack</span>
-                        <h4 class="text-sm font-bold text-white">Exclusive ARIRANG HD Wallpaper</h4>
-                        <p class="text-xs text-amber-400 font-bold">1,000 Points</p>
-                    </div>
-                    <button onclick="claimReward('ARIRANG HD Wallpaper', 1000)" class="bg-purple7h-700 hover:bg-purple7h-600 text-white text-xs font-bold px-3 py-2 rounded-xl transition cursor-pointer">
-                        Tukar
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- TAB 5: PROFILE -->
-        <section id="tab-profile" class="space-y-4 hidden">
-            <div class="bg-bts-card border border-bts-cardBorder p-6 rounded-3xl text-center space-y-3 relative overflow-hidden">
-                <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-purple7h-600 to-bts-pink p-1 mx-auto glow-purple">
-                    <div class="w-full h-full bg-bts-dark rounded-full flex items-center justify-center font-bold text-xl text-purple-200">
-                        💜
-                    </div>
-                </div>
-                <div>
-                    <h2 class="text-lg font-extrabold text-white font-heading">ARMY Purple Streamer</h2>
-                    <p class="text-xs text-purple-300/70">Member ID: 7H-BTS-2026</p>
-                </div>
-                <div class="inline-flex items-center gap-1.5 bg-purple7h-900/60 border border-purple7h-600/40 px-4 py-1.5 rounded-full text-xs text-purple-200">
-                    <i class="fa-solid fa-shield-halved text-bts-pink"></i> Status: Verified Streamer
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Bottom Mobile Navigation Bar -->
-    <nav class="fixed bottom-0 left-0 right-0 bg-[#0B0A16]/95 backdrop-blur-2xl border-t border-purple7h-900/60 z-50 py-2.5">
-        <div class="max-w-md mx-auto flex justify-around items-center px-2">
-            <button id="nav-home" onclick="switchTab('home')" class="flex flex-col items-center gap-1 text-purple7h-400 transition cursor-pointer font-bold">
-                <i class="fa-solid fa-house text-lg"></i>
-                <span class="text-[10px]">Beranda</span>
-            </button>
-            <button id="nav-mission" onclick="switchTab('mission')" class="flex flex-col items-center gap-1 text-purple-300/50 hover:text-purple7h-400 transition cursor-pointer">
-                <i class="fa-solid fa-list-check text-lg"></i>
-                <span class="text-[10px]">Misi</span>
-            </button>
-            <button id="nav-leaderboard" onclick="switchTab('leaderboard')" class="flex flex-col items-center gap-1 text-purple-300/50 hover:text-purple7h-400 transition cursor-pointer">
-                <i class="fa-solid fa-trophy text-lg"></i>
-                <span class="text-[10px]">Peringkat</span>
-            </button>
-            <button id="nav-shop" onclick="switchTab('shop')" class="flex flex-col items-center gap-1 text-purple-300/50 hover:text-purple7h-400 transition cursor-pointer">
-                <i class="fa-solid fa-gift text-lg"></i>
-                <span class="text-[10px]">Reward</span>
-            </button>
-            <button id="nav-profile" onclick="switchTab('profile')" class="flex flex-col items-center gap-1 text-purple-300/50 hover:text-purple7h-400 transition cursor-pointer">
-                <i class="fa-solid fa-user text-lg"></i>
-                <span class="text-[10px]">Profil</span>
-            </button>
+        <div>
+          <h1 class="text-sm font-extrabold text-btspurple leading-tight cute-font tracking-wide">
+            7HEAVEN <span class="text-[10px] px-1.5 py-0.2 rounded-full bg-purple-100 font-bold">PURPLE</span>
+          </h1>
+          <p id="profileNameDisplay" class="text-[10px] text-purple-600 font-semibold">Profil: Guest (Belum Login)</p>
         </div>
-    </nav>
+      </div>
 
-    <!-- Global Toast Notification -->
-    <div id="toast" class="fixed top-5 right-5 bg-gradient-to-r from-purple7h-700 to-bts-pink text-white px-4 py-3 rounded-2xl shadow-2xl transition-all duration-300 transform -translate-y-24 opacity-0 z-50 text-xs font-bold flex items-center gap-2.5 border border-purple7h-400/30">
-        <i class="fa-solid fa-circle-check text-sm"></i>
-        <span id="toast-message">Notifikasi</span>
+      <div class="flex flex-col items-end gap-0.5">
+        <div class="flex items-center bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-full shadow-sm">
+          <i class="fa-solid fa-coins text-amber-500 mr-1 text-[10px]"></i>
+          <span id="userPoints" class="font-extrabold text-amber-700 text-xs cute-font">0 PTS</span>
+        </div>
+        <span id="userBadge" class="text-[9px] font-extrabold text-purple-700 bg-purple-100 px-2 py-0.5 rounded-full border border-purple-200">
+          🐣 Baby ARMY
+        </span>
+      </div>
     </div>
 
-    <!-- Application Script Logic -->
-    <script>
-        // Full 14 Album Tracks Data
-        const albumTracks = [
-            { id: 1, title: "ARIRANG (Title Track)", desc: "BTS Main Title", points: 100, completed: true },
-            { id: 2, title: "Eternal Harmony", desc: "Vocal Line Unit", points: 80, completed: true },
-            { id: 3, title: "Purple Horizon", desc: "Rap Line Unit", points: 80, completed: true },
-            { id: 4, title: "Moonlight Dance", desc: "BTS Full Group", points: 80, completed: true },
-            { id: 5, title: "Galaxy Whispers", desc: "Special Track", points: 80, completed: false },
-            { id: 6, title: "7 Hearts", desc: "ARMY Dedicated Track", points: 80, completed: false },
-            { id: 7, title: "Beyond The Scene", desc: "Uptempo Pop Track", points: 80, completed: false },
-            { id: 8, title: "Spring Reunion", desc: "Emotional Ballad", points: 80, completed: false },
-            { id: 9, title: "Bulletproof Legacy", desc: "Hip-Hop Classic", points: 80, completed: false },
-            { id: 10, title: "Microkosmos Pt. 2", desc: "Stadium Choir Track", points: 80, completed: false },
-            { id: 11, title: "Youth Echoes", desc: "R&B Track", points: 80, completed: false },
-            { id: 12, title: "Golden Days", desc: "Upbeat Synthpop", points: 80, completed: false },
-            { id: 13, title: "ARMY Anthem", desc: "Special Fan Song", points: 80, completed: false },
-            { id: 14, title: "Forever With You", desc: "Outro Track", points: 100, completed: false }
-        ];
+    <!-- NAVIGATION TABS -->
+    <nav class="flex border-t border-purple-50 max-w-md mx-auto bg-white/50 px-1 pt-1 overflow-x-auto">
+      <button onclick="switchTab('beranda')" id="tab-beranda" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-btspurple border-b-2 border-btspurple flex flex-col items-center gap-0.5 min-w-[55px]">
+        <i class="fa-solid fa-house text-sm"></i> Beranda
+      </button>
+      <button onclick="switchTab('sertifikat')" id="tab-sertifikat" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[55px]">
+        <i class="fa-solid fa-certificate text-sm"></i> Sertifikat
+      </button>
+      <button onclick="switchTab('misi')" id="tab-misi" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[55px]">
+        <i class="fa-solid fa-list-check text-sm"></i> Misi
+      </button>
+      <button onclick="switchTab('game')" id="tab-game" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[55px]">
+        <i class="fa-solid fa-gamepad text-sm"></i> Quiz
+      </button>
+      <button onclick="switchTab('diary')" id="tab-diary" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[55px]">
+        <i class="fa-solid fa-book-bookmark text-sm"></i> Diary
+      </button>
+      <button onclick="switchTab('admin')" id="tab-admin" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[55px]">
+        <i class="fa-solid fa-user-shield text-sm"></i> Admin
+      </button>
+    </nav>
+  </header>
 
-        let userPoints = 1450;
+  <main class="max-w-md mx-auto px-4 pt-3">
 
-        // Render Mission Track Items inside Mission Tab
-        function renderMissionTracks() {
-            const listEl = document.getElementById('mission-track-list');
-            if(!listEl) return;
-            listEl.innerHTML = '';
+    <!-- MODAL AUTH LOGIN / REGISTER / EDIT PROFIL MEMBER -->
+    <div id="authModal" class="glass-card rounded-3xl p-4 mb-4 border border-purple-200">
+      <div class="flex justify-between items-center border-b border-purple-100 pb-2 mb-3">
+        <h3 class="text-xs font-bold text-btspurple cute-font flex items-center gap-1.5">
+          <i class="fa-solid fa-id-card"></i> Akun Member 7HEAVEN PURPLE
+        </h3>
+        <span id="authStatusText" class="text-[10px] bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-full">Belum Masuk</span>
+      </div>
 
-            let completedCount = 0;
+      <div id="authFormArea" class="space-y-2 text-xs">
+        <div class="grid grid-cols-2 gap-2">
+          <input type="text" id="authUsername" placeholder="Username Member" class="w-full px-3 py-1.5 rounded-xl border border-purple-200 bg-white font-semibold">
+          <input type="password" id="authPassword" placeholder="Kata Sandi" class="w-full px-3 py-1.5 rounded-xl border border-purple-200 bg-white font-semibold">
+        </div>
+        <div class="flex gap-2">
+          <button onclick="loginUser()" class="flex-1 py-1.5 bg-btspurple text-white font-bold rounded-xl shadow-md text-xs">Masuk Akun</button>
+          <button onclick="registerUser()" class="flex-1 py-1.5 bg-purple-100 text-btspurple border border-purple-300 font-bold rounded-xl text-xs">Daftar Akun Baru</button>
+        </div>
+      </div>
 
-            albumTracks.forEach((track) => {
-                if(track.completed) completedCount++;
+      <div id="loggedInArea" class="hidden space-y-2 text-xs pt-1">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <img id="profileAvatarPrev" src="" class="w-8 h-8 rounded-full object-cover border border-purple-300 hidden">
+            <div>
+              <p class="font-bold text-slate-800">Login: <strong id="loggedInUsername" class="text-btspurple">Alysha</strong></p>
+              <p id="loggedInBio" class="text-[10px] text-slate-500 italic">"Borahae BTS & ARMY 💜"</p>
+            </div>
+          </div>
+          <div class="flex gap-1.5">
+            <button onclick="toggleEditProfileModal()" class="px-2.5 py-1 bg-purple-100 text-btspurple font-bold rounded-lg text-[10px]">✏️ Edit Profil</button>
+            <button onclick="logoutUser()" class="px-2.5 py-1 bg-red-100 text-red-600 font-bold rounded-lg text-[10px]">Keluar</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
-                const card = document.createElement('div');
-                card.className = `flex items-center justify-between p-3.5 rounded-2xl border transition ${
-                    track.completed 
-                    ? 'bg-purple7h-950/40 border-purple7h-600/40' 
-                    : 'bg-bts-card border-bts-cardBorder hover:border-purple7h-500/40'
-                }`;
+    <!-- TAB 1: BERANDA -->
+    <section id="sec-beranda" class="tab-content space-y-4">
+      <div class="bg-gradient-to-br from-btspurple to-purple-800 text-white rounded-3xl p-5 shadow-lg relative overflow-hidden">
+        <span class="inline-block bg-white/20 text-white font-bold text-[10px] px-2.5 py-0.5 rounded-full mb-2">WELCOME ARMY 💜</span>
+        <h2 class="text-xl font-black cute-font leading-tight">WELCOME TO 7HEAVEN PURPLE</h2>
+        <p class="text-xs text-purple-100 mt-1.5 italic">"Let's stream and vote together."</p>
 
-                card.innerHTML = `
-                    <div class="flex items-center gap-3">
-                        <div class="w-9 h-9 rounded-xl ${track.completed ? 'bg-purple7h-600 text-white' : 'bg-purple7h-950 text-purple-300'} flex items-center justify-center font-extrabold text-xs border border-purple7h-700/50">
-                            ${track.id < 10 ? '0' + track.id : track.id}
-                        </div>
-                        <div>
-                            <h4 class="text-xs md:text-sm font-bold ${track.completed ? 'text-purple-200 line-through opacity-80' : 'text-slate-100'}">${track.title}</h4>
-                            <p class="text-[11px] text-purple-300/60 flex items-center gap-1.5 mt-0.5">
-                                <span>${track.desc}</span> • 
-                                <span class="text-amber-400 font-bold flex items-center gap-0.5"><i class="fa-solid fa-star text-[9px]"></i> +${track.points} Pts</span>
-                            </p>
-                        </div>
-                    </div>
-                    <button onclick="toggleMissionTrack(${track.id})" 
-                            class="px-3.5 py-1.5 text-xs font-bold rounded-xl transition flex items-center gap-1.5 cursor-pointer ${
-                                track.completed 
-                                ? 'bg-emerald-950/60 border border-emerald-500/40 text-emerald-400' 
-                                : 'bg-gradient-to-r from-purple7h-600 to-bts-pink text-white hover:opacity-90 shadow-md'
-                            }">
-                        <i class="fa-solid ${track.completed ? 'fa-circle-check' : 'fa-play'}"></i>
-                        <span>${track.completed ? 'Selesai' : 'Klaim'}</span>
-                    </button>
-                `;
-                listEl.appendChild(card);
+        <div class="mt-4 pt-3 border-t border-white/20 flex items-center justify-between">
+          <button id="btnCheckin" onclick="doDailyCheckin()" class="px-4 py-2 bg-amber-400 hover:bg-amber-300 text-purple-950 font-black rounded-2xl text-xs shadow-md transition-all cute-font flex items-center gap-1.5">
+            <i class="fa-solid fa-calendar-check"></i> Check-in Harian (+10 Pts)
+          </button>
+          <span id="checkinStatus" class="text-[11px] font-bold text-purple-200">Belum Check-in</span>
+        </div>
+      </div>
+
+      <div class="glass-card rounded-3xl p-4 space-y-3">
+        <div class="flex items-center justify-between">
+          <h3 class="text-sm font-extrabold text-slate-800 cute-font flex items-center gap-1.5">
+            <i class="fa-solid fa-fire text-amber-500"></i> Voting On-Going
+          </h3>
+          <span class="bg-red-100 text-red-600 text-[10px] font-black px-2 py-0.5 rounded-full animate-pulse">LIVE</span>
+        </div>
+
+        <div class="space-y-2 text-xs">
+          <div class="p-3 bg-purple-50/70 rounded-2xl flex items-center justify-between border border-purple-100">
+            <div>
+              <p class="font-extrabold text-slate-800">MAMA 2026</p>
+              <p class="text-[10px] text-slate-500">Fans' Choice Category (Male)</p>
+            </div>
+            <button onclick="switchTab('sertifikat')" class="px-3 py-1.5 bg-btspurple text-white font-bold rounded-xl shadow-md text-[11px]">
+              Buat Bukti
+            </button>
+          </div>
+          <div class="p-3 bg-purple-50/70 rounded-2xl flex items-center justify-between border border-purple-100">
+            <div>
+              <p class="font-extrabold text-slate-800">KCA 2026</p>
+              <p class="text-[10px] text-slate-500">Vote BTS / SWIM</p>
+            </div>
+            <button onclick="switchTab('sertifikat')" class="px-3 py-1.5 bg-btspurple text-white font-bold rounded-xl shadow-md text-[11px]">
+              Buat Bukti
+            </button>
+          </div>
+          <div class="p-3 bg-purple-50/70 rounded-2xl flex items-center justify-between border border-purple-100">
+            <div>
+              <p class="font-extrabold text-slate-800">AAA (Final)</p>
+              <p class="text-[10px] text-slate-500">Popularity Vote</p>
+            </div>
+            <button onclick="switchTab('sertifikat')" class="px-3 py-1.5 bg-btspurple text-white font-bold rounded-xl shadow-md text-[11px]">
+              Buat Bukti
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ALBUM STREAM DAILY (YANG DITANDAI DENGAN KOTAK HIJAU) -->
+      <div class="glass-card rounded-3xl p-4 flex items-center justify-between cursor-pointer hover:border-btspurple transition-all" onclick="switchTab('misi')">
+        <div class="space-y-0.5">
+          <h3 class="text-xs font-extrabold text-slate-800 cute-font flex items-center gap-1.5">
+            <i class="fa-solid fa-compact-disc text-btspurple"></i> Album Stream Daily
+          </h3>
+          <p class="text-[10px] text-slate-500">Dukung pencapaian album ARIRANG BTS</p>
+        </div>
+        <div class="text-[11px] font-bold text-btspurple flex items-center gap-1">
+          <span>Lihat Semua (14 Track)</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: MISI (TAMPILAN DARK STREAM HUB LENGKAP KETIKA DIKLIK) -->
+    <section id="sec-misi" class="tab-content hidden space-y-4">
+      <div class="bg-[#0B0A16] text-white rounded-3xl p-4 sm:p-6 border border-[#2E274C] shadow-2xl space-y-5">
+        
+        <!-- HEADER DARK HUB -->
+        <div class="flex justify-between items-center border-b border-purple-900/50 pb-3">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-purple-700 to-btsspink p-0.5 flex items-center justify-center font-bold text-xs text-purple-200">
+              7H
+            </div>
+            <div>
+              <h2 class="text-xs font-extrabold text-white">7HEAVENPURPLE</h2>
+              <p class="text-[9px] text-purple-300/70">BTS ARMY Stream Hub</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-1.5 bg-purple-950/80 border border-purple-600/40 px-3 py-1 rounded-full">
+            <i class="fa-solid fa-star text-amber-400 text-xs"></i>
+            <span id="darkHubPoints" class="font-bold text-xs text-purple-100">1,450 PTS</span>
+          </div>
+        </div>
+
+        <!-- INTEGRASI LAST.FM SCRAPING AUTO CHECKLIST -->
+        <div class="p-3 bg-[#161426] rounded-2xl border border-purple-800/40 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-red-400 flex items-center gap-1">
+              <i class="fa-brands fa-lastfm"></i> Auto-Checklist via Last.fm Scrobble
+            </span>
+            <span id="lastfmStatus" class="text-[9px] bg-red-950/80 text-red-300 px-2 py-0.5 rounded-full border border-red-800/50">Belum Terhubung</span>
+          </div>
+          <div class="flex gap-2">
+            <input type="text" id="lastfmUsernameInput" placeholder="Masukkan Username Last.fm Kamu" class="flex-1 px-3 py-1.5 rounded-xl border border-purple-800 bg-purple-950 text-xs text-white outline-none">
+            <button onclick="connectLastFm()" class="px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl text-xs transition">Hubungkan</button>
+          </div>
+          <p class="text-[9px] text-purple-300/60">Putar lagu BTS di Spotify/Apple Music yang terhubung ke Last.fm, sistem akan otomatis mencentang lagu!</p>
+        </div>
+
+        <!-- HERO STREAM BANNER -->
+        <div class="p-4 rounded-2xl bg-gradient-to-br from-[#2E1065] via-[#161426] to-purple-900 border border-purple-500/30 space-y-2">
+          <span class="bg-pink-500/20 text-pink-300 text-[9px] font-bold px-2 py-0.5 rounded-full border border-pink-500/30">SPECIAL COMEBACK ERA</span>
+          <h3 class="text-base font-extrabold text-white">BTS 'ARIRANG' ALBUM STREAMING</h3>
+          <p class="text-[11px] text-purple-200/80">Putar seluruh 14 lagu album terbaru, selesaikan misi harian & klaim poin!</p>
+        </div>
+
+        <!-- STATUS STATISTIK -->
+        <div class="grid grid-cols-2 gap-2 text-xs">
+          <div class="p-3 bg-[#161426] rounded-2xl border border-[#2E274C]">
+            <p class="text-[10px] text-purple-300/70">Total Target Stream</p>
+            <p class="text-sm font-bold text-white mt-0.5">50M Goal</p>
+            <div class="w-full bg-purple-950 h-1 rounded-full mt-2 overflow-hidden">
+              <div class="bg-gradient-to-r from-purple-500 to-pink-500 h-full" style="width: 74%;"></div>
+            </div>
+          </div>
+          <div class="p-3 bg-[#161426] rounded-2xl border border-[#2E274C]">
+            <p class="text-[10px] text-purple-300/70">Misi Selesai Kamu</p>
+            <p id="darkMisiSelesaiText" class="text-sm font-bold text-pink-400 mt-0.5">4 / 14 Track</p>
+            <div class="w-full bg-purple-950 h-1 rounded-full mt-2 overflow-hidden">
+              <div id="darkMisiProgressBar" class="bg-pink-500 h-full" style="width: 28%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LINK EXTERNAL MUSIC PLATFORM -->
+        <div class="flex gap-2 text-center text-xs">
+          <a href="https://open.spotify.com" target="_blank" class="flex-1 p-2 bg-emerald-950/60 border border-emerald-500/30 rounded-xl text-emerald-300 font-bold flex items-center justify-center gap-1">
+            <i class="fa-brands fa-spotify"></i> Spotify
+          </a>
+          <a href="https://music.apple.com" target="_blank" class="flex-1 p-2 bg-rose-950/60 border border-rose-500/30 rounded-xl text-rose-300 font-bold flex items-center justify-center gap-1">
+            <i class="fa-brands fa-apple"></i> Apple
+          </a>
+          <a href="https://youtube.com" target="_blank" class="flex-1 p-2 bg-red-950/60 border border-red-500/30 rounded-xl text-red-300 font-bold flex items-center justify-center gap-1">
+            <i class="fa-brands fa-youtube"></i> YouTube
+          </a>
+        </div>
+
+        <!-- LIST DAFTAR 14 TRACK ALBUM ARIRANG -->
+        <div class="space-y-2">
+          <h4 class="text-xs font-bold text-purple-200">Tracklist Album ARIRANG (14 Track)</h4>
+          <div id="darkTrackContainer" class="space-y-2 text-xs">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TAB 3: SERTIFIKAT -->
+    <section id="sec-sertifikat" class="tab-content hidden space-y-4">
+      <div class="glass-card rounded-3xl p-4 space-y-3">
+        <h3 class="text-xs font-extrabold text-slate-800 cute-font border-b border-purple-100 pb-1.5">
+          🎨 Editor Sertifikat Estetik ARMY
+        </h3>
+        <div class="grid grid-cols-2 gap-2 text-xs">
+          <div class="col-span-2">
+            <label class="font-bold text-slate-700 block mb-0.5">Nama Member</label>
+            <input type="text" id="inputNama" value="Alysha" oninput="updatePreview()" class="w-full px-3 py-2 rounded-xl border border-purple-200 bg-white font-semibold">
+          </div>
+          <div>
+            <label class="font-bold text-slate-700 block mb-0.5">Event</label>
+            <select id="inputEvent" onchange="updatePreview()" class="w-full px-3 py-2 rounded-xl border border-purple-200 bg-white font-semibold">
+              <option value="MAMA 2026">MAMA 2026</option>
+              <option value="KCA 2026">KCA 2026</option>
+              <option value="AAA (Final)">AAA (Final)</option>
+            </select>
+          </div>
+          <div>
+            <label class="font-bold text-slate-700 block mb-0.5">Kategori</label>
+            <input type="text" id="inputKategori" value="Fans Choice" oninput="updatePreview()" class="w-full px-3 py-2 rounded-xl border border-purple-200 bg-white font-semibold">
+          </div>
+          <div class="col-span-2">
+            <label class="font-bold text-slate-700 block mb-0.5">Tanggal Vote</label>
+            <input type="date" id="inputTanggal" onchange="updatePreview()" class="w-full px-3 py-2 rounded-xl border border-purple-200 bg-white font-semibold">
+          </div>
+          <div class="col-span-2">
+            <label class="font-bold text-slate-700 block mb-0.5">Upload Bukti Screenshot (Auto-Crop 9:16)</label>
+            <input type="file" accept="image/*" onchange="handleBuktiUpload(event)" class="w-full text-xs text-slate-500 file:mr-3 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-purple-100 file:text-btspurple">
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-center p-2">
+        <div id="certificateCanvas" class="frame-bts-chibi relative w-full max-w-[340px] p-4 transition-all">
+          <div class="text-center pb-1 relative z-10">
+            <p class="text-[9px] font-black uppercase tracking-widest cute-font opacity-80">7HEAVEN PURPLE PRESENTS</p>
+            <h3 class="text-base font-black uppercase tracking-wide cute-font">OFFICIAL VOTING PROOF</h3>
+          </div>
+          <div id="buktiContainer" class="crop-9-16-container my-2 border border-purple-200 shadow-md relative">
+            <img id="prevBukti" src="" class="crop-9-16-img hidden">
+            <div id="placeholderBukti" class="absolute inset-0 flex flex-col items-center justify-center p-4 text-center text-purple-400">
+              <i class="fa-solid fa-image text-3xl mb-1 text-btspurple"></i>
+              <p class="text-xs font-bold text-slate-600">Bukti Vote Auto 9:16</p>
+            </div>
+          </div>
+          <div class="pt-2 text-center relative z-10">
+            <h4 id="prevNama" class="text-sm font-black cute-font">Alysha</h4>
+            <div class="text-[10px] font-semibold space-y-0.5 opacity-90">
+              <p>Event: <strong id="prevEvent" class="text-btspurple">MAMA 2026</strong></p>
+              <p>Kategori: <strong id="prevKategori">Fans Choice</strong></p>
+              <p>Tanggal: <span id="prevTanggal">2026-10-21</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button onclick="downloadCertificate()" class="w-full py-3 bg-btspurple text-white font-black rounded-2xl shadow-lg text-sm flex items-center justify-center gap-2">
+        <i class="fa-solid fa-download"></i> Download Sertifikat PNG
+      </button>
+    </section>
+
+    <!-- TAB 4: QUIZ -->
+    <section id="sec-game" class="tab-content hidden space-y-4">
+      <div class="glass-card rounded-3xl p-4 space-y-4">
+        <h2 class="text-sm font-extrabold text-slate-800 cute-font">💜 BTS Quiz Harian</h2>
+        <div id="quizGameArea" class="p-3 bg-purple-50 rounded-2xl space-y-2 border border-purple-200 text-xs">
+          <p id="quizQuestionText" class="font-bold">Loading pertanyaan...</p>
+          <div id="quizOptionsContainer" class="grid grid-cols-1 gap-2"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: DIARY -->
+    <section id="sec-diary" class="tab-content hidden space-y-4">
+      <div class="glass-card rounded-3xl p-4">
+        <h2 class="text-sm font-extrabold text-slate-800 cute-font mb-2">📖 Voting Diary</h2>
+        <div id="diaryList" class="grid grid-cols-2 gap-2 text-xs"></div>
+      </div>
+    </section>
+
+    <!-- TAB 6: ADMIN -->
+    <section id="sec-admin" class="tab-content hidden space-y-4">
+      <div id="adminLoginCard" class="glass-card rounded-3xl p-5 text-center space-y-3 text-xs">
+        <h2 class="text-sm font-bold text-slate-800 cute-font">🔒 Panel Admin</h2>
+        <input type="password" id="adminPinInput" placeholder="Masukkan PIN Admin" class="w-full text-center py-2 rounded-xl border border-purple-200">
+        <button onclick="verifyAdminPin()" class="w-full py-2 bg-btspurple text-white font-bold rounded-xl">Unlock Panel</button>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    let activeUser = localStorage.getItem('7h_active_user') || null;
+    let userDatabase = JSON.parse(localStorage.getItem('7h_users_db') || '{"Alysha":{"password":"123","points":0,"bio":"Borahae BTS 💜","avatar":"","lastCheckin":"","diary":[],"quizDate":"","quizIndex":0,"history":[],"completedMissions":[]}}');
+    let lastfmUser = localStorage.getItem('7h_lastfm_user') || "";
+
+    const fullAlbum14Tracks = [
+      { id: 1, title: "ARIRANG (Title Track)", desc: "BTS Main Title", points: 100 },
+      { id: 2, title: "Eternal Harmony", desc: "Vocal Line Unit", points: 80 },
+      { id: 3, title: "Purple Horizon", desc: "Rap Line Unit", points: 80 },
+      { id: 4, title: "Moonlight Dance", desc: "BTS Full Group", points: 80 },
+      { id: 5, title: "Galaxy Whispers", desc: "Special Track", points: 80 },
+      { id: 6, title: "7 Hearts", desc: "ARMY Dedicated Track", points: 80 },
+      { id: 7, title: "Beyond The Scene", desc: "Uptempo Pop Track", points: 80 },
+      { id: 8, title: "Spring Reunion", desc: "Emotional Ballad", points: 80 },
+      { id: 9, title: "Bulletproof Legacy", desc: "Hip-Hop Classic", points: 80 },
+      { id: 10, title: "Microkosmos Pt. 2", desc: "Stadium Choir Track", points: 80 },
+      { id: 11, title: "Youth Echoes", desc: "R&B Track", points: 80 },
+      { id: 12, title: "Golden Days", desc: "Upbeat Synthpop", points: 80 },
+      { id: 13, title: "ARMY Anthem", desc: "Special Fan Song", points: 80 },
+      { id: 14, title: "Forever With You", desc: "Outro Track", points: 100 }
+    ];
+
+    document.addEventListener("DOMContentLoaded", () => {
+      checkAuthStatus();
+      renderDarkHubTracks();
+      if(lastfmUser) {
+        document.getElementById('lastfmUsernameInput').value = lastfmUser;
+        document.getElementById('lastfmStatus').innerText = "Terhubung: " + lastfmUser;
+        document.getElementById('lastfmStatus').className = "text-[9px] bg-emerald-950/80 text-emerald-300 px-2 py-0.5 rounded-full border border-emerald-800/50";
+        fetchLastFmRecentScrobbles();
+      }
+    });
+
+    function checkAuthStatus() {
+      if (activeUser && userDatabase[activeUser]) {
+        const uData = userDatabase[activeUser];
+        document.getElementById('profileNameDisplay').innerText = `Profil: ${activeUser}`;
+        document.getElementById('userPoints').innerText = `${uData.points || 0} PTS`;
+        document.getElementById('darkHubPoints').innerText = `${uData.points || 0} PTS`;
+        document.getElementById('authFormArea').classList.add('hidden');
+        document.getElementById('loggedInArea').classList.remove('hidden');
+        document.getElementById('loggedInUsername').innerText = activeUser;
+      }
+    }
+
+    function switchTab(tabName) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(el => {
+        el.classList.remove('text-btspurple', 'border-btspurple');
+        el.classList.add('text-slate-500', 'border-transparent');
+      });
+
+      document.getElementById(`sec-${tabName}`).classList.remove('hidden');
+      const activeBtn = document.getElementById(`tab-${tabName}`);
+      if (activeBtn) {
+        activeBtn.classList.add('text-btspurple', 'border-btspurple');
+        activeBtn.classList.remove('text-slate-500', 'border-transparent');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderDarkHubTracks() {
+      const container = document.getElementById('darkTrackContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      const uData = activeUser ? userDatabase[activeUser] : null;
+      const completedList = uData ? (uData.completedMissions || []) : [];
+
+      let completedCount = 0;
+
+      fullAlbum14Tracks.forEach((track) => {
+        const isDone = completedList.includes(track.title);
+        if (isDone) completedCount++;
+
+        const trackCard = document.createElement('div');
+        trackCard.className = `p-3 rounded-2xl border flex items-center justify-between transition ${
+          isDone ? 'bg-purple-950/40 border-purple-800/40' : 'bg-[#161426] border-[#2E274C]'
+        }`;
+
+        trackCard.innerHTML = `
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-xl ${isDone ? 'bg-purple-600 text-white' : 'bg-purple-950 text-purple-300'} flex items-center justify-center font-bold text-xs border border-purple-800/50">
+              ${track.id < 10 ? '0' + track.id : track.id}
+            </div>
+            <div>
+              <h5 class="font-bold ${isDone ? 'text-purple-300 line-through opacity-80' : 'text-slate-100'}">${track.title}</h5>
+              <p class="text-[10px] text-purple-300/60">${track.desc} • <span class="text-amber-400 font-bold">+${track.points} Pts</span></p>
+            </div>
+          </div>
+          <button onclick="toggleTrackMission('${track.title}', ${track.points})" class="px-3 py-1.5 text-xs font-bold rounded-xl transition flex items-center gap-1 ${
+            isDone ? 'bg-emerald-950/60 border border-emerald-500/40 text-emerald-400' : 'bg-gradient-to-r from-purple-600 to-pink-500 text-white shadow-md'
+          }">
+            <i class="fa-solid ${isDone ? 'fa-circle-check' : 'fa-play'}"></i>
+            <span>${isDone ? 'Selesai' : 'Klaim'}</span>
+          </button>
+        `;
+        container.appendChild(trackCard);
+      });
+
+      document.getElementById('darkMisiSelesaiText').innerText = `${completedCount} / 14 Track`;
+      document.getElementById('darkMisiProgressBar').style.width = `${Math.round((completedCount / 14) * 100)}%`;
+    }
+
+    function toggleTrackMission(trackTitle, points) {
+      if (!activeUser) return alert("Login member terlebih dahulu!");
+      
+      const uData = userDatabase[activeUser];
+      uData.completedMissions = uData.completedMissions || [];
+
+      const idx = uData.completedMissions.indexOf(trackTitle);
+      if (idx > -1) {
+        uData.completedMissions.splice(idx, 1);
+        uData.points = Math.max(0, (uData.points || 0) - points);
+      } else {
+        uData.completedMissions.push(trackTitle);
+        uData.points = (uData.points || 0) + points;
+      }
+
+      localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
+      checkAuthStatus();
+      renderDarkHubTracks();
+    }
+
+    /* LAST.FM API SCRAPING AUTO CHECKLIST INTEGRATION */
+    function connectLastFm() {
+      const u = document.getElementById('lastfmUsernameInput').value.trim();
+      if (!u) return alert("Masukkan username Last.fm!");
+      lastfmUser = u;
+      localStorage.setItem('7h_lastfm_user', u);
+      document.getElementById('lastfmStatus').innerText = "Terhubung: " + u;
+      document.getElementById('lastfmStatus').className = "text-[9px] bg-emerald-950/80 text-emerald-300 px-2 py-0.5 rounded-full border border-emerald-800/50";
+      fetchLastFmRecentScrobbles();
+    }
+
+    function fetchLastFmRecentScrobbles() {
+      if (!lastfmUser || !activeUser) return;
+      
+      const apiKey = "b25785083f2b56435780cbc738d3f301"; // Public demo key Last.fm
+      const url = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${lastfmUser}&api_key=${apiKey}&format=json&limit=20`;
+
+      fetch(url)
+        .then(res => res.json())
+        .then(data => {
+          if (data.recenttracks && data.recenttracks.track) {
+            const scrobbles = data.recenttracks.track;
+            let newlyChecked = false;
+
+            scrobbles.forEach(st => {
+              const artistName = st.artist['#text'].toLowerCase();
+              const songName = st.name.toLowerCase();
+
+              if (artistName.includes("bts") || artistName.includes("bangtan")) {
+                fullAlbum14Tracks.forEach(tr => {
+                  const trTitleClean = tr.title.toLowerCase().split('(')[0].trim();
+                  if (songName.includes(trTitleClean)) {
+                    const uData = userDatabase[activeUser];
+                    uData.completedMissions = uData.completedMissions || [];
+                    if (!uData.completedMissions.includes(tr.title)) {
+                      uData.completedMissions.push(tr.title);
+                      uData.points = (uData.points || 0) + tr.points;
+                      newlyChecked = true;
+                    }
+                  }
+                });
+              }
             });
 
-            // Update Home Tab progress stats
-            const homeCompletedCount = document.getElementById('home-completed-count');
-            const homeCompletedBar = document.getElementById('home-completed-bar');
-            if (homeCompletedCount && homeCompletedBar) {
-                homeCompletedCount.innerText = `${completedCount} / 14 Track`;
-                const percentage = Math.round((completedCount / 14) * 100);
-                homeCompletedBar.style.width = `${percentage}%`;
+            if (newlyChecked) {
+              localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
+              checkAuthStatus();
+              renderDarkHubTracks();
+              alert("🎵 Lagu BTS terdeteksi diputar di Last.fm! Misi streaming tercentang otomatis!");
             }
-        }
+          }
+        })
+        .catch(err => console.log("Last.fm sync error:", err));
+    }
 
-        // Toggle Track Complete
-        function toggleMissionTrack(trackId) {
-            const track = albumTracks.find(t => t.id === trackId);
-            if(track) {
-                track.completed = !track.completed;
-                if(track.completed) {
-                    userPoints += track.points;
-                    showToast(`Misi "${track.title}" Selesai! +${track.points} Pts`);
-                } else {
-                    userPoints -= track.points;
-                    showToast(`Status lagu diperbarui`);
-                }
-                updatePointsDisplay();
-                renderMissionTracks();
-            }
-        }
+    function loginUser() {
+      const u = document.getElementById('authUsername').value.trim();
+      const p = document.getElementById('authPassword').value.trim();
+      if (userDatabase[u] && userDatabase[u].password === p) {
+        activeUser = u;
+        localStorage.setItem('7h_active_user', u);
+        checkAuthStatus();
+        renderDarkHubTracks();
+        fetchLastFmRecentScrobbles();
+      } else { alert("Login gagal!"); }
+    }
 
-        // Update User Points Display
-        function updatePointsDisplay() {
-            document.getElementById('user-points').innerText = userPoints.toLocaleString();
-            const rankPts = document.getElementById('user-points-rank');
-            if(rankPts) rankPts.innerText = `${userPoints.toLocaleString()} Pts`;
-        }
+    function registerUser() {
+      const u = document.getElementById('authUsername').value.trim();
+      const p = document.getElementById('authPassword').value.trim();
+      if (!userDatabase[u]) {
+        userDatabase[u] = { password: p, points: 0, completedMissions: [] };
+        localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
+        activeUser = u;
+        localStorage.setItem('7h_active_user', u);
+        checkAuthStatus();
+        renderDarkHubTracks();
+      }
+    }
 
-        // Switch Tabs Functionality
-        function switchTab(tabName) {
-            const tabs = ['home', 'mission', 'leaderboard', 'shop', 'profile'];
-            
-            tabs.forEach(tab => {
-                const sec = document.getElementById(`tab-${tab}`);
-                const navBtn = document.getElementById(`nav-${tab}`);
-                
-                if (sec) sec.classList.add('hidden');
-                if (navBtn) navBtn.className = "flex flex-col items-center gap-1 text-purple-300/50 hover:text-purple7h-400 transition cursor-pointer";
-            });
-
-            const targetSec = document.getElementById(`tab-${tabName}`);
-            const targetNav = document.getElementById(`nav-${tabName}`);
-
-            if (targetSec) targetSec.classList.remove('hidden');
-            if (targetNav) targetNav.className = "flex flex-col items-center gap-1 text-purple7h-400 transition cursor-pointer font-bold";
-
-            // Scroll to top upon tab change
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Claim Rewards Function
-        function claimReward(name, cost) {
-            if (userPoints >= cost) {
-                userPoints -= cost;
-                updatePointsDisplay();
-                showToast(`Berhasil menukarkan: ${name}!`);
-            } else {
-                showToast(`Poin tidak cukup untuk menukarkan ${name}`);
-            }
-        }
-
-        // Toast Notification Display
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            const toastMessage = document.getElementById('toast-message');
-            toastMessage.innerText = message;
-
-            toast.classList.remove('-translate-y-24', 'opacity-0');
-            toast.classList.add('translate-y-0', 'opacity-100');
-
-            setTimeout(() => {
-                toast.classList.remove('translate-y-0', 'opacity-100');
-                toast.classList.add('-translate-y-24', 'opacity-0');
-            }, 3000);
-        }
-
-        // Application Initialization
-        window.onload = function() {
-            renderMissionTracks();
-            updatePointsDisplay();
-        }
-    </script>
+    function logoutUser() {
+      activeUser = null;
+      localStorage.removeItem('7h_active_user');
+      checkAuthStatus();
+      renderDarkHubTracks();
+    }
+  </script>
 </body>
 </html>
