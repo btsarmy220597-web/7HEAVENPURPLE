@@ -202,22 +202,25 @@
 
     <!-- NAVIGATION TABS -->
     <nav class="flex border-t border-purple-50 max-w-md mx-auto bg-white/50 px-1 pt-1 overflow-x-auto">
-      <button onclick="switchTab('beranda')" id="tab-beranda" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-btspurple border-b-2 border-btspurple flex flex-col items-center gap-0.5 min-w-[55px]">
+      <button onclick="switchTab('beranda')" id="tab-beranda" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-btspurple border-b-2 border-btspurple flex flex-col items-center gap-0.5 min-w-[50px]">
         <i class="fa-solid fa-house text-sm"></i> Beranda
       </button>
-      <button onclick="switchTab('sertifikat')" id="tab-sertifikat" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[55px]">
+      <button onclick="switchTab('profil')" id="tab-profil" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[50px]">
+        <i class="fa-solid fa-user text-sm"></i> Profil
+      </button>
+      <button onclick="switchTab('sertifikat')" id="tab-sertifikat" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[50px]">
         <i class="fa-solid fa-certificate text-sm"></i> Sertifikat
       </button>
-      <button onclick="switchTab('misi')" id="tab-misi" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[55px]">
+      <button onclick="switchTab('misi')" id="tab-misi" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[50px]">
         <i class="fa-solid fa-list-check text-sm"></i> Misi
       </button>
-      <button onclick="switchTab('game')" id="tab-game" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[55px]">
+      <button onclick="switchTab('game')" id="tab-game" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[50px]">
         <i class="fa-solid fa-gamepad text-sm"></i> Quiz PC
       </button>
-      <button onclick="switchTab('diary')" id="tab-diary" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[55px]">
+      <button onclick="switchTab('diary')" id="tab-diary" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[50px]">
         <i class="fa-solid fa-book-bookmark text-sm"></i> Diary
       </button>
-      <button onclick="switchTab('admin')" id="tab-admin" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[55px]">
+      <button onclick="switchTab('admin')" id="tab-admin" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[50px]">
         <i class="fa-solid fa-user-shield text-sm"></i> Admin
       </button>
     </nav>
@@ -350,7 +353,54 @@
       </div>
     </section>
 
-    <!-- TAB 2: SERTIFIKAT MAKER -->
+    <!-- TAB 2: PROFIL MEMBER (BARU) -->
+    <section id="sec-profil" class="tab-content hidden space-y-4">
+      <div class="glass-card rounded-3xl p-5 space-y-4 border border-purple-200">
+        <!-- HEADER KARTU PROFIL -->
+        <div class="flex items-center gap-3 border-b border-purple-100 pb-4">
+          <div class="w-16 h-16 rounded-3xl bg-gradient-to-tr from-btspurple to-btslight text-white flex items-center justify-center font-bold text-2xl shadow-md cute-font overflow-hidden border-2 border-purple-300">
+            <span id="tabProfilAvatarText">7</span>
+            <img id="tabProfilAvatarImg" src="" class="hidden w-full h-full object-cover">
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center justify-between">
+              <h2 id="tabProfilUsername" class="text-base font-black text-slate-800 cute-font">Guest</h2>
+              <span id="tabProfilBadge" class="text-[10px] font-extrabold text-purple-700 bg-purple-100 px-2.5 py-0.5 rounded-full border border-purple-200">
+                🐣 Baby ARMY
+              </span>
+            </div>
+            <p id="tabProfilBio" class="text-xs text-slate-500 italic mt-0.5">"Borahae BTS & ARMY 💜"</p>
+            <div class="mt-2 flex items-center gap-2">
+              <span id="tabProfilPoints" class="text-xs font-extrabold text-amber-600 bg-amber-50 px-2.5 py-0.5 rounded-lg border border-amber-200">💰 0 PTS</span>
+              <button onclick="toggleEditProfileModal()" class="text-[10px] font-bold text-btspurple bg-purple-100 px-2 py-0.5 rounded-lg">✏️ Edit Profil</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 1: MY PHOTOCARD (OTOMATIS TERSIMPAN SAMA) -->
+        <div class="space-y-2">
+          <h3 class="text-xs font-extrabold text-slate-800 cute-font flex items-center gap-1.5">
+            <i class="fa-solid fa-images text-btspurple"></i> My Photocard Collection
+          </h3>
+          <p class="text-[10px] text-slate-500">Photocard eksklusif yang berhasil kamu klaim/dapatkan dari Gacha!</p>
+          <div id="myPhotocardGrid" class="grid grid-cols-3 gap-2 text-xs pt-1">
+            <!-- Render otomatis sama via JS -->
+          </div>
+        </div>
+
+        <!-- SECTION 2: HISTORY AKTIVITAS -->
+        <div class="pt-3 border-t border-purple-100 space-y-2">
+          <h3 class="text-xs font-extrabold text-slate-800 cute-font flex items-center gap-1.5">
+            <i class="fa-solid fa-clock-rotate-left text-btspurple"></i> History Aktivitas Saya
+          </h3>
+          <div id="userHistoryList" class="space-y-1.5 text-xs max-h-48 overflow-y-auto pr-1">
+            <p class="text-center text-slate-400 py-2 text-[11px]">Belum ada riwayat aktivitas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: SERTIFIKAT MAKER -->
     <section id="sec-sertifikat" class="tab-content hidden space-y-4">
       <div class="glass-card rounded-3xl p-4 space-y-3">
         <h3 class="text-xs font-extrabold text-slate-800 cute-font border-b border-purple-100 pb-1.5">
@@ -475,7 +525,7 @@
       </button>
     </section>
 
-    <!-- TAB 3: MISI -->
+    <!-- TAB 4: MISI -->
     <section id="sec-misi" class="tab-content hidden space-y-4">
       <div class="glass-card rounded-3xl p-4 space-y-4">
         <h2 class="text-sm font-extrabold text-slate-800 cute-font flex items-center gap-1.5 border-b border-purple-100 pb-2">
@@ -523,7 +573,7 @@
       </div>
     </section>
 
-    <!-- TAB 4: QUIZ HARIAN & GACHA PHOTOCARD -->
+    <!-- TAB 5: QUIZ HARIAN & GACHA PHOTOCARD -->
     <section id="sec-game" class="tab-content hidden space-y-4">
       <div class="glass-card rounded-3xl p-4 space-y-4">
         <h2 class="text-sm font-extrabold text-slate-800 cute-font flex items-center gap-1.5 border-b border-purple-100 pb-2">
@@ -556,17 +606,20 @@
           </button>
         </div>
 
-        <!-- ALBUM KOLEKSI MEMBER -->
+        <!-- ALBUM KOLEKSI MEMBER DI BAWAH GAME (TERPERBAHARUI SECARA OTOMATIS) -->
         <div class="pt-2 border-t border-purple-100">
-          <h3 class="text-xs font-bold text-slate-700 mb-2">Album Koleksi Photocard Kamu:</h3>
+          <div class="flex justify-between items-center mb-2">
+            <h3 class="text-xs font-bold text-slate-700">Album Koleksi Photocard Kamu:</h3>
+            <span class="text-[10px] text-btspurple font-bold">Terupdate Otomatis 🔄</span>
+          </div>
           <div id="photocardGrid" class="grid grid-cols-3 gap-2 text-xs">
-            <!-- Render via JS -->
+            <!-- Render otomatis via JS -->
           </div>
         </div>
       </div>
     </section>
 
-    <!-- TAB 5: DIARY -->
+    <!-- TAB 6: DIARY -->
     <section id="sec-diary" class="tab-content hidden space-y-4">
       <div class="glass-card rounded-3xl p-4">
         <h2 class="text-sm font-extrabold text-slate-800 cute-font mb-2">📖 Voting Diary & Galeri</h2>
@@ -575,7 +628,7 @@
       </div>
     </section>
 
-    <!-- TAB 6: ADMIN PANEL -->
+    <!-- TAB 7: ADMIN PANEL -->
     <section id="sec-admin" class="tab-content hidden space-y-4">
       <div id="adminLoginCard" class="glass-card rounded-3xl p-5 text-center space-y-3">
         <h2 class="text-sm font-bold text-slate-800 cute-font">🔒 Panel Khusus Admin</h2>
@@ -622,7 +675,7 @@
 
   <script>
     let activeUser = localStorage.getItem('7h_active_user') || null;
-    let userDatabase = JSON.parse(localStorage.getItem('7h_users_db') || '{"Alysha":{"password":"123","points":0,"bio":"Borahae BTS 💜","avatar":"","lastCheckin":"","diary":[],"cards":[],"quizDate":"","quizIndex":0}}');
+    let userDatabase = JSON.parse(localStorage.getItem('7h_users_db') || '{"Alysha":{"password":"123","points":0,"bio":"Borahae BTS 💜","avatar":"","lastCheckin":"","diary":[],"cards":[],"quizDate":"","quizIndex":0,"history":[]}}');
     let adminPinSecret = localStorage.getItem('7h_admin_pin') || '130613';
     let tempAvatarBase64 = "";
 
@@ -726,7 +779,7 @@
       { q: "BTS tampil di Grammy Awards dengan lagu Dynamite pada tahun?", a: "A. 2021", b: "B. 2018", ans: "A" },
       { q: "BTS merilis lagu Take Two untuk memperingati anniversary ke-berapa pada 2023?", a: "A. Ke-10", b: "B. Ke-7", ans: "A" },
       { q: "Lagu BTS yang dirilis pada 2015 adalah?", a: "A. I NEED U", b: "B. Butter", ans: "A" },
-      { q: "Lagu BTS yang memuat frasa “You can't stop me lovin' myself” adalah?", a: "A. IDOL", b: "B. Spring Day", ans: "A" },
+      { q: "Lagu BTS yang memuat frasa “You can'stop me lovin' myself” adalah?", a: "A. IDOL", b: "B. Spring Day", ans: "A" },
       { q: "Lagu BTS yang berjudul Anpanman terinspirasi dari karakter asal negara?", a: "A. Jepang", b: "B. Korea Selatan", ans: "A" },
       { q: "Lagu BTS berbahasa Jepang yang dirilis pada 2021 adalah?", a: "A. Film Out", b: "B. Black Swan", ans: "A" },
       { q: "Lagu BTS yang berjudul Run BTS terdapat dalam album?", a: "A. Proof", b: "B. Wings", ans: "A" },
@@ -757,7 +810,7 @@
       loadDailyQuiz();
     });
 
-    // BADGE DIHITUNG BERDASARKAN JUMLAH KARTU PHOTOCARD YANG DIKOLEKSI (AGAR TIDAK TURUN SAAT POIN DITUKAR GACHA)
+    // BADGE DIHITUNG BERDASARKAN JUMLAH KARTU PHOTOCARD YANG DIKOLEKSI
     function getBadgeTitle(cardsCount) {
       if (cardsCount >= 6) return '👑 Borahae Elite';
       if (cardsCount >= 4) return '🔮 Magic Shop ARMY';
@@ -769,11 +822,21 @@
       if (activeUser && userDatabase[activeUser]) {
         const uData = userDatabase[activeUser];
         if (!uData.cards) uData.cards = [];
+        if (!uData.history) uData.history = [];
+
+        const badge = getBadgeTitle(uData.cards.length);
+
         document.getElementById('profileNameDisplay').innerText = `Profil: ${activeUser}`;
         document.getElementById('userPoints').innerText = `${uData.points} PTS`;
-        document.getElementById('userBadge').innerText = getBadgeTitle(uData.cards.length);
+        document.getElementById('userBadge').innerText = badge;
         document.getElementById('inputNama').value = activeUser;
         document.getElementById('prevNama').innerText = activeUser;
+
+        // BINDING DATA TAB PROFIL
+        document.getElementById('tabProfilUsername').innerText = activeUser;
+        document.getElementById('tabProfilBio').innerText = `"${uData.bio || 'Borahae BTS 💜'}"`;
+        document.getElementById('tabProfilBadge').innerText = badge;
+        document.getElementById('tabProfilPoints').innerText = `💰 ${uData.points} PTS`;
 
         if (uData.avatar) {
           document.getElementById('headerAvatarText').classList.add('hidden');
@@ -782,10 +845,17 @@
 
           document.getElementById('profileAvatarPrev').src = uData.avatar;
           document.getElementById('profileAvatarPrev').classList.remove('hidden');
+
+          document.getElementById('tabProfilAvatarText').classList.add('hidden');
+          document.getElementById('tabProfilAvatarImg').src = uData.avatar;
+          document.getElementById('tabProfilAvatarImg').classList.remove('hidden');
         } else {
           document.getElementById('headerAvatarText').classList.remove('hidden');
           document.getElementById('headerAvatarImg').classList.add('hidden');
           document.getElementById('profileAvatarPrev').classList.add('hidden');
+
+          document.getElementById('tabProfilAvatarText').classList.remove('hidden');
+          document.getElementById('tabProfilAvatarImg').classList.add('hidden');
         }
 
         document.getElementById('authFormArea').classList.add('hidden');
@@ -810,6 +880,7 @@
         renderDiary();
         renderPhotocards();
         loadDailyQuiz();
+        renderUserHistory();
       } else {
         document.getElementById('profileNameDisplay').innerText = `Profil: Guest (Belum Login)`;
         document.getElementById('userPoints').innerText = `0 PTS`;
@@ -821,7 +892,36 @@
         document.getElementById('authStatusText').innerText = 'Belum Masuk';
         document.getElementById('authStatusText').className = 'text-[10px] bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-full';
         document.getElementById('checkinStatus').innerText = "Belum Check-in";
+
+        document.getElementById('tabProfilUsername').innerText = 'Guest';
+        document.getElementById('tabProfilBio').innerText = '"Belum Login"';
+        document.getElementById('tabProfilBadge').innerText = '🐣 Baby ARMY';
+        document.getElementById('tabProfilPoints').innerText = '💰 0 PTS';
       }
+    }
+
+    function addHistory(actionText) {
+      if (!activeUser || !userDatabase[activeUser]) return;
+      userDatabase[activeUser].history = userDatabase[activeUser].history || [];
+      const timeStr = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      userDatabase[activeUser].history.unshift({ text: actionText, time: timeStr });
+      localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
+      renderUserHistory();
+    }
+
+    function renderUserHistory() {
+      const container = document.getElementById('userHistoryList');
+      if (!container) return;
+      if (!activeUser || !userDatabase[activeUser] || !userDatabase[activeUser].history || userDatabase[activeUser].history.length === 0) {
+        container.innerHTML = `<p class="text-center text-slate-400 py-2 text-[11px]">Belum ada riwayat aktivitas.</p>`;
+        return;
+      }
+      container.innerHTML = userDatabase[activeUser].history.map(item => `
+        <div class="p-2 bg-purple-50/80 rounded-xl border border-purple-100 flex justify-between items-center">
+          <span class="font-bold text-slate-700">${item.text}</span>
+          <span class="text-[9px] text-purple-400 font-bold">${item.time}</span>
+        </div>
+      `).join('');
     }
 
     function handleAvatarUpload(e) {
@@ -895,7 +995,7 @@
       if (userDatabase[u]) {
         alert("Username sudah terdaftar! Silakan Login.");
       } else {
-        userDatabase[u] = { password: p, points: 0, bio: "Borahae BTS 💜", avatar: "", lastCheckin: "", diary: [], cards: [], quizDate: "", quizIndex: 0 };
+        userDatabase[u] = { password: p, points: 0, bio: "Borahae BTS 💜", avatar: "", lastCheckin: "", diary: [], cards: [], quizDate: "", quizIndex: 0, history: [] };
         localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
         activeUser = u;
         localStorage.setItem('7h_active_user', u);
@@ -930,12 +1030,13 @@
 
       userDatabase[activeUser].points += 10;
       userDatabase[activeUser].lastCheckin = today;
+      addHistory("📅 Check-in Harian (+10 Pts)");
       localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
       checkAuthStatus();
       alert("Check-in berhasil! (+10 PTS) 🎉");
     }
 
-    // LOGIKA QUIZ HARIAN DARI 100 SOAL (MAX 20 SOAL PER HARI, 5 POIN PER SOAL BENAR)
+    // LOGIKA QUIZ HARIAN DARI 100 SOAL
     function getDailyQuestions() {
       const todayStr = new Date().toISOString().split('T')[0];
       let seed = 0;
@@ -948,7 +1049,7 @@
         let j = (seed * (i + 1)) % shuffled.length;
         [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
       }
-      return shuffled.slice(0, 20); // Tepat 20 soal berganti otomatis tiap hari
+      return shuffled.slice(0, 20);
     }
 
     function loadDailyQuiz() {
@@ -1003,7 +1104,8 @@
       const uData = userDatabase[activeUser];
 
       if (chosenAns === correctAns) {
-        uData.points += 5; // 1 soal benar = +5 poin
+        uData.points += 5;
+        addHistory("🧠 Menjawab Quiz Benar (+5 Pts)");
         alert("✨ Jawaban Benar! Kamu mendapatkan +5 Poin!");
       } else {
         alert(`❌ Kurang tepat! Jawaban yang benar adalah ${correctAns}.`);
@@ -1027,17 +1129,20 @@
         userDatabase[activeUser].cards.push(randomCard.id);
       }
 
+      addHistory(`🎁 Gacha PC: Got ${randomCard.name}`);
       localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
       checkAuthStatus();
       alert(`🎉 HORE! Kamu mendapatkan Photocard: ${randomCard.name}! Cek album koleksimu.`);
     }
 
+    // RENDER LENGKAP BERSAMAAN UNTUK TAB QUIZ PC & TAB PROFIL SAMA KEDUANYA DENGAN OTOMATIS
     function renderPhotocards() {
-      const container = document.getElementById('photocardGrid');
-      if (!container) return;
+      const mainGrid = document.getElementById('photocardGrid');
+      const profilGrid = document.getElementById('myPhotocardGrid');
+      
       const userCards = (activeUser && userDatabase[activeUser]?.cards) ? userDatabase[activeUser].cards : [];
 
-      container.innerHTML = btsPhotocardsCatalog.map(card => {
+      const htmlContent = btsPhotocardsCatalog.map(card => {
         const isOwned = userCards.includes(card.id);
         return `
           <div class="bg-white p-2 rounded-2xl border border-purple-100 text-center space-y-1 shadow-sm">
@@ -1049,6 +1154,9 @@
           </div>
         `;
       }).join('');
+
+      if (mainGrid) mainGrid.innerHTML = htmlContent;
+      if (profilGrid) profilGrid.innerHTML = htmlContent;
     }
 
     function updatePreview() {
@@ -1224,11 +1332,14 @@
         link.click();
 
         userDatabase[activeUser].diary = userDatabase[activeUser].diary || [];
+        const eventName = document.getElementById('inputEvent').value;
         userDatabase[activeUser].diary.unshift({
-          title: document.getElementById('inputEvent').value,
+          title: eventName,
           date: new Date().toLocaleDateString(),
           img: canvas.toDataURL('image/png')
         });
+
+        addHistory(`🖼️ Buat Sertifikat: ${eventName}`);
         localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
         renderDiary();
         alert("Sertifikat didownload & tersimpan ke Diary! ✨");
@@ -1263,6 +1374,7 @@
 
     function submitStreamProof() {
       if (!activeUser) return alert("Login akun terlebih dahulu!");
+      addHistory("🎵 Kirim Bukti SS Streaming Album");
       alert("Bukti SS Streaming dikirim ke Admin! 💜");
     }
 
