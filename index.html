@@ -13,17 +13,17 @@
                 extend: {
                     colors: {
                         bts: {
-                            light: '#F1ECFD',
-                            soft: '#9D72E1',
-                            primary: '#7D52C1',
-                            dark: '#58329B',
-                            accent: '#F3E8FF',
+                            light: '#F4E8FF',
+                            soft: '#C490FF',
+                            primary: '#8A2BE2',
+                            dark: '#4B0082',
+                            accent: '#E6E6FA',
                             gold: '#FFD700'
                         }
                     },
                     fontFamily: {
                         sans: ['Plus Jakarta Sans', 'sans-serif'],
-                        cute: ['Fredoka', 'cursive']
+                        cute: ['Fredoka', 'sans-serif']
                     }
                 }
             }
@@ -33,7 +33,7 @@
     <!-- Fonts Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -44,8 +44,8 @@
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #0d0714;
-            color: #333;
+            background-color: #0b0712;
+            color: #f1f5f9;
             user-select: none;
             -webkit-tap-highlight-color: transparent;
         }
@@ -53,88 +53,132 @@
             font-family: 'Fredoka', cursive;
         }
         .purple-gradient {
-            background: linear-gradient(135deg, #7D52C1 0%, #58329B 100%);
+            background: linear-gradient(135deg, #8A2BE2 0%, #4B0082 100%);
         }
-        .purple-glow {
-            box-shadow: 0 0 20px rgba(125, 82, 193, 0.4);
-        }
-        .gold-glow {
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        .card-bg {
+            background: rgba(22, 15, 38, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(138, 43, 226, 0.25);
         }
         .custom-scrollbar::-webkit-scrollbar {
             width: 4px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #9D72E1;
+            background: #8A2BE2;
             border-radius: 4px;
         }
-        
-        /* Interactive Sticker Overlay Controls */
         .sticker-element {
             position: absolute;
             cursor: move;
             touch-action: none;
         }
-        .sticker-element.selected {
-            outline: 2px dashed #7D52C1;
-        }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex justify-center items-center p-0 md:p-4">
 
-    <!-- Mobile Wrapper Container -->
-    <div class="w-full max-w-md h-screen md:h-[880px] bg-slate-900 md:rounded-3xl shadow-2xl flex flex-col overflow-hidden relative border border-slate-800">
+    <!-- Mobile Container -->
+    <div class="w-full max-w-md h-screen md:h-[880px] bg-slate-900 md:rounded-3xl shadow-2xl flex flex-col overflow-hidden relative border border-purple-900/40">
         
-        <!-- Header -->
-        <header class="purple-gradient p-4 text-white flex justify-between items-center shadow-lg z-20 shrink-0">
-            <div class="flex items-center space-x-2">
-                <div class="w-9 h-9 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-md">
-                    <i class="fa-solid font-cute text-xl text-yellow-300">💜</i>
+        <!-- Top Navigation Bar -->
+        <header class="purple-gradient p-3.5 text-white flex justify-between items-center shadow-md z-20 shrink-0">
+            <div class="flex items-center space-x-2.5">
+                <div class="w-9 h-9 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-md border border-white/20">
+                    <span class="text-lg">💜</span>
                 </div>
                 <div>
-                    <h1 class="font-cute font-bold text-lg leading-none tracking-wide">7HEAVEN PURPLE</h1>
-                    <p class="text-[10px] text-purple-200 opacity-90 tracking-wider uppercase font-semibold">BTS ARMY Portal</p>
+                    <h1 class="font-cute font-bold text-lg leading-tight tracking-wide flex items-center space-x-1">
+                        <span>7HEAVEN</span>
+                        <span class="text-[10px] bg-yellow-400 text-purple-950 px-1.5 py-0.5 rounded-full font-sans font-extrabold uppercase">PURPLE</span>
+                    </h1>
+                    <p class="text-[10px] text-purple-200 opacity-90 font-medium">Profil: <span id="hdrName">Alyshajk</span></p>
                 </div>
             </div>
             
             <div class="flex items-center space-x-2">
-                <div class="bg-black/30 px-3 py-1.5 rounded-full flex items-center space-x-1.5 border border-white/10 backdrop-blur-md">
-                    <i class="fa-solid fa-star text-yellow-300 text-xs animate-pulse"></i>
-                    <span id="userPoints" class="font-bold text-xs text-yellow-200">0</span>
-                    <span class="text-[10px] text-purple-200">PTS</span>
+                <div class="bg-black/30 px-3 py-1 rounded-full flex items-center space-x-1.5 border border-white/10 backdrop-blur-md">
+                    <i class="fa-solid fa-coins text-yellow-300 text-xs"></i>
+                    <span id="userPoints" class="font-bold text-xs text-yellow-200">1500</span>
+                    <span class="text-[10px] text-purple-200 font-semibold">PTS</span>
                 </div>
-                <button onclick="switchTab('admin')" class="w-8 h-8 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition text-xs" title="Admin Panel">
-                    <i class="fa-solid fa-user-shield text-purple-200"></i>
-                </button>
+                <div class="bg-purple-950/80 px-2.5 py-1 rounded-full border border-purple-400/30 flex items-center space-x-1">
+                    <span id="hdrBadgeIcon" class="text-xs">👑</span>
+                    <span id="hdrBadgeText" class="text-[10px] text-purple-200 font-bold">Borahae Elite</span>
+                </div>
             </div>
         </header>
 
-        <!-- Main Content Area (Scrollable) -->
-        <main id="mainContainer" class="flex-1 overflow-y-auto custom-scrollbar p-4 relative space-y-4 pb-24">
+        <!-- Navigation Tabs Bar -->
+        <nav class="bg-slate-950/95 border-b border-purple-900/30 px-2 py-2 flex justify-between items-center z-20 shrink-0 text-xs">
+            <button onclick="switchTab('home')" id="nav-home" class="nav-btn flex flex-col items-center flex-1 py-1 text-purple-400 font-semibold">
+                <i class="fa-solid fa-house text-base mb-0.5"></i>
+                <span class="text-[10px]">Beranda</span>
+            </button>
+            <button onclick="switchTab('profil')" id="nav-profil" class="nav-btn flex flex-col items-center flex-1 py-1 text-slate-400 font-medium hover:text-purple-300">
+                <i class="fa-solid fa-user text-base mb-0.5"></i>
+                <span class="text-[10px]">Profil</span>
+            </button>
+            <button onclick="switchTab('sertifikat')" id="nav-sertifikat" class="nav-btn flex flex-col items-center flex-1 py-1 text-slate-400 font-medium hover:text-purple-300">
+                <i class="fa-solid fa-award text-base mb-0.5"></i>
+                <span class="text-[10px]">Sertifikat</span>
+            </button>
+            <button onclick="switchTab('misi')" id="nav-misi" class="nav-btn flex flex-col items-center flex-1 py-1 text-slate-400 font-medium hover:text-purple-300">
+                <i class="fa-solid fa-list-check text-base mb-0.5"></i>
+                <span class="text-[10px]">Misi</span>
+            </button>
+            <button onclick="switchTab('quiz')" id="nav-quiz" class="nav-btn flex flex-col items-center flex-1 py-1 text-slate-400 font-medium hover:text-purple-300">
+                <i class="fa-solid fa-gamepad text-base mb-0.5"></i>
+                <span class="text-[10px]">Quiz</span>
+            </button>
+            <button onclick="switchTab('diary')" id="nav-diary" class="nav-btn flex flex-col items-center flex-1 py-1 text-slate-400 font-medium hover:text-purple-300">
+                <i class="fa-solid fa-book-bookmark text-base mb-0.5"></i>
+                <span class="text-[10px]">Diary</span>
+            </button>
+            <button onclick="switchTab('admin')" id="nav-admin" class="nav-btn flex flex-col items-center flex-1 py-1 text-slate-400 font-medium hover:text-purple-300">
+                <i class="fa-solid fa-user-shield text-base mb-0.5"></i>
+                <span class="text-[10px]">Admin</span>
+            </button>
+        </nav>
+
+        <!-- Main Content Viewport -->
+        <main id="mainContainer" class="flex-1 overflow-y-auto custom-scrollbar p-4 space-y-4 pb-12">
             
-            <!-- ================= TAB 1: BERANDA ================= -->
+            <!-- ================= 1. TAB BERANDA ================= -->
             <section id="tab-home" class="tab-content space-y-4">
-                <!-- Banner Check-in -->
+                <!-- Check-in Daily Banner -->
                 <div class="purple-gradient rounded-2xl p-4 text-white relative overflow-hidden shadow-lg border border-purple-500/30">
                     <div class="absolute -right-4 -bottom-4 text-white/10 text-8xl font-black">7</div>
                     <div class="relative z-10 flex justify-between items-center">
                         <div class="space-y-1">
-                            <span class="bg-yellow-400 text-purple-950 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Harian</span>
+                            <span class="bg-yellow-400 text-purple-950 text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase">Klaim Harian</span>
                             <h2 class="font-cute text-xl font-bold">Check-in ARMY Today</h2>
-                            <p class="text-xs text-purple-100">Klaim +10 Points setiap hari!</p>
+                            <p class="text-xs text-purple-100">Kumpulkan +10 PTS setiap hari!</p>
                         </div>
-                        <button id="btnCheckIn" onclick="claimDailyCheckIn()" class="bg-yellow-400 hover:bg-yellow-300 text-purple-950 font-bold px-4 py-2.5 rounded-xl shadow-lg transition transform active:scale-95 text-xs flex items-center space-x-1">
+                        <button id="btnCheckIn" onclick="claimDailyCheckIn()" class="bg-yellow-400 hover:bg-yellow-300 text-purple-950 font-bold px-4 py-2.5 rounded-xl shadow-lg transition transform active:scale-95 text-xs flex items-center space-x-1.5">
                             <i class="fa-solid fa-calendar-check"></i>
                             <span>Check-In</span>
                         </button>
                     </div>
                 </div>
 
-                <!-- Info Voting On-Going -->
-                <div class="bg-slate-800/80 border border-slate-700/60 rounded-2xl p-4 space-y-3">
+                <!-- Quick Quiz Banner -->
+                <div onclick="switchTab('quiz')" class="cursor-pointer bg-gradient-to-r from-purple-900/80 to-indigo-900/80 hover:from-purple-900 hover:to-indigo-900 border border-purple-500/40 rounded-2xl p-4 flex items-center justify-between shadow-md transition">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 rounded-xl bg-purple-600/30 border border-purple-400/30 flex items-center justify-center text-purple-200 text-2xl">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-cute font-bold text-base text-white">Quiz ARMY Harian</h3>
+                            <p class="text-xs text-purple-200">20 Soal Acak • +5 PTS Per Soal Benar</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-purple-300"></i>
+                </div>
+
+                <!-- Ongoing Voting Status -->
+                <div class="card-bg rounded-2xl p-4 space-y-3">
                     <div class="flex justify-between items-center">
                         <div class="flex items-center space-x-2">
                             <i class="fa-solid fa-trophy text-yellow-400 text-sm"></i>
@@ -143,107 +187,94 @@
                         <span class="text-[10px] bg-red-500/20 text-red-400 px-2 py-0.5 rounded-full border border-red-500/30 font-medium">URGENT</span>
                     </div>
                     
-                    <div class="space-y-2 text-xs">
-                        <div class="bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/40 flex justify-between items-center">
-                            <div>
-                                <p class="font-semibold text-purple-300">Global Music Awards 2026</p>
-                                <p class="text-[10px] text-slate-400">Kategori: Best Global Group</p>
-                            </div>
-                            <button onclick="switchTab('misi')" class="bg-bts-primary hover:bg-bts-dark text-white px-3 py-1.5 rounded-lg text-[11px] font-medium transition">
-                                Misi Vote
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Quick Action Banner Quiz -->
-                <div onclick="switchTab('quiz')" class="cursor-pointer bg-gradient-to-r from-indigo-900/60 to-purple-900/60 hover:from-indigo-900/80 hover:to-purple-900/80 border border-purple-500/30 rounded-2xl p-4 flex items-center justify-between shadow-md transition">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-12 h-12 rounded-xl bg-purple-600/30 flex items-center justify-center text-purple-300 text-2xl">
-                            <i class="fa-solid fa-brain"></i>
-                        </div>
+                    <div class="bg-slate-950/60 p-3 rounded-xl border border-slate-800 flex justify-between items-center">
                         <div>
-                            <h3 class="font-cute font-bold text-base text-white">Quiz BTS Harian</h3>
-                            <p class="text-xs text-purple-200">20 Soal Acak • +5 PTS / Benar</p>
+                            <p class="font-semibold text-purple-300 text-xs">Global Music Awards 2026</p>
+                            <p class="text-[10px] text-slate-400">Kategori: Best Global Group</p>
                         </div>
+                        <button onclick="switchTab('misi')" class="bg-bts-primary hover:bg-bts-dark text-white px-3 py-1.5 rounded-lg text-[11px] font-medium transition">
+                            Misi Vote
+                        </button>
                     </div>
-                    <i class="fa-solid fa-chevron-right text-purple-300"></i>
                 </div>
 
-                <!-- Link Quick Album Stream -->
-                <div class="bg-slate-800/80 border border-slate-700/60 rounded-2xl p-4 space-y-3">
+                <!-- Album Stream Box -->
+                <div class="card-bg rounded-2xl p-4 space-y-2.5">
                     <div class="flex justify-between items-center">
                         <div class="flex items-center space-x-2">
                             <i class="fa-solid fa-compact-disc text-purple-400 text-sm animate-spin" style="animation-duration: 8s;"></i>
-                            <h3 class="font-bold text-sm text-slate-100">Album Stream Daily: ARIRANG</h3>
+                            <h3 class="font-bold text-sm text-slate-100">Daily Stream: ARIRANG</h3>
                         </div>
                         <span class="text-[10px] text-purple-300 font-semibold">14 Tracks</span>
                     </div>
-                    <p class="text-xs text-slate-300">Dukung streaming harian album BTS ARIRANG & kumpulkan bukti screenshot di Tab Misi!</p>
-                    <button onclick="switchTab('misi')" class="w-full bg-slate-700 hover:bg-slate-600 text-purple-200 font-semibold py-2 rounded-xl text-xs transition border border-slate-600">
+                    <p class="text-xs text-slate-300">Upload screenshot bukti streaming album BTS ARIRANG & klaim reward-mu!</p>
+                    <button onclick="switchTab('misi')" class="w-full bg-slate-800 hover:bg-slate-700 text-purple-200 font-semibold py-2 rounded-xl text-xs transition border border-slate-700">
                         Buka Misi Streaming
                     </button>
                 </div>
             </section>
 
-            <!-- ================= TAB 2: QUIZ ================= -->
-            <section id="tab-quiz" class="tab-content hidden space-y-4">
-                <!-- Quiz Header -->
-                <div class="bg-slate-800/80 border border-slate-700/60 rounded-2xl p-4 text-center space-y-2">
-                    <span class="bg-purple-900/60 text-purple-300 border border-purple-500/30 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Reset Tiap Hari</span>
-                    <h2 class="font-cute text-xl font-bold text-white">BTS Daily Challenge</h2>
-                    <p class="text-xs text-slate-300">20 Soal terpilih hari ini. +5 Points per jawaban benar!</p>
-                </div>
-
-                <!-- Quiz Container -->
-                <div id="quizContainer" class="bg-slate-800/90 border border-slate-700/80 rounded-2xl p-5 space-y-4 shadow-xl">
-                    <!-- Progress Bar & Count -->
-                    <div class="flex justify-between items-center text-xs text-slate-400">
-                        <span id="quizProgressText">Soal 1 dari 20</span>
-                        <span id="quizScoreCurrent" class="text-yellow-400 font-bold">Skor: 0</span>
-                    </div>
-                    <div class="w-full bg-slate-700 h-2 rounded-full overflow-hidden">
-                        <div id="quizProgressBar" class="bg-purple-500 h-full w-0 transition-all duration-300"></div>
-                    </div>
-
-                    <!-- Soal -->
-                    <div class="min-h-[80px] flex items-center justify-center p-2 bg-slate-900/50 rounded-xl border border-slate-800">
-                        <p id="quizQuestionText" class="text-sm font-semibold text-center text-slate-100">Loading Soal...</p>
+            <!-- ================= 2. TAB PROFIL ================= -->
+            <section id="tab-profil" class="tab-content hidden space-y-4">
+                <!-- User Profile Card -->
+                <div class="card-bg rounded-2xl p-5 space-y-4 text-center relative overflow-hidden shadow-xl">
+                    <div class="purple-gradient absolute top-0 left-0 right-0 h-20 opacity-40"></div>
+                    
+                    <div class="relative z-10 pt-2">
+                        <div class="relative inline-block">
+                            <img id="profileAvatar" src="https://placehold.co/150/8A2BE2/ffffff?text=ARMY" class="w-20 h-20 rounded-full border-4 border-purple-500 object-cover mx-auto shadow-lg" alt="Avatar">
+                            <span id="profileBadgeIcon" class="absolute bottom-0 right-0 bg-yellow-400 text-purple-950 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shadow">👑</span>
+                        </div>
+                        
+                        <h2 id="profileName" class="font-cute text-xl font-bold text-white mt-2">Alyshajk</h2>
+                        <p id="profileBio" class="text-xs text-purple-200 mt-0.5">Borahae Forever 💜</p>
+                        
+                        <div class="mt-3 inline-block bg-purple-950/80 border border-purple-400/40 px-3 py-1 rounded-full text-xs text-yellow-300 font-bold">
+                            Badge: <span id="profileBadgeText">Borahae Elite</span>
+                        </div>
                     </div>
 
-                    <!-- Opsi Jawaban -->
-                    <div id="quizOptions" class="space-y-2.5">
-                        <!-- Rendered by JS -->
+                    <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-800 text-xs">
+                        <div class="bg-slate-950/60 p-2.5 rounded-xl border border-slate-800">
+                            <p class="text-slate-400 text-[10px]">Total Poin ARMY</p>
+                            <p id="profileTotalPoints" class="font-bold text-yellow-400 text-base">1500 PTS</p>
+                        </div>
+                        <div class="bg-slate-950/60 p-2.5 rounded-xl border border-slate-800">
+                            <p class="text-slate-400 text-[10px]">Sertifikat Dibuat</p>
+                            <p id="profileCertCount" class="font-bold text-purple-300 text-base">0</p>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Result Screen (Hidden by default) -->
-                <div id="quizResult" class="hidden bg-slate-800 border border-purple-500/40 rounded-2xl p-6 text-center space-y-4 shadow-2xl">
-                    <div class="w-20 h-20 bg-purple-600/30 text-yellow-300 rounded-full flex items-center justify-center text-4xl mx-auto border-2 border-yellow-400">
-                        🏆
-                    </div>
-                    <div>
-                        <h3 class="font-cute text-2xl font-bold text-white">Quiz Selesai!</h3>
-                        <p id="quizScoreFinal" class="text-sm text-purple-200 mt-1">Kamu mendapatkan 0 Poin!</p>
-                    </div>
-                    <button onclick="startDailyQuiz()" class="purple-gradient hover:opacity-90 text-white font-bold px-6 py-3 rounded-xl text-xs w-full shadow-lg transition">
-                        Coba Lagi Soal Hari Ini
+                    <button onclick="openEditProfileModal()" class="w-full bg-slate-800 hover:bg-slate-700 text-purple-200 font-semibold py-2 rounded-xl text-xs transition border border-slate-700">
+                        Edit Profil (Nama, Bio, Avatar)
                     </button>
+                </div>
+
+                <!-- Activity History -->
+                <div class="card-bg rounded-2xl p-4 space-y-3">
+                    <h3 class="font-bold text-sm text-slate-100 flex items-center space-x-2">
+                        <i class="fa-solid fa-clock-rotate-left text-purple-400"></i>
+                        <span>Riwayat Aktivitas</span>
+                    </h3>
+
+                    <div id="activityHistoryList" class="space-y-2 text-xs custom-scrollbar max-h-60 overflow-y-auto">
+                        <!-- Loaded dynamically -->
+                    </div>
                 </div>
             </section>
 
-            <!-- ================= TAB 3: SERTIFIKAT MAKER ================= -->
+            <!-- ================= 3. TAB SERTIFIKAT ================= -->
             <section id="tab-sertifikat" class="tab-content hidden space-y-4">
-                <div class="bg-slate-800/80 border border-slate-700/60 rounded-2xl p-3 text-center space-y-1">
-                    <h2 class="font-cute text-lg font-bold text-white">Editor Sertifikat Vote 9:16</h2>
-                    <p class="text-[11px] text-slate-300">Upload screenshot, beri stiker, sesuaikan warna, lalu simpan!</p>
+                <div class="card-bg rounded-2xl p-3.5 text-center space-y-1">
+                    <h2 class="font-cute text-lg font-bold text-white">Certificate Editor 9:16</h2>
+                    <p class="text-[11px] text-slate-300">Upload bukti vote, hias stiker, sesuaikan warna, lalu simpan!</p>
                 </div>
 
-                <!-- Canvas Preview Container (9:16 Ratio Box) -->
+                <!-- 9:16 Canvas Box -->
                 <div class="flex justify-center">
-                    <div id="certCard" class="w-[280px] h-[498px] rounded-2xl p-4 flex flex-col justify-between relative overflow-hidden shadow-2xl transition-colors duration-300" style="background-color: #58329B;">
+                    <div id="certCard" class="w-[280px] h-[498px] rounded-2xl p-4 flex flex-col justify-between relative overflow-hidden shadow-2xl transition-colors duration-300" style="background-color: #4B0082;">
                         
-                        <!-- Dynamic Frame Border Overlay -->
+                        <!-- Frame Border -->
                         <div id="certFrameOverlay" class="absolute inset-0 border-8 border-purple-300/40 rounded-2xl pointer-events-none z-10"></div>
 
                         <!-- Top Header Frame -->
@@ -255,83 +286,69 @@
                             <span class="text-xs font-bold text-yellow-300">7HEAVEN</span>
                         </div>
 
-                        <!-- SS Image Upload Box (Auto Crop 9:16 Area) -->
+                        <!-- SS Proof Container -->
                         <div class="relative z-20 my-2 flex-1 bg-black/40 rounded-xl border border-white/20 overflow-hidden flex items-center justify-center">
                             <img id="certImagePreview" src="https://placehold.co/400x600/2a1b4e/ffffff?text=Upload+Bukti+Vote" class="w-full h-full object-cover" alt="Proof SS">
                         </div>
 
-                        <!-- Interactive Sticker Drop Zone (Container for draggable stickers) -->
+                        <!-- Interactive Sticker Container -->
                         <div id="stickerContainer" class="absolute inset-0 pointer-events-auto z-30 overflow-hidden">
-                            <!-- Stickers injected dynamically -->
+                            <!-- Draggable stickers inserted here -->
                         </div>
 
                         <!-- Bottom Footer Info -->
                         <div class="relative z-20 border-t border-white/20 pt-2 flex justify-between items-end">
                             <div>
-                                <p id="certUserName" class="font-bold text-xs text-white">ARMY Member</p>
+                                <p id="certUserName" class="font-bold text-xs text-white">Alyshajk</p>
                                 <p id="certDate" class="text-[9px] text-purple-200">2026-10-21</p>
                             </div>
                             <div class="text-right">
-                                <span class="text-[9px] bg-yellow-400 text-purple-950 px-1.5 py-0.5 rounded font-bold">VERIFIED</span>
+                                <span class="text-[9px] bg-yellow-400 text-purple-950 px-1.5 py-0.5 rounded font-extrabold">VERIFIED</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Controls & Editor Tool -->
-                <div class="bg-slate-800 border border-slate-700 rounded-2xl p-4 space-y-3 text-xs">
-                    <!-- Upload Bukti SS -->
+                <!-- Editor Controls -->
+                <div class="card-bg rounded-2xl p-4 space-y-3 text-xs">
                     <div>
                         <label class="block font-semibold text-slate-200 mb-1">1. Upload Bukti SS (Auto Crop 9:16)</label>
-                        <input type="file" id="inputCertImg" accept="image/*" onchange="loadCertImage(event)" class="w-full text-slate-300 text-xs bg-slate-900 p-2 rounded-xl border border-slate-700">
+                        <input type="file" id="inputCertImg" accept="image/*" onchange="loadCertImage(event)" class="w-full text-slate-300 text-xs bg-slate-950 p-2 rounded-xl border border-slate-800">
                     </div>
 
-                    <!-- Pilih Template Bingkai -->
                     <div>
-                        <label class="block font-semibold text-slate-200 mb-1">2. Pilih Template Bingkai</label>
+                        <label class="block font-semibold text-slate-200 mb-1">2. Pilih Bingkai Frame</label>
                         <div class="grid grid-cols-2 gap-2">
-                            <button onclick="setCertFrame('chibi')" class="bg-slate-900 border border-slate-700 hover:border-purple-400 p-2 rounded-xl text-left">
+                            <button onclick="setCertFrame('chibi')" class="bg-slate-950 border border-slate-800 hover:border-purple-400 p-2 rounded-xl text-left">
                                 <p class="font-bold text-purple-300">BTS Chibi</p>
-                                <p class="text-[10px] text-slate-400">Border Imut & Soft</p>
+                                <p class="text-[10px] text-slate-400">Soft Light Frame</p>
                             </button>
-                            <button onclick="setCertFrame('lavender')" class="bg-slate-900 border border-slate-700 hover:border-purple-400 p-2 rounded-xl text-left">
+                            <button onclick="setCertFrame('lavender')" class="bg-slate-950 border border-slate-800 hover:border-purple-400 p-2 rounded-xl text-left">
                                 <p class="font-bold text-purple-300">ARMY Lavender</p>
-                                <p class="text-[10px] text-slate-400">Gaya Minimalis</p>
-                            </button>
-                            <button onclick="setCertFrame('bt21')" class="bg-slate-900 border border-slate-700 hover:border-purple-400 p-2 rounded-xl text-left">
-                                <p class="font-bold text-purple-300">BT21 Pastel</p>
-                                <p class="text-[10px] text-slate-400">Border Kuning Pastel</p>
-                            </button>
-                            <button onclick="setCertFrame('arirang')" class="bg-slate-900 border border-slate-700 hover:border-purple-400 p-2 rounded-xl text-left">
-                                <p class="font-bold text-purple-300">BTS Arirang</p>
-                                <p class="text-[10px] text-slate-400">Edisi Spesial Album</p>
+                                <p class="text-[10px] text-slate-400">Deep Purple Line</p>
                             </button>
                         </div>
                     </div>
 
-                    <!-- Canva Hue Slider Warna Latar -->
                     <div>
                         <div class="flex justify-between items-center mb-1">
-                            <label class="font-semibold text-slate-200">3. Slider Hue Warna Latar</label>
+                            <label class="font-semibold text-slate-200">3. Slider Warna Latar</label>
                             <span id="hueVal" class="text-[10px] text-purple-400">270°</span>
                         </div>
-                        <input type="range" id="hueSlider" min="0" max="360" value="270" oninput="updateCertColor(this.value)" class="w-full accent-purple-500 h-2 bg-slate-700 rounded-lg cursor-pointer">
+                        <input type="range" id="hueSlider" min="0" max="360" value="270" oninput="updateCertColor(this.value)" class="w-full accent-purple-500 h-2 bg-slate-800 rounded-lg cursor-pointer">
                     </div>
 
-                    <!-- Stiker & Stiker Kustom Luar -->
                     <div>
-                        <label class="block font-semibold text-slate-200 mb-1">4. Tambah Stiker (Geser & Atur)</label>
+                        <label class="block font-semibold text-slate-200 mb-1">4. Tambah Stiker (Bisa Digeser)</label>
                         <div class="flex flex-wrap gap-2 mb-2">
-                            <button onclick="addStickerEmoji('💜')" class="bg-slate-900 p-2 rounded-xl border border-slate-700 text-lg">💜</button>
-                            <button onclick="addStickerEmoji('👑')" class="bg-slate-900 p-2 rounded-xl border border-slate-700 text-lg">👑</button>
-                            <button onclick="addStickerEmoji('✨')" class="bg-slate-900 p-2 rounded-xl border border-slate-700 text-lg">✨</button>
-                            <button onclick="addStickerEmoji('🎵')" class="bg-slate-900 p-2 rounded-xl border border-slate-700 text-lg">🎵</button>
-                            <button onclick="addStickerEmoji('🏆')" class="bg-slate-900 p-2 rounded-xl border border-slate-700 text-lg">🏆</button>
+                            <button onclick="addStickerEmoji('💜')" class="bg-slate-950 p-2 rounded-xl border border-slate-800 text-lg">💜</button>
+                            <button onclick="addStickerEmoji('👑')" class="bg-slate-950 p-2 rounded-xl border border-slate-800 text-lg">👑</button>
+                            <button onclick="addStickerEmoji('✨')" class="bg-slate-950 p-2 rounded-xl border border-slate-800 text-lg">✨</button>
+                            <button onclick="addStickerEmoji('🎵')" class="bg-slate-950 p-2 rounded-xl border border-slate-800 text-lg">🎵</button>
                         </div>
-                        <input type="file" id="inputCustomSticker" accept="image/*" onchange="addCustomSticker(event)" class="w-full text-slate-300 text-xs bg-slate-900 p-2 rounded-xl border border-slate-700">
+                        <input type="file" id="inputCustomSticker" accept="image/*" onchange="addCustomSticker(event)" class="w-full text-slate-300 text-xs bg-slate-950 p-2 rounded-xl border border-slate-800">
                     </div>
 
-                    <!-- Export PNG Button -->
                     <button onclick="downloadCertificate()" class="w-full purple-gradient hover:opacity-90 text-white font-bold py-3 rounded-xl shadow-lg transition flex items-center justify-center space-x-2">
                         <i class="fa-solid fa-download"></i>
                         <span>Download PNG & Simpan ke Diary</span>
@@ -339,21 +356,20 @@
                 </div>
             </section>
 
-            <!-- ================= TAB 4: MISI ================= -->
+            <!-- ================= 4. TAB MISI ================= -->
             <section id="tab-misi" class="tab-content hidden space-y-4">
-                <div class="bg-slate-800/80 border border-slate-700/60 rounded-2xl p-4 space-y-1">
+                <div class="card-bg rounded-2xl p-4 space-y-1">
                     <h2 class="font-cute text-xl font-bold text-white">Misi Vote & Streaming</h2>
-                    <p class="text-xs text-slate-300">Selesaikan misi harian untuk mendukung BTS!</p>
+                    <p class="text-xs text-slate-300">Selesaikan misi harian untuk mengumpulkan Poin ARMY!</p>
                 </div>
 
-                <!-- Section Misi Vote On-Going -->
                 <div class="space-y-3">
                     <h3 class="font-bold text-sm text-purple-300 flex items-center space-x-2">
                         <i class="fa-solid fa-check-to-slot"></i>
-                        <span>Check-list Misi Voting</span>
+                        <span>Misi Voting</span>
                     </h3>
 
-                    <div class="bg-slate-800/90 border border-slate-700 p-3.5 rounded-2xl space-y-2">
+                    <div class="card-bg p-3.5 rounded-2xl space-y-2">
                         <div class="flex items-start justify-between">
                             <div>
                                 <h4 class="font-semibold text-xs text-white">Voting Global Music Awards</h4>
@@ -366,7 +382,6 @@
                     </div>
                 </div>
 
-                <!-- Section Misi Streaming ARIRANG (14 Tracks) -->
                 <div class="space-y-3">
                     <h3 class="font-bold text-sm text-purple-300 flex items-center space-x-2">
                         <i class="fa-solid fa-music"></i>
@@ -374,203 +389,163 @@
                     </h3>
 
                     <div id="arirangTrackList" class="space-y-2">
-                        <!-- Rendered by JS (14 tracks) -->
+                        <!-- Generated via JS -->
                     </div>
                 </div>
             </section>
 
-            <!-- ================= TAB 5: DIARY ================= -->
+            <!-- ================= 5. TAB QUIZ ================= -->
+            <section id="tab-quiz" class="tab-content hidden space-y-4">
+                <div class="card-bg rounded-2xl p-4 text-center space-y-2">
+                    <span class="bg-purple-900/60 text-purple-300 border border-purple-500/30 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Reset Tiap Hari</span>
+                    <h2 class="font-cute text-xl font-bold text-white">ARMY BTS Quiz Challenge</h2>
+                    <p class="text-xs text-slate-300">20 Soal terpilih dari 100 Soal BTS. +5 PTS per jawaban benar!</p>
+                </div>
+
+                <!-- Quiz Container -->
+                <div id="quizContainer" class="card-bg rounded-2xl p-5 space-y-4 shadow-xl">
+                    <div class="flex justify-between items-center text-xs text-slate-400">
+                        <span id="quizProgressText">Soal 1 dari 20</span>
+                        <span id="quizScoreCurrent" class="text-yellow-400 font-bold">Skor: 0</span>
+                    </div>
+                    <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                        <div id="quizProgressBar" class="bg-purple-500 h-full w-0 transition-all duration-300"></div>
+                    </div>
+
+                    <div class="min-h-[80px] flex items-center justify-center p-3 bg-slate-950/60 rounded-xl border border-slate-800">
+                        <p id="quizQuestionText" class="text-xs md:text-sm font-semibold text-center text-slate-100">Memuat Soal...</p>
+                    </div>
+
+                    <div id="quizOptions" class="space-y-2.5">
+                        <!-- Options injected here -->
+                    </div>
+                </div>
+
+                <!-- Result Box -->
+                <div id="quizResult" class="hidden card-bg rounded-2xl p-6 text-center space-y-4 shadow-2xl">
+                    <div class="w-16 h-16 bg-purple-600/30 text-yellow-300 rounded-full flex items-center justify-center text-3xl mx-auto border-2 border-yellow-400">
+                        🏆
+                    </div>
+                    <div>
+                        <h3 class="font-cute text-2xl font-bold text-white">Quiz Selesai!</h3>
+                        <p id="quizScoreFinal" class="text-sm text-purple-200 mt-1">Kamu mendapatkan 0 Poin!</p>
+                    </div>
+                    <button onclick="startDailyQuiz()" class="purple-gradient hover:opacity-90 text-white font-bold px-6 py-3 rounded-xl text-xs w-full shadow-lg transition">
+                        Ulangi Quiz Hari Ini
+                    </button>
+                </div>
+            </section>
+
+            <!-- ================= 6. TAB DIARY ================= -->
             <section id="tab-diary" class="tab-content hidden space-y-4">
-                <div class="bg-slate-800/80 border border-slate-700/60 rounded-2xl p-4 space-y-1">
-                    <h2 class="font-cute text-xl font-bold text-white">ARMY Certificate Diary</h2>
-                    <p class="text-xs text-slate-300">Galeri sertifikat bukti vote yang berhasil kamu download.</p>
+                <div class="card-bg rounded-2xl p-4 space-y-1">
+                    <h2 class="font-cute text-xl font-bold text-white">ARMY Voting Diary</h2>
+                    <p class="text-xs text-slate-300">Galeri bukti sertifikat vote yang tersimpan di browsermu.</p>
                 </div>
 
                 <div id="diaryGallery" class="grid grid-cols-2 gap-3">
-                    <!-- Dynamic certificates -->
+                    <!-- Dynamic certificates list -->
                 </div>
             </section>
 
-            <!-- ================= TAB 6: PROFIL ================= -->
-            <section id="tab-profil" class="tab-content hidden space-y-4">
-                <!-- Card Profil Container -->
-                <div class="bg-slate-800/90 border border-slate-700/80 rounded-2xl p-5 space-y-4 shadow-xl text-center relative overflow-hidden">
-                    <div class="purple-gradient absolute top-0 left-0 right-0 h-20 opacity-40"></div>
-                    
-                    <div class="relative z-10 pt-2">
-                        <div class="relative inline-block">
-                            <img id="profileAvatar" src="https://placehold.co/150/7D52C1/ffffff?text=ARMY" class="w-20 h-20 rounded-full border-4 border-purple-500 object-cover mx-auto shadow-lg" alt="Avatar">
-                            <span id="profileBadgeIcon" class="absolute bottom-0 right-0 bg-yellow-400 text-purple-950 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shadow">🌟</span>
-                        </div>
-                        
-                        <h2 id="profileName" class="font-cute text-xl font-bold text-white mt-2">BTS ARMY</h2>
-                        <p id="profileBio" class="text-xs text-purple-200 mt-0.5">Borahae Forever 💜</p>
-                        
-                        <div class="mt-3 inline-block bg-purple-900/60 border border-purple-500/40 px-3 py-1 rounded-full text-xs text-yellow-300 font-semibold">
-                            Badge: <span id="profileBadgeText">Purple Beginner</span>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-700/60 text-xs">
-                        <div class="bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/40">
-                            <p class="text-slate-400 text-[10px]">Total Poin</p>
-                            <p id="profileTotalPoints" class="font-bold text-yellow-400 text-base">0 PTS</p>
-                        </div>
-                        <div class="bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/40">
-                            <p class="text-slate-400 text-[10px]">Sertifikat Dibuat</p>
-                            <p id="profileCertCount" class="font-bold text-purple-300 text-base">0</p>
-                        </div>
-                    </div>
-
-                    <button onclick="openEditProfileModal()" class="w-full bg-slate-700 hover:bg-slate-600 text-purple-200 font-semibold py-2 rounded-xl text-xs transition border border-slate-600">
-                        Edit Profil (Nama, Bio, Avatar)
-                    </button>
-                </div>
-
-                <!-- History Aktivitas -->
-                <div class="bg-slate-800/80 border border-slate-700/60 rounded-2xl p-4 space-y-3">
-                    <h3 class="font-bold text-sm text-slate-100 flex items-center space-x-2">
-                        <i class="fa-solid fa-clock-rotate-left text-purple-400"></i>
-                        <span>Riwayat Aktivitas</span>
-                    </h3>
-
-                    <div id="activityHistoryList" class="space-y-2 text-xs custom-scrollbar max-h-60 overflow-y-auto">
-                        <!-- Rendered by JS -->
-                    </div>
-                </div>
-            </section>
-
-            <!-- ================= TAB 7: ADMIN PANEL ================= -->
+            <!-- ================= 7. TAB ADMIN ================= -->
             <section id="tab-admin" class="tab-content hidden space-y-4">
-                <div class="bg-slate-800/80 border border-slate-700/60 rounded-2xl p-4 space-y-1">
-                    <h2 class="font-cute text-xl font-bold text-white">Panel Admin Terlindungi</h2>
-                    <p class="text-xs text-slate-300">Kelola poin dan data pengguna secara langsung.</p>
+                <div class="card-bg rounded-2xl p-4 space-y-1">
+                    <h2 class="font-cute text-xl font-bold text-white">Panel Admin</h2>
+                    <p class="text-xs text-slate-300">Kelola poin dan data statistik pengguna.</p>
                 </div>
 
-                <!-- PIN Lock Screen -->
-                <div id="adminLockScreen" class="bg-slate-800 border border-slate-700 p-5 rounded-2xl space-y-3 text-center">
+                <div id="adminLockScreen" class="card-bg p-5 rounded-2xl space-y-3 text-center">
                     <i class="fa-solid fa-lock text-3xl text-purple-400"></i>
                     <p class="text-xs text-slate-200">Masukkan PIN Admin (Default: 7777)</p>
-                    <input type="password" id="adminPinInput" placeholder="4 Digit PIN" class="w-full text-center text-lg bg-slate-900 border border-slate-700 p-2 rounded-xl text-white tracking-widest">
+                    <input type="password" id="adminPinInput" placeholder="4 Digit PIN" class="w-full text-center text-lg bg-slate-950 border border-slate-800 p-2 rounded-xl text-white tracking-widest">
                     <button onclick="unlockAdmin()" class="w-full purple-gradient text-white font-bold py-2.5 rounded-xl text-xs">
-                        Buka Panel
+                        Buka Panel Admin
                     </button>
                 </div>
 
-                <!-- Admin Dashboard (Hidden initially) -->
-                <div id="adminDashboard" class="hidden bg-slate-800 border border-slate-700 p-4 rounded-2xl space-y-4 text-xs">
+                <div id="adminDashboard" class="hidden card-bg p-4 rounded-2xl space-y-4 text-xs">
                     <div class="space-y-2">
-                        <h4 class="font-bold text-purple-300">Ubah Poin Pengguna</h4>
+                        <h4 class="font-bold text-purple-300">Atur Poin Pengguna</h4>
                         <div class="flex space-x-2">
-                            <input type="number" id="adminPointsInput" placeholder="Jumlah Poin" class="flex-1 bg-slate-900 border border-slate-700 p-2 rounded-xl text-white">
+                            <input type="number" id="adminPointsInput" placeholder="Jumlah Poin" class="flex-1 bg-slate-950 border border-slate-800 p-2 rounded-xl text-white">
                             <button onclick="adminModifyPoints('add')" class="bg-emerald-600 text-white font-bold px-3 py-2 rounded-xl">+ Tambah</button>
                             <button onclick="adminModifyPoints('set')" class="bg-purple-600 text-white font-bold px-3 py-2 rounded-xl">Set Poin</button>
                         </div>
                     </div>
 
-                    <div class="pt-2 border-t border-slate-700 space-y-2">
-                        <h4 class="font-bold text-red-400">Reset Data LocalStorage</h4>
+                    <div class="pt-2 border-t border-slate-800 space-y-2">
+                        <h4 class="font-bold text-red-400">Reset System Data</h4>
                         <button onclick="adminResetData()" class="w-full bg-red-600/80 hover:bg-red-600 text-white font-bold py-2 rounded-xl">
-                            Reset Semua Data Web
+                            Reset Semua Data Aplikasi
                         </button>
                     </div>
                 </div>
             </section>
 
         </main>
-
-        <!-- Bottom Navigation Bar (6 Nav Icons) -->
-        <nav class="bg-slate-950 border-t border-slate-800 p-2 flex justify-around items-center z-30 shrink-0">
-            <button onclick="switchTab('home')" id="nav-home" class="nav-btn flex flex-col items-center p-1.5 text-purple-400">
-                <i class="fa-solid fa-house text-lg"></i>
-                <span class="text-[10px] mt-0.5 font-medium">Beranda</span>
-            </button>
-            <button onclick="switchTab('quiz')" id="nav-quiz" class="nav-btn flex flex-col items-center p-1.5 text-slate-500 hover:text-purple-400">
-                <i class="fa-solid fa-brain text-lg"></i>
-                <span class="text-[10px] mt-0.5 font-medium">Quiz</span>
-            </button>
-            <button onclick="switchTab('sertifikat')" id="nav-sertifikat" class="nav-btn flex flex-col items-center p-1.5 text-slate-500 hover:text-purple-400">
-                <i class="fa-solid fa-certificate text-lg"></i>
-                <span class="text-[10px] mt-0.5 font-medium">Sertifikat</span>
-            </button>
-            <button onclick="switchTab('misi')" id="nav-misi" class="nav-btn flex flex-col items-center p-1.5 text-slate-500 hover:text-purple-400">
-                <i class="fa-solid fa-list-check text-lg"></i>
-                <span class="text-[10px] mt-0.5 font-medium">Misi</span>
-            </button>
-            <button onclick="switchTab('diary')" id="nav-diary" class="nav-btn flex flex-col items-center p-1.5 text-slate-500 hover:text-purple-400">
-                <i class="fa-solid fa-book-bookmark text-lg"></i>
-                <span class="text-[10px] mt-0.5 font-medium">Diary</span>
-            </button>
-            <button onclick="switchTab('profil')" id="nav-profil" class="nav-btn flex flex-col items-center p-1.5 text-slate-500 hover:text-purple-400">
-                <i class="fa-solid fa-user text-lg"></i>
-                <span class="text-[10px] mt-0.5 font-medium">Profil</span>
-            </button>
-        </nav>
-
     </div>
 
     <!-- Edit Profile Modal -->
-    <div id="editProfileModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-slate-700 w-full max-w-sm rounded-2xl p-5 space-y-4">
+    <div id="editProfileModal" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-purple-900/50 w-full max-w-sm rounded-2xl p-5 space-y-4">
             <h3 class="font-cute font-bold text-lg text-white">Edit Profil ARMY</h3>
             <div class="space-y-3 text-xs">
                 <div>
                     <label class="block text-slate-300 mb-1">Nama ARMY</label>
-                    <input type="text" id="editInputName" class="w-full bg-slate-800 border border-slate-700 p-2.5 rounded-xl text-white">
+                    <input type="text" id="editInputName" class="w-full bg-slate-950 border border-slate-800 p-2.5 rounded-xl text-white">
                 </div>
                 <div>
-                    <label class="block text-slate-300 mb-1">Bio Profile</label>
-                    <input type="text" id="editInputBio" class="w-full bg-slate-800 border border-slate-700 p-2.5 rounded-xl text-white">
+                    <label class="block text-slate-300 mb-1">Bio Profil</label>
+                    <input type="text" id="editInputBio" class="w-full bg-slate-950 border border-slate-800 p-2.5 rounded-xl text-white">
                 </div>
                 <div>
-                    <label class="block text-slate-300 mb-1">Foto Profil Avatar</label>
-                    <input type="file" id="editInputAvatar" accept="image/*" class="w-full bg-slate-800 border border-slate-700 p-2 text-slate-300 rounded-xl">
+                    <label class="block text-slate-300 mb-1">Foto Avatar Baru</label>
+                    <input type="file" id="editInputAvatar" accept="image/*" class="w-full bg-slate-950 border border-slate-800 p-2 text-slate-300 rounded-xl">
                 </div>
             </div>
             <div class="flex space-x-2 pt-2">
-                <button onclick="closeEditProfileModal()" class="w-1/2 bg-slate-800 hover:bg-slate-700 text-slate-300 py-2.5 rounded-xl text-xs font-semibold">Batal</button>
+                <button onclick="closeEditProfileModal()" class="w-1/2 bg-slate-800 text-slate-300 py-2.5 rounded-xl text-xs font-semibold">Batal</button>
                 <button onclick="saveProfileChanges()" class="w-1/2 purple-gradient text-white py-2.5 rounded-xl text-xs font-bold">Simpan</button>
             </div>
         </div>
     </div>
 
-    <!-- Notification Toast Box -->
+    <!-- Notification Toast -->
     <div id="toast" class="fixed top-5 left-1/2 -translate-x-1/2 bg-slate-800 border border-purple-500 text-white text-xs px-4 py-2.5 rounded-full shadow-2xl z-50 hidden flex items-center space-x-2 transition">
         <span id="toastIcon">💜</span>
         <span id="toastMsg">Notifikasi</span>
     </div>
 
-    <!-- JavaScript App Logic -->
     <script>
-        /* ================= STATE & LOCAL STORAGE ================= */
+        /* ================= STATE MANAGEMENT ================= */
         const APP_STATE = {
-            points: 0,
+            points: 1500,
             lastCheckIn: null,
             profile: {
-                name: 'BTS ARMY Member',
+                name: 'Alyshajk',
                 bio: 'Borahae Forever 💜',
-                avatar: 'https://placehold.co/150/7D52C1/ffffff?text=ARMY'
+                avatar: 'https://placehold.co/150/8A2BE2/ffffff?text=ARMY'
             },
             history: [],
-            diary: [],
-            quizCompletedToday: false
+            diary: []
         };
 
-        // 100 Soal BTS Comprehensive Database
+        // Database 100 Soal BTS
         const BTS_QUESTION_BANK = Array.from({ length: 100 }, (_, i) => {
             const index = i + 1;
             const members = ['RM', 'Jin', 'SUGA', 'j-hope', 'Jimin', 'V', 'Jung Kook'];
-            const currentMember = members[i % members.length];
+            const member = members[i % members.length];
             return {
                 id: index,
-                question: `[Soal #${index}] Siapakah nama asli dari member BTS (${currentMember})?`,
+                question: `[Soal #${index}] Siapakah nama asli dari member BTS (${member})?`,
                 options: [
-                    currentMember === 'RM' ? 'Kim Namjoon' : 'Kim Seokjin',
-                    currentMember === 'SUGA' ? 'Min Yoongi' : 'Jung Hoseok',
-                    currentMember === 'Jimin' ? 'Park Jimin' : 'Kim Taehyung',
-                    currentMember === 'Jung Kook' ? 'Jeon Jungkook' : 'Kim Namjoon'
+                    member === 'RM' ? 'Kim Namjoon' : 'Kim Seokjin',
+                    member === 'SUGA' ? 'Min Yoongi' : 'Jung Hoseok',
+                    member === 'Jimin' ? 'Park Jimin' : 'Kim Taehyung',
+                    member === 'Jung Kook' ? 'Jeon Jungkook' : 'Kim Namjoon'
                 ],
-                correct: currentMember === 'RM' ? 0 : (currentMember === 'SUGA' ? 1 : (currentMember === 'Jimin' ? 2 : 3))
+                correct: member === 'RM' ? 0 : (member === 'SUGA' ? 1 : (member === 'Jimin' ? 2 : 3))
             };
         });
 
@@ -578,7 +553,7 @@
         let currentQuizIndex = 0;
         let quizScore = 0;
 
-        /* ================= INIT APP ================= */
+        /* ================= INITIALIZATION ================= */
         window.onload = function() {
             loadSavedState();
             setupDailyQuestions();
@@ -589,7 +564,7 @@
         };
 
         function loadSavedState() {
-            const saved = localStorage.getItem('7heaven_bts_app');
+            const saved = localStorage.getItem('7heaven_bts_app_v2');
             if (saved) {
                 try {
                     const parsed = JSON.parse(saved);
@@ -599,7 +574,7 @@
         }
 
         function saveState() {
-            localStorage.setItem('7heaven_bts_app', JSON.stringify(APP_STATE));
+            localStorage.setItem('7heaven_bts_app_v2', JSON.stringify(APP_STATE));
             updateUI();
         }
 
@@ -622,39 +597,47 @@
             renderHistory();
         }
 
-        /* ================= UI UPDATES & BADGE SYSTEM ================= */
+        /* ================= BADGE SYSTEM & UI ================= */
         function updateUI() {
-            // Update Points
             document.getElementById('userPoints').innerText = APP_STATE.points;
             document.getElementById('profileTotalPoints').innerText = APP_STATE.points + ' PTS';
             document.getElementById('profileCertCount').innerText = APP_STATE.diary.length;
 
-            // Profile info
+            document.getElementById('hdrName').innerText = APP_STATE.profile.name;
             document.getElementById('profileName').innerText = APP_STATE.profile.name;
             document.getElementById('profileBio').innerText = APP_STATE.profile.bio;
             document.getElementById('profileAvatar').src = APP_STATE.profile.avatar;
             document.getElementById('certUserName').innerText = APP_STATE.profile.name;
 
-            // Calculate ARMY Badge based on accumulated points
-            let badgeName = 'Purple Beginner';
+            // Logika Badge berdasarkan Poin
+            let badgeName = 'Baby ARMY';
             let badgeIcon = '🌱';
-            if (APP_STATE.points >= 500) { badgeName = 'Golden ARMY Legend'; badgeIcon = '👑'; }
-            else if (APP_STATE.points >= 250) { badgeName = 'Diamond Borahae'; badgeIcon = '💎'; }
-            else if (APP_STATE.points >= 100) { badgeName = 'Purple Streamer'; badgeIcon = '💜'; }
 
+            if (APP_STATE.points >= 300) {
+                badgeName = 'Borahae Elite';
+                badgeIcon = '👑';
+            } else if (APP_STATE.points >= 151) {
+                badgeName = 'Magic Shop ARMY';
+                badgeIcon = '🔮';
+            } else if (APP_STATE.points >= 51) {
+                badgeName = 'Purple ARMY';
+                badgeIcon = '💜';
+            }
+
+            document.getElementById('hdrBadgeText').innerText = badgeName;
+            document.getElementById('hdrBadgeIcon').innerText = badgeIcon;
             document.getElementById('profileBadgeText').innerText = badgeName;
             document.getElementById('profileBadgeIcon').innerText = badgeIcon;
 
-            // Date for Cert
             document.getElementById('certDate').innerText = new Date().toISOString().split('T')[0];
         }
 
-        /* ================= TAB NAVIGATION ================= */
+        /* ================= NAVIGATION ================= */
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
             document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('text-purple-400');
-                btn.classList.add('text-slate-500');
+                btn.classList.remove('text-purple-400', 'font-semibold');
+                btn.classList.add('text-slate-400', 'font-medium');
             });
 
             const selectedTab = document.getElementById('tab-' + tabId);
@@ -662,8 +645,8 @@
 
             if (selectedTab) selectedTab.classList.remove('hidden');
             if (selectedNav) {
-                selectedNav.classList.remove('text-slate-500');
-                selectedNav.classList.add('text-purple-400');
+                selectedNav.classList.remove('text-slate-400', 'font-medium');
+                selectedNav.classList.add('text-purple-400', 'font-semibold');
             }
 
             if (tabId === 'quiz' && currentDailyQuestions.length > 0 && currentQuizIndex === 0) {
@@ -685,9 +668,8 @@
             showToast('Check-in Berhasil! +10 Points 💜');
         }
 
-        /* ================= SYSTEM QUIZ BTS HARIAN (20 SOAL) ================= */
+        /* ================= QUIZ HARIAN (20 SOAL) ================= */
         function setupDailyQuestions() {
-            // Pick 20 questions based on today's date hash
             const dateStr = new Date().toDateString();
             let seed = 0;
             for (let i = 0; i < dateStr.length; i++) seed += dateStr.charCodeAt(i);
@@ -721,8 +703,8 @@
 
             q.options.forEach((opt, idx) => {
                 const btn = document.createElement('button');
-                btn.className = "w-full text-left bg-slate-900/80 hover:bg-purple-900/50 border border-slate-700/80 hover:border-purple-400/80 p-3 rounded-xl text-xs text-slate-200 transition font-medium flex items-center space-x-2";
-                btn.innerHTML = `<span class="w-5 h-5 rounded-full bg-slate-800 border border-slate-600 flex items-center justify-center text-[10px] font-bold text-purple-300">${String.fromCharCode(65 + idx)}</span><span>${opt}</span>`;
+                btn.className = "w-full text-left bg-slate-950/80 hover:bg-purple-900/50 border border-slate-800 hover:border-purple-400/80 p-3 rounded-xl text-xs text-slate-200 transition font-medium flex items-center space-x-2";
+                btn.innerHTML = `<span class="w-5 h-5 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center text-[10px] font-bold text-purple-300">${String.fromCharCode(65 + idx)}</span><span>${opt}</span>`;
                 btn.onclick = () => answerQuiz(idx);
                 optsContainer.appendChild(btn);
             });
@@ -747,10 +729,10 @@
             document.getElementById('quizContainer').classList.add('hidden');
             document.getElementById('quizResult').classList.remove('hidden');
             document.getElementById('quizScoreFinal').innerText = `Total Skor: ${quizScore} Points dari Quiz Hari Ini!`;
-            addHistory(`Menyelesaikan Quiz BTS (+${quizScore} PTS)`, quizScore);
+            addHistory(`Quiz BTS Selesai (+${quizScore} PTS)`, quizScore);
         }
 
-        /* ================= CERTIFICATE MAKER & EDITOR 9:16 ================= */
+        /* ================= CERTIFICATE EDITOR 9:16 ================= */
         function loadCertImage(event) {
             const file = event.target.files[0];
             if (file) {
@@ -766,14 +748,12 @@
             const overlay = document.getElementById('certFrameOverlay');
             if (type === 'chibi') overlay.className = "absolute inset-0 border-8 border-purple-300/60 rounded-2xl pointer-events-none z-10";
             else if (type === 'lavender') overlay.className = "absolute inset-0 border-8 border-purple-500/80 rounded-2xl pointer-events-none z-10";
-            else if (type === 'bt21') overlay.className = "absolute inset-0 border-8 border-yellow-300/80 rounded-2xl pointer-events-none z-10";
-            else if (type === 'arirang') overlay.className = "absolute inset-0 border-8 border-pink-400/80 rounded-2xl pointer-events-none z-10";
-            showToast('Template bingkai diterapkan!');
+            showToast('Frame Bingkai Diperbarui!');
         }
 
         function updateCertColor(val) {
             document.getElementById('hueVal').innerText = val + '°';
-            document.getElementById('certCard').style.backgroundColor = `hsl(${val}, 50%, 30%)`;
+            document.getElementById('certCard').style.backgroundColor = `hsl(${val}, 50%, 25%)`;
         }
 
         function addStickerEmoji(emoji) {
@@ -781,8 +761,8 @@
             const sticker = document.createElement('div');
             sticker.className = 'sticker-element text-3xl select-none p-1';
             sticker.innerText = emoji;
-            sticker.style.left = '100px';
-            sticker.style.top = '100px';
+            sticker.style.left = '90px';
+            sticker.style.top = '90px';
             makeDraggable(sticker);
             container.appendChild(sticker);
         }
@@ -795,8 +775,8 @@
                     const container = document.getElementById('stickerContainer');
                     const sticker = document.createElement('div');
                     sticker.className = 'sticker-element select-none';
-                    sticker.style.left = '100px';
-                    sticker.style.top = '100px';
+                    sticker.style.left = '90px';
+                    sticker.style.top = '90px';
                     
                     const img = document.createElement('img');
                     img.src = e.target.result;
@@ -863,13 +843,11 @@
             html2canvas(card, { scale: 2, useCORS: true }).then(canvas => {
                 const imgData = canvas.toDataURL('image/png');
                 
-                // Trigger Download
                 const link = document.createElement('a');
                 link.download = `BTS_Certificate_${Date.now()}.png`;
                 link.href = imgData;
                 link.click();
 
-                // Save to Diary
                 APP_STATE.diary.unshift({
                     id: Date.now(),
                     img: imgData,
@@ -880,11 +858,11 @@
                 APP_STATE.points += 5;
                 saveState();
                 renderDiary();
-                showToast('Sertifikat Berhasil Disimpan ke Diary! +5 PTS 💜');
+                showToast('Sertifikat Disimpan ke Diary! +5 PTS 💜');
             });
         }
 
-        /* ================= MISI STREAMING & VOTE ================= */
+        /* ================= MISI STREAMING ================= */
         function renderArirangTracks() {
             const trackList = document.getElementById('arirangTrackList');
             trackList.innerHTML = '';
@@ -899,13 +877,13 @@
 
             tracks.forEach((track, i) => {
                 const div = document.createElement('div');
-                div.className = "bg-slate-800/90 border border-slate-700/80 p-3 rounded-xl flex justify-between items-center text-xs";
+                div.className = "card-bg p-3 rounded-xl flex justify-between items-center text-xs";
                 div.innerHTML = `
                     <div class="flex items-center space-x-2">
                         <i class="fa-solid fa-compact-disc text-purple-400"></i>
                         <span class="font-medium text-slate-200">${track}</span>
                     </div>
-                    <label class="bg-slate-700 hover:bg-slate-600 text-purple-200 px-2.5 py-1 rounded-lg text-[10px] cursor-pointer border border-slate-600">
+                    <label class="bg-slate-800 hover:bg-slate-700 text-purple-200 px-2.5 py-1 rounded-lg text-[10px] cursor-pointer border border-slate-700">
                         Upload SS
                         <input type="file" accept="image/*" class="hidden" onchange="completeMission('track_${i}', 10)">
                     </label>
@@ -920,7 +898,7 @@
             showToast(`Misi Selesai! +${reward} Points! 💜`);
         }
 
-        /* ================= DIARY GALLERY ================= */
+        /* ================= DIARY & HISTORY ================= */
         function renderDiary() {
             const gallery = document.getElementById('diaryGallery');
             gallery.innerHTML = '';
@@ -932,7 +910,7 @@
 
             APP_STATE.diary.forEach(item => {
                 const div = document.createElement('div');
-                div.className = "bg-slate-800 border border-slate-700 p-2 rounded-xl space-y-1.5 shadow-lg";
+                div.className = "card-bg p-2 rounded-xl space-y-1.5 shadow-lg";
                 div.innerHTML = `
                     <img src="${item.img}" class="w-full h-auto rounded-lg object-cover" alt="Cert">
                     <p class="text-[10px] text-slate-400 text-center">${item.date}</p>
@@ -941,7 +919,6 @@
             });
         }
 
-        /* ================= HISTORY AKTIVITAS ================= */
         function renderHistory() {
             const list = document.getElementById('activityHistoryList');
             list.innerHTML = '';
@@ -953,7 +930,7 @@
 
             APP_STATE.history.forEach(item => {
                 const div = document.createElement('div');
-                div.className = "bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/40 flex justify-between items-center";
+                div.className = "bg-slate-950/60 p-2.5 rounded-xl border border-slate-800 flex justify-between items-center";
                 div.innerHTML = `
                     <div>
                         <p class="font-semibold text-slate-200">${item.title}</p>
@@ -965,7 +942,7 @@
             });
         }
 
-        /* ================= EDIT PROFIL ================= */
+        /* ================= EDIT PROFILE ================= */
         function openEditProfileModal() {
             document.getElementById('editInputName').value = APP_STATE.profile.name;
             document.getElementById('editInputBio').value = APP_STATE.profile.bio;
@@ -1000,7 +977,7 @@
             }
         }
 
-        /* ================= ADMIN PANEL ================= */
+        /* ================= ADMIN ================= */
         function unlockAdmin() {
             const pin = document.getElementById('adminPinInput').value;
             if (pin === '7777') {
@@ -1018,12 +995,12 @@
             else if (mode === 'set') APP_STATE.points = val;
 
             saveState();
-            showToast('Poin Pengguna Diperbarui oleh Admin!');
+            showToast('Poin Pengguna Diperbarui Admin!');
         }
 
         function adminResetData() {
             if (confirm('Yakin ingin mereset seluruh data aplikasi?')) {
-                localStorage.removeItem('7heaven_bts_app');
+                localStorage.removeItem('7heaven_bts_app_v2');
                 location.reload();
             }
         }
