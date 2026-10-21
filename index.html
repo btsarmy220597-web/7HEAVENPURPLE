@@ -43,15 +43,15 @@
       box-shadow: 0 8px 32px 0 rgba(125, 82, 193, 0.08);
     }
 
-    /* BINGKAI TEMPLATE SESUAI FOTO CONTOH */
+    /* VARIASI BINGKAI SERTIFIKAT */
     .frame-bts-chibi {
-      border: 5px dashed #9D72E1 !important;
+      border: 6px dashed #9D72E1 !important;
       border-radius: 2rem !important;
       background: #F8F5FF;
       box-shadow: 0 10px 25px rgba(125, 82, 193, 0.15) !important;
     }
     .frame-army-lavender {
-      border: 4px double #7D52C1 !important;
+      border: 5px double #7D52C1 !important;
       border-radius: 1.5rem !important;
       background: #FFFFFF;
       box-shadow: inset 0 0 15px rgba(125, 82, 193, 0.2), 0 8px 20px rgba(0,0,0,0.1) !important;
@@ -63,22 +63,47 @@
       box-shadow: 0 10px 20px rgba(255, 182, 193, 0.3) !important;
     }
     .frame-arirang-rock {
-      border: 5px solid #800000 !important;
+      border: 6px solid #800000 !important;
       border-radius: 1.2rem !important;
       background: #2B0508;
       color: #FFFFFF !important;
       box-shadow: 0 10px 30px rgba(128, 0, 0, 0.4) !important;
     }
+    .frame-galaxy-purple {
+      border: 5px solid #58329B !important;
+      border-radius: 1.8rem !important;
+      background: #1A0B2E;
+      color: #F1ECFD !important;
+      box-shadow: 0 10px 25px rgba(88, 50, 155, 0.5) !important;
+    }
+    .frame-royal-gold {
+      border: 5px solid #D4AF37 !important;
+      border-radius: 1.5rem !important;
+      background: #FFFDF5;
+      box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3) !important;
+    }
+    .frame-soft-aesthetic {
+      border: 4px solid #E2D5F8 !important;
+      border-radius: 2rem !important;
+      background: #FAF8FF;
+      box-shadow: 0 8px 15px rgba(125, 82, 193, 0.1) !important;
+    }
 
     #certificateCanvas {
-      overflow: visible !important;
       position: relative !important;
-      transition: background-color 0.2s ease, border-color 0.2s ease;
+      width: 100% !important;
+      max-width: 340px !important;
+      min-height: 520px !important;
+      box-sizing: border-box !important;
+      transition: background-color 0.2s ease, filter 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .crop-9-16-container {
       width: 100%;
-      max-width: 250px;
+      max-width: 240px;
       aspect-ratio: 9 / 16;
       position: relative;
       overflow: hidden !important;
@@ -105,7 +130,6 @@
       overflow: visible !important;
     }
 
-    /* MURNI CUBIT & PUTAR DUA JARI SEPERTI WHATSAPP */
     .sticker-item {
       touch-action: none;
       user-select: none;
@@ -141,7 +165,6 @@
       display: flex;
     }
 
-    /* CANVA HUE SLIDER STYLE */
     .canva-hue-slider {
       -webkit-appearance: none;
       appearance: none;
@@ -163,8 +186,6 @@
       cursor: pointer;
       box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     }
-
-    .photocard-locked { filter: grayscale(100%) brightness(60%); }
 
     ::-webkit-scrollbar { width: 4px; height: 4px; }
     ::-webkit-scrollbar-track { background: #F1ECFD; }
@@ -202,25 +223,25 @@
 
     <!-- NAVIGATION TABS -->
     <nav class="flex border-t border-purple-50 max-w-md mx-auto bg-white/50 px-1 pt-1 overflow-x-auto">
-      <button onclick="switchTab('beranda')" id="tab-beranda" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-btspurple border-b-2 border-btspurple flex flex-col items-center gap-0.5 min-w-[50px]">
+      <button onclick="switchTab('beranda')" id="tab-beranda" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-btspurple border-b-2 border-btspurple flex flex-col items-center gap-0.5 min-w-[55px]">
         <i class="fa-solid fa-house text-sm"></i> Beranda
       </button>
-      <button onclick="switchTab('profil')" id="tab-profil" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[50px]">
+      <button onclick="switchTab('profil')" id="tab-profil" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[55px]">
         <i class="fa-solid fa-user text-sm"></i> Profil
       </button>
-      <button onclick="switchTab('sertifikat')" id="tab-sertifikat" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[50px]">
+      <button onclick="switchTab('sertifikat')" id="tab-sertifikat" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[55px]">
         <i class="fa-solid fa-certificate text-sm"></i> Sertifikat
       </button>
-      <button onclick="switchTab('misi')" id="tab-misi" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[50px]">
+      <button onclick="switchTab('misi')" id="tab-misi" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[55px]">
         <i class="fa-solid fa-list-check text-sm"></i> Misi
       </button>
-      <button onclick="switchTab('game')" id="tab-game" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[50px]">
-        <i class="fa-solid fa-gamepad text-sm"></i> Quiz PC
+      <button onclick="switchTab('game')" id="tab-game" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[55px]">
+        <i class="fa-solid fa-gamepad text-sm"></i> Quiz
       </button>
-      <button onclick="switchTab('diary')" id="tab-diary" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[50px]">
+      <button onclick="switchTab('diary')" id="tab-diary" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[55px]">
         <i class="fa-solid fa-book-bookmark text-sm"></i> Diary
       </button>
-      <button onclick="switchTab('admin')" id="tab-admin" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[50px]">
+      <button onclick="switchTab('admin')" id="tab-admin" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5 min-w-[55px]">
         <i class="fa-solid fa-user-shield text-sm"></i> Admin
       </button>
     </nav>
@@ -276,7 +297,7 @@
             <input type="text" id="editBioText" placeholder="misal: Borahae BTS 💜" class="w-full px-2.5 py-1 rounded-xl border border-purple-200 text-xs bg-white">
           </div>
           <div>
-            <label class="block text-[10px] font-bold text-slate-600 mb-0.5">Upload Foto Profil Avatar (PP):</label>
+            <label class="block text-[10px] font-bold text-slate-600 mb-0.5">Upload Foto Profil dari Galeri:</label>
             <input type="file" accept="image/*" onchange="handleAvatarUpload(event)" class="w-full text-xs text-slate-500 file:mr-2 file:py-1 file:px-2 file:rounded-lg file:border-0 file:text-[10px] file:font-bold file:bg-purple-100 file:text-btspurple">
           </div>
           <button onclick="saveProfileChanges()" class="w-full py-1.5 bg-btspurple text-white font-bold rounded-xl text-xs shadow-md">Simpan Perubahan Profil</button>
@@ -353,7 +374,7 @@
       </div>
     </section>
 
-    <!-- TAB 2: PROFIL MEMBER (BARU) -->
+    <!-- TAB 2: PROFIL MEMBER -->
     <section id="sec-profil" class="tab-content hidden space-y-4">
       <div class="glass-card rounded-3xl p-5 space-y-4 border border-purple-200">
         <!-- HEADER KARTU PROFIL -->
@@ -377,23 +398,12 @@
           </div>
         </div>
 
-        <!-- SECTION 1: MY PHOTOCARD (OTOMATIS TERSIMPAN SAMA) -->
+        <!-- SECTION: HISTORY AKTIVITAS -->
         <div class="space-y-2">
-          <h3 class="text-xs font-extrabold text-slate-800 cute-font flex items-center gap-1.5">
-            <i class="fa-solid fa-images text-btspurple"></i> My Photocard Collection
-          </h3>
-          <p class="text-[10px] text-slate-500">Photocard eksklusif yang berhasil kamu klaim/dapatkan dari Gacha!</p>
-          <div id="myPhotocardGrid" class="grid grid-cols-3 gap-2 text-xs pt-1">
-            <!-- Render otomatis sama via JS -->
-          </div>
-        </div>
-
-        <!-- SECTION 2: HISTORY AKTIVITAS -->
-        <div class="pt-3 border-t border-purple-100 space-y-2">
           <h3 class="text-xs font-extrabold text-slate-800 cute-font flex items-center gap-1.5">
             <i class="fa-solid fa-clock-rotate-left text-btspurple"></i> History Aktivitas Saya
           </h3>
-          <div id="userHistoryList" class="space-y-1.5 text-xs max-h-48 overflow-y-auto pr-1">
+          <div id="userHistoryList" class="space-y-1.5 text-xs max-h-60 overflow-y-auto pr-1">
             <p class="text-center text-slate-400 py-2 text-[11px]">Belum ada riwayat aktivitas.</p>
           </div>
         </div>
@@ -434,27 +444,38 @@
           </div>
         </div>
 
-        <!-- PILIHAN TEMPLATE BINGKAI LENGKAP -->
+        <!-- BINGKAI ORNAMEN LEBIH BANYAK -->
         <div class="pt-2 border-t border-purple-100 space-y-2">
-          <label class="font-bold text-slate-700 text-xs block">🖼️ Pilih Desain Bingkai (Sesuai Selera):</label>
+          <label class="font-bold text-slate-700 text-xs block">🖼️ Pilih Desain Bingkai Ornamen:</label>
           <div class="grid grid-cols-2 gap-1.5 text-[10px]">
-            <button onclick="applyTemplate('frame-bts-chibi')" class="p-2 bg-purple-100 text-btspurple font-bold rounded-xl border border-purple-300">💜 BTS Chibi Frame</button>
+            <button onclick="applyTemplate('frame-bts-chibi')" class="p-2 bg-purple-100 text-btspurple font-bold rounded-xl border border-purple-300">💜 BTS Chibi</button>
             <button onclick="applyTemplate('frame-army-lavender')" class="p-2 bg-purple-50 text-purple-800 font-bold rounded-xl border border-purple-200">🔮 ARMY Lavender</button>
-            <button onclick="applyTemplate('frame-bt21-pastel')" class="p-2 bg-pink-100 text-pink-700 font-bold rounded-xl border border-pink-300">🧸 BT21 Cute Pastel</button>
-            <button onclick="applyTemplate('frame-arirang-rock')" class="p-2 bg-red-950 text-red-200 font-bold rounded-xl border border-red-700">🎸 BTS Arirang Concept</button>
+            <button onclick="applyTemplate('frame-bt21-pastel')" class="p-2 bg-pink-100 text-pink-700 font-bold rounded-xl border border-pink-300">🧸 BT21 Cute</button>
+            <button onclick="applyTemplate('frame-arirang-rock')" class="p-2 bg-red-950 text-red-200 font-bold rounded-xl border border-red-700">🎸 BTS Arirang</button>
+            <button onclick="applyTemplate('frame-galaxy-purple')" class="p-2 bg-indigo-950 text-purple-200 font-bold rounded-xl border border-purple-700">🌌 Galaxy Purple</button>
+            <button onclick="applyTemplate('frame-royal-gold')" class="p-2 bg-amber-50 text-amber-800 font-bold rounded-xl border border-amber-400">👑 Royal Gold</button>
+            <button onclick="applyTemplate('frame-soft-aesthetic')" class="p-2 bg-slate-100 text-slate-700 font-bold rounded-xl border border-slate-300">✨ Soft Aesthetic</button>
           </div>
 
-          <!-- SLIDER GESER WARNA CANVA (1 TUAS HUE SLIDER) -->
-          <div class="pt-2">
-            <div class="flex justify-between items-center mb-1">
-              <label class="font-bold text-slate-700 text-[11px]">🎨 Geser 1 Tuas Warna Latar (Ala Canva):</label>
+          <!-- KONTROL WARNA & KECERAHAN LENGKAP -->
+          <div class="pt-2 space-y-2">
+            <div class="flex justify-between items-center">
+              <label class="font-bold text-slate-700 text-[11px]">🎨 Warna Latar Kustom:</label>
               <button onclick="resetBgWhite()" class="text-[9px] text-btspurple font-bold underline">Reset Putih</button>
             </div>
             <input type="range" min="0" max="360" value="270" id="canvaColorSlider" oninput="applyCanvaHueColor(this.value)" class="canva-hue-slider">
+
+            <div>
+              <div class="flex justify-between items-center text-[10px] font-bold text-slate-600 mb-0.5">
+                <span>Tuas Kecerahan & Saturasi Warna:</span>
+                <span id="saturValText">100%</span>
+              </div>
+              <input type="range" min="20" max="180" value="100" id="canvaBrightnessSlider" oninput="applyCanvaBrightness(this.value)" class="w-full accent-btspurple h-2 bg-purple-100 rounded-lg">
+            </div>
           </div>
         </div>
 
-        <!-- KATALOG STIKER BT21 & CUSTOM -->
+        <!-- KATALOG STIKER -->
         <div class="pt-2 border-t border-purple-100 space-y-2">
           <div class="flex justify-between items-center">
             <label class="font-bold text-slate-700 text-xs">Stiker Lucu BTS / BT21 (Cubit 2 Jari WA):</label>
@@ -481,11 +502,10 @@
         </div>
       </div>
 
-      <!-- HASIL SERTIFIKAT CANVAS -->
+      <!-- HASIL SERTIFIKAT CANVAS PRESISE -->
       <div class="flex justify-center p-2">
         <div id="certificateCanvas" class="frame-bts-chibi relative w-full max-w-[340px] p-4 transition-all">
 
-          <!-- DEKORASI ORNAMEN OTOMATIS TAMBAHAN -->
           <div id="frameDecorations" class="pointer-events-none">
             <div class="absolute top-2 left-3 text-xs font-black text-btspurple opacity-60">💜 BTS</div>
             <div class="absolute top-2 right-3 text-xs font-black text-btspurple opacity-60">Borahae ♡</div>
@@ -534,18 +554,18 @@
 
         <div class="space-y-2">
           <h3 class="text-xs font-bold text-btspurple uppercase tracking-wider">🗳️ Misi Vote On-Going</h3>
-          <p class="text-[11px] text-slate-500">Buat sertifikat vote di tab "Sertifikat", poin akan diverifikasi oleh Admin secara manual! 💜</p>
+          <p class="text-[11px] text-slate-500">Unduh sertifikat vote untuk event di bawah agar misi terceklist otomatis! 💜</p>
           <div class="space-y-1.5 text-xs">
             <label class="flex items-center gap-2 p-2 bg-white rounded-xl border border-purple-100">
-              <input type="checkbox" class="accent-btspurple">
+              <input type="checkbox" id="misiCheckMAMA" class="accent-btspurple">
               <span class="font-semibold text-slate-700">MAMA 2026 — Fans' Choice Category</span>
             </label>
             <label class="flex items-center gap-2 p-2 bg-white rounded-xl border border-purple-100">
-              <input type="checkbox" class="accent-btspurple">
+              <input type="checkbox" id="misiCheckKCA" class="accent-btspurple">
               <span class="font-semibold text-slate-700">KCA 2026 — Vote BTS / SWIM</span>
             </label>
             <label class="flex items-center gap-2 p-2 bg-white rounded-xl border border-purple-100">
-              <input type="checkbox" class="accent-btspurple">
+              <input type="checkbox" id="misiCheckAAA" class="accent-btspurple">
               <span class="font-semibold text-slate-700">AAA (Final) — Popularity Vote</span>
             </label>
           </div>
@@ -573,14 +593,13 @@
       </div>
     </section>
 
-    <!-- TAB 5: QUIZ HARIAN & GACHA PHOTOCARD -->
+    <!-- TAB 5: QUIZ HARIAN -->
     <section id="sec-game" class="tab-content hidden space-y-4">
       <div class="glass-card rounded-3xl p-4 space-y-4">
         <h2 class="text-sm font-extrabold text-slate-800 cute-font flex items-center gap-1.5 border-b border-purple-100 pb-2">
-          <i class="fa-solid fa-gamepad text-btspurple"></i> 💜 BTS ARMY Quiz Harian & Gacha PC
+          <i class="fa-solid fa-gamepad text-btspurple"></i> 💜 BTS ARMY Quiz Harian
         </h2>
         
-        <!-- KOTAK QUIZ HARIAN BERGANTI-GANTI -->
         <div id="quizGameArea" class="p-3.5 bg-purple-50 rounded-2xl border border-purple-200 space-y-3">
           <div class="flex justify-between items-center">
             <span id="quizCounterInfo" class="text-[10px] font-bold bg-btspurple text-white px-2 py-0.5 rounded-full">Soal 1 / 20</span>
@@ -590,36 +609,16 @@
           <h3 id="quizQuestionText" class="text-xs font-extrabold text-slate-800 leading-snug">Memuat pertanyaan hari ini...</h3>
           
           <div id="quizOptionsContainer" class="grid grid-cols-1 gap-2 pt-1 text-xs">
-            <!-- Pilihan Opsi A & B muncul disini secara dinamis -->
           </div>
           
           <div id="quizCompletedMsg" class="hidden text-center py-3 text-xs font-bold text-btspurple">
             🎉 Quiz Harian Hari Ini Selesai! Tunggu soal baru besok ya!
           </div>
         </div>
-
-        <!-- KOTAK GACHA PHOTOCARD -->
-        <div class="p-3 bg-pink-50 rounded-2xl border border-pink-200 text-center space-y-2">
-          <h3 class="text-xs font-bold text-pink-700 cute-font">🎁 Tarik Gacha Photocard Member (50 Pts)</h3>
-          <button onclick="pullGachaCard()" class="w-full py-2.5 bg-gradient-to-r from-btspurple to-pink-500 text-white font-bold rounded-xl text-xs shadow-md">
-            Tarik Photocard Acak ✨
-          </button>
-        </div>
-
-        <!-- ALBUM KOLEKSI MEMBER DI BAWAH GAME (TERPERBAHARUI SECARA OTOMATIS) -->
-        <div class="pt-2 border-t border-purple-100">
-          <div class="flex justify-between items-center mb-2">
-            <h3 class="text-xs font-bold text-slate-700">Album Koleksi Photocard Kamu:</h3>
-            <span class="text-[10px] text-btspurple font-bold">Terupdate Otomatis 🔄</span>
-          </div>
-          <div id="photocardGrid" class="grid grid-cols-3 gap-2 text-xs">
-            <!-- Render otomatis via JS -->
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- TAB 6: DIARY -->
+    <!-- TAB 6: DIARY (DENGAN TOMBOL HAPUS) -->
     <section id="sec-diary" class="tab-content hidden space-y-4">
       <div class="glass-card rounded-3xl p-4">
         <h2 class="text-sm font-extrabold text-slate-800 cute-font mb-2">📖 Voting Diary & Galeri</h2>
@@ -675,25 +674,17 @@
 
   <script>
     let activeUser = localStorage.getItem('7h_active_user') || null;
-    let userDatabase = JSON.parse(localStorage.getItem('7h_users_db') || '{"Alysha":{"password":"123","points":0,"bio":"Borahae BTS 💜","avatar":"","lastCheckin":"","diary":[],"cards":[],"quizDate":"","quizIndex":0,"history":[]}}');
+    let userDatabase = JSON.parse(localStorage.getItem('7h_users_db') || '{"Alysha":{"password":"123","points":0,"bio":"Borahae BTS 💜","avatar":"","lastCheckin":"","diary":[],"quizDate":"","quizIndex":0,"history":[],"completedMissions":[]}}');
     let adminPinSecret = localStorage.getItem('7h_admin_pin') || '130613';
     let tempAvatarBase64 = "";
+    let currentHue = 270;
+    let currentBrightness = 100;
 
     const arirangSongs = [
       "1. Body to Body", "2. Hooligan", "3. Aliens", "4. FYA", "5. 2.0",
       "6. No. 29", "7. SWIM (Title Track ⭐️)", "8. Merry Go Round", "9. NORMAL",
       "10. Like Animals", "11. they don't know 'bout us", "12. One More Night",
       "13. Please", "14. Into the Sun"
-    ];
-
-    const btsPhotocardsCatalog = [
-      { id: 'rm', name: 'RM (Namjoon)', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=300&q=80' },
-      { id: 'jin', name: 'Jin (Seokjin)', img: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=300&q=80' },
-      { id: 'suga', name: 'SUGA (Yoongi)', img: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=300&q=80' },
-      { id: 'jhope', name: 'J-Hope (Hoseok)', img: 'https://images.unsplash.com/photo-1563089145-599997674d42?w=300&q=80' },
-      { id: 'jimin', name: 'Jimin', img: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=300&q=80' },
-      { id: 'v', name: 'V (Taehyung)', img: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=300&q=80' },
-      { id: 'jungkook', name: 'Jungkook', img: 'https://images.unsplash.com/photo-1579202673506-ca3ce28943ef?w=300&q=80' }
     ];
 
     // DATABASE 100 SOAL LENGKAP BTS
@@ -779,7 +770,7 @@
       { q: "BTS tampil di Grammy Awards dengan lagu Dynamite pada tahun?", a: "A. 2021", b: "B. 2018", ans: "A" },
       { q: "BTS merilis lagu Take Two untuk memperingati anniversary ke-berapa pada 2023?", a: "A. Ke-10", b: "B. Ke-7", ans: "A" },
       { q: "Lagu BTS yang dirilis pada 2015 adalah?", a: "A. I NEED U", b: "B. Butter", ans: "A" },
-      { q: "Lagu BTS yang memuat frasa “You can'stop me lovin' myself” adalah?", a: "A. IDOL", b: "B. Spring Day", ans: "A" },
+      { q: "Lagu BTS yang memuat frasa “You can't stop me lovin' myself” adalah?", a: "A. IDOL", b: "B. Spring Day", ans: "A" },
       { q: "Lagu BTS yang berjudul Anpanman terinspirasi dari karakter asal negara?", a: "A. Jepang", b: "B. Korea Selatan", ans: "A" },
       { q: "Lagu BTS berbahasa Jepang yang dirilis pada 2021 adalah?", a: "A. Film Out", b: "B. Black Swan", ans: "A" },
       { q: "Lagu BTS yang berjudul Run BTS terdapat dalam album?", a: "A. Proof", b: "B. Wings", ans: "A" },
@@ -806,37 +797,35 @@
       document.getElementById('prevTanggal').innerText = today;
       document.getElementById('inputTanggal').value = today;
       renderMissions();
-      renderPhotocards();
       loadDailyQuiz();
     });
 
-    // BADGE DIHITUNG BERDASARKAN JUMLAH KARTU PHOTOCARD YANG DIKOLEKSI
-    function getBadgeTitle(cardsCount) {
-      if (cardsCount >= 6) return '👑 Borahae Elite';
-      if (cardsCount >= 4) return '🔮 Magic Shop ARMY';
-      if (cardsCount >= 2) return '💜 Purple ARMY';
+    // BADGE BERDASARKAN TOTAL POIN AKTIVITAS
+    function getBadgeTitle(points) {
+      if (points >= 300) return '👑 Borahae Elite';
+      if (points >= 150) return '🔮 Magic Shop ARMY';
+      if (points >= 50) return '💜 Purple ARMY';
       return '🐣 Baby ARMY';
     }
 
     function checkAuthStatus() {
       if (activeUser && userDatabase[activeUser]) {
         const uData = userDatabase[activeUser];
-        if (!uData.cards) uData.cards = [];
         if (!uData.history) uData.history = [];
+        if (!uData.completedMissions) uData.completedMissions = [];
 
-        const badge = getBadgeTitle(uData.cards.length);
+        const badge = getBadgeTitle(uData.points || 0);
 
         document.getElementById('profileNameDisplay').innerText = `Profil: ${activeUser}`;
-        document.getElementById('userPoints').innerText = `${uData.points} PTS`;
+        document.getElementById('userPoints').innerText = `${uData.points || 0} PTS`;
         document.getElementById('userBadge').innerText = badge;
         document.getElementById('inputNama').value = activeUser;
         document.getElementById('prevNama').innerText = activeUser;
 
-        // BINDING DATA TAB PROFIL
         document.getElementById('tabProfilUsername').innerText = activeUser;
         document.getElementById('tabProfilBio').innerText = `"${uData.bio || 'Borahae BTS 💜'}"`;
         document.getElementById('tabProfilBadge').innerText = badge;
-        document.getElementById('tabProfilPoints').innerText = `💰 ${uData.points} PTS`;
+        document.getElementById('tabProfilPoints').innerText = `💰 ${uData.points || 0} PTS`;
 
         if (uData.avatar) {
           document.getElementById('headerAvatarText').classList.add('hidden');
@@ -877,8 +866,8 @@
           checkinBtn.classList.remove('opacity-50', 'cursor-not-allowed');
         }
 
+        syncMissionsChecklist();
         renderDiary();
-        renderPhotocards();
         loadDailyQuiz();
         renderUserHistory();
       } else {
@@ -995,7 +984,7 @@
       if (userDatabase[u]) {
         alert("Username sudah terdaftar! Silakan Login.");
       } else {
-        userDatabase[u] = { password: p, points: 0, bio: "Borahae BTS 💜", avatar: "", lastCheckin: "", diary: [], cards: [], quizDate: "", quizIndex: 0, history: [] };
+        userDatabase[u] = { password: p, points: 0, bio: "Borahae BTS 💜", avatar: "", lastCheckin: "", diary: [], quizDate: "", quizIndex: 0, history: [], completedMissions: [] };
         localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
         activeUser = u;
         localStorage.setItem('7h_active_user', u);
@@ -1028,7 +1017,7 @@
       const today = new Date().toDateString();
       if (userDatabase[activeUser].lastCheckin === today) return alert("Kamu sudah Check-in hari ini!");
 
-      userDatabase[activeUser].points += 10;
+      userDatabase[activeUser].points = (userDatabase[activeUser].points || 0) + 10;
       userDatabase[activeUser].lastCheckin = today;
       addHistory("📅 Check-in Harian (+10 Pts)");
       localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
@@ -1036,7 +1025,6 @@
       alert("Check-in berhasil! (+10 PTS) 🎉");
     }
 
-    // LOGIKA QUIZ HARIAN DARI 100 SOAL
     function getDailyQuestions() {
       const todayStr = new Date().toISOString().split('T')[0];
       let seed = 0;
@@ -1104,7 +1092,7 @@
       const uData = userDatabase[activeUser];
 
       if (chosenAns === correctAns) {
-        uData.points += 5;
+        uData.points = (uData.points || 0) + 5;
         addHistory("🧠 Menjawab Quiz Benar (+5 Pts)");
         alert("✨ Jawaban Benar! Kamu mendapatkan +5 Poin!");
       } else {
@@ -1115,30 +1103,6 @@
       localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
       checkAuthStatus();
       loadDailyQuiz();
-    }
-
-    // RENDER LENGKAP BERSAMAAN UNTUK TAB QUIZ PC & TAB PROFIL SAMA KEDUANYA DENGAN OTOMATIS
-    function renderPhotocards() {
-      const mainGrid = document.getElementById('photocardGrid');
-      const profilGrid = document.getElementById('myPhotocardGrid');
-      
-      const userCards = (activeUser && userDatabase[activeUser]?.cards) ? userDatabase[activeUser].cards : [];
-
-      const htmlContent = btsPhotocardsCatalog.map(card => {
-        const isOwned = userCards.includes(card.id);
-        return `
-          <div class="bg-white p-2 rounded-2xl border border-purple-100 text-center space-y-1 shadow-sm">
-            <img src="${card.img}" class="w-full h-24 object-cover rounded-xl ${isOwned ? '' : 'photocard-locked'}">
-            <p class="font-bold text-[10px] text-slate-700 truncate">${card.name}</p>
-            <span class="text-[9px] font-bold px-2 py-0.5 rounded-full ${isOwned ? 'bg-green-100 text-green-700' : 'bg-slate-100 text-slate-400'}">
-              ${isOwned ? 'Milikmu ✨' : 'Terkunci 🔒'}
-            </span>
-          </div>
-        `;
-      }).join('');
-
-      if (mainGrid) mainGrid.innerHTML = htmlContent;
-      if (profilGrid) profilGrid.innerHTML = htmlContent;
     }
 
     function updatePreview() {
@@ -1156,12 +1120,29 @@
     }
 
     function applyCanvaHueColor(hueVal) {
+      currentHue = hueVal;
+      updateCanvasBackgroundFilter();
+    }
+
+    function applyCanvaBrightness(brightVal) {
+      currentBrightness = brightVal;
+      document.getElementById('saturValText').innerText = `${brightVal}%`;
+      updateCanvasBackgroundFilter();
+    }
+
+    function updateCanvasBackgroundFilter() {
       const canvas = document.getElementById('certificateCanvas');
-      canvas.style.backgroundColor = `hsl(${hueVal}, 80%, 94%)`;
+      canvas.style.backgroundColor = `hsl(${currentHue}, 80%, 92%)`;
+      canvas.style.filter = `brightness(${currentBrightness}%)`;
     }
 
     function resetBgWhite() {
-      document.getElementById('certificateCanvas').style.backgroundColor = '#FFFFFF';
+      const canvas = document.getElementById('certificateCanvas');
+      canvas.style.backgroundColor = '#FFFFFF';
+      canvas.style.filter = 'none';
+      currentHue = 270;
+      currentBrightness = 100;
+      document.getElementById('saturValText').innerText = '100%';
     }
 
     function handleBuktiUpload(e) {
@@ -1232,7 +1213,6 @@
         innerContent.style.transform = `scale(${scale}) rotate(${rotation}deg)`;
       };
 
-      /* CUBIT & ROTASI MURNI 2 JARI SEPERTI WHATSAPP */
       makeStickerPinchRotateWA(container, (sDelta, rDelta) => {
         scale = Math.max(0.3, Math.min(4.0, scale * sDelta));
         rotation += rDelta;
@@ -1306,8 +1286,13 @@
       if (!activeUser) return alert("Login akun terlebih dahulu!");
 
       document.querySelectorAll('.sticker-item').forEach(s => s.classList.remove('selected'));
+      const certEl = document.getElementById('certificateCanvas');
 
-      html2canvas(document.getElementById('certificateCanvas'), { scale: 3 }).then(canvas => {
+      html2canvas(certEl, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: null
+      }).then(canvas => {
         const link = document.createElement('a');
         link.download = `7HEAVEN_Proof_${Date.now()}.png`;
         link.href = canvas.toDataURL('image/png');
@@ -1316,16 +1301,48 @@
         userDatabase[activeUser].diary = userDatabase[activeUser].diary || [];
         const eventName = document.getElementById('inputEvent').value;
         userDatabase[activeUser].diary.unshift({
+          id: Date.now(),
           title: eventName,
           date: new Date().toLocaleDateString(),
           img: canvas.toDataURL('image/png')
         });
 
-        addHistory(`🖼️ Buat Sertifikat: ${eventName}`);
+        userDatabase[activeUser].completedMissions = userDatabase[activeUser].completedMissions || [];
+        if (!userDatabase[activeUser].completedMissions.includes(eventName)) {
+          userDatabase[activeUser].completedMissions.push(eventName);
+        }
+
+        addHistory(`🖼️ Unduh Sertifikat: ${eventName}`);
+        localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
+        
+        syncMissionsChecklist();
+        renderDiary();
+        alert("Sertifikat didownload & tersimpan ke Diary! Misi vote terceklist otomatis ✨");
+      });
+    }
+
+    function syncMissionsChecklist() {
+      if (!activeUser || !userDatabase[activeUser]) return;
+      const completed = userDatabase[activeUser].completedMissions || [];
+
+      if (document.getElementById('misiCheckMAMA')) {
+        document.getElementById('misiCheckMAMA').checked = completed.includes('MAMA 2026');
+      }
+      if (document.getElementById('misiCheckKCA')) {
+        document.getElementById('misiCheckKCA').checked = completed.includes('KCA 2026');
+      }
+      if (document.getElementById('misiCheckAAA')) {
+        document.getElementById('misiCheckAAA').checked = completed.includes('AAA (Final)');
+      }
+    }
+
+    function deleteDiaryItem(id) {
+      if (!activeUser || !userDatabase[activeUser]) return;
+      if (confirm("Yakin ingin menghapus sertifikat ini dari Diary?")) {
+        userDatabase[activeUser].diary = userDatabase[activeUser].diary.filter(item => item.id !== id);
         localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
         renderDiary();
-        alert("Sertifikat didownload & tersimpan ke Diary! ✨");
-      });
+      }
     }
 
     function renderMissions() {
@@ -1367,9 +1384,14 @@
         return;
       }
       container.innerHTML = userDatabase[activeUser].diary.map(item => `
-        <div class="bg-white p-1.5 rounded-xl border border-purple-100 space-y-1">
-          <img src="${item.img}" class="w-full h-auto rounded-lg">
-          <p class="font-bold text-[10px] text-slate-700 truncate">${item.title}</p>
+        <div class="bg-white p-2 rounded-2xl border border-purple-100 space-y-1.5 shadow-sm relative group">
+          <img src="${item.img}" class="w-full h-auto rounded-xl object-contain border border-purple-50">
+          <div class="flex justify-between items-center px-1">
+            <p class="font-bold text-[10px] text-slate-700 truncate">${item.title}</p>
+            <button onclick="deleteDiaryItem(${item.id})" class="text-red-500 hover:text-red-700 text-xs p-1" title="Hapus Sertifikat">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </div>
         </div>
       `).join('');
     }
@@ -1403,11 +1425,11 @@
       listContainer.innerHTML = '';
 
       Object.keys(userDatabase).forEach(u => {
-        select.innerHTML += `<option value="${u}">${u} (${userDatabase[u].points} PTS)</option>`;
+        select.innerHTML += `<option value="${u}">${u} (${userDatabase[u].points || 0} PTS)</option>`;
         listContainer.innerHTML += `
           <div class="flex justify-between items-center p-2 bg-white rounded-xl border border-purple-100">
             <span class="font-bold text-slate-700">${u}</span>
-            <span class="font-extrabold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-md text-[11px]">${userDatabase[u].points} PTS</span>
+            <span class="font-extrabold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-md text-[11px]">${userDatabase[u].points || 0} PTS</span>
           </div>
         `;
       });
@@ -1417,7 +1439,7 @@
       const target = document.getElementById('adminUserSelect').value;
       const amt = parseInt(document.getElementById('adminPointAmount').value);
       if (target && !isNaN(amt)) {
-        userDatabase[target].points = Math.max(0, userDatabase[target].points + amt);
+        userDatabase[target].points = Math.max(0, (userDatabase[target].points || 0) + amt);
         localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
         checkAuthStatus();
         renderAdminUserSelect();
