@@ -6,7 +6,7 @@
   <title>7HEAVEN PURPLE — Official ARMY Base</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Fredoka:wght@400;600;700&family=Cinzel:wght@700&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
   <script>
@@ -22,7 +22,8 @@
           },
           fontFamily: {
             sans: ['Plus Jakarta Sans', 'sans-serif'],
-            cute: ['Fredoka', 'cursive']
+            cute: ['Fredoka', 'cursive'],
+            royal: ['Cinzel', 'serif']
           }
         }
       }
@@ -42,11 +43,29 @@
       border: 1px solid rgba(255, 255, 255, 0.6);
       box-shadow: 0 8px 32px 0 rgba(125, 82, 193, 0.08);
     }
-    .cert-frame-custom { background: #FFFFFF; }
+
+    /* PREMIUM CERTIFICATE TEMPLATES */
+    .template-royal {
+      border: 6px double #D4AF37 !important;
+      box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.2), 0 10px 25px rgba(0,0,0,0.15) !important;
+    }
+    .template-magic {
+      border: 5px solid #7D52C1 !important;
+      box-shadow: inset 0 0 20px rgba(157, 114, 225, 0.3), 0 8px 20px rgba(125, 82, 193, 0.2) !important;
+    }
+    .template-floral {
+      border: 4px dashed #FFB6C1 !important;
+      box-shadow: 0 8px 20px rgba(255, 182, 193, 0.25) !important;
+    }
+    .template-minimal {
+      border: 3px solid #334155 !important;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
+    }
 
     #certificateCanvas {
       overflow: visible !important;
       position: relative !important;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
     }
 
     .crop-9-16-container {
@@ -86,6 +105,7 @@
       transform-origin: center center;
       display: inline-block;
       z-index: 10000 !important;
+      will-change: transform, left, top;
     }
     .sticker-item.selected {
       outline: 2px dashed #7D52C1;
@@ -94,17 +114,18 @@
     .sticker-controls {
       display: none;
       position: absolute;
-      top: -28px;
+      top: -30px;
       left: 50%;
       transform: translateX(-50%);
       background: #7D52C1;
       color: white;
       border-radius: 9999px;
-      padding: 2px 6px;
-      font-size: 10px;
-      gap: 4px;
+      padding: 3px 8px;
+      font-size: 11px;
+      gap: 6px;
       z-index: 10001 !important;
       white-space: nowrap;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
     .sticker-item.selected .sticker-controls {
       display: flex;
@@ -291,11 +312,11 @@
       </div>
     </section>
 
-    <!-- TAB 2: SERTIFIKAT MAKER -->
+    <!-- TAB 2: SERTIFIKAT MAKER PREMIUM -->
     <section id="sec-sertifikat" class="tab-content hidden space-y-4">
       <div class="glass-card rounded-3xl p-4 space-y-3">
         <h3 class="text-xs font-extrabold text-slate-800 cute-font border-b border-purple-100 pb-1.5">
-          ✏️ Edit Detail Teks & Foto Sertifikat
+          🎨 Editor Sertifikat Premium & Estetik
         </h3>
 
         <div class="grid grid-cols-2 gap-2 text-xs">
@@ -325,23 +346,43 @@
           </div>
         </div>
 
-        <div class="pt-2 border-t border-purple-100">
-          <label class="font-bold text-slate-700 text-xs block mb-1.5">Pilih Warna Bingkai (Warna Bebas / Geser)</label>
-          <div class="flex items-center gap-2">
-            <input type="color" id="frameColorPicker" value="#7D52C1" onchange="changeCustomFrameColor(this.value)" class="w-10 h-10 rounded-xl border border-purple-200 cursor-pointer bg-white p-1">
-            <div class="flex gap-1.5 flex-wrap">
-              <button onclick="changeCustomFrameColor('#7D52C1')" class="px-2 py-1 rounded-lg bg-purple-100 text-btspurple font-bold text-[10px]">Ungu</button>
-              <button onclick="changeCustomFrameColor('#F1ECFD')" class="px-2 py-1 rounded-lg bg-purple-50 text-purple-700 font-bold text-[10px]">Lavender</button>
-              <button onclick="changeCustomFrameColor('#FFB6C1')" class="px-2 py-1 rounded-lg bg-pink-100 text-pink-700 font-bold text-[10px]">Pink</button>
-              <button onclick="changeCustomFrameColor('#FFFFFF')" class="px-2 py-1 rounded-lg bg-white text-slate-700 font-bold text-[10px] border border-slate-200">Putih</button>
+        <!-- PENGATURAN TAMPILAN TERPISAH (BG, BINGKAI, TEMPLATE) -->
+        <div class="pt-2 border-t border-purple-100 space-y-2">
+          <div>
+            <label class="font-bold text-slate-700 text-xs block mb-1">👑 Pilih Template Hiasan Bingkai:</label>
+            <div class="grid grid-cols-2 gap-1.5 text-[10px]">
+              <button onclick="applyTemplate('template-magic')" class="p-1.5 bg-purple-100 text-btspurple font-bold rounded-xl border border-purple-300">🔮 Magic Purple</button>
+              <button onclick="applyTemplate('template-royal')" class="p-1.5 bg-amber-50 text-amber-700 font-bold rounded-xl border border-amber-300">👑 Royal Gold</button>
+              <button onclick="applyTemplate('template-floral')" class="p-1.5 bg-pink-50 text-pink-700 font-bold rounded-xl border border-pink-300">🌸 Soft Floral</button>
+              <button onclick="applyTemplate('template-minimal')" class="p-1.5 bg-slate-100 text-slate-700 font-bold rounded-xl border border-slate-300">✨ Minimalist</button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2 pt-1">
+            <div>
+              <label class="font-bold text-slate-700 text-[11px] block mb-1">🎨 Warna Background Sertifikat:</label>
+              <div class="flex items-center gap-1.5">
+                <input type="color" id="bgColorPicker" value="#FFFFFF" onchange="changeBgColor(this.value)" class="w-8 h-8 rounded-lg border border-purple-200 cursor-pointer p-0.5">
+                <button onclick="changeBgColor('#FFFFFF')" class="text-[9px] px-1.5 py-1 bg-white border border-slate-200 rounded font-bold">Putih</button>
+                <button onclick="changeBgColor('#F1ECFD')" class="text-[9px] px-1.5 py-1 bg-purple-50 border border-purple-200 rounded font-bold text-btspurple">Ungu</button>
+              </div>
+            </div>
+
+            <div>
+              <label class="font-bold text-slate-700 text-[11px] block mb-1">🖼️ Warna Tepi Bingkai (Border):</label>
+              <div class="flex items-center gap-1.5">
+                <input type="color" id="borderColorPicker" value="#7D52C1" onchange="changeBorderColor(this.value)" class="w-8 h-8 rounded-lg border border-purple-200 cursor-pointer p-0.5">
+                <button onclick="changeBorderColor('#7D52C1')" class="text-[9px] px-1.5 py-1 bg-purple-100 border border-purple-300 rounded font-bold text-btspurple">Ungu</button>
+                <button onclick="changeBorderColor('#D4AF37')" class="text-[9px] px-1.5 py-1 bg-amber-100 border border-amber-300 rounded font-bold text-amber-800">Emas</button>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- KATALOG STIKER & STIKER NAMA (ICE BLUE) -->
+        <!-- KATALOG STIKER -->
         <div class="pt-2 border-t border-purple-100 space-y-2">
           <div class="flex justify-between items-center">
-            <label class="font-bold text-slate-700 text-xs">Stiker Karakter & Stiker Nama Ice Blue:</label>
+            <label class="font-bold text-slate-700 text-xs">Stiker Karakter Emoji & Custom:</label>
             <button onclick="clearAllStickers()" class="text-[10px] text-red-600 bg-red-50 px-2 py-0.5 rounded-md font-bold border border-red-200">🗑️ Hapus Semua Stiker</button>
           </div>
 
@@ -358,38 +399,32 @@
             <button onclick="addStickerEmoji('✨')" class="w-8 h-8 rounded-xl bg-purple-100 text-sm">✨</button>
           </div>
 
-          <label class="font-bold text-slate-700 text-xs block pt-1">Pilih Stiker Nama Ice Blue (@7Heaven):</label>
-          <div class="grid grid-cols-3 gap-1.5 text-[10px]">
-            <button onclick="addStickerImage('https://i.ibb.co.com/6c6c7x9/alysha.png')" class="p-1.5 bg-sky-50 text-sky-900 border border-sky-200 rounded-lg font-bold truncate">✨ ALYSHA</button>
-            <button onclick="addStickerImage('https://i.ibb.co.com/7s12332/alifa.png')" class="p-1.5 bg-sky-50 text-sky-900 border border-sky-200 rounded-lg font-bold truncate">✨ ALIFA</button>
-            <button onclick="addStickerImage('https://i.ibb.co.com/8x83332/dela.png')" class="p-1.5 bg-sky-50 text-sky-900 border border-sky-200 rounded-lg font-bold truncate">✨ DELA</button>
-            <button onclick="addStickerImage('https://i.ibb.co.com/3r11221/ayta.png')" class="p-1.5 bg-sky-50 text-sky-900 border border-sky-200 rounded-lg font-bold truncate">✨ AYTA</button>
-            <button onclick="addStickerImage('https://i.ibb.co.com/5w22112/mimaa.png')" class="p-1.5 bg-sky-50 text-sky-900 border border-sky-200 rounded-lg font-bold truncate">✨ MIMAA</button>
-            <button onclick="addStickerImage('https://i.ibb.co.com/9k22112/najwa.png')" class="p-1.5 bg-sky-50 text-sky-900 border border-sky-200 rounded-lg font-bold truncate">✨ NAJWA</button>
-            <button onclick="addStickerImage('https://i.ibb.co.com/4l33221/naila.png')" class="p-1.5 bg-sky-50 text-sky-900 border border-sky-200 rounded-lg font-bold truncate">✨ NAILA</button>
-            <button onclick="addStickerImage('https://i.ibb.co.com/2s33441/mikha.png')" class="p-1.5 bg-sky-50 text-sky-900 border border-sky-200 rounded-lg font-bold truncate">✨ MIKHA</button>
-            <button onclick="addStickerImage('https://i.ibb.co.com/1s55661/riska.png')" class="p-1.5 bg-sky-50 text-sky-900 border border-sky-200 rounded-lg font-bold truncate">✨ RISKA</button>
-          </div>
-
-          <div class="mt-2">
+          <div class="mt-2 space-y-1">
+            <label class="block text-[10px] font-bold text-slate-600">📁 Upload Stiker Gambar Custom (PNG/JPG):</label>
             <input type="file" accept="image/*" onchange="handleCustomStickerUpload(event)" class="w-full text-xs text-slate-500 file:mr-2 file:py-1 file:px-2 file:rounded-lg file:border-0 file:text-[10px] file:font-bold file:bg-amber-100 file:text-amber-800">
           </div>
         </div>
       </div>
 
-      <!-- HASIL SERTIFIKAT CANVAS -->
+      <!-- HASIL SERTIFIKAT CANVAS PREMIUM -->
       <div class="flex justify-center p-2">
-        <div id="certificateCanvas" class="cert-frame-custom relative w-full max-w-[340px] rounded-3xl p-4 shadow-2xl transition-all" style="border: 4px solid #7D52C1;">
+        <div id="certificateCanvas" class="template-magic relative w-full max-w-[340px] rounded-3xl p-4 shadow-2xl transition-all bg-white" style="border-color: #7D52C1;">
+
+          <!-- ORNAMEN BINGKAI POJOK PREMIUM -->
+          <div class="absolute top-2 left-2 text-btspurple opacity-40 text-xs">✨</div>
+          <div class="absolute top-2 right-2 text-btspurple opacity-40 text-xs">✨</div>
+          <div class="absolute bottom-2 left-2 text-btspurple opacity-40 text-xs">✨</div>
+          <div class="absolute bottom-2 right-2 text-btspurple opacity-40 text-xs">✨</div>
 
           <div id="stickerLayer"></div>
 
           <div class="text-center pb-2 relative z-10">
-            <p class="text-[10px] font-black text-btspurple uppercase tracking-wider cute-font">7HEAVEN PURPLE PRESENTS</p>
-            <h3 class="text-base font-black text-btspurple uppercase tracking-wide cute-font">VOTING PROOF</h3>
+            <p class="text-[9px] font-black text-btspurple uppercase tracking-widest cute-font">OFFICIAL VOTING PROOF</p>
+            <h3 class="text-base font-black text-btspurple uppercase tracking-wide cute-font">7HEAVEN PURPLE</h3>
           </div>
 
           <!-- KOTAK AUTO CROP 9:16 -->
-          <div id="buktiContainer" class="crop-9-16-container my-2 border border-purple-200 shadow-inner relative">
+          <div id="buktiContainer" class="crop-9-16-container my-2 border border-purple-200 shadow-md relative">
             <img id="prevBukti" src="" class="crop-9-16-img hidden">
             <div id="placeholderBukti" class="absolute inset-0 flex flex-col items-center justify-center p-4 text-center text-purple-400">
               <i class="fa-solid fa-image text-3xl mb-1 text-btspurple"></i>
@@ -720,9 +755,19 @@
       document.getElementById('prevTanggal').innerText = document.getElementById('inputTanggal').value;
     }
 
-    function changeCustomFrameColor(hexColor) {
+    function applyTemplate(className) {
+      const canvas = document.getElementById('certificateCanvas');
+      canvas.className = `${className} relative w-full max-w-[340px] rounded-3xl p-4 shadow-2xl transition-all`;
+    }
+
+    function changeBgColor(hexColor) {
+      document.getElementById('certificateCanvas').style.backgroundColor = hexColor;
+      document.getElementById('bgColorPicker').value = hexColor;
+    }
+
+    function changeBorderColor(hexColor) {
       document.getElementById('certificateCanvas').style.borderColor = hexColor;
-      document.getElementById('frameColorPicker').value = hexColor;
+      document.getElementById('borderColorPicker').value = hexColor;
     }
 
     function handleBuktiUpload(e) {
@@ -741,10 +786,6 @@
 
     function addStickerEmoji(emoji) {
       createInteractiveSticker(emoji, 'text');
-    }
-
-    function addStickerImage(url) {
-      createInteractiveSticker(url, 'image');
     }
 
     function handleCustomStickerUpload(e) {
@@ -774,10 +815,10 @@
 
       const innerContent = document.createElement('div');
       if (type === 'text') {
-        innerContent.className = 'text-2xl';
+        innerContent.className = 'text-3xl';
         innerContent.innerText = content;
       } else {
-        innerContent.className = 'w-28 h-14';
+        innerContent.className = 'w-24 h-24';
         const img = document.createElement('img');
         img.src = content;
         img.className = 'w-full h-full object-contain drop-shadow-md';
@@ -787,8 +828,8 @@
       const controls = document.createElement('div');
       controls.className = 'sticker-controls';
       controls.innerHTML = `
-        <button class="btn-plus">＋</button>
-        <button class="btn-minus">－</button>
+        <button class="btn-plus font-bold">＋</button>
+        <button class="btn-minus font-bold">－</button>
         <button class="btn-rot">🔄</button>
         <button class="btn-del">❌</button>
       `;
@@ -801,18 +842,19 @@
         innerContent.style.transform = `scale(${scale}) rotate(${rotation}deg)`;
       };
 
-      controls.querySelector('.btn-plus').onclick = (e) => { e.stopPropagation(); scale += 0.15; updateTransform(); };
-      controls.querySelector('.btn-minus').onclick = (e) => { e.stopPropagation(); scale = Math.max(0.4, scale - 0.15); updateTransform(); };
+      controls.querySelector('.btn-plus').onclick = (e) => { e.stopPropagation(); scale += 0.2; updateTransform(); };
+      controls.querySelector('.btn-minus').onclick = (e) => { e.stopPropagation(); scale = Math.max(0.3, scale - 0.2); updateTransform(); };
       controls.querySelector('.btn-rot').onclick = (e) => { e.stopPropagation(); rotation += 15; updateTransform(); };
       controls.querySelector('.btn-del').onclick = (e) => { e.stopPropagation(); container.remove(); };
 
-      makeStickerSingleTouch(container, (scaleFactor) => {
-        scale = Math.max(0.4, Math.min(3.0, scale * scaleFactor));
+      makeStickerFlawlessWA(container, (scaleDelta) => {
+        scale = Math.max(0.3, Math.min(3.5, scale * scaleDelta));
         updateTransform();
       });
     }
 
-    function makeStickerSingleTouch(el, onZoom) {
+    /* PENGATURAN GESTURE SANGAT SMOOTH MIRIP WA */
+    function makeStickerFlawlessWA(el, onZoom) {
       let isDragging = false, startX, startY, initialLeft, initialTop;
       let initialDist = 0;
 
@@ -845,9 +887,8 @@
         if (e.touches && e.touches.length === 2) {
           const currentDist = getTouchDist(e.touches);
           if (initialDist > 0) {
-            const rawFactor = currentDist / initialDist;
-            const smoothedFactor = 1 + (rawFactor - 1) * 0.15; // Smooth zoom
-            onZoom(smoothedFactor);
+            const factor = currentDist / initialDist;
+            onZoom(factor);
           }
           initialDist = currentDist;
         } else if (isDragging) {
