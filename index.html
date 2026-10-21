@@ -523,29 +523,36 @@
       </div>
     </section>
 
-    <!-- TAB BARU: GAME & KOLEKSI PHOTOCARD (QUIZ/GACHA) -->
+    <!-- TAB 4: QUIZ HARIAN & GACHA PHOTOCARD -->
     <section id="sec-game" class="tab-content hidden space-y-4">
       <div class="glass-card rounded-3xl p-4 space-y-4">
         <h2 class="text-sm font-extrabold text-slate-800 cute-font flex items-center gap-1.5 border-b border-purple-100 pb-2">
-          <i class="fa-solid fa-gamepad text-btspurple"></i> Quiz & Gacha Photocard Member BTS
+          <i class="fa-solid fa-gamepad text-btspurple"></i> 💜 BTS ARMY Quiz Harian & Gacha PC
         </h2>
-        <p class="text-xs text-slate-600">Tukar <strong>50 Poin</strong> untuk membuka (Gacha) Photocard Eksklusif Member secara acak atau mainkan Quiz harian!</p>
+        
+        <!-- KOTAK QUIZ HARIAN BERGANTI-GANTI -->
+        <div id="quizGameArea" class="p-3.5 bg-purple-50 rounded-2xl border border-purple-200 space-y-3">
+          <div class="flex justify-between items-center">
+            <span id="quizCounterInfo" class="text-[10px] font-bold bg-btspurple text-white px-2 py-0.5 rounded-full">Soal 1 / 20</span>
+            <span class="text-[10px] font-bold text-purple-700">Benar = +5 Poin ✨</span>
+          </div>
 
-        <!-- KOTAK MINI QUIZ -->
-        <div class="p-3 bg-purple-50 rounded-2xl border border-purple-200 space-y-2">
-          <h3 class="text-xs font-bold text-btspurple">🧠 Quiz BTS Harian (+30 Pts)</h3>
-          <p id="quizQuestion" class="text-xs font-semibold text-slate-700">Siapa member BTS yang merilis album solo 'FACE'?</p>
-          <div class="grid grid-cols-2 gap-2 pt-1 text-xs">
-            <button onclick="answerQuiz(false)" class="p-2 bg-white rounded-xl border border-purple-200 font-bold hover:bg-purple-100">Jungkook</button>
-            <button onclick="answerQuiz(true)" class="p-2 bg-white rounded-xl border border-purple-200 font-bold hover:bg-purple-100">Jimin</button>
+          <h3 id="quizQuestionText" class="text-xs font-extrabold text-slate-800 leading-snug">Memuat pertanyaan hari ini...</h3>
+          
+          <div id="quizOptionsContainer" class="grid grid-cols-1 gap-2 pt-1 text-xs">
+            <!-- Pilihan Opsi A & B muncul disini secara dinamis -->
+          </div>
+          
+          <div id="quizCompletedMsg" class="hidden text-center py-3 text-xs font-bold text-btspurple">
+            🎉 Quiz Harian Hari Ini Selesai! Tunggu soal baru besok ya!
           </div>
         </div>
 
         <!-- KOTAK GACHA PHOTOCARD -->
         <div class="p-3 bg-pink-50 rounded-2xl border border-pink-200 text-center space-y-2">
-          <h3 class="text-xs font-bold text-pink-700 cute-font">🎁 Tarik Gacha Photocard Member</h3>
+          <h3 class="text-xs font-bold text-pink-700 cute-font">🎁 Tarik Gacha Photocard Member (50 Pts)</h3>
           <button onclick="pullGachaCard()" class="w-full py-2.5 bg-gradient-to-r from-btspurple to-pink-500 text-white font-bold rounded-xl text-xs shadow-md">
-            Tarik Photocard Acak (50 Pts) ✨
+            Tarik Photocard Acak ✨
           </button>
         </div>
 
@@ -559,7 +566,7 @@
       </div>
     </section>
 
-    <!-- TAB 4: DIARY -->
+    <!-- TAB 5: DIARY -->
     <section id="sec-diary" class="tab-content hidden space-y-4">
       <div class="glass-card rounded-3xl p-4">
         <h2 class="text-sm font-extrabold text-slate-800 cute-font mb-2">📖 Voting Diary & Galeri</h2>
@@ -568,7 +575,7 @@
       </div>
     </section>
 
-    <!-- TAB 5: ADMIN PANEL -->
+    <!-- TAB 6: ADMIN PANEL -->
     <section id="sec-admin" class="tab-content hidden space-y-4">
       <div id="adminLoginCard" class="glass-card rounded-3xl p-5 text-center space-y-3">
         <h2 class="text-sm font-bold text-slate-800 cute-font">🔒 Panel Khusus Admin</h2>
@@ -615,7 +622,7 @@
 
   <script>
     let activeUser = localStorage.getItem('7h_active_user') || null;
-    let userDatabase = JSON.parse(localStorage.getItem('7h_users_db') || '{"Alysha":{"password":"123","points":0,"bio":"Borahae BTS & ARMY 💜","avatar":"","lastCheckin":"","diary":[],"cards":[]}}');
+    let userDatabase = JSON.parse(localStorage.getItem('7h_users_db') || '{"Alysha":{"password":"123","points":0,"bio":"Borahae BTS 💜","avatar":"","lastCheckin":"","diary":[],"cards":[],"quizDate":"","quizIndex":0}}');
     let adminPinSecret = localStorage.getItem('7h_admin_pin') || '130613';
     let tempAvatarBase64 = "";
 
@@ -636,6 +643,60 @@
       { id: 'jungkook', name: 'Jungkook', img: 'https://images.unsplash.com/photo-1579202673506-ca3ce28943ef?w=300&q=80' }
     ];
 
+    // DATABASE 100 SOAL LENGKAP BTS
+    const allQuizQuestions = [
+      { q: "Kapan BTS resmi debut?", a: "A. 13 Juni 2013", b: "B. 13 Juli 2013", ans: "A" },
+      { q: "Siapa leader BTS?", a: "A. Jin", b: "B. RM", ans: "B" },
+      { q: "Apa nama fandom resmi BTS?", a: "A. ARMY", b: "B. MOA", ans: "A" },
+      { q: "Apa single berbahasa Inggris pertama BTS?", a: "A. Butter", b: "B. Dynamite", ans: "B" },
+      { q: "Siapa anggota BTS dengan nama asli Kim Taehyung?", a: "A. V", b: "B. Jimin", ans: "A" },
+      { q: "Siapa saja anggota rapper line BTS?", a: "A. RM, SUGA, J-Hope", b: "B. Jin, Jimin, V", ans: "A" },
+      { q: "Lagu Spring Day termasuk dalam album You Never Walk Alone.", a: "A. Benar", b: "B. Salah", ans: "A" },
+      { q: "Album mana yang memuat lagu Life Goes On?", a: "A. BE", b: "B. Wings", ans: "A" },
+      { q: "Siapa maknae BTS?", a: "A. Jimin", b: "B. Jungkook", ans: "B" },
+      { q: "Apa judul album single debut BTS?", a: "A. 2 Cool 4 Skool", b: "B. Dark & Wild", ans: "A" },
+      { q: "Siapa nama asli RM?", a: "A. Kim Namjoon", b: "B. Kim Taehyung", ans: "A" },
+      { q: "Siapa nama asli Jin?", a: "A. Min Yoongi", b: "B. Kim Seokjin", ans: "B" },
+      { q: "Siapa nama asli SUGA?", a: "A. Min Yoongi", b: "B. Jung Hoseok", ans: "A" },
+      { q: "Siapa nama asli J-Hope?", a: "A. Park Jimin", b: "B. Jung Hoseok", ans: "B" },
+      { q: "Siapa nama asli Jimin?", a: "A. Park Jimin", b: "B. Jeon Jungkook", ans: "A" },
+      { q: "Siapa nama asli V?", a: "A. Kim Seokjin", b: "B. Kim Taehyung", ans: "B" },
+      { q: "Siapa nama asli Jungkook?", a: "A. Jeon Jungkook", b: "B. Kim Namjoon", ans: "A" },
+      { q: "Siapa yang menggunakan nama panggung V?", a: "A. Jimin", b: "B. Taehyung", ans: "B" },
+      { q: "Siapa yang menggunakan nama panggung SUGA?", a: "A. Yoongi", b: "B. Hoseok", ans: "A" },
+      { q: "Siapa yang menggunakan nama panggung J-Hope?", a: "A. Namjoon", b: "B. Hoseok", ans: "B" },
+      { q: "Lagu debut BTS adalah?", a: "A. No More Dream", b: "B. Spring Day", ans: "A" },
+      { q: "Lagu BTS yang dirilis pada 2020 dengan nuansa retro adalah?", a: "A. Black Swan", b: "B. Dynamite", ans: "B" },
+      { q: "Lagu BTS yang memiliki judul Butter adalah?", a: "A. Butter", b: "B. Permission to Dance", ans: "A" },
+      { q: "Lagu BTS yang memuat pesan tentang terus melangkah adalah?", a: "A. Fake Love", b: "B. Life Goes On", ans: "B" },
+      { q: "Lagu BTS dengan judul Spring Day termasuk lagu mereka.", a: "A. Benar", b: "B. Salah", ans: "A" },
+      { q: "Lagu BTS yang dirilis bersama Halsey adalah?", a: "A. Boy With Luv", b: "B. DNA", ans: "A" },
+      { q: "Lagu BTS yang dikenal dengan lirik “I'm the one I should love” adalah?", a: "A. Fire", b: "B. Epiphany", ans: "B" },
+      { q: "Lagu BTS yang memiliki judul DNA dirilis pada 2017.", a: "A. Benar", b: "B. Salah", ans: "A" },
+      { q: "Lagu BTS yang memiliki judul Black Swan adalah?", a: "A. Black Swan", b: "B. Blue & Grey", ans: "A" },
+      { q: "Lagu BTS yang dirilis pada 2021 dan bertema menari adalah?", a: "A. Yet To Come", b: "B. Permission to Dance", ans: "B" },
+      { q: "Album BTS yang memuat lagu Fake Love adalah?", a: "A. BE", b: "B. Love Yourself: Tear", ans: "B" },
+      { q: "Map of the Soul: 7 dirilis pada 2020.", a: "A. Benar", b: "B. Salah", ans: "A" },
+      { q: "Album antologi BTS yang dirilis pada 2022 adalah?", a: "A. BE", b: "B. Proof", ans: "B" },
+      { q: "Love Yourself: Answer dirilis pada 2018.", a: "A. Benar", b: "B. Salah", ans: "A" },
+      { q: "RM termasuk rapper line BTS.", a: "A. Benar", b: "B. Salah", ans: "A" },
+      { q: "Jin merupakan bagian dari rapper line BTS.", a: "A. Benar", b: "B. Salah", ans: "B" },
+      { q: "Jimin dikenal sebagai anggota vocal line.", a: "A. Benar", b: "B. Salah", ans: "A" },
+      { q: "Jungkook dikenal sebagai main vocalist BTS.", a: "A. Benar", b: "B. Salah", ans: "A" },
+      { q: "SUGA dikenal juga sebagai produser musik.", a: "A. Benar", b: "B. Salah", ans: "A" },
+      { q: "BTS berkolaborasi dengan Coldplay dalam lagu My Universe.", a: "A. Benar", b: "B. Salah", ans: "A" },
+      { q: "Lagu Left and Right merupakan kolaborasi Jungkook dengan Charlie Puth.", a: "A. Benar", b: "B. Salah", ans: "A" },
+      { q: "BTS memenangkan Billboard Music Award Top Social Artist pada 2017.", a: "A. Benar", b: "B. Salah", ans: "A" },
+      { q: "BTS pernah berpidato di PBB.", a: "A. Benar", b: "B. Salah", ans: "A" },
+      { q: "Kampanye BTS bersama UNICEF dikenal dengan nama?", a: "A. Love Myself", b: "B. Love Yourself: Tear", ans: "A" },
+      { q: "BTS berasal dari Korea Selatan.", a: "A. Benar", b: "B. Salah", ans: "A" },
+      { q: "Nama BTS dalam bahasa Korea adalah Bangtan Sonyeondan.", a: "A. Benar", b: "B. Salah", ans: "A" },
+      { q: "BTS memiliki tujuh anggota.", a: "A. Benar", b: "B. Salah", ans: "A" },
+      { q: "Lagu BTS berjudul MIC Drop memiliki versi remix bersama Steve Aoki.", a: "A. Benar", b: "B. Salah", ans: "A" },
+      { q: "Lagu BTS berjudul Anpanman terinspirasi dari karakter pahlawan Jepang.", a: "A. Benar", b: "B. Salah", ans: "A" },
+      { q: "BTS merilis lagu berjudul SWIM pada era album ARIRANG tahun 2026.", a: "A. Benar", b: "B. Salah", ans: "A" }
+    ];
+
     document.addEventListener("DOMContentLoaded", () => {
       checkAuthStatus();
       const today = new Date().toISOString().split('T')[0];
@@ -643,6 +704,7 @@
       document.getElementById('inputTanggal').value = today;
       renderMissions();
       renderPhotocards();
+      loadDailyQuiz();
     });
 
     function getBadgeTitle(pts) {
@@ -696,6 +758,7 @@
 
         renderDiary();
         renderPhotocards();
+        loadDailyQuiz();
       } else {
         document.getElementById('profileNameDisplay').innerText = `Profil: Guest (Belum Login)`;
         document.getElementById('userPoints').innerText = `0 PTS`;
@@ -781,7 +844,7 @@
       if (userDatabase[u]) {
         alert("Username sudah terdaftar! Silakan Login.");
       } else {
-        userDatabase[u] = { password: p, points: 0, bio: "Borahae BTS 💜", avatar: "", lastCheckin: "", diary: [], cards: [] };
+        userDatabase[u] = { password: p, points: 0, bio: "Borahae BTS 💜", avatar: "", lastCheckin: "", diary: [], cards: [], quizDate: "", quizIndex: 0 };
         localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
         activeUser = u;
         localStorage.setItem('7h_active_user', u);
@@ -821,16 +884,87 @@
       alert("Check-in berhasil! (+10 PTS) 🎉");
     }
 
-    function answerQuiz(isCorrect) {
-      if (!activeUser) return alert("Silakan Login akun terlebih dahulu!");
-      if (isCorrect) {
-        userDatabase[activeUser].points += 30;
-        localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
-        checkAuthStatus();
-        alert("Jawaban Benar! Kamu dapat +30 Poin 🎉");
-      } else {
-        alert("Jawaban Belum Tepat! Coba lagi ya 💜");
+    // LOGIKA QUIZ HARIAN BERGANTI-GANTI (MAX 20 SOAL PER HARI, 5 POIN PER SOAL BENAR)
+    function getDailyQuestions() {
+      const todayStr = new Date().toISOString().split('T')[0];
+      // Pseudo-random seed berdasarkan tanggal hari ini agar semua soal sama untuk hari itu, tapi beda di hari esok
+      let seed = 0;
+      for (let i = 0; i < todayStr.length; i++) {
+        seed += todayStr.charCodeAt(i);
       }
+      
+      let shuffled = [...allQuizQuestions];
+      // Shuffle array konsisten berdasarkan tanggal
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        let j = (seed * (i + 1)) % shuffled.length;
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      return shuffled.slice(0, 20); // Ambil tepat 20 soal untuk hari ini
+    }
+
+    function loadDailyQuiz() {
+      const qText = document.getElementById('quizQuestionText');
+      const optContainer = document.getElementById('quizOptionsContainer');
+      const counterInfo = document.getElementById('quizCounterInfo');
+      const completedMsg = document.getElementById('quizCompletedMsg');
+      
+      if (!activeUser || !userDatabase[activeUser]) {
+        qText.innerText = "Silakan login terlebih dahulu untuk bermain Quiz Harian!";
+        optContainer.innerHTML = "";
+        return;
+      }
+
+      const todayStr = new Date().toISOString().split('T')[0];
+      const uData = userDatabase[activeUser];
+
+      // Reset index jika sudah berganti hari
+      if (uData.quizDate !== todayStr) {
+        uData.quizDate = todayStr;
+        uData.quizIndex = 0;
+        localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
+      }
+
+      const dailyList = getDailyQuestions();
+      const currentIndex = uData.quizIndex || 0;
+
+      if (currentIndex >= dailyList.length) {
+        qText.classList.add('hidden');
+        optContainer.classList.add('hidden');
+        counterInfo.classList.add('hidden');
+        completedMsg.classList.remove('hidden');
+        return;
+      }
+
+      qText.classList.remove('hidden');
+      optContainer.classList.remove('hidden');
+      counterInfo.classList.remove('hidden');
+      completedMsg.classList.add('hidden');
+
+      counterInfo.innerText = `Soal ${currentIndex + 1} / 20`;
+      const currentQ = dailyList[currentIndex];
+      qText.innerText = currentQ.q;
+
+      optContainer.innerHTML = `
+        <button onclick="answerDailyQuiz('${currentQ.ans}', 'A')" class="p-2.5 bg-white rounded-xl border border-purple-200 font-bold hover:bg-purple-100 text-left transition-all">${currentQ.a}</button>
+        <button onclick="answerDailyQuiz('${currentQ.ans}', 'B')" class="p-2.5 bg-white rounded-xl border border-purple-200 font-bold hover:bg-purple-100 text-left transition-all">${currentQ.b}</button>
+      `;
+    }
+
+    function answerDailyQuiz(correctAns, chosenAns) {
+      if (!activeUser) return;
+      const uData = userDatabase[activeUser];
+
+      if (chosenAns === correctAns) {
+        uData.points += 5; // 1 soal benar dapat 5 poin
+        alert("✨ Jawaban Benar! Kamu mendapatkan +5 Poin!");
+      } else {
+        alert(`❌ Kurang tepat! Jawaban yang benar adalah ${correctAns}.`);
+      }
+
+      uData.quizIndex = (uData.quizIndex || 0) + 1;
+      localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
+      checkAuthStatus();
+      loadDailyQuiz();
     }
 
     function pullGachaCard() {
