@@ -645,16 +645,16 @@
 
     // DATABASE 100 SOAL LENGKAP BTS
     const allQuizQuestions = [
-      { q: "Kapan BTS resmi debut?", a: "A. 13 Juni 2013", b: "B. 13 Juli 2013", ans: "A" },
+      { q: "Kapan BTS debut?", a: "A. 13 Juni 2013", b: "B. 13 Juli 2013", ans: "A" },
       { q: "Siapa leader BTS?", a: "A. Jin", b: "B. RM", ans: "B" },
-      { q: "Apa nama fandom resmi BTS?", a: "A. ARMY", b: "B. MOA", ans: "A" },
-      { q: "Apa single berbahasa Inggris pertama BTS?", a: "A. Butter", b: "B. Dynamite", ans: "B" },
-      { q: "Siapa anggota BTS dengan nama asli Kim Taehyung?", a: "A. V", b: "B. Jimin", ans: "A" },
-      { q: "Siapa saja anggota rapper line BTS?", a: "A. RM, SUGA, J-Hope", b: "B. Jin, Jimin, V", ans: "A" },
-      { q: "Lagu Spring Day termasuk dalam album You Never Walk Alone.", a: "A. Benar", b: "B. Salah", ans: "A" },
-      { q: "Album mana yang memuat lagu Life Goes On?", a: "A. BE", b: "B. Wings", ans: "A" },
+      { q: "Apa nama fandom BTS?", a: "A. ARMY", b: "B. MOA", ans: "A" },
+      { q: "Berapa jumlah anggota BTS?", a: "A. 7", b: "B. 6", ans: "A" },
       { q: "Siapa maknae BTS?", a: "A. Jimin", b: "B. Jungkook", ans: "B" },
-      { q: "Apa judul album single debut BTS?", a: "A. 2 Cool 4 Skool", b: "B. Dark & Wild", ans: "A" },
+      { q: "Siapa anggota tertua BTS?", a: "A. Jin", b: "B. SUGA", ans: "A" },
+      { q: "Apa nama agensi BTS saat debut?", a: "A. JYP Entertainment", b: "B. Big Hit Entertainment", ans: "B" },
+      { q: "Apa nama lightstick resmi BTS?", a: "A. ARMY Bomb", b: "B. Candy Bong", ans: "A" },
+      { q: "Apa judul lagu debut BTS?", a: "A. Spring Day", b: "B. No More Dream", ans: "B" },
+      { q: "Apa nama album debut BTS?", a: "A. 2 Cool 4 Skool", b: "B. Wings", ans: "A" },
       { q: "Siapa nama asli RM?", a: "A. Kim Namjoon", b: "B. Kim Taehyung", ans: "A" },
       { q: "Siapa nama asli Jin?", a: "A. Min Yoongi", b: "B. Kim Seokjin", ans: "B" },
       { q: "Siapa nama asli SUGA?", a: "A. Min Yoongi", b: "B. Jung Hoseok", ans: "A" },
@@ -662,39 +662,89 @@
       { q: "Siapa nama asli Jimin?", a: "A. Park Jimin", b: "B. Jeon Jungkook", ans: "A" },
       { q: "Siapa nama asli V?", a: "A. Kim Seokjin", b: "B. Kim Taehyung", ans: "B" },
       { q: "Siapa nama asli Jungkook?", a: "A. Jeon Jungkook", b: "B. Kim Namjoon", ans: "A" },
-      { q: "Siapa yang menggunakan nama panggung V?", a: "A. Jimin", b: "B. Taehyung", ans: "B" },
-      { q: "Siapa yang menggunakan nama panggung SUGA?", a: "A. Yoongi", b: "B. Hoseok", ans: "A" },
-      { q: "Siapa yang menggunakan nama panggung J-Hope?", a: "A. Namjoon", b: "B. Hoseok", ans: "B" },
-      { q: "Lagu debut BTS adalah?", a: "A. No More Dream", b: "B. Spring Day", ans: "A" },
-      { q: "Lagu BTS yang dirilis pada 2020 dengan nuansa retro adalah?", a: "A. Black Swan", b: "B. Dynamite", ans: "B" },
-      { q: "Lagu BTS yang memiliki judul Butter adalah?", a: "A. Butter", b: "B. Permission to Dance", ans: "A" },
-      { q: "Lagu BTS yang memuat pesan tentang terus melangkah adalah?", a: "A. Fake Love", b: "B. Life Goes On", ans: "B" },
-      { q: "Lagu BTS dengan judul Spring Day termasuk lagu mereka.", a: "A. Benar", b: "B. Salah", ans: "A" },
-      { q: "Lagu BTS yang dirilis bersama Halsey adalah?", a: "A. Boy With Luv", b: "B. DNA", ans: "A" },
-      { q: "Lagu BTS yang dikenal dengan lirik “I'm the one I should love” adalah?", a: "A. Fire", b: "B. Epiphany", ans: "B" },
-      { q: "Lagu BTS yang memiliki judul DNA dirilis pada 2017.", a: "A. Benar", b: "B. Salah", ans: "A" },
-      { q: "Lagu BTS yang memiliki judul Black Swan adalah?", a: "A. Black Swan", b: "B. Blue & Grey", ans: "A" },
-      { q: "Lagu BTS yang dirilis pada 2021 dan bertema menari adalah?", a: "A. Yet To Come", b: "B. Permission to Dance", ans: "B" },
-      { q: "Album BTS yang memuat lagu Fake Love adalah?", a: "A. BE", b: "B. Love Yourself: Tear", ans: "B" },
-      { q: "Map of the Soul: 7 dirilis pada 2020.", a: "A. Benar", b: "B. Salah", ans: "A" },
-      { q: "Album antologi BTS yang dirilis pada 2022 adalah?", a: "A. BE", b: "B. Proof", ans: "B" },
-      { q: "Love Yourself: Answer dirilis pada 2018.", a: "A. Benar", b: "B. Salah", ans: "A" },
-      { q: "RM termasuk rapper line BTS.", a: "A. Benar", b: "B. Salah", ans: "A" },
-      { q: "Jin merupakan bagian dari rapper line BTS.", a: "A. Benar", b: "B. Salah", ans: "B" },
-      { q: "Jimin dikenal sebagai anggota vocal line.", a: "A. Benar", b: "B. Salah", ans: "A" },
-      { q: "Jungkook dikenal sebagai main vocalist BTS.", a: "A. Benar", b: "B. Salah", ans: "A" },
-      { q: "SUGA dikenal juga sebagai produser musik.", a: "A. Benar", b: "B. Salah", ans: "A" },
-      { q: "BTS berkolaborasi dengan Coldplay dalam lagu My Universe.", a: "A. Benar", b: "B. Salah", ans: "A" },
-      { q: "Lagu Left and Right merupakan kolaborasi Jungkook dengan Charlie Puth.", a: "A. Benar", b: "B. Salah", ans: "A" },
-      { q: "BTS memenangkan Billboard Music Award Top Social Artist pada 2017.", a: "A. Benar", b: "B. Salah", ans: "A" },
-      { q: "BTS pernah berpidato di PBB.", a: "A. Benar", b: "B. Salah", ans: "A" },
-      { q: "Kampanye BTS bersama UNICEF dikenal dengan nama?", a: "A. Love Myself", b: "B. Love Yourself: Tear", ans: "A" },
-      { q: "BTS berasal dari Korea Selatan.", a: "A. Benar", b: "B. Salah", ans: "A" },
-      { q: "Nama BTS dalam bahasa Korea adalah Bangtan Sonyeondan.", a: "A. Benar", b: "B. Salah", ans: "A" },
-      { q: "BTS memiliki tujuh anggota.", a: "A. Benar", b: "B. Salah", ans: "A" },
-      { q: "Lagu BTS berjudul MIC Drop memiliki versi remix bersama Steve Aoki.", a: "A. Benar", b: "B. Salah", ans: "A" },
-      { q: "Lagu BTS berjudul Anpanman terinspirasi dari karakter pahlawan Jepang.", a: "A. Benar", b: "B. Salah", ans: "A" },
-      { q: "BTS merilis lagu berjudul SWIM pada era album ARIRANG tahun 2026.", a: "A. Benar", b: "B. Salah", ans: "A" }
+      { q: "Siapa member dengan nama panggung V?", a: "A. Jimin", b: "B. Taehyung", ans: "B" },
+      { q: "Siapa member yang memiliki nama panggung Agust D?", a: "A. SUGA", b: "B. RM", ans: "A" },
+      { q: "Siapa member yang merilis album Jack in the Box?", a: "A. RM", b: "B. j-hope", ans: "B" },
+      { q: "Lagu debut BTS adalah?", a: "A. No More Dream", b: "B. Fire", ans: "A" },
+      { q: "Lagu berbahasa Inggris pertama BTS adalah?", a: "A. Butter", b: "B. Dynamite", ans: "B" },
+      { q: "Lagu BTS bersama Halsey adalah?", a: "A. Boy With Luv", b: "B. DNA", ans: "A" },
+      { q: "Lagu BTS yang dirilis bersama Coldplay adalah?", a: "A. Butter", b: "B. My Universe", ans: "B" },
+      { q: "Lagu BTS yang memiliki judul Spring Day adalah?", a: "A. Spring Day", b: "B. Blue & Grey", ans: "A" },
+      { q: "Lagu BTS yang memuat lirik “I'm the one I should love” adalah?", a: "A. Epiphany", b: "B. Euphoria", ans: "A" },
+      { q: "Lagu BTS dengan judul IDOL dirilis pada era album?", a: "A. Love Yourself: Answer", b: "B. BE", ans: "A" },
+      { q: "Lagu BTS yang memiliki judul Black Swan adalah?", a: "A. ON", b: "B. Black Swan", ans: "B" },
+      { q: "Lagu BTS yang dirilis pada 2021 dengan pesan menari adalah?", a: "A. Permission to Dance", b: "B. Yet To Come", ans: "A" },
+      { q: "Lagu BTS yang berjudul Life Goes On terdapat di album?", a: "A. Wings", b: "B. BE", ans: "B" },
+      { q: "Album debut BTS adalah?", a: "A. 2 Cool 4 Skool", b: "B. Dark & Wild", ans: "A" },
+      { q: "Album yang memuat Fake Love adalah?", a: "A. Love Yourself: Tear", b: "B. Love Yourself: Her", ans: "A" },
+      { q: "Album BTS yang dirilis pada 2022 adalah?", a: "A. Proof", b: "B. Wings", ans: "A" },
+      { q: "Album BTS yang memuat lagu Spring Day adalah?", a: "A. You Never Walk Alone", b: "B. Map of the Soul: 7", ans: "A" },
+      { q: "Album studio BTS yang dirilis pada 2016 adalah?", a: "A. Wings", b: "B. BE", ans: "A" },
+      { q: "Album BTS yang memuat DNA adalah?", a: "A. Love Yourself: Answer", b: "B. Skool Luv Affair", ans: "A" },
+      { q: "Album yang memuat lagu ON adalah?", a: "A. Map of the Soul: 7", b: "B. Dark & Wild", ans: "A" },
+      { q: "Album BTS yang memuat For Youth adalah?", a: "A. Proof", b: "B. BE", ans: "A" },
+      { q: "Album BTS yang memuat Life Goes On adalah?", a: "A. Wings", b: "B. BE", ans: "B" },
+      { q: "Album mini BTS yang dirilis pada 2014 adalah?", a: "A. Skool Luv Affair", b: "B. Proof", ans: "A" },
+      { q: "Apa judul album solo RM yang dirilis pada 2022?", a: "A. Indigo", b: "B. FACE", ans: "A" },
+      { q: "Apa judul album solo Jimin yang memuat Like Crazy?", a: "A. GOLDEN", b: "B. FACE", ans: "B" },
+      { q: "Apa judul album solo Jungkook?", a: "A. GOLDEN", b: "B. D-DAY", ans: "A" },
+      { q: "Apa judul album solo SUGA yang dirilis pada 2023?", a: "A. MUSE", b: "B. D-DAY", ans: "B" },
+      { q: "Apa judul album solo j-hope yang dirilis pada 2022?", a: "A. Jack in the Box", b: "B. Indigo", ans: "A" },
+      { q: "Apa judul album solo Jin yang dirilis pada 2024?", a: "A. FACE", b: "B. Happy", ans: "B" },
+      { q: "Siapa yang menyanyikan lagu FRI(END)S?", a: "A. V", b: "B. Jin", ans: "A" },
+      { q: "Siapa yang menyanyikan lagu Seven?", a: "A. Jimin", b: "B. Jungkook", ans: "B" },
+      { q: "Siapa yang menyanyikan lagu Daechwita?", a: "A. Agust D", b: "B. RM", ans: "A" },
+      { q: "Siapa yang menyanyikan lagu The Astronaut?", a: "A. Jin", b: "B. V", ans: "A" },
+      { q: "Siapa penyanyi yang berkolaborasi dengan BTS dalam Boy With Luv?", a: "A. Halsey", b: "B. Adele", ans: "A" },
+      { q: "Siapa yang berkolaborasi dengan Jungkook dalam Left and Right?", a: "A. The Weeknd", b: "B. Charlie Puth", ans: "B" },
+      { q: "Siapa yang berkolaborasi dengan SUGA dalam That That?", a: "A. PSY", b: "B. Rain", ans: "A" },
+      { q: "Siapa yang berkolaborasi dengan j-hope dalam Chicken Noodle Soup?", a: "A. Latto", b: "B. Becky G", ans: "B" },
+      { q: "Siapa yang berkolaborasi dengan Jungkook dalam 3D?", a: "A. Jack Harlow", b: "B. Ed Sheeran", ans: "A" },
+      { q: "Grup apa yang berkolaborasi dengan BTS dalam My Universe?", a: "A. Maroon 5", b: "B. Coldplay", ans: "B" },
+      { q: "Siapa yang berkolaborasi dengan BTS dalam lagu Butter versi remix featuring?", a: "A. Megan Thee Stallion", b: "B. Doja Cat", ans: "A" },
+      { q: "Siapa yang berkolaborasi dengan j-hope dalam MORE?", a: "A. Tidak ada artis featuring", b: "B. Halsey", ans: "A" },
+      { q: "Siapa yang berkolaborasi dengan Jungkook dalam Seven?", a: "A. Latto", b: "B. Sia", ans: "A" },
+      { q: "Siapa yang berkolaborasi dengan BTS dalam Waste It On Me?", a: "A. Zedd", b: "B. Steve Aoki", ans: "B" },
+      { q: "BTS berasal dari negara mana?", a: "A. Korea Selatan", b: "B. Jepang", ans: "A" },
+      { q: "Apa kepanjangan nama Korea BTS?", a: "A. Bangtan Sonyeondan", b: "B. Blacktan Sonyeondan", ans: "A" },
+      { q: "Pada tahun berapa BTS merilis Dynamite?", a: "A. 2020", b: "B. 2021", ans: "A" },
+      { q: "Pada tahun berapa BTS merilis album Proof?", a: "A. 2021", b: "B. 2022", ans: "B" },
+      { q: "Siapa member yang lahir pada 1 September 1997?", a: "A. Jungkook", b: "B. Jimin", ans: "A" },
+      { q: "Siapa member yang lahir pada 30 Desember 1995?", a: "A. Jin", b: "B. V", ans: "B" },
+      { q: "Siapa member yang lahir pada 13 Oktober 1995?", a: "A. Jimin", b: "B. RM", ans: "A" },
+      { q: "Siapa member yang lahir pada 4 Desember 1992?", a: "A. SUGA", b: "B. Jin", ans: "B" },
+      { q: "Siapa member yang lahir pada 18 Februari 1994?", a: "A. j-hope", b: "B. RM", ans: "A" },
+      { q: "Siapa member yang lahir pada 12 September 1994?", a: "A. V", b: "B. RM", ans: "B" },
+      { q: "Kampanye BTS bersama UNICEF dikenal sebagai?", a: "A. Love Myself", b: "B. Love Forever", ans: "A" },
+      { q: "Pada tahun berapa BTS memenangkan Top Social Artist BBMAs untuk pertama kalinya?", a: "A. 2017", b: "B. 2019", ans: "A" },
+      { q: "Lagu BTS yang mendapat nominasi Grammy pada 2021 adalah?", a: "A. Dynamite", b: "B. Fire", ans: "A" },
+      { q: "BTS pernah berpidato di forum PBB. Di forum mana?", a: "A. United Nations", b: "B. NATO", ans: "A" },
+      { q: "BTS memenangkan Artist of the Year di American Music Awards pada tahun?", a: "A. 2019", b: "B. 2021", ans: "B" },
+      { q: "Apa judul lagu BTS yang menjadi soundtrack film Eternals?", a: "A. Friends", b: "B. Life Goes On", ans: "A" },
+      { q: "BTS pernah tampil di acara The Tonight Show Starring siapa?", a: "A. Jimmy Fallon", b: "B. Jimmy Kimmel", ans: "A" },
+      { q: "Lagu BTS yang digunakan dalam kampanye Love Myself adalah?", a: "A. Kampanye ini tidak terbatas pada satu lagu", b: "B. Hanya Dynamite", ans: "A" },
+      { q: "BTS tampil di Grammy Awards dengan lagu Dynamite pada tahun?", a: "A. 2021", b: "B. 2018", ans: "A" },
+      { q: "BTS merilis lagu Take Two untuk memperingati anniversary ke-berapa pada 2023?", a: "A. Ke-10", b: "B. Ke-7", ans: "A" },
+      { q: "Lagu BTS yang dirilis pada 2015 adalah?", a: "A. I NEED U", b: "B. Butter", ans: "A" },
+      { q: "Lagu BTS yang memuat frasa “You can't stop me lovin' myself” adalah?", a: "A. IDOL", b: "B. Spring Day", ans: "A" },
+      { q: "Lagu BTS yang berjudul Anpanman terinspirasi dari karakter asal negara?", a: "A. Jepang", b: "B. Korea Selatan", ans: "A" },
+      { q: "Lagu BTS berbahasa Jepang yang dirilis pada 2021 adalah?", a: "A. Film Out", b: "B. Black Swan", ans: "A" },
+      { q: "Lagu BTS yang berjudul Run BTS terdapat dalam album?", a: "A. Proof", b: "B. Wings", ans: "A" },
+      { q: "Lagu BTS yang memiliki judul Fire dirilis pada tahun?", a: "A. 2016", b: "B. 2019", ans: "A" },
+      { q: "Lagu BTS yang dirilis pada 2018 adalah?", a: "A. Fake Love", b: "B. Dynamite", ans: "A" },
+      { q: "Lagu BTS yang berjudul Blue & Grey terdapat di album?", a: "A. BE", b: "B. Dark & Wild", ans: "A" },
+      { q: "Lagu BTS yang dirilis pada 2023 untuk anniversary mereka adalah?", a: "A. Take Two", b: "B. Yet To Come", ans: "A" },
+      { q: "Lagu BTS yang berjudul For Youth dirilis pada tahun?", a: "A. 2022", b: "B. 2017", ans: "A" },
+      { q: "Siapa member BTS yang merilis album D-DAY?", a: "A. SUGA", b: "B. RM", ans: "A" },
+      { q: "Apa judul album solo V yang dirilis pada 2023?", a: "A. Layover", b: "B. Indigo", ans: "A" },
+      { q: "Apa judul album solo Jimin yang dirilis pada 2024?", a: "A. MUSE", b: "B. FACE", ans: "A" },
+      { q: "Apa judul album solo Jin yang dirilis pada 2022?", a: "A. The Astronaut", b: "B. Happy", ans: "A" },
+      { q: "Apa judul lagu solo j-hope yang dirilis pada 2022 dan menjadi single utama album Jack in the Box?", a: "A. MORE", b: "B. Arson", ans: "B" },
+      { q: "Siapa member BTS yang merilis lagu solo Euphoria?", a: "A. Jungkook", b: "B. Jin", ans: "A" },
+      { q: "Siapa member BTS yang menyanyikan lagu Serendipity?", a: "A. Jimin", b: "B. V", ans: "A" },
+      { q: "Siapa member BTS yang menyanyikan lagu Singularity?", a: "A. RM", b: "B. V", ans: "B" },
+      { q: "Siapa member BTS yang menyanyikan lagu Epiphany?", a: "A. Jin", b: "B. SUGA", ans: "A" },
+      { q: "Apa judul album BTS yang dirilis pada 2026?", a: "A. ARIRANG", b: "B. PROOF", ans: "A" }
     ];
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -707,10 +757,11 @@
       loadDailyQuiz();
     });
 
-    function getBadgeTitle(pts) {
-      if (pts >= 300) return '👑 Borahae Elite';
-      if (pts >= 150) return '🔮 Magic Shop ARMY';
-      if (pts >= 50) return '💜 Purple ARMY';
+    // BADGE DIHITUNG BERDASARKAN JUMLAH KARTU PHOTOCARD YANG DIKOLEKSI (AGAR TIDAK TURUN SAAT POIN DITUKAR GACHA)
+    function getBadgeTitle(cardsCount) {
+      if (cardsCount >= 6) return '👑 Borahae Elite';
+      if (cardsCount >= 4) return '🔮 Magic Shop ARMY';
+      if (cardsCount >= 2) return '💜 Purple ARMY';
       return '🐣 Baby ARMY';
     }
 
@@ -720,7 +771,7 @@
         if (!uData.cards) uData.cards = [];
         document.getElementById('profileNameDisplay').innerText = `Profil: ${activeUser}`;
         document.getElementById('userPoints').innerText = `${uData.points} PTS`;
-        document.getElementById('userBadge').innerText = getBadgeTitle(uData.points);
+        document.getElementById('userBadge').innerText = getBadgeTitle(uData.cards.length);
         document.getElementById('inputNama').value = activeUser;
         document.getElementById('prevNama').innerText = activeUser;
 
@@ -884,22 +935,20 @@
       alert("Check-in berhasil! (+10 PTS) 🎉");
     }
 
-    // LOGIKA QUIZ HARIAN BERGANTI-GANTI (MAX 20 SOAL PER HARI, 5 POIN PER SOAL BENAR)
+    // LOGIKA QUIZ HARIAN DARI 100 SOAL (MAX 20 SOAL PER HARI, 5 POIN PER SOAL BENAR)
     function getDailyQuestions() {
       const todayStr = new Date().toISOString().split('T')[0];
-      // Pseudo-random seed berdasarkan tanggal hari ini agar semua soal sama untuk hari itu, tapi beda di hari esok
       let seed = 0;
       for (let i = 0; i < todayStr.length; i++) {
         seed += todayStr.charCodeAt(i);
       }
       
       let shuffled = [...allQuizQuestions];
-      // Shuffle array konsisten berdasarkan tanggal
       for (let i = shuffled.length - 1; i > 0; i--) {
         let j = (seed * (i + 1)) % shuffled.length;
         [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
       }
-      return shuffled.slice(0, 20); // Ambil tepat 20 soal untuk hari ini
+      return shuffled.slice(0, 20); // Tepat 20 soal berganti otomatis tiap hari
     }
 
     function loadDailyQuiz() {
@@ -917,7 +966,6 @@
       const todayStr = new Date().toISOString().split('T')[0];
       const uData = userDatabase[activeUser];
 
-      // Reset index jika sudah berganti hari
       if (uData.quizDate !== todayStr) {
         uData.quizDate = todayStr;
         uData.quizIndex = 0;
@@ -955,7 +1003,7 @@
       const uData = userDatabase[activeUser];
 
       if (chosenAns === correctAns) {
-        uData.points += 5; // 1 soal benar dapat 5 poin
+        uData.points += 5; // 1 soal benar = +5 poin
         alert("✨ Jawaban Benar! Kamu mendapatkan +5 Poin!");
       } else {
         alert(`❌ Kurang tepat! Jawaban yang benar adalah ${correctAns}.`);
