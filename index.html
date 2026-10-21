@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>7HEAVEN PURPLE — Official ARMY Base</title>
+  <title>7HEAVEN PURPLE — Official ARMY Base & Game Koleksi</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
@@ -43,130 +43,33 @@
       box-shadow: 0 8px 32px 0 rgba(125, 82, 193, 0.08);
     }
 
-    /* BINGKAI TEMPLATE SESUAI FOTO CONTOH */
-    .frame-bts-chibi {
-      border: 5px dashed #9D72E1 !important;
-      border-radius: 2rem !important;
-      background: #F8F5FF;
-      box-shadow: 0 10px 25px rgba(125, 82, 193, 0.15) !important;
-    }
-    .frame-army-lavender {
-      border: 4px double #7D52C1 !important;
-      border-radius: 1.5rem !important;
-      background: #FFFFFF;
-      box-shadow: inset 0 0 15px rgba(125, 82, 193, 0.2), 0 8px 20px rgba(0,0,0,0.1) !important;
-    }
-    .frame-bt21-pastel {
-      border: 6px solid #FFB6C1 !important;
-      border-radius: 2.2rem !important;
-      background: #FFF5F7;
-      box-shadow: 0 10px 20px rgba(255, 182, 193, 0.3) !important;
-    }
-    .frame-arirang-rock {
-      border: 5px solid #800000 !important;
-      border-radius: 1.2rem !important;
-      background: #2B0508;
-      color: #FFFFFF !important;
-      box-shadow: 0 10px 30px rgba(128, 0, 0, 0.4) !important;
-    }
+    .frame-bts-chibi { border: 5px dashed #9D72E1 !important; border-radius: 2rem !important; background: #F8F5FF; }
+    .frame-army-lavender { border: 4px double #7D52C1 !important; border-radius: 1.5rem !important; background: #FFFFFF; }
+    .frame-bt21-pastel { border: 6px solid #FFB6C1 !important; border-radius: 2.2rem !important; background: #FFF5F7; }
+    .frame-arirang-rock { border: 5px solid #800000 !important; border-radius: 1.2rem !important; background: #2B0508; color: #FFFFFF !important; }
 
-    #certificateCanvas {
-      overflow: visible !important;
-      position: relative !important;
-      transition: background-color 0.2s ease, border-color 0.2s ease;
-    }
+    #certificateCanvas { overflow: visible !important; position: relative !important; }
+    .crop-9-16-container { width: 100%; max-width: 250px; aspect-ratio: 9 / 16; position: relative; overflow: hidden !important; border-radius: 1.25rem; background: rgba(241, 236, 253, 0.6); margin: 0 auto; z-index: 1; }
+    .crop-9-16-img { width: 100%; height: 100%; object-fit: cover !important; }
 
-    .crop-9-16-container {
-      width: 100%;
-      max-width: 250px;
-      aspect-ratio: 9 / 16;
-      position: relative;
-      overflow: hidden !important;
-      border-radius: 1.25rem;
-      background: rgba(241, 236, 253, 0.6);
-      margin: 0 auto;
-      z-index: 1;
-    }
-    .crop-9-16-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover !important;
-      object-position: center !important;
-    }
+    #stickerLayer { position: absolute !important; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999 !important; }
+    .sticker-item { touch-action: none; user-select: none; cursor: move; position: absolute; transform-origin: center center; display: inline-block; z-index: 10000 !important; }
+    .sticker-item.selected { outline: 2px dashed #7D52C1; outline-offset: 4px; }
+    .sticker-delete-btn { display: none; position: absolute; top: -12px; right: -12px; background: #FF4D4D; color: white; border-radius: 9999px; width: 22px; height: 22px; font-size: 11px; align-items: center; justify-content: center; cursor: pointer; }
+    .sticker-item.selected .sticker-delete-btn { display: flex; }
 
-    #stickerLayer {
-      position: absolute !important;
-      top: 0 !important;
-      left: 0 !important;
-      width: 100% !important;
-      height: 100% !important;
-      pointer-events: none;
-      z-index: 9999 !important;
-      overflow: visible !important;
-    }
-
-    /* MURNI CUBIT & PUTAR DUA JARI SEPERTI WHATSAPP */
-    .sticker-item {
-      touch-action: none;
-      user-select: none;
-      cursor: move;
-      position: absolute;
-      transform-origin: center center;
-      display: inline-block;
-      z-index: 10000 !important;
-      will-change: transform, left, top;
-    }
-    .sticker-item.selected {
-      outline: 2px dashed #7D52C1;
-      outline-offset: 4px;
-    }
-    .sticker-delete-btn {
-      display: none;
-      position: absolute;
-      top: -12px;
-      right: -12px;
-      background: #FF4D4D;
-      color: white;
-      border-radius: 9999px;
-      width: 22px;
-      height: 22px;
-      font-size: 11px;
-      align-items: center;
-      justify-content: center;
-      z-index: 10001 !important;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-      cursor: pointer;
-    }
-    .sticker-item.selected .sticker-delete-btn {
-      display: flex;
-    }
-
-    /* CANVA HUE SLIDER STYLE */
     .canva-hue-slider {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 100%;
-      height: 14px;
-      border-radius: 10px;
+      -webkit-appearance: none; appearance: none; width: 100%; height: 14px; border-radius: 10px;
       background: linear-gradient(to right, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000);
       outline: none;
-      box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
     }
     .canva-hue-slider::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: #ffffff;
-      border: 3px solid #7D52C1;
-      cursor: pointer;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      -webkit-appearance: none; appearance: none; width: 22px; height: 22px; border-radius: 50%;
+      background: #ffffff; border: 3px solid #7D52C1; cursor: pointer;
     }
 
-    ::-webkit-scrollbar { width: 4px; height: 4px; }
-    ::-webkit-scrollbar-track { background: #F1ECFD; }
-    ::-webkit-scrollbar-thumb { background: #9D72E1; border-radius: 10px; }
+    /* KARTU PHOTOCARD GAME */
+    .photocard-locked { filter: grayscale(100%) brightness(60%); }
   </style>
 </head>
 <body class="text-slate-800 min-h-screen pb-24">
@@ -183,7 +86,7 @@
           <h1 class="text-sm font-extrabold text-btspurple leading-tight cute-font tracking-wide">
             7HEAVEN <span class="text-[10px] px-1.5 py-0.2 rounded-full bg-purple-100 font-bold">PURPLE</span>
           </h1>
-          <p id="profileNameDisplay" class="text-[10px] text-purple-600 font-semibold">Profil: Guest (Belum Login)</p>
+          <p id="profileNameDisplay" class="text-[10px] text-purple-600 font-semibold">Profil: Guest</p>
         </div>
       </div>
 
@@ -199,20 +102,23 @@
     </div>
 
     <!-- NAVIGATION TABS -->
-    <nav class="flex border-t border-purple-50 max-w-md mx-auto bg-white/50 px-1 pt-1">
-      <button onclick="switchTab('beranda')" id="tab-beranda" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-btspurple border-b-2 border-btspurple flex flex-col items-center gap-0.5">
+    <nav class="flex border-t border-purple-50 max-w-md mx-auto bg-white/50 px-1 pt-1 overflow-x-auto">
+      <button onclick="switchTab('beranda')" id="tab-beranda" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-btspurple border-b-2 border-btspurple flex flex-col items-center gap-0.5 min-w-[65px]">
         <i class="fa-solid fa-house text-sm"></i> Beranda
       </button>
-      <button onclick="switchTab('sertifikat')" id="tab-sertifikat" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5">
+      <button onclick="switchTab('sertifikat')" id="tab-sertifikat" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 flex flex-col items-center gap-0.5 min-w-[65px]">
         <i class="fa-solid fa-certificate text-sm"></i> Sertifikat
       </button>
-      <button onclick="switchTab('misi')" id="tab-misi" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5">
+      <button onclick="switchTab('misi')" id="tab-misi" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 flex flex-col items-center gap-0.5 min-w-[65px]">
         <i class="fa-solid fa-list-check text-sm"></i> Misi
       </button>
-      <button onclick="switchTab('diary')" id="tab-diary" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5">
+      <button onclick="switchTab('gacha')" id="tab-gacha" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 flex flex-col items-center gap-0.5 min-w-[65px]">
+        <i class="fa-solid fa-id-card-clip text-sm"></i> Koleksi PC
+      </button>
+      <button onclick="switchTab('diary')" id="tab-diary" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 flex flex-col items-center gap-0.5 min-w-[65px]">
         <i class="fa-solid fa-book-bookmark text-sm"></i> Diary
       </button>
-      <button onclick="switchTab('admin')" id="tab-admin" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 hover:text-btspurple border-b-2 border-transparent flex flex-col items-center gap-0.5">
+      <button onclick="switchTab('admin')" id="tab-admin" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-slate-500 flex flex-col items-center gap-0.5 min-w-[65px]">
         <i class="fa-solid fa-user-shield text-sm"></i> Admin
       </button>
     </nav>
@@ -220,7 +126,7 @@
 
   <main class="max-w-md mx-auto px-4 pt-3">
 
-    <!-- MODAL AUTH LOGIN / REGISTER / EDIT PROFIL MEMBER -->
+    <!-- MODAL AUTH LOGIN / REGISTER -->
     <div id="authModal" class="glass-card rounded-3xl p-4 mb-4 border border-purple-200">
       <div class="flex justify-between items-center border-b border-purple-100 pb-2 mb-3">
         <h3 class="text-xs font-bold text-btspurple cute-font flex items-center gap-1.5">
@@ -229,7 +135,6 @@
         <span id="authStatusText" class="text-[10px] bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-full">Belum Masuk</span>
       </div>
 
-      <!-- FORM LOGIN & REGISTER -->
       <div id="authFormArea" class="space-y-2 text-xs">
         <div class="grid grid-cols-2 gap-2">
           <input type="text" id="authUsername" placeholder="Username Member" class="w-full px-3 py-1.5 rounded-xl border border-purple-200 bg-white font-semibold">
@@ -241,7 +146,6 @@
         </div>
       </div>
 
-      <!-- INFORMASI PROFIL & EDIT PROFIL -->
       <div id="loggedInArea" class="hidden space-y-2 text-xs pt-1">
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-2">
@@ -252,26 +156,17 @@
             </div>
           </div>
           <div class="flex gap-1.5">
-            <button onclick="toggleEditProfileModal()" class="px-2.5 py-1 bg-purple-100 text-btspurple font-bold rounded-lg text-[10px]">✏️ Edit Profil</button>
+            <button onclick="toggleEditProfileModal()" class="px-2.5 py-1 bg-purple-100 text-btspurple font-bold rounded-lg text-[10px]">✏️ Edit</button>
             <button onclick="logoutUser()" class="px-2.5 py-1 bg-red-100 text-red-600 font-bold rounded-lg text-[10px]">Keluar</button>
           </div>
         </div>
 
         <div id="editProfileSection" class="hidden p-3 bg-purple-50/80 rounded-2xl border border-purple-200 space-y-2 mt-2">
-          <h4 class="font-bold text-btspurple text-xs">✏️ Edit Informasi Profil & Foto PP</h4>
-          <div>
-            <label class="block text-[10px] font-bold text-slate-600 mb-0.5">Nama Tampilan Member:</label>
-            <input type="text" id="editDisplayName" placeholder="Nama Baru" class="w-full px-2.5 py-1 rounded-xl border border-purple-200 text-xs bg-white">
-          </div>
-          <div>
-            <label class="block text-[10px] font-bold text-slate-600 mb-0.5">Bio Status Quote:</label>
-            <input type="text" id="editBioText" placeholder="misal: Borahae BTS 💜" class="w-full px-2.5 py-1 rounded-xl border border-purple-200 text-xs bg-white">
-          </div>
-          <div>
-            <label class="block text-[10px] font-bold text-slate-600 mb-0.5">Upload Foto Profil Avatar (PP):</label>
-            <input type="file" accept="image/*" onchange="handleAvatarUpload(event)" class="w-full text-xs text-slate-500 file:mr-2 file:py-1 file:px-2 file:rounded-lg file:border-0 file:text-[10px] file:font-bold file:bg-purple-100 file:text-btspurple">
-          </div>
-          <button onclick="saveProfileChanges()" class="w-full py-1.5 bg-btspurple text-white font-bold rounded-xl text-xs shadow-md">Simpan Perubahan Profil</button>
+          <h4 class="font-bold text-btspurple text-xs">✏️ Edit Profil & Avatar</h4>
+          <input type="text" id="editDisplayName" placeholder="Nama Baru" class="w-full px-2.5 py-1 rounded-xl border border-purple-200 text-xs bg-white">
+          <input type="text" id="editBioText" placeholder="Bio Quote" class="w-full px-2.5 py-1 rounded-xl border border-purple-200 text-xs bg-white">
+          <input type="file" accept="image/*" onchange="handleAvatarUpload(event)" class="w-full text-xs text-slate-500">
+          <button onclick="saveProfileChanges()" class="w-full py-1.5 bg-btspurple text-white font-bold rounded-xl text-xs">Simpan</button>
         </div>
       </div>
     </div>
@@ -284,8 +179,8 @@
         <p class="text-xs text-purple-100 mt-1.5 italic">"Let's stream and vote together."</p>
 
         <div class="mt-4 pt-3 border-t border-white/20 flex items-center justify-between">
-          <button id="btnCheckin" onclick="doDailyCheckin()" class="px-4 py-2 bg-amber-400 hover:bg-amber-300 text-purple-950 font-black rounded-2xl text-xs shadow-md transition-all cute-font flex items-center gap-1.5">
-            <i class="fa-solid fa-calendar-check"></i> Check-in Harian (+10 Pts)
+          <button id="btnCheckin" onclick="doDailyCheckin()" class="px-4 py-2 bg-amber-400 hover:bg-amber-300 text-purple-950 font-black rounded-2xl text-xs shadow-md cute-font flex items-center gap-1.5">
+            <i class="fa-solid fa-calendar-check"></i> Check-in Harian (+20 Pts)
           </button>
           <span id="checkinStatus" class="text-[11px] font-bold text-purple-200">Belum Check-in</span>
         </div>
@@ -305,43 +200,9 @@
               <p class="font-extrabold text-slate-800">MAMA 2026</p>
               <p class="text-[10px] text-slate-500">Fans' Choice Category (Male)</p>
             </div>
-            <button onclick="switchTab('sertifikat')" class="px-3 py-1.5 bg-btspurple text-white font-bold rounded-xl shadow-md hover:bg-btsdark transition-all text-[11px]">
-              Buat Bukti
-            </button>
-          </div>
-
-          <div class="p-3 bg-purple-50/70 rounded-2xl flex items-center justify-between border border-purple-100">
-            <div>
-              <p class="font-extrabold text-slate-800">KCA 2026</p>
-              <p class="text-[10px] text-slate-500">Vote BTS / SWIM</p>
-            </div>
-            <button onclick="switchTab('sertifikat')" class="px-3 py-1.5 bg-btspurple text-white font-bold rounded-xl shadow-md hover:bg-btsdark transition-all text-[11px]">
-              Buat Bukti
-            </button>
-          </div>
-
-          <div class="p-3 bg-purple-50/70 rounded-2xl flex items-center justify-between border border-purple-100">
-            <div>
-              <p class="font-extrabold text-slate-800">AAA (Final)</p>
-              <p class="text-[10px] text-slate-500">Popularity Vote</p>
-            </div>
-            <button onclick="switchTab('sertifikat')" class="px-3 py-1.5 bg-btspurple text-white font-bold rounded-xl shadow-md hover:bg-btsdark transition-all text-[11px]">
-              Buat Bukti
-            </button>
+            <button onclick="switchTab('sertifikat')" class="px-3 py-1.5 bg-btspurple text-white font-bold rounded-xl shadow-md text-[11px]">Buat Bukti</button>
           </div>
         </div>
-      </div>
-
-      <div class="glass-card rounded-3xl p-4 flex items-center justify-between cursor-pointer" onclick="switchTab('misi')">
-        <div>
-          <h3 class="text-sm font-extrabold text-slate-800 cute-font flex items-center gap-1.5">
-            <i class="fa-solid fa-compact-disc text-btspurple"></i> Album Stream Daily
-          </h3>
-          <p class="text-[11px] text-slate-500 mt-0.5">Dukung pencapaian album ARIRANG BTS</p>
-        </div>
-        <span class="text-xs font-bold text-btspurple flex items-center gap-1">
-          Lihat Semua (14 Track) <i class="fa-solid fa-arrow-right"></i>
-        </span>
       </div>
     </section>
 
@@ -349,7 +210,7 @@
     <section id="sec-sertifikat" class="tab-content hidden space-y-4">
       <div class="glass-card rounded-3xl p-4 space-y-3">
         <h3 class="text-xs font-extrabold text-slate-800 cute-font border-b border-purple-100 pb-1.5">
-          🎨 Editor Sertifikat Estetik ARMY
+          🎨 Editor Sertifikat & Stiker Interaktif
         </h3>
 
         <div class="grid grid-cols-2 gap-2 text-xs">
@@ -370,18 +231,13 @@
             <input type="text" id="inputKategori" value="Fans Choice" oninput="updatePreview()" class="w-full px-3 py-2 rounded-xl border border-purple-200 bg-white font-semibold">
           </div>
           <div class="col-span-2">
-            <label class="font-bold text-slate-700 block mb-0.5">Tanggal Vote</label>
-            <input type="date" id="inputTanggal" onchange="updatePreview()" class="w-full px-3 py-2 rounded-xl border border-purple-200 bg-white font-semibold">
-          </div>
-          <div class="col-span-2">
             <label class="font-bold text-slate-700 block mb-0.5">Upload Bukti Screenshot (Auto-Crop 9:16)</label>
             <input type="file" accept="image/*" onchange="handleBuktiUpload(event)" class="w-full text-xs text-slate-500 file:mr-3 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-purple-100 file:text-btspurple">
           </div>
         </div>
 
-        <!-- PILIHAN TEMPLATE BINGKAI LENGKAP -->
         <div class="pt-2 border-t border-purple-100 space-y-2">
-          <label class="font-bold text-slate-700 text-xs block">🖼️ Pilih Desain Bingkai (Sesuai Selera):</label>
+          <label class="font-bold text-slate-700 text-xs block">🖼️ Pilih Desain Bingkai:</label>
           <div class="grid grid-cols-2 gap-1.5 text-[10px]">
             <button onclick="applyTemplate('frame-bts-chibi')" class="p-2 bg-purple-100 text-btspurple font-bold rounded-xl border border-purple-300">💜 BTS Chibi Frame</button>
             <button onclick="applyTemplate('frame-army-lavender')" class="p-2 bg-purple-50 text-purple-800 font-bold rounded-xl border border-purple-200">🔮 ARMY Lavender</button>
@@ -389,84 +245,56 @@
             <button onclick="applyTemplate('frame-arirang-rock')" class="p-2 bg-red-950 text-red-200 font-bold rounded-xl border border-red-700">🎸 BTS Arirang Concept</button>
           </div>
 
-          <!-- SLIDER GESER WARNA CANVA (1 TUAS HUE SLIDER) -->
           <div class="pt-2">
             <div class="flex justify-between items-center mb-1">
-              <label class="font-bold text-slate-700 text-[11px]">🎨 Geser 1 Tuas Warna Latar (Ala Canva):</label>
+              <label class="font-bold text-slate-700 text-[11px]">🎨 Geser 1 Tuas Warna Latar:</label>
               <button onclick="resetBgWhite()" class="text-[9px] text-btspurple font-bold underline">Reset Putih</button>
             </div>
             <input type="range" min="0" max="360" value="270" id="canvaColorSlider" oninput="applyCanvaHueColor(this.value)" class="canva-hue-slider">
           </div>
         </div>
 
-        <!-- KATALOG STIKER BT21 & CUSTOM -->
         <div class="pt-2 border-t border-purple-100 space-y-2">
           <div class="flex justify-between items-center">
-            <label class="font-bold text-slate-700 text-xs">Stiker Lucu BTS / BT21 (Cubit 2 Jari WA):</label>
-            <button onclick="clearAllStickers()" class="text-[10px] text-red-600 bg-red-50 px-2 py-0.5 rounded-md font-bold border border-red-200">🗑️ Hapus Semua Stiker</button>
+            <label class="font-bold text-slate-700 text-xs">Stiker Lucu (Cubit 2 Jari WA):</label>
+            <button onclick="clearAllStickers()" class="text-[10px] text-red-600 bg-red-50 px-2 py-0.5 rounded-md font-bold border border-red-200">🗑️ Hapus Semua</button>
           </div>
-
           <div class="flex flex-wrap gap-1.5">
             <button onclick="addStickerEmoji('💜')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">💜</button>
             <button onclick="addStickerEmoji('🩵')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🩵</button>
             <button onclick="addStickerEmoji('🎙️')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🎙️</button>
-            <button onclick="addStickerEmoji('🔮')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🔮</button>
             <button onclick="addStickerEmoji('🐳')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🐳</button>
             <button onclick="addStickerEmoji('🧸')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🧸</button>
-            <button onclick="addStickerEmoji('🎀')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🎀</button>
             <button onclick="addStickerEmoji('✨')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">✨</button>
-            <button onclick="addStickerEmoji('🧀')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🧀</button>
-            <button onclick="addStickerEmoji('👑')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">👑</button>
-          </div>
-
-          <div class="mt-2 space-y-1">
-            <label class="block text-[10px] font-bold text-slate-600">📁 Upload Stiker Kustom Luar (PNG/JPG):</label>
-            <input type="file" accept="image/*" onchange="handleCustomStickerUpload(event)" class="w-full text-xs text-slate-500 file:mr-2 file:py-1 file:px-2 file:rounded-lg file:border-0 file:text-[10px] file:font-bold file:bg-amber-100 file:text-amber-800">
           </div>
         </div>
       </div>
 
-      <!-- HASIL SERTIFIKAT CANVAS -->
       <div class="flex justify-center p-2">
         <div id="certificateCanvas" class="frame-bts-chibi relative w-full max-w-[340px] p-4 transition-all">
-
-          <!-- DEKORASI ORNAMEN OTOMATIS TAMBAHAN -->
-          <div id="frameDecorations" class="pointer-events-none">
-            <div class="absolute top-2 left-3 text-xs font-black text-btspurple opacity-60">💜 BTS</div>
-            <div class="absolute top-2 right-3 text-xs font-black text-btspurple opacity-60">Borahae ♡</div>
-          </div>
-
           <div id="stickerLayer"></div>
-
           <div class="text-center pb-1 relative z-10">
-            <p class="text-[9px] font-black uppercase tracking-widest cute-font opacity-80">7HEAVEN PURPLE PRESENTS</p>
+            <p class="text-[9px] font-black uppercase tracking-widest cute-font opacity-80">7HEAVEN PURPLE</p>
             <h3 class="text-base font-black uppercase tracking-wide cute-font">OFFICIAL VOTING PROOF</h3>
           </div>
-
-          <!-- KOTAK AUTO CROP 9:16 -->
           <div id="buktiContainer" class="crop-9-16-container my-2 border border-purple-200 shadow-md relative">
             <img id="prevBukti" src="" class="crop-9-16-img hidden">
             <div id="placeholderBukti" class="absolute inset-0 flex flex-col items-center justify-center p-4 text-center text-purple-400">
               <i class="fa-solid fa-image text-3xl mb-1 text-btspurple"></i>
               <p class="text-xs font-bold text-slate-600">Bukti Vote Auto 9:16</p>
-              <p class="text-[10px] text-slate-400">Foto otomatis terpotong rapi 9:16</p>
             </div>
           </div>
-
           <div class="pt-2 text-center relative z-10">
             <h4 id="prevNama" class="text-sm font-black cute-font">Alysha</h4>
             <div class="text-[10px] font-semibold space-y-0.5 opacity-90">
               <p>Event: <strong id="prevEvent" class="text-btspurple">MAMA 2026</strong></p>
-              <p>Kategori: <strong id="prevKategori">Fans Choice</strong></p>
-              <p>Tanggal: <span id="prevTanggal">2026-10-21</span></p>
             </div>
           </div>
-
         </div>
       </div>
 
-      <button onclick="downloadCertificate()" class="w-full py-3 bg-btspurple text-white font-black rounded-2xl shadow-lg text-sm flex items-center justify-center gap-2 hover:bg-btsdark transition-all cute-font">
-        <i class="fa-solid fa-download"></i> Download Sertifikat PNG
+      <button onclick="downloadCertificate()" class="w-full py-3 bg-btspurple text-white font-black rounded-2xl shadow-lg text-sm flex items-center justify-center gap-2 cute-font">
+        <i class="fa-solid fa-download"></i> Download Sertifikat (+ Simpan ke Diary)
       </button>
     </section>
 
@@ -474,99 +302,70 @@
     <section id="sec-misi" class="tab-content hidden space-y-4">
       <div class="glass-card rounded-3xl p-4 space-y-4">
         <h2 class="text-sm font-extrabold text-slate-800 cute-font flex items-center gap-1.5 border-b border-purple-100 pb-2">
-          <i class="fa-solid fa-bullseye text-btspurple"></i> Misi Vote & Streaming
+          <i class="fa-solid fa-bullseye text-btspurple"></i> Misi Harian & Streaming
         </h2>
-
-        <div class="space-y-2">
-          <h3 class="text-xs font-bold text-btspurple uppercase tracking-wider">🗳️ Misi Vote On-Going</h3>
-          <p class="text-[11px] text-slate-500">Buat sertifikat vote di tab "Sertifikat", poin akan diverifikasi oleh Admin secara manual! 💜</p>
-          <div class="space-y-1.5 text-xs">
-            <label class="flex items-center gap-2 p-2 bg-white rounded-xl border border-purple-100">
-              <input type="checkbox" class="accent-btspurple">
-              <span class="font-semibold text-slate-700">MAMA 2026 — Fans' Choice Category</span>
-            </label>
-            <label class="flex items-center gap-2 p-2 bg-white rounded-xl border border-purple-100">
-              <input type="checkbox" class="accent-btspurple">
-              <span class="font-semibold text-slate-700">KCA 2026 — Vote BTS / SWIM</span>
-            </label>
-            <label class="flex items-center gap-2 p-2 bg-white rounded-xl border border-purple-100">
-              <input type="checkbox" class="accent-btspurple">
-              <span class="font-semibold text-slate-700">AAA (Final) — Popularity Vote</span>
-            </label>
-          </div>
-        </div>
-
-        <div class="space-y-2 pt-3 border-t border-purple-100">
-          <h3 class="text-xs font-bold text-btspurple uppercase tracking-wider">🎵 Misi Streaming Album ARIRANG</h3>
-          <div id="misiArirangList" class="space-y-1.5 max-h-60 overflow-y-auto pr-1 text-xs">
-          </div>
-
-          <div class="bg-purple-50/70 p-3 rounded-2xl border border-purple-200 space-y-2 mt-3">
-            <h4 class="text-xs font-bold text-slate-800 flex items-center gap-1">
-              <i class="fa-solid fa-upload text-btspurple"></i> Upload Bukti SS Streaming
-            </h4>
-            <input type="file" id="streamSsInput" multiple accept="image/*" onchange="previewStreamSs(event)" class="w-full text-xs text-slate-500 file:mr-2 file:py-1 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-btspurple file:text-white">
-
-            <div id="ssPreviewContainer" class="grid grid-cols-3 gap-2 pt-2">
-            </div>
-
-            <button onclick="submitStreamProof()" class="w-full py-2 bg-btspurple text-white font-bold rounded-xl text-xs shadow-md hover:bg-btsdark transition-all mt-2">
-              Kirim Bukti SS Streaming
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TAB 4: DIARY -->
-    <section id="sec-diary" class="tab-content hidden space-y-4">
-      <div class="glass-card rounded-3xl p-4">
-        <h2 class="text-sm font-extrabold text-slate-800 cute-font mb-2">📖 Voting Diary & Galeri</h2>
-        <div id="diaryList" class="grid grid-cols-2 gap-2 text-xs">
-        </div>
-      </div>
-    </section>
-
-    <!-- TAB 5: ADMIN PANEL -->
-    <section id="sec-admin" class="tab-content hidden space-y-4">
-      <div id="adminLoginCard" class="glass-card rounded-3xl p-5 text-center space-y-3">
-        <h2 class="text-sm font-bold text-slate-800 cute-font">🔒 Panel Khusus Admin</h2>
-        <p class="text-xs text-slate-500">Akses rahasia khusus Admin untuk mengelola poin member.</p>
-        <input type="password" id="adminPinInput" placeholder="Masukkan PIN Admin Rahasia" class="w-full text-center py-2 rounded-xl border border-purple-200 text-xs font-bold bg-white">
-        <button onclick="verifyAdminPin()" class="w-full py-2 bg-btspurple text-white font-bold rounded-xl text-xs shadow-md">Unlock Panel Admin</button>
-      </div>
-
-      <div id="adminDashboard" class="hidden glass-card rounded-3xl p-4 space-y-3">
-        <div class="flex justify-between items-center border-b border-purple-100 pb-2">
-          <h3 class="text-xs font-bold text-slate-800">⚙️ Panel Kontrol Admin</h3>
-          <button onclick="toggleChangePinModal()" class="px-2 py-0.5 bg-purple-100 text-btspurple font-bold text-[10px] rounded-lg">🔑 Ganti PIN Rahasia</button>
-        </div>
-
-        <div id="changePinSection" class="hidden p-2.5 bg-purple-50 rounded-xl border border-purple-200 text-xs space-y-1.5">
-          <input type="password" id="newAdminPinInput" placeholder="Masukkan PIN Rahasia Baru" class="w-full px-2.5 py-1 rounded-lg border border-purple-200 bg-white">
-          <button onclick="saveNewAdminPin()" class="w-full py-1 bg-btspurple text-white font-bold rounded-lg text-xs">Update PIN Admin</button>
-        </div>
+        <p class="text-xs text-slate-600">Selesaikan misi untuk mengumpulkan Poin & buka **Gacha Photocard Eksklusif** member BTS!</p>
 
         <div class="space-y-2 text-xs">
-          <div>
-            <label class="font-bold text-slate-700 block mb-1">Pilih Member Terdaftar:</label>
-            <select id="adminUserSelect" class="w-full px-3 py-1.5 rounded-xl border border-purple-200 bg-white font-bold text-btspurple">
-            </select>
+          <div class="p-3 bg-white rounded-2xl border border-purple-100 flex items-center justify-between">
+            <div>
+              <p class="font-bold text-slate-800">Check-in Harian Member</p>
+              <p class="text-[10px] text-amber-600 font-bold">+20 Poin</p>
+            </div>
+            <button onclick="doDailyCheckin()" class="px-3 py-1.5 bg-amber-400 hover:bg-amber-500 text-purple-950 font-black rounded-xl shadow-sm">Claim</button>
           </div>
-          <div>
-            <label class="font-bold text-slate-700 block mb-1">Jumlah Poin (misal: 50 atau -20):</label>
-            <input type="number" id="adminPointAmount" placeholder="Contoh: 50" class="w-full px-3 py-1.5 rounded-xl border border-purple-200 font-bold bg-white">
+          <div class="p-3 bg-white rounded-2xl border border-purple-100 flex items-center justify-between">
+            <div>
+              <p class="font-bold text-slate-800">Streaming Album ARIRANG (Track 1-14)</p>
+              <p class="text-[10px] text-amber-600 font-bold">+50 Poin</p>
+            </div>
+            <button onclick="claimStreamMission()" class="px-3 py-1.5 bg-btspurple text-white font-bold rounded-xl shadow-sm">Selesaiin</button>
           </div>
-          <button onclick="adminAdjustPoints()" class="w-full py-2 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl text-xs shadow-md transition-all">
-            Simpan Perubahan Poin
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: KOLEKSI PHOTOCARD GAME (GACHA) -->
+    <section id="sec-gacha" class="tab-content hidden space-y-4">
+      <div class="glass-card rounded-3xl p-4 text-center space-y-3">
+        <h2 class="text-sm font-extrabold text-slate-800 cute-font">🎁 Gacha & Koleksi Photocard Member BTS</h2>
+        <p class="text-xs text-slate-500">Tukar <strong>50 Poin</strong> untuk membuka (Gacha) Photocard Eksklusif Member secara acak!</p>
+
+        <div class="p-3 bg-purple-50 rounded-2xl border border-purple-200">
+          <button onclick="pullGachaCard()" class="w-full py-3 bg-gradient-to-r from-btspurple to-pink-500 text-white font-black rounded-xl shadow-lg text-sm cute-font flex items-center justify-center gap-2">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Tarik Gacha Photocard (50 Pts)
           </button>
         </div>
 
-        <div class="pt-3 border-t border-purple-100">
-          <h4 class="text-xs font-bold text-slate-700 mb-2">Daftar Poin Seluruh Member:</h4>
-          <div id="adminUserList" class="space-y-1 text-xs">
+        <div class="pt-3 border-t border-purple-100 text-left">
+          <h3 class="text-xs font-bold text-slate-700 mb-2">Album Koleksi Member Kamu:</h3>
+          <div id="photocardGrid" class="grid grid-cols-3 gap-2 text-xs">
+            <!-- Render via JS -->
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: DIARY -->
+    <section id="sec-diary" class="tab-content hidden space-y-4">
+      <div class="glass-card rounded-3xl p-4">
+        <h2 class="text-sm font-extrabold text-slate-800 cute-font mb-2">📖 Voting Diary & Galeri</h2>
+        <div id="diaryList" class="grid grid-cols-2 gap-2 text-xs"></div>
+      </div>
+    </section>
+
+    <!-- TAB 6: ADMIN -->
+    <section id="sec-admin" class="tab-content hidden space-y-4">
+      <div id="adminLoginCard" class="glass-card rounded-3xl p-5 text-center space-y-3">
+        <h2 class="text-sm font-bold text-slate-800 cute-font">🔒 Panel Khusus Admin</h2>
+        <input type="password" id="adminPinInput" placeholder="PIN Admin" class="w-full text-center py-2 rounded-xl border border-purple-200 text-xs font-bold bg-white">
+        <button onclick="verifyAdminPin()" class="w-full py-2 bg-btspurple text-white font-bold rounded-xl text-xs shadow-md">Unlock</button>
+      </div>
+      <div id="adminDashboard" class="hidden glass-card rounded-3xl p-4 space-y-3">
+        <h3 class="text-xs font-bold text-slate-800 border-b border-purple-100 pb-2">⚙️ Kontrol Poin Member</h3>
+        <select id="adminUserSelect" class="w-full px-3 py-1.5 rounded-xl border border-purple-200 bg-white font-bold text-btspurple text-xs"></select>
+        <input type="number" id="adminPointAmount" placeholder="Jumlah Poin" class="w-full px-3 py-1.5 rounded-xl border border-purple-200 text-xs font-bold bg-white">
+        <button onclick="adminAdjustPoints()" class="w-full py-2 bg-amber-500 text-white font-bold rounded-xl text-xs shadow-md">Update Poin</button>
       </div>
     </section>
 
@@ -574,23 +373,24 @@
 
   <script>
     let activeUser = localStorage.getItem('7h_active_user') || null;
-    let userDatabase = JSON.parse(localStorage.getItem('7h_users_db') || '{"Alysha":{"password":"123","points":0,"bio":"Borahae BTS & ARMY 💜","avatar":"","lastCheckin":"","diary":[]}}');
+    let userDatabase = JSON.parse(localStorage.getItem('7h_users_db') || '{"Alysha":{"password":"123","points":150,"bio":"Borahae BTS 💜","avatar":"","lastCheckin":"","diary":[],"cards":[]}}');
     let adminPinSecret = localStorage.getItem('7h_admin_pin') || '130613';
     let tempAvatarBase64 = "";
 
-    const arirangSongs = [
-      "1. Body to Body", "2. Hooligan", "3. Aliens", "4. FYA", "5. 2.0",
-      "6. No. 29", "7. SWIM (Title Track ⭐️)", "8. Merry Go Round", "9. NORMAL",
-      "10. Like Animals", "11. they don't know 'bout us", "12. One More Night",
-      "13. Please", "14. Into the Sun"
+    // Daftar Photocard Karakter / Member BTS untuk Koleksi Game
+    const btsPhotocardsCatalog = [
+      { id: 'rm', name: 'RM (Namjoon)', img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=300&q=80' },
+      { id: 'jin', name: 'Jin (Seokjin)', img: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=300&q=80' },
+      { id: 'suga', name: 'SUGA (Yoongi)', img: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=300&q=80' },
+      { id: 'jhope', name: 'J-Hope (Hoseok)', img: 'https://images.unsplash.com/photo-1563089145-599997674d42?w=300&q=80' },
+      { id: 'jimin', name: 'Jimin', img: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=300&q=80' },
+      { id: 'v', name: 'V (Taehyung)', img: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=300&q=80' },
+      { id: 'jungkook', name: 'Jungkook', img: 'https://images.unsplash.com/photo-1579202673506-ca3ce28943ef?w=300&q=80' }
     ];
 
     document.addEventListener("DOMContentLoaded", () => {
       checkAuthStatus();
-      const today = new Date().toISOString().split('T')[0];
-      document.getElementById('prevTanggal').innerText = today;
-      document.getElementById('inputTanggal').value = today;
-      renderMissions();
+      renderPhotocards();
     });
 
     function getBadgeTitle(pts) {
@@ -609,137 +409,23 @@
         document.getElementById('inputNama').value = activeUser;
         document.getElementById('prevNama').innerText = activeUser;
 
-        if (uData.avatar) {
-          document.getElementById('headerAvatarText').classList.add('hidden');
-          document.getElementById('headerAvatarImg').src = uData.avatar;
-          document.getElementById('headerAvatarImg').classList.remove('hidden');
-
-          document.getElementById('profileAvatarPrev').src = uData.avatar;
-          document.getElementById('profileAvatarPrev').classList.remove('hidden');
-        } else {
-          document.getElementById('headerAvatarText').classList.remove('hidden');
-          document.getElementById('headerAvatarImg').classList.add('hidden');
-          document.getElementById('profileAvatarPrev').classList.add('hidden');
-        }
+        if (!uData.cards) uData.cards = [];
 
         document.getElementById('authFormArea').classList.add('hidden');
         document.getElementById('loggedInArea').classList.remove('hidden');
         document.getElementById('loggedInUsername').innerText = activeUser;
-        document.getElementById('loggedInBio').innerText = `"${uData.bio || 'Borahae BTS 💜'}"`;
         document.getElementById('authStatusText').innerText = 'Terhubung';
         document.getElementById('authStatusText').className = 'text-[10px] bg-green-100 text-green-800 font-bold px-2 py-0.5 rounded-full';
 
-        const today = new Date().toDateString();
-        const checkinBtn = document.getElementById('btnCheckin');
-        if (uData.lastCheckin === today) {
-          document.getElementById('checkinStatus').innerText = "Sudah Check-in ✅";
-          checkinBtn.disabled = true;
-          checkinBtn.classList.add('opacity-50', 'cursor-not-allowed');
-        } else {
-          document.getElementById('checkinStatus').innerText = "Belum Check-in";
-          checkinBtn.disabled = false;
-          checkinBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-        }
-
         renderDiary();
+        renderPhotocards();
       } else {
-        document.getElementById('profileNameDisplay').innerText = `Profil: Guest (Belum Login)`;
+        document.getElementById('profileNameDisplay').innerText = `Profil: Guest`;
         document.getElementById('userPoints').innerText = `0 PTS`;
-        document.getElementById('userBadge').innerText = `🐣 Baby ARMY`;
-        document.getElementById('headerAvatarText').classList.remove('hidden');
-        document.getElementById('headerAvatarImg').classList.add('hidden');
         document.getElementById('authFormArea').classList.remove('hidden');
         document.getElementById('loggedInArea').classList.add('hidden');
         document.getElementById('authStatusText').innerText = 'Belum Masuk';
-        document.getElementById('authStatusText').className = 'text-[10px] bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-full';
-        document.getElementById('checkinStatus').innerText = "Belum Check-in";
       }
-    }
-
-    function handleAvatarUpload(e) {
-      const file = e.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function(evt) {
-          tempAvatarBase64 = evt.target.result;
-        }
-        reader.readAsDataURL(file);
-      }
-    }
-
-    function toggleEditProfileModal() {
-      const sec = document.getElementById('editProfileSection');
-      sec.classList.toggle('hidden');
-      if (!sec.classList.contains('hidden') && activeUser) {
-        document.getElementById('editDisplayName').value = activeUser;
-        document.getElementById('editBioText').value = userDatabase[activeUser].bio || '';
-      }
-    }
-
-    function saveProfileChanges() {
-      const newName = document.getElementById('editDisplayName').value.trim();
-      const newBio = document.getElementById('editBioText').value.trim();
-
-      if (!newName) return alert("Nama tidak boleh kosong!");
-
-      if (newName !== activeUser && userDatabase[newName]) {
-        return alert("Nama member tersebut sudah terpakai!");
-      }
-
-      const currentData = userDatabase[activeUser];
-      delete userDatabase[activeUser];
-
-      activeUser = newName;
-      currentData.bio = newBio;
-      if (tempAvatarBase64) {
-        currentData.avatar = tempAvatarBase64;
-      }
-      userDatabase[newName] = currentData;
-
-      localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
-      localStorage.setItem('7h_active_user', activeUser);
-
-      checkAuthStatus();
-      toggleEditProfileModal();
-      alert("Profil berhasil diperbarui ✨");
-    }
-
-    function loginUser() {
-      const u = document.getElementById('authUsername').value.trim();
-      const p = document.getElementById('authPassword').value.trim();
-      if (!u || !p) return alert("Isi Username dan Kata Sandi!");
-
-      if (userDatabase[u] && userDatabase[u].password === p) {
-        activeUser = u;
-        localStorage.setItem('7h_active_user', u);
-        checkAuthStatus();
-        alert(`Selamat datang kembali, ${u} 💜`);
-      } else {
-        alert("Username atau Kata Sandi salah!");
-      }
-    }
-
-    function registerUser() {
-      const u = document.getElementById('authUsername').value.trim();
-      const p = document.getElementById('authPassword').value.trim();
-      if (!u || !p) return alert("Isi Username dan Kata Sandi!");
-
-      if (userDatabase[u]) {
-        alert("Username sudah terdaftar! Silakan Login.");
-      } else {
-        userDatabase[u] = { password: p, points: 0, bio: "Borahae BTS 💜", avatar: "", lastCheckin: "", diary: [] };
-        localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
-        activeUser = u;
-        localStorage.setItem('7h_active_user', u);
-        checkAuthStatus();
-        alert(`Akun ${u} berhasil dibuat! 🎉`);
-      }
-    }
-
-    function logoutUser() {
-      activeUser = null;
-      localStorage.removeItem('7h_active_user');
-      checkAuthStatus();
     }
 
     function switchTab(tabName) {
@@ -748,7 +434,6 @@
         el.classList.remove('text-btspurple', 'border-btspurple');
         el.classList.add('text-slate-500', 'border-transparent');
       });
-
       document.getElementById(`sec-${tabName}`).classList.remove('hidden');
       const activeBtn = document.getElementById(`tab-${tabName}`);
       activeBtn.classList.add('text-btspurple', 'border-btspurple');
@@ -756,23 +441,90 @@
     }
 
     function doDailyCheckin() {
-      if (!activeUser) return alert("Silakan Login/Daftar akun dulu!");
+      if (!activeUser) return alert("Silakan Login dulu!");
       const today = new Date().toDateString();
-      if (userDatabase[activeUser].lastCheckin === today) return alert("Kamu sudah Check-in hari ini!");
+      if (userDatabase[activeUser].lastCheckin === today) return alert("Sudah Check-in hari ini!");
 
-      userDatabase[activeUser].points += 10;
+      userDatabase[activeUser].points += 20;
       userDatabase[activeUser].lastCheckin = today;
       localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
       checkAuthStatus();
-      alert("Check-in berhasil! (+10 PTS) 🎉");
+      alert("Check-in berhasil! (+20 PTS) 🎉");
     }
 
-    function updatePreview() {
-      const nama = document.getElementById('inputNama').value || 'Alysha';
-      document.getElementById('prevNama').innerText = nama;
-      document.getElementById('prevEvent').innerText = document.getElementById('inputEvent').value;
-      document.getElementById('prevKategori').innerText = document.getElementById('inputKategori').value;
-      document.getElementById('prevTanggal').innerText = document.getElementById('inputTanggal').value;
+    function claimStreamMission() {
+      if (!activeUser) return alert("Silakan Login dulu!");
+      userDatabase[activeUser].points += 50;
+      localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
+      checkAuthStatus();
+      alert("Misi Streaming Selesai! (+50 PTS) 🎵");
+    }
+
+    function pullGachaCard() {
+      if (!activeUser) return alert("Silakan Login dulu!");
+      if (userDatabase[activeUser].points < 50) return alert("Poin kamu kurang! Selesaikan misi atau check-in dulu ya.");
+
+      userDatabase[activeUser].points -= 50;
+      const randomCard = btsPhotocardsCatalog[Math.floor(Math.random() * btsPhotocardsCatalog.length)];
+      
+      userDatabase[activeUser].cards = userDatabase[activeUser].cards || [];
+      if (!userDatabase[activeUser].cards.includes(randomCard.id)) {
+        userDatabase[activeUser].cards.push(randomCard.id);
+      }
+
+      localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
+      checkAuthStatus();
+      alert(`🎉 HORE! Kamu mendapatkan Photocard: ${randomCard.name}! Cek di album koleksimu.`);
+    }
+
+    function renderPhotocards() {
+      const container = document.getElementById('photocardGrid');
+      if (!container) return;
+      const userCards = (activeUser && userDatabase[activeUser]?.cards) ? userDatabase[activeUser].cards : [];
+
+      container.innerHTML = btsPhotocardsCatalog.map(card => {
+        const isOwned = userCards.includes(card.id);
+        return `
+          <div class="bg-white p-2 rounded-2xl border border-purple-100 text-center space-y-1 shadow-sm">
+            <img src="${card.img}" class="w-full h-24 object-cover rounded-xl ${isOwned ? '' : 'photocard-locked'}">
+            <p class="font-bold text-[10px] text-slate-700 truncate">${card.name}</p>
+            <span class="text-[9px] font-bold px-2 py-0.5 rounded-full ${isOwned ? 'bg-green-100 text-green-700' : 'bg-slate-100 text-slate-400'}">
+              ${isOwned ? 'Milikmu ✨' : 'Terkunci 🔒'}
+            </span>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function loginUser() {
+      const u = document.getElementById('authUsername').value.trim();
+      const p = document.getElementById('authPassword').value.trim();
+      if (userDatabase[u] && userDatabase[u].password === p) {
+        activeUser = u;
+        localStorage.setItem('7h_active_user', u);
+        checkAuthStatus();
+        alert(`Selamat datang kembali, ${u} 💜`);
+      } else { alert("Username / Password salah!"); }
+    }
+
+    function registerUser() {
+      const u = document.getElementById('authUsername').value.trim();
+      const p = document.getElementById('authPassword').value.trim();
+      if (!u || !p) return alert("Isi Username dan Password!");
+      if (userDatabase[u]) return alert("Username sudah terdaftar!");
+
+      userDatabase[u] = { password: p, points: 50, bio: "Borahae BTS 💜", avatar: "", lastCheckin: "", diary: [], cards: [] };
+      localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
+      activeUser = u;
+      localStorage.setItem('7h_active_user', u);
+      checkAuthStatus();
+      alert(`Akun ${u} berhasil dibuat! Bonus +50 Poin 🎉`);
+    }
+
+    function logoutUser() {
+      activeUser = null;
+      localStorage.removeItem('7h_active_user');
+      checkAuthStatus();
     }
 
     function applyTemplate(className) {
@@ -780,21 +532,16 @@
       canvas.className = `${className} relative w-full max-w-[340px] p-4 transition-all`;
       canvas.style.backgroundColor = '';
     }
-
-    function applyCanvaHueColor(hueVal) {
-      const canvas = document.getElementById('certificateCanvas');
-      canvas.style.backgroundColor = `hsl(${hueVal}, 80%, 94%)`;
+    function applyCanvaHueColor(hueVal) { document.getElementById('certificateCanvas').style.backgroundColor = `hsl(${hueVal}, 80%, 94%)`; }
+    function resetBgWhite() { document.getElementById('certificateCanvas').style.backgroundColor = '#FFFFFF'; }
+    function updatePreview() {
+      document.getElementById('prevNama').innerText = document.getElementById('inputNama').value || 'Alysha';
     }
-
-    function resetBgWhite() {
-      document.getElementById('certificateCanvas').style.backgroundColor = '#FFFFFF';
-    }
-
     function handleBuktiUpload(e) {
       const file = e.target.files[0];
       if (file) {
         const reader = new FileReader();
-        reader.onload = function(evt) {
+        reader.onload = (evt) => {
           const img = document.getElementById('prevBukti');
           img.src = evt.target.result;
           img.classList.remove('hidden');
@@ -803,190 +550,67 @@
         reader.readAsDataURL(file);
       }
     }
-
-    function addStickerEmoji(emoji) {
-      createInteractiveSticker(emoji, 'text');
-    }
-
-    function handleCustomStickerUpload(e) {
-      const file = e.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function(evt) {
-          createInteractiveSticker(evt.target.result, 'image');
-        }
-        reader.readAsDataURL(file);
-      }
-    }
-
-    function clearAllStickers() {
-      document.getElementById('stickerLayer').innerHTML = '';
-    }
-
-    function createInteractiveSticker(content, type) {
+    function addStickerEmoji(emoji) { createStickerItem(emoji, 'text'); }
+    function clearAllStickers() { document.getElementById('stickerLayer').innerHTML = ''; }
+    function createStickerItem(content, type) {
       const layer = document.getElementById('stickerLayer');
       const container = document.createElement('div');
-      container.className = 'sticker-item pointer-events-auto';
-      container.style.left = '100px';
-      container.style.top = '100px';
-
-      let scale = 1.0;
-      let rotation = 0;
-
-      const innerContent = document.createElement('div');
-      if (type === 'text') {
-        innerContent.className = 'text-3xl';
-        innerContent.innerText = content;
-      } else {
-        innerContent.className = 'w-24 h-24';
-        const img = document.createElement('img');
-        img.src = content;
-        img.className = 'w-full h-full object-contain drop-shadow-md';
-        innerContent.appendChild(img);
-      }
-
-      const delBtn = document.createElement('div');
-      delBtn.className = 'sticker-delete-btn';
-      delBtn.innerText = '✕';
-      delBtn.onclick = (e) => { e.stopPropagation(); container.remove(); };
-
-      container.appendChild(delBtn);
-      container.appendChild(innerContent);
+      container.className = 'sticker-item'; container.style.left = '100px'; container.style.top = '100px';
+      let scale = 1.0, rotation = 0;
+      const inner = document.createElement('div');
+      inner.className = type === 'text' ? 'text-3xl' : 'w-24 h-24';
+      if (type === 'text') inner.innerText = content;
+      const del = document.createElement('div');
+      del.className = 'sticker-delete-btn'; del.innerText = '✕';
+      del.onclick = (e) => { e.stopPropagation(); container.remove(); };
+      container.appendChild(del); container.appendChild(inner);
       layer.appendChild(container);
-
-      const updateTransform = () => {
-        innerContent.style.transform = `scale(${scale}) rotate(${rotation}deg)`;
-      };
-
-      /* CUBIT & ROTASI MURNI 2 JARI SEPERTI WHATSAPP */
-      makeStickerPinchRotateWA(container, (sDelta, rDelta) => {
-        scale = Math.max(0.3, Math.min(4.0, scale * sDelta));
-        rotation += rDelta;
-        updateTransform();
+      makeDragRotate(container, (sD, rD) => {
+        scale = Math.max(0.3, Math.min(4.0, scale * sD)); rotation += rD;
+        inner.style.transform = `scale(${scale}) rotate(${rotation}deg)`;
       });
     }
-
-    function makeStickerPinchRotateWA(el, onTransform) {
-      let isDragging = false, startX, startY, initialLeft, initialTop;
-      let initialDist = 0, initialAngle = 0;
-
-      const selectSticker = () => {
-        document.querySelectorAll('.sticker-item').forEach(s => s.classList.remove('selected'));
-        el.classList.add('selected');
-      };
-
-      const getTouchDist = (t) => Math.hypot(t[0].clientX - t[1].clientX, t[0].clientY - t[1].clientY);
-      const getTouchAngle = (t) => Math.atan2(t[1].clientY - t[0].clientY, t[1].clientX - t[0].clientX) * 180 / Math.PI;
-
-      const onStart = (e) => {
-        e.stopPropagation();
-        selectSticker();
-
-        if (e.touches && e.touches.length === 2) {
-          isDragging = false;
-          initialDist = getTouchDist(e.touches);
-          initialAngle = getTouchAngle(e.touches);
+    function makeDragRotate(el, onT) {
+      let isD = false, sX, sY, iL, iT, iDist = 0, iAng = 0;
+      const sel = () => { document.querySelectorAll('.sticker-item').forEach(s => s.classList.remove('selected')); el.classList.add('selected'); };
+      el.addEventListener('mousedown', (e) => { sel(); isD = true; sX = e.clientX; sY = e.clientY; iL = el.offsetLeft; iT = el.offsetTop; });
+      document.addEventListener('mousemove', (e) => { if (!isD) return; el.style.left = `${iL + (e.clientX - sX)}px`; el.style.top = `${iT + (e.clientY - sY)}px`; });
+      document.addEventListener('mouseup', () => { isD = false; });
+      el.addEventListener('touchstart', (e) => {
+        sel(); if (e.touches.length === 2) {
+          iDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
         } else {
-          isDragging = true;
-          const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-          const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-          startX = clientX; startY = clientY;
-          initialLeft = el.offsetLeft; initialTop = el.offsetTop;
+          isD = true; sX = e.touches[0].clientX; sY = e.touches[0].clientY; iL = el.offsetLeft; iT = el.offsetTop;
         }
-      };
-
-      const onMove = (e) => {
-        if (!el.classList.contains('selected')) return;
-
-        if (e.touches && e.touches.length === 2) {
-          const currentDist = getTouchDist(e.touches);
-          const currentAngle = getTouchAngle(e.touches);
-
-          if (initialDist > 0) {
-            const scaleFactor = currentDist / initialDist;
-            const angleDiff = currentAngle - initialAngle;
-            onTransform(scaleFactor, angleDiff);
-          }
-          initialDist = currentDist;
-          initialAngle = currentAngle;
-        } else if (isDragging) {
-          const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-          const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-          el.style.left = `${initialLeft + (clientX - startX)}px`;
-          el.style.top = `${initialTop + (clientY - startY)}px`;
+      }, {passive: false});
+      document.addEventListener('touchmove', (e) => {
+        if (e.touches.length === 2) {
+          const d = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+          if (iDist > 0) onT(d / iDist, 0); iDist = d;
+        } else if (isD) {
+          el.style.left = `${iL + (e.touches[0].clientX - sX)}px`; el.style.top = `${iT + (e.touches[0].clientY - sY)}px`;
         }
-      };
-
-      const onEnd = () => { isDragging = false; initialDist = 0; };
-
-      el.addEventListener('mousedown', onStart);
-      document.addEventListener('mousemove', onMove);
-      document.addEventListener('mouseup', onEnd);
-
-      el.addEventListener('touchstart', onStart, {passive: false});
-      document.addEventListener('touchmove', onMove, {passive: false});
-      document.addEventListener('touchend', onEnd);
+      }, {passive: false});
+      document.addEventListener('touchend', () => { isD = false; iDist = 0; });
     }
-
     function downloadCertificate() {
-      if (!activeUser) return alert("Login akun terlebih dahulu!");
-
+      if (!activeUser) return alert("Login dulu!");
       document.querySelectorAll('.sticker-item').forEach(s => s.classList.remove('selected'));
-
       html2canvas(document.getElementById('certificateCanvas'), { scale: 3 }).then(canvas => {
         const link = document.createElement('a');
         link.download = `7HEAVEN_Proof_${Date.now()}.png`;
-        link.href = canvas.toDataURL('image/png');
-        link.click();
-
+        link.href = canvas.toDataURL('image/png'); link.click();
         userDatabase[activeUser].diary = userDatabase[activeUser].diary || [];
-        userDatabase[activeUser].diary.unshift({
-          title: document.getElementById('inputEvent').value,
-          date: new Date().toLocaleDateString(),
-          img: canvas.toDataURL('image/png')
-        });
+        userDatabase[activeUser].diary.unshift({ title: document.getElementById('inputEvent').value, img: canvas.toDataURL('image/png') });
         localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
         renderDiary();
-        alert("Sertifikat didownload & tersimpan ke Diary! ✨");
+        alert("Sertifikat disimpan ke Diary! ✨");
       });
     }
-
-    function renderMissions() {
-      const container = document.getElementById('misiArirangList');
-      container.innerHTML = arirangSongs.map(song => `
-        <label class="flex items-center justify-between p-2 bg-white rounded-xl border border-purple-100">
-          <span class="font-bold text-slate-700">${song}</span>
-          <input type="checkbox" class="accent-btspurple w-4 h-4 rounded">
-        </label>
-      `).join('');
-    }
-
-    function previewStreamSs(e) {
-      const files = e.target.files;
-      const container = document.getElementById('ssPreviewContainer');
-      container.innerHTML = '';
-      Array.from(files).forEach(file => {
-        const reader = new FileReader();
-        reader.onload = function(evt) {
-          const img = document.createElement('img');
-          img.src = evt.target.result;
-          img.className = 'w-full h-16 object-cover rounded-lg border border-purple-200';
-          container.appendChild(img);
-        }
-        reader.readAsDataURL(file);
-      });
-    }
-
-    function submitStreamProof() {
-      if (!activeUser) return alert("Login akun terlebih dahulu!");
-      alert("Bukti SS Streaming dikirim ke Admin! 💜");
-    }
-
     function renderDiary() {
       const container = document.getElementById('diaryList');
-      if (!activeUser || !userDatabase[activeUser] || !userDatabase[activeUser].diary || userDatabase[activeUser].diary.length === 0) {
-        container.innerHTML = `<p class="col-span-2 text-center text-slate-400 py-4">Belum ada sertifikat tersimpan.</p>`;
-        return;
+      if (!activeUser || !userDatabase[activeUser]?.diary?.length) {
+        container.innerHTML = `<p class="col-span-2 text-center text-slate-400 py-4">Belum ada.</p>`; return;
       }
       container.innerHTML = userDatabase[activeUser].diary.map(item => `
         <div class="bg-white p-1.5 rounded-xl border border-purple-100 space-y-1">
@@ -995,46 +619,20 @@
         </div>
       `).join('');
     }
-
     function verifyAdminPin() {
       if (document.getElementById('adminPinInput').value === adminPinSecret) {
         document.getElementById('adminLoginCard').classList.add('hidden');
         document.getElementById('adminDashboard').classList.remove('hidden');
         renderAdminUserSelect();
-      } else { alert("PIN Admin Salah!"); }
+      } else alert("PIN Salah!");
     }
-
-    function toggleChangePinModal() {
-      document.getElementById('changePinSection').classList.toggle('hidden');
-    }
-
-    function saveNewAdminPin() {
-      const newPin = document.getElementById('newAdminPinInput').value.trim();
-      if (newPin) {
-        adminPinSecret = newPin;
-        localStorage.setItem('7h_admin_pin', newPin);
-        alert("PIN Rahasia Admin berhasil diperbarui!");
-        toggleChangePinModal();
-      }
-    }
-
     function renderAdminUserSelect() {
       const select = document.getElementById('adminUserSelect');
-      const listContainer = document.getElementById('adminUserList');
       select.innerHTML = '';
-      listContainer.innerHTML = '';
-
       Object.keys(userDatabase).forEach(u => {
         select.innerHTML += `<option value="${u}">${u} (${userDatabase[u].points} PTS)</option>`;
-        listContainer.innerHTML += `
-          <div class="flex justify-between items-center p-2 bg-white rounded-xl border border-purple-100">
-            <span class="font-bold text-slate-700">${u}</span>
-            <span class="font-extrabold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-md text-[11px]">${userDatabase[u].points} PTS</span>
-          </div>
-        `;
       });
     }
-
     function adminAdjustPoints() {
       const target = document.getElementById('adminUserSelect').value;
       const amt = parseInt(document.getElementById('adminPointAmount').value);
@@ -1042,10 +640,7 @@
         userDatabase[target].points = Math.max(0, userDatabase[target].points + amt);
         localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
         checkAuthStatus();
-        renderAdminUserSelect();
-        alert(`Poin member ${target} diperbarui!`);
-      } else {
-        alert("Masukkan jumlah poin!");
+        alert("Poin diperbarui!");
       }
     }
   </script>
