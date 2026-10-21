@@ -200,7 +200,7 @@
       </div>
     </div>
 
-    <!-- NAVIGATION TABS (DITAMBAH TOMBOL KOLEKSI PC) -->
+    <!-- NAVIGATION TABS -->
     <nav class="flex border-t border-purple-50 max-w-md mx-auto bg-white/50 px-1 pt-1 overflow-x-auto">
       <button onclick="switchTab('beranda')" id="tab-beranda" class="tab-btn flex-1 py-2 text-center text-xs font-bold text-btspurple border-b-2 border-btspurple flex flex-col items-center gap-0.5 min-w-[55px]">
         <i class="fa-solid fa-house text-sm"></i> Beranda
@@ -615,7 +615,7 @@
 
   <script>
     let activeUser = localStorage.getItem('7h_active_user') || null;
-    let userDatabase = JSON.parse(localStorage.getItem('7h_users_db') || '{"Alysha":{"password":"123","points":0,"bio":"Borahae BTS 💜","avatar":"","lastCheckin":"","diary":[],"cards":[]}}');
+    let userDatabase = JSON.parse(localStorage.getItem('7h_users_db') || '{"Alysha":{"password":"123","points":0,"bio":"Borahae BTS & ARMY 💜","avatar":"","lastCheckin":"","diary":[],"cards":[]}}');
     let adminPinSecret = localStorage.getItem('7h_admin_pin') || '130613';
     let tempAvatarBase64 = "";
 
@@ -781,12 +781,12 @@
       if (userDatabase[u]) {
         alert("Username sudah terdaftar! Silakan Login.");
       } else {
-        userDatabase[u] = { password: p, points: 50, bio: "Borahae BTS 💜", avatar: "", lastCheckin: "", diary: [], cards: [] };
+        userDatabase[u] = { password: p, points: 0, bio: "Borahae BTS 💜", avatar: "", lastCheckin: "", diary: [], cards: [] };
         localStorage.setItem('7h_users_db', JSON.stringify(userDatabase));
         activeUser = u;
         localStorage.setItem('7h_active_user', u);
         checkAuthStatus();
-        alert(`Akun ${u} berhasil dibuat! Bonus +50 Poin 🎉`);
+        alert(`Akun ${u} berhasil dibuat! 🎉`);
       }
     }
 
