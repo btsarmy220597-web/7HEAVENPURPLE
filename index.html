@@ -43,62 +43,61 @@
       box-shadow: 0 8px 32px 0 rgba(125, 82, 193, 0.08);
     }
 
-    /* VARIASI BINGKAI SERTIFIKAT */
-    .frame-bts-chibi {
-      border: 6px dashed #9D72E1 !important;
+    /* DESAIN BINGKAI ORNAMEN BERMOTIF SANGAT ESTETIK */
+    .frame-ornament-hearts {
+      border: 8px dashed #7D52C1 !important;
       border-radius: 2rem !important;
-      background: #F8F5FF;
-      box-shadow: 0 10px 25px rgba(125, 82, 193, 0.15) !important;
+      box-shadow: 0 0 0 4px #F1ECFD, inset 0 0 0 3px #9D72E1 !important;
+      position: relative;
     }
-    .frame-army-lavender {
-      border: 5px double #7D52C1 !important;
-      border-radius: 1.5rem !important;
-      background: #FFFFFF;
-      box-shadow: inset 0 0 15px rgba(125, 82, 193, 0.2), 0 8px 20px rgba(0,0,0,0.1) !important;
-    }
-    .frame-bt21-pastel {
-      border: 6px solid #FFB6C1 !important;
-      border-radius: 2.2rem !important;
-      background: #FFF5F7;
-      box-shadow: 0 10px 20px rgba(255, 182, 193, 0.3) !important;
-    }
-    .frame-arirang-rock {
-      border: 6px solid #800000 !important;
-      border-radius: 1.2rem !important;
-      background: #2B0508;
-      color: #FFFFFF !important;
-      box-shadow: 0 10px 30px rgba(128, 0, 0, 0.4) !important;
-    }
-    .frame-galaxy-purple {
-      border: 5px solid #58329B !important;
+    .frame-ornament-stars {
+      border: 7px double #D4AF37 !important;
       border-radius: 1.8rem !important;
-      background: #1A0B2E;
-      color: #F1ECFD !important;
-      box-shadow: 0 10px 25px rgba(88, 50, 155, 0.5) !important;
+      box-shadow: 0 0 0 3px #FFFDF5, 0 10px 20px rgba(212, 175, 55, 0.2) !important;
     }
-    .frame-royal-gold {
-      border: 5px solid #D4AF37 !important;
+    .frame-ornament-wave {
+      border: 6px dotted #FF69B4 !important;
+      border-radius: 2.2rem !important;
+      box-shadow: 0 0 0 5px #FFF0F5, inset 0 0 10px rgba(255, 105, 180, 0.2) !important;
+    }
+    .frame-ornament-lace {
+      border: 8px solid #58329B !important;
+      border-image: linear-gradient(to right, #7D52C1, #FFB6C1, #7D52C1) 1 !important;
       border-radius: 1.5rem !important;
-      background: #FFFDF5;
-      box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3) !important;
+      box-shadow: 0 8px 25px rgba(88, 50, 155, 0.25) !important;
     }
-    .frame-soft-aesthetic {
-      border: 4px solid #E2D5F8 !important;
+    .frame-ornament-arirang {
+      border: 7px double #800000 !important;
+      border-radius: 1.2rem !important;
+      box-shadow: 0 0 0 4px #FFD700, 0 10px 25px rgba(128, 0, 0, 0.4) !important;
+    }
+    .frame-ornament-soft {
+      border: 6px dashed #B19FFB !important;
       border-radius: 2rem !important;
-      background: #FAF8FF;
-      box-shadow: 0 8px 15px rgba(125, 82, 193, 0.1) !important;
+      box-shadow: inset 0 0 0 4px #FFFFFF, 0 8px 15px rgba(125, 82, 193, 0.1) !important;
     }
 
+    /* KONTAINER CANVAS FIX PROPORSI DAN AKURASI UNDUHAN */
     #certificateCanvas {
       position: relative !important;
       width: 100% !important;
       max-width: 340px !important;
-      min-height: 520px !important;
+      min-height: 580px !important;
       box-sizing: border-box !important;
-      transition: background-color 0.2s ease, filter 0.2s ease;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      overflow: hidden !important;
+      background-color: #FFFFFF;
+    }
+
+    /* CONTAINER OVERLAY WARNA TRANSPARAN */
+    #canvasBgOverlay {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      transition: background-color 0.2s ease, opacity 0.2s ease;
     }
 
     .crop-9-16-container {
@@ -108,9 +107,9 @@
       position: relative;
       overflow: hidden !important;
       border-radius: 1.25rem;
-      background: rgba(241, 236, 253, 0.6);
+      background: rgba(241, 236, 253, 0.8);
       margin: 0 auto;
-      z-index: 1;
+      z-index: 10;
     }
     .crop-9-16-img {
       width: 100%;
@@ -119,6 +118,7 @@
       object-position: center !important;
     }
 
+    /* STIKER LAYER TERISOLASI AGAR TIDAK GEPENG / GESER SAAT RENDER */
     #stickerLayer {
       position: absolute !important;
       top: 0 !important;
@@ -126,8 +126,7 @@
       width: 100% !important;
       height: 100% !important;
       pointer-events: none;
-      z-index: 9999 !important;
-      overflow: visible !important;
+      z-index: 99 !important;
     }
 
     .sticker-item {
@@ -135,14 +134,13 @@
       user-select: none;
       cursor: move;
       position: absolute;
-      transform-origin: center center;
       display: inline-block;
-      z-index: 10000 !important;
-      will-change: transform, left, top;
+      z-index: 100 !important;
+      transform-origin: center center;
     }
     .sticker-item.selected {
       outline: 2px dashed #7D52C1;
-      outline-offset: 4px;
+      outline-offset: 3px;
     }
     .sticker-delete-btn {
       display: none;
@@ -157,7 +155,7 @@
       font-size: 11px;
       align-items: center;
       justify-content: center;
-      z-index: 10001 !important;
+      z-index: 101 !important;
       box-shadow: 0 2px 6px rgba(0,0,0,0.3);
       cursor: pointer;
     }
@@ -410,7 +408,7 @@
       </div>
     </section>
 
-    <!-- TAB 3: SERTIFIKAT MAKER -->
+    <!-- TAB 3: SERTIFIKAT MAKER (REVISI SANGAT LENGKAP & ESTETIK) -->
     <section id="sec-sertifikat" class="tab-content hidden space-y-4">
       <div class="glass-card rounded-3xl p-4 space-y-3">
         <h3 class="text-xs font-extrabold text-slate-800 cute-font border-b border-purple-100 pb-1.5">
@@ -444,41 +442,40 @@
           </div>
         </div>
 
-        <!-- BINGKAI ORNAMEN LEBIH BANYAK -->
+        <!-- BINGKAI ORNAMEN BERMOTIF SANGAT ESTETIK -->
         <div class="pt-2 border-t border-purple-100 space-y-2">
-          <label class="font-bold text-slate-700 text-xs block">🖼️ Pilih Desain Bingkai Ornamen:</label>
+          <label class="font-bold text-slate-700 text-xs block">🖼️ Pilih Motif Bingkai Ornamen:</label>
           <div class="grid grid-cols-2 gap-1.5 text-[10px]">
-            <button onclick="applyTemplate('frame-bts-chibi')" class="p-2 bg-purple-100 text-btspurple font-bold rounded-xl border border-purple-300">💜 BTS Chibi</button>
-            <button onclick="applyTemplate('frame-army-lavender')" class="p-2 bg-purple-50 text-purple-800 font-bold rounded-xl border border-purple-200">🔮 ARMY Lavender</button>
-            <button onclick="applyTemplate('frame-bt21-pastel')" class="p-2 bg-pink-100 text-pink-700 font-bold rounded-xl border border-pink-300">🧸 BT21 Cute</button>
-            <button onclick="applyTemplate('frame-arirang-rock')" class="p-2 bg-red-950 text-red-200 font-bold rounded-xl border border-red-700">🎸 BTS Arirang</button>
-            <button onclick="applyTemplate('frame-galaxy-purple')" class="p-2 bg-indigo-950 text-purple-200 font-bold rounded-xl border border-purple-700">🌌 Galaxy Purple</button>
-            <button onclick="applyTemplate('frame-royal-gold')" class="p-2 bg-amber-50 text-amber-800 font-bold rounded-xl border border-amber-400">👑 Royal Gold</button>
-            <button onclick="applyTemplate('frame-soft-aesthetic')" class="p-2 bg-slate-100 text-slate-700 font-bold rounded-xl border border-slate-300">✨ Soft Aesthetic</button>
+            <button onclick="applyTemplate('frame-ornament-hearts')" class="p-2 bg-purple-100 text-btspurple font-bold rounded-xl border border-purple-300">♡♡ Hearts Purple</button>
+            <button onclick="applyTemplate('frame-ornament-stars')" class="p-2 bg-amber-50 text-amber-800 font-bold rounded-xl border border-amber-300">☆☆ Royal Gold Stars</button>
+            <button onclick="applyTemplate('frame-ornament-wave')" class="p-2 bg-pink-100 text-pink-700 font-bold rounded-xl border border-pink-300">~~~~ Pink Wave</button>
+            <button onclick="applyTemplate('frame-ornament-lace')" class="p-2 bg-indigo-950 text-purple-200 font-bold rounded-xl border border-purple-700">¤¤¤¤ Aesthetic Lace</button>
+            <button onclick="applyTemplate('frame-ornament-arirang')" class="p-2 bg-red-950 text-red-200 font-bold rounded-xl border border-red-700">🎸 Arirang Rock</button>
+            <button onclick="applyTemplate('frame-ornament-soft')" class="p-2 bg-slate-100 text-slate-700 font-bold rounded-xl border border-slate-300">✨ Soft Minimalist</button>
           </div>
 
-          <!-- KONTROL WARNA & KECERAHAN LENGKAP -->
+          <!-- KONTROL WARNA MURNI & TUAS TRANSPARANSI -->
           <div class="pt-2 space-y-2">
             <div class="flex justify-between items-center">
-              <label class="font-bold text-slate-700 text-[11px]">🎨 Warna Latar Kustom:</label>
+              <label class="font-bold text-slate-700 text-[11px]">🎨 Warna Murni Latar Belakang:</label>
               <button onclick="resetBgWhite()" class="text-[9px] text-btspurple font-bold underline">Reset Putih</button>
             </div>
             <input type="range" min="0" max="360" value="270" id="canvaColorSlider" oninput="applyCanvaHueColor(this.value)" class="canva-hue-slider">
 
             <div>
               <div class="flex justify-between items-center text-[10px] font-bold text-slate-600 mb-0.5">
-                <span>Tuas Kecerahan & Saturasi Warna:</span>
-                <span id="saturValText">100%</span>
+                <span>Tuas Transparansi Kelembutan Warna:</span>
+                <span id="alphaValText">20%</span>
               </div>
-              <input type="range" min="20" max="180" value="100" id="canvaBrightnessSlider" oninput="applyCanvaBrightness(this.value)" class="w-full accent-btspurple h-2 bg-purple-100 rounded-lg">
+              <input type="range" min="0" max="100" value="20" id="canvaAlphaSlider" oninput="applyCanvaAlpha(this.value)" class="w-full accent-btspurple h-2 bg-purple-100 rounded-lg">
             </div>
           </div>
         </div>
 
-        <!-- KATALOG STIKER -->
+        <!-- KATALOG STIKER BERVARIASI -->
         <div class="pt-2 border-t border-purple-100 space-y-2">
           <div class="flex justify-between items-center">
-            <label class="font-bold text-slate-700 text-xs">Stiker Lucu BTS / BT21 (Cubit 2 Jari WA):</label>
+            <label class="font-bold text-slate-700 text-xs">Stiker Estetik BTS & BT21:</label>
             <button onclick="clearAllStickers()" class="text-[10px] text-red-600 bg-red-50 px-2 py-0.5 rounded-md font-bold border border-red-200">🗑️ Hapus Semua Stiker</button>
           </div>
 
@@ -493,27 +490,39 @@
             <button onclick="addStickerEmoji('✨')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">✨</button>
             <button onclick="addStickerEmoji('🧀')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🧀</button>
             <button onclick="addStickerEmoji('👑')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">👑</button>
+            <button onclick="addStickerEmoji('🐱')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🐱</button>
+            <button onclick="addStickerEmoji('🐰')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🐰</button>
+            <button onclick="addStickerEmoji('🐨')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🐨</button>
+            <button onclick="addStickerEmoji('🐿️')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🐿️</button>
+            <button onclick="addStickerEmoji('🐥')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🐥</button>
+            <button onclick="addStickerEmoji('🐻')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🐻</button>
+            <button onclick="addStickerEmoji('🐹')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🐹</button>
+            <button onclick="addStickerEmoji('⭐')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">⭐</button>
+            <button onclick="addStickerEmoji('🎧')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🎧</button>
+            <button onclick="addStickerEmoji('🎵')" class="w-8 h-8 rounded-xl bg-purple-100 text-base">🎵</button>
           </div>
 
           <div class="mt-2 space-y-1">
-            <label class="block text-[10px] font-bold text-slate-600">📁 Upload Stiker Kustom Luar (PNG/JPG):</label>
+            <label class="block text-[10px] font-bold text-slate-600">📁 Upload Stiker Kustom Luar (PNG/JPG Transparan):</label>
             <input type="file" accept="image/*" onchange="handleCustomStickerUpload(event)" class="w-full text-xs text-slate-500 file:mr-2 file:py-1 file:px-2 file:rounded-lg file:border-0 file:text-[10px] file:font-bold file:bg-amber-100 file:text-amber-800">
           </div>
         </div>
       </div>
 
-      <!-- HASIL SERTIFIKAT CANVAS PRESISE -->
+      <!-- HASIL SERTIFIKAT CANVAS AKURASI 100% SAMA PERSIS -->
       <div class="flex justify-center p-2">
-        <div id="certificateCanvas" class="frame-bts-chibi relative w-full max-w-[340px] p-4 transition-all">
+        <div id="certificateCanvas" class="frame-ornament-hearts p-4 transition-all">
 
-          <div id="frameDecorations" class="pointer-events-none">
-            <div class="absolute top-2 left-3 text-xs font-black text-btspurple opacity-60">💜 BTS</div>
-            <div class="absolute top-2 right-3 text-xs font-black text-btspurple opacity-60">Borahae ♡</div>
+          <div id="canvasBgOverlay"></div>
+
+          <div id="frameDecorations" class="pointer-events-none relative z-10">
+            <div class="absolute top-0 left-2 text-xs font-black text-btspurple opacity-70">💜 BTS</div>
+            <div class="absolute top-0 right-2 text-xs font-black text-btspurple opacity-70">Borahae ♡</div>
           </div>
 
           <div id="stickerLayer"></div>
 
-          <div class="text-center pb-1 relative z-10">
+          <div class="text-center pb-1 relative z-10 mt-2">
             <p class="text-[9px] font-black uppercase tracking-widest cute-font opacity-80">7HEAVEN PURPLE PRESENTS</p>
             <h3 class="text-base font-black uppercase tracking-wide cute-font">OFFICIAL VOTING PROOF</h3>
           </div>
@@ -528,7 +537,7 @@
             </div>
           </div>
 
-          <div class="pt-2 text-center relative z-10">
+          <div class="pt-2 text-center relative z-10 mb-2">
             <h4 id="prevNama" class="text-sm font-black cute-font">Alysha</h4>
             <div class="text-[10px] font-semibold space-y-0.5 opacity-90">
               <p>Event: <strong id="prevEvent" class="text-btspurple">MAMA 2026</strong></p>
@@ -678,7 +687,7 @@
     let adminPinSecret = localStorage.getItem('7h_admin_pin') || '130613';
     let tempAvatarBase64 = "";
     let currentHue = 270;
-    let currentBrightness = 100;
+    let currentAlpha = 0.2;
 
     const arirangSongs = [
       "1. Body to Body", "2. Hooligan", "3. Aliens", "4. FYA", "5. 2.0",
@@ -752,7 +761,7 @@
       { q: "BTS berasal dari negara mana?", a: "A. Korea Selatan", b: "B. Jepang", ans: "A" },
       { q: "Apa kepanjangan nama Korea BTS?", a: "A. Bangtan Sonyeondan", b: "B. Blacktan Sonyeondan", ans: "A" },
       { q: "Pada tahun berapa BTS merilis Dynamite?", a: "A. 2020", b: "B. 2021", ans: "A" },
-      { q: "Pada tahun berapa BTS merilis album Proof?", a: "A. 2021", b: "B. 2022", ans: "B" },
+      { q: "Pada tahun berapa BTS merilis album Proof?", a: "A. 2022", b: "B. 2021", ans: "A" },
       { q: "Siapa member yang lahir pada 1 September 1997?", a: "A. Jungkook", b: "B. Jimin", ans: "A" },
       { q: "Siapa member yang lahir pada 30 Desember 1995?", a: "A. Jin", b: "B. V", ans: "B" },
       { q: "Siapa member yang lahir pada 13 Oktober 1995?", a: "A. Jimin", b: "B. RM", ans: "A" },
@@ -798,6 +807,7 @@
       document.getElementById('inputTanggal').value = today;
       renderMissions();
       loadDailyQuiz();
+      applyCanvaHueColor(270);
     });
 
     // BADGE BERDASARKAN TOTAL POIN AKTIVITAS
@@ -1115,34 +1125,32 @@
 
     function applyTemplate(className) {
       const canvas = document.getElementById('certificateCanvas');
-      canvas.className = `${className} relative w-full max-w-[340px] p-4 transition-all`;
-      canvas.style.backgroundColor = '';
+      canvas.className = `${className} p-4 transition-all`;
     }
 
     function applyCanvaHueColor(hueVal) {
       currentHue = hueVal;
-      updateCanvasBackgroundFilter();
+      updateCanvasOverlay();
     }
 
-    function applyCanvaBrightness(brightVal) {
-      currentBrightness = brightVal;
-      document.getElementById('saturValText').innerText = `${brightVal}%`;
-      updateCanvasBackgroundFilter();
+    function applyCanvaAlpha(alphaVal) {
+      currentAlpha = alphaVal / 100;
+      document.getElementById('alphaValText').innerText = `${alphaVal}%`;
+      updateCanvasOverlay();
     }
 
-    function updateCanvasBackgroundFilter() {
-      const canvas = document.getElementById('certificateCanvas');
-      canvas.style.backgroundColor = `hsl(${currentHue}, 80%, 92%)`;
-      canvas.style.filter = `brightness(${currentBrightness}%)`;
+    function updateCanvasOverlay() {
+      const overlay = document.getElementById('canvasBgOverlay');
+      overlay.style.backgroundColor = `hsl(${currentHue}, 100%, 50%)`;
+      overlay.style.opacity = currentAlpha;
     }
 
     function resetBgWhite() {
-      const canvas = document.getElementById('certificateCanvas');
-      canvas.style.backgroundColor = '#FFFFFF';
-      canvas.style.filter = 'none';
       currentHue = 270;
-      currentBrightness = 100;
-      document.getElementById('saturValText').innerText = '100%';
+      currentAlpha = 0;
+      document.getElementById('canvaAlphaSlider').value = 0;
+      document.getElementById('alphaValText').innerText = '0%';
+      updateCanvasOverlay();
     }
 
     function handleBuktiUpload(e) {
@@ -1193,7 +1201,7 @@
         innerContent.className = 'text-3xl';
         innerContent.innerText = content;
       } else {
-        innerContent.className = 'w-24 h-24';
+        innerContent.className = 'w-20 h-20';
         const img = document.createElement('img');
         img.src = content;
         img.className = 'w-full h-full object-contain drop-shadow-md';
@@ -1213,65 +1221,41 @@
         innerContent.style.transform = `scale(${scale}) rotate(${rotation}deg)`;
       };
 
-      makeStickerPinchRotateWA(container, (sDelta, rDelta) => {
+      makeStickerDraggableAndTransformable(container, (sDelta, rDelta) => {
         scale = Math.max(0.3, Math.min(4.0, scale * sDelta));
         rotation += rDelta;
         updateTransform();
       });
     }
 
-    function makeStickerPinchRotateWA(el, onTransform) {
+    function makeStickerDraggableAndTransformable(el, onTransform) {
       let isDragging = false, startX, startY, initialLeft, initialTop;
-      let initialDist = 0, initialAngle = 0;
 
       const selectSticker = () => {
         document.querySelectorAll('.sticker-item').forEach(s => s.classList.remove('selected'));
         el.classList.add('selected');
       };
 
-      const getTouchDist = (t) => Math.hypot(t[0].clientX - t[1].clientX, t[0].clientY - t[1].clientY);
-      const getTouchAngle = (t) => Math.atan2(t[1].clientY - t[0].clientY, t[1].clientX - t[0].clientX) * 180 / Math.PI;
-
       const onStart = (e) => {
         e.stopPropagation();
         selectSticker();
 
-        if (e.touches && e.touches.length === 2) {
-          isDragging = false;
-          initialDist = getTouchDist(e.touches);
-          initialAngle = getTouchAngle(e.touches);
-        } else {
-          isDragging = true;
-          const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-          const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-          startX = clientX; startY = clientY;
-          initialLeft = el.offsetLeft; initialTop = el.offsetTop;
-        }
+        isDragging = true;
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        startX = clientX; startY = clientY;
+        initialLeft = el.offsetLeft; initialTop = el.offsetTop;
       };
 
       const onMove = (e) => {
-        if (!el.classList.contains('selected')) return;
-
-        if (e.touches && e.touches.length === 2) {
-          const currentDist = getTouchDist(e.touches);
-          const currentAngle = getTouchAngle(e.touches);
-
-          if (initialDist > 0) {
-            const scaleFactor = currentDist / initialDist;
-            const angleDiff = currentAngle - initialAngle;
-            onTransform(scaleFactor, angleDiff);
-          }
-          initialDist = currentDist;
-          initialAngle = currentAngle;
-        } else if (isDragging) {
-          const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-          const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-          el.style.left = `${initialLeft + (clientX - startX)}px`;
-          el.style.top = `${initialTop + (clientY - startY)}px`;
-        }
+        if (!el.classList.contains('selected') || !isDragging) return;
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        el.style.left = `${initialLeft + (clientX - startX)}px`;
+        el.style.top = `${initialTop + (clientY - startY)}px`;
       };
 
-      const onEnd = () => { isDragging = false; initialDist = 0; };
+      const onEnd = () => { isDragging = false; };
 
       el.addEventListener('mousedown', onStart);
       document.addEventListener('mousemove', onMove);
@@ -1291,7 +1275,8 @@
       html2canvas(certEl, {
         scale: 2,
         useCORS: true,
-        backgroundColor: null
+        backgroundColor: null,
+        logging: false
       }).then(canvas => {
         const link = document.createElement('a');
         link.download = `7HEAVEN_Proof_${Date.now()}.png`;
