@@ -42,10 +42,7 @@
       border: 1px solid rgba(255, 255, 255, 0.6);
       box-shadow: 0 8px 32px 0 rgba(125, 82, 193, 0.08);
     }
-    .cert-frame-btspurple { background: #FFFFFF; border: 4px solid #7D52C1; }
-    .cert-frame-lavender { background: #F1ECFD; border: 4px solid #9D72E1; }
-    .cert-frame-softpink { background: #FFF0F5; border: 4px solid #FFB6C1; }
-    .cert-frame-white { background: #FFFFFF; border: 4px solid #E2E8F0; }
+    .cert-frame-custom { background: #FFFFFF; }
 
     #certificateCanvas {
       overflow: visible !important;
@@ -329,18 +326,25 @@
         </div>
 
         <div class="pt-2 border-t border-purple-100">
-          <label class="font-bold text-slate-700 text-xs block mb-1.5">Pilih Warna Bingkai Dekorasi</label>
-          <div class="flex gap-2 text-xs">
-            <button onclick="changeFrameColor('btspurple')" class="px-2.5 py-1 rounded-xl bg-purple-100 text-btspurple font-bold border border-btspurple">Ungu BTS</button>
-            <button onclick="changeFrameColor('lavender')" class="px-2.5 py-1 rounded-xl bg-purple-50 text-purple-700 font-bold border border-purple-300">Lavender</button>
-            <button onclick="changeFrameColor('softpink')" class="px-2.5 py-1 rounded-xl bg-pink-100 text-pink-700 font-bold border border-pink-300">Pink</button>
-            <button onclick="changeFrameColor('white')" class="px-2.5 py-1 rounded-xl bg-white text-slate-700 font-bold border border-slate-300">Putih</button>
+          <label class="font-bold text-slate-700 text-xs block mb-1.5">Pilih Warna Bingkai (Warna Bebas / Geser)</label>
+          <div class="flex items-center gap-2">
+            <input type="color" id="frameColorPicker" value="#7D52C1" onchange="changeCustomFrameColor(this.value)" class="w-10 h-10 rounded-xl border border-purple-200 cursor-pointer bg-white p-1">
+            <div class="flex gap-1.5 flex-wrap">
+              <button onclick="changeCustomFrameColor('#7D52C1')" class="px-2 py-1 rounded-lg bg-purple-100 text-btspurple font-bold text-[10px]">Ungu</button>
+              <button onclick="changeCustomFrameColor('#F1ECFD')" class="px-2 py-1 rounded-lg bg-purple-50 text-purple-700 font-bold text-[10px]">Lavender</button>
+              <button onclick="changeCustomFrameColor('#FFB6C1')" class="px-2 py-1 rounded-lg bg-pink-100 text-pink-700 font-bold text-[10px]">Pink</button>
+              <button onclick="changeCustomFrameColor('#FFFFFF')" class="px-2 py-1 rounded-lg bg-white text-slate-700 font-bold text-[10px] border border-slate-200">Putih</button>
+            </div>
           </div>
         </div>
 
-        <!-- KATALOG STIKER -->
-        <div class="pt-2 border-t border-purple-100">
-          <label class="font-bold text-slate-700 text-xs block mb-1.5">Stiker BTS & ARMY (Bisa Ditarik BEBAS Ke Mana Saja!)</label>
+        <!-- KATALOG STIKER & STIKER NAMA (ICE BLUE) -->
+        <div class="pt-2 border-t border-purple-100 space-y-2">
+          <div class="flex justify-between items-center">
+            <label class="font-bold text-slate-700 text-xs">Stiker Karakter & Stiker Nama Ice Blue:</label>
+            <button onclick="clearAllStickers()" class="text-[10px] text-red-600 bg-red-50 px-2 py-0.5 rounded-md font-bold border border-red-200">🗑️ Hapus Semua Stiker</button>
+          </div>
+
           <div class="flex flex-wrap gap-1.5">
             <button onclick="addStickerEmoji('💜')" class="w-8 h-8 rounded-xl bg-purple-100 text-sm">💜</button>
             <button onclick="addStickerEmoji('🩵')" class="w-8 h-8 rounded-xl bg-purple-100 text-sm">🩵</button>
@@ -353,6 +357,20 @@
             <button onclick="addStickerEmoji('🎀')" class="w-8 h-8 rounded-xl bg-purple-100 text-sm">🎀</button>
             <button onclick="addStickerEmoji('✨')" class="w-8 h-8 rounded-xl bg-purple-100 text-sm">✨</button>
           </div>
+
+          <label class="font-bold text-slate-700 text-xs block pt-1">Pilih Stiker Nama Ice Blue (@7Heaven):</label>
+          <div class="grid grid-cols-3 gap-1.5 text-[10px]">
+            <button onclick="addStickerImage('https://i.ibb.co.com/6c6c7x9/alysha.png')" class="p-1.5 bg-sky-50 text-sky-900 border border-sky-200 rounded-lg font-bold truncate">✨ ALYSHA</button>
+            <button onclick="addStickerImage('https://i.ibb.co.com/7s12332/alifa.png')" class="p-1.5 bg-sky-50 text-sky-900 border border-sky-200 rounded-lg font-bold truncate">✨ ALIFA</button>
+            <button onclick="addStickerImage('https://i.ibb.co.com/8x83332/dela.png')" class="p-1.5 bg-sky-50 text-sky-900 border border-sky-200 rounded-lg font-bold truncate">✨ DELA</button>
+            <button onclick="addStickerImage('https://i.ibb.co.com/3r11221/ayta.png')" class="p-1.5 bg-sky-50 text-sky-900 border border-sky-200 rounded-lg font-bold truncate">✨ AYTA</button>
+            <button onclick="addStickerImage('https://i.ibb.co.com/5w22112/mimaa.png')" class="p-1.5 bg-sky-50 text-sky-900 border border-sky-200 rounded-lg font-bold truncate">✨ MIMAA</button>
+            <button onclick="addStickerImage('https://i.ibb.co.com/9k22112/najwa.png')" class="p-1.5 bg-sky-50 text-sky-900 border border-sky-200 rounded-lg font-bold truncate">✨ NAJWA</button>
+            <button onclick="addStickerImage('https://i.ibb.co.com/4l33221/naila.png')" class="p-1.5 bg-sky-50 text-sky-900 border border-sky-200 rounded-lg font-bold truncate">✨ NAILA</button>
+            <button onclick="addStickerImage('https://i.ibb.co.com/2s33441/mikha.png')" class="p-1.5 bg-sky-50 text-sky-900 border border-sky-200 rounded-lg font-bold truncate">✨ MIKHA</button>
+            <button onclick="addStickerImage('https://i.ibb.co.com/1s55661/riska.png')" class="p-1.5 bg-sky-50 text-sky-900 border border-sky-200 rounded-lg font-bold truncate">✨ RISKA</button>
+          </div>
+
           <div class="mt-2">
             <input type="file" accept="image/*" onchange="handleCustomStickerUpload(event)" class="w-full text-xs text-slate-500 file:mr-2 file:py-1 file:px-2 file:rounded-lg file:border-0 file:text-[10px] file:font-bold file:bg-amber-100 file:text-amber-800">
           </div>
@@ -361,7 +379,7 @@
 
       <!-- HASIL SERTIFIKAT CANVAS -->
       <div class="flex justify-center p-2">
-        <div id="certificateCanvas" class="cert-frame-btspurple relative w-full max-w-[340px] rounded-3xl p-4 shadow-2xl transition-all">
+        <div id="certificateCanvas" class="cert-frame-custom relative w-full max-w-[340px] rounded-3xl p-4 shadow-2xl transition-all" style="border: 4px solid #7D52C1;">
 
           <div id="stickerLayer"></div>
 
@@ -556,12 +574,16 @@
         document.getElementById('authStatusText').innerText = 'Terhubung';
         document.getElementById('authStatusText').className = 'text-[10px] bg-green-100 text-green-800 font-bold px-2 py-0.5 rounded-full';
 
-        // Cek status checkin harian tersimpan
         const today = new Date().toDateString();
+        const checkinBtn = document.getElementById('btnCheckin');
         if (uData.lastCheckin === today) {
           document.getElementById('checkinStatus').innerText = "Sudah Check-in ✅";
+          checkinBtn.disabled = true;
+          checkinBtn.classList.add('opacity-50', 'cursor-not-allowed');
         } else {
           document.getElementById('checkinStatus').innerText = "Belum Check-in";
+          checkinBtn.disabled = false;
+          checkinBtn.classList.remove('opacity-50', 'cursor-not-allowed');
         }
 
         renderDiary();
@@ -575,6 +597,7 @@
         document.getElementById('loggedInArea').classList.add('hidden');
         document.getElementById('authStatusText').innerText = 'Belum Masuk';
         document.getElementById('authStatusText').className = 'text-[10px] bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-full';
+        document.getElementById('checkinStatus').innerText = "Belum Check-in";
       }
     }
 
@@ -697,8 +720,9 @@
       document.getElementById('prevTanggal').innerText = document.getElementById('inputTanggal').value;
     }
 
-    function changeFrameColor(colorClass) {
-      document.getElementById('certificateCanvas').className = `cert-frame-${colorClass} relative w-full max-w-[340px] rounded-3xl p-4 shadow-2xl transition-all`;
+    function changeCustomFrameColor(hexColor) {
+      document.getElementById('certificateCanvas').style.borderColor = hexColor;
+      document.getElementById('frameColorPicker').value = hexColor;
     }
 
     function handleBuktiUpload(e) {
@@ -719,6 +743,10 @@
       createInteractiveSticker(emoji, 'text');
     }
 
+    function addStickerImage(url) {
+      createInteractiveSticker(url, 'image');
+    }
+
     function handleCustomStickerUpload(e) {
       const file = e.target.files[0];
       if (file) {
@@ -730,11 +758,15 @@
       }
     }
 
+    function clearAllStickers() {
+      document.getElementById('stickerLayer').innerHTML = '';
+    }
+
     function createInteractiveSticker(content, type) {
       const layer = document.getElementById('stickerLayer');
       const container = document.createElement('div');
       container.className = 'sticker-item pointer-events-auto';
-      container.style.left = '120px';
+      container.style.left = '100px';
       container.style.top = '100px';
 
       let scale = 1.0;
@@ -745,10 +777,10 @@
         innerContent.className = 'text-2xl';
         innerContent.innerText = content;
       } else {
-        innerContent.className = 'w-12 h-12';
+        innerContent.className = 'w-28 h-14';
         const img = document.createElement('img');
         img.src = content;
-        img.className = 'w-full h-full object-contain';
+        img.className = 'w-full h-full object-contain drop-shadow-md';
         innerContent.appendChild(img);
       }
 
@@ -771,21 +803,18 @@
 
       controls.querySelector('.btn-plus').onclick = (e) => { e.stopPropagation(); scale += 0.15; updateTransform(); };
       controls.querySelector('.btn-minus').onclick = (e) => { e.stopPropagation(); scale = Math.max(0.4, scale - 0.15); updateTransform(); };
-      
-      // ROTASI DIPERHALUS DENGAN PERTAMBAHAN 15 DERAJAT
       controls.querySelector('.btn-rot').onclick = (e) => { e.stopPropagation(); rotation += 15; updateTransform(); };
       controls.querySelector('.btn-del').onclick = (e) => { e.stopPropagation(); container.remove(); };
 
-      makeStickerMultiTouch(container, (s, r) => {
-        scale = Math.max(0.4, Math.min(3.0, scale * s));
-        rotation += (r * 0.2); // SENSITIVITAS GESTURE DITURUNKAN 80% AGAR SMOOTH
+      makeStickerSingleTouch(container, (scaleFactor) => {
+        scale = Math.max(0.4, Math.min(3.0, scale * scaleFactor));
         updateTransform();
       });
     }
 
-    function makeStickerMultiTouch(el, onGesture) {
+    function makeStickerSingleTouch(el, onZoom) {
       let isDragging = false, startX, startY, initialLeft, initialTop;
-      let initialDist = 0, initialAngle = 0;
+      let initialDist = 0;
 
       const selectSticker = () => {
         document.querySelectorAll('.sticker-item').forEach(s => s.classList.remove('selected'));
@@ -793,14 +822,14 @@
       };
 
       const getTouchDist = (t) => Math.hypot(t[0].clientX - t[1].clientX, t[0].clientY - t[1].clientY);
-      const getTouchAngle = (t) => Math.atan2(t[1].clientY - t[0].clientY, t[1].clientX - t[0].clientX) * 180 / Math.PI;
 
       const onStart = (e) => {
+        e.stopPropagation();
         selectSticker();
+
         if (e.touches && e.touches.length === 2) {
           isDragging = false;
           initialDist = getTouchDist(e.touches);
-          initialAngle = getTouchAngle(e.touches);
         } else {
           isDragging = true;
           const clientX = e.touches ? e.touches[0].clientX : e.clientX;
@@ -811,14 +840,16 @@
       };
 
       const onMove = (e) => {
+        if (!el.classList.contains('selected')) return;
+
         if (e.touches && e.touches.length === 2) {
           const currentDist = getTouchDist(e.touches);
-          const currentAngle = getTouchAngle(e.touches);
-          const scaleFactor = currentDist / initialDist;
-          const angleDiff = currentAngle - initialAngle;
-          onGesture(scaleFactor, angleDiff);
+          if (initialDist > 0) {
+            const rawFactor = currentDist / initialDist;
+            const smoothedFactor = 1 + (rawFactor - 1) * 0.15; // Smooth zoom
+            onZoom(smoothedFactor);
+          }
           initialDist = currentDist;
-          initialAngle = currentAngle;
         } else if (isDragging) {
           const clientX = e.touches ? e.touches[0].clientX : e.clientX;
           const clientY = e.touches ? e.touches[0].clientY : e.clientY;
@@ -827,13 +858,14 @@
         }
       };
 
-      const onEnd = () => { isDragging = false; };
+      const onEnd = () => { isDragging = false; initialDist = 0; };
 
       el.addEventListener('mousedown', onStart);
       document.addEventListener('mousemove', onMove);
       document.addEventListener('mouseup', onEnd);
-      el.addEventListener('touchstart', onStart, {passive: true});
-      document.addEventListener('touchmove', onMove, {passive: true});
+
+      el.addEventListener('touchstart', onStart, {passive: false});
+      document.addEventListener('touchmove', onMove, {passive: false});
       document.addEventListener('touchend', onEnd);
     }
 
